@@ -2,10 +2,10 @@ import style from "./nav.module.css"
 
 export default function NavBar(props){
     var pages = [
-        "Home",
-        "About",
-        "Blog",
-        "Pricing"
+        {nameTitle:["home","Home"]},
+        {nameTitle:["about","About Us"]},
+        {nameTitle:["blog","Blog"]},
+        {nameTitle:["pricing","Pricing Plan"]}
     ]
     var current = props.current
     return (
@@ -13,8 +13,8 @@ export default function NavBar(props){
             <div className=""></div>
             <div className="">
                 {
-                    pages.map(page=>
-                        <a className={style.navlinks}> </a>
+                    pages.map((page, index)=>
+                        <a key={`pagenavkeyindex${index}`} href={`/${page.nameTitle[0]}`} className={style.navlinks} > {page.nameTitle[1]} </a>
                     )
                 }
             </div>
