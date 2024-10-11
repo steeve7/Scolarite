@@ -12,17 +12,83 @@
 .navbar{
     background-color: rgba(42, 48, 67, 1);
     padding-block: 15px;
+    padding-inline: 20px;
 
 }
+.navinner{
+    width: 90%;
+
+}
+
 .navlogo{
     width: 100px;
 }
 .navitem{
-
+    display: flex;
+    gap: 20px;
+}
+.navauth{
+    border-radius: 20px;
+    padding: 5px 20px;
+    font-weight: bold;
 }
 .navlinks{
-
 }
 .navlink{
+    color: rgba(255, 255, 255, 0.477);
 
 }
+.navlink:hover{
+    color: rgba(255, 255, 255, 1);
+}
+.betweencenter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navmenuicon{
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .navlinks{
+        flex-direction: column;
+        width: 100%;
+    }
+    .navinner{
+        flex-direction: column;
+        width: 100%;
+    }
+    .navmenuicon{
+        display: block;
+        cursor: pointer;
+    }
+    .naviconwrapper{
+        width: 100%;
+    }
+    .navres{
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+        height: 0px;
+        overflow: hidden;
+        margin-top: 0 ;
+        transition: height 0.5s ease-in-out,margin-top 0.5s ease-in-out;
+    }
+    .navbar:hover .navres{
+        height: 320px;
+        margin-top: 20px;
+    }
+    .navlink{
+        width: 100%;
+        text-align: center;
+        padding-block: 6px;
+        border-radius: 5px;
+        background-color: rgba(191, 244, 249, 0.078);
+    }
+    .navlink:hover{
+        color: rgba(191, 244, 249, 0.732);
+        background-color: rgba(191, 244, 249, 0.144);
+    }
+
+} 
