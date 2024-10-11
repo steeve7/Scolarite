@@ -4,19 +4,24 @@ import style from "./style.module.css"
 import { mergeText } from '@/app/add'
 import logo from "@/app/assets/logo.png"
 import menu from "@/app/assets/menu.png"
+import Image from 'next/image'
 
 function NavBar(props){
   useEffect(function(){
     console.log(logo)
   },[])
     return <div className={mergeText("flex justify-center items-center w-full",style.navbar)}>
-    <div className={mergeText(style.betweencenter,style.navinner)}>
+    <div className={mergeText("grid grid-cols-[auto_1fr]",style.navinner)}>
       <div className={mergeText(style.betweencenter,style.naviconwrapper,style.navitem)}>
-        <img src={logo}  className={style.navlogo} alt="logo unavaliable" />
-        <img src={menu}  className={style.navmenuicon} alt="logo unavaliable" />
+        <span className={mergeText("flex gap-3 justify-center items-center",style.navtitle)}>
+          <Image src={logo}  className={mergeText(style.navimage,style.navlogo)} alt="logo unavaliable" />
+          <span className={style.navtitletext}>SOLARITÉ</span>
+        </span>
+        <Image src={menu}  className={mergeText(style.navimage,style.navmenuicon)} alt="logo unavaliable" />
 
         </div>
       <div className={mergeText(style.betweencenter,style.navres)}>
+        <div className="!DO Not Remove"></div>
         <div className={mergeText(style.navlinks,"flex",style.navitem)}>
           <a  href ="" className={style.navlink}>Home</a>
           <a  href ="" className={style.navlink}>Pricing/Plans</a>
