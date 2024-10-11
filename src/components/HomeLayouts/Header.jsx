@@ -7,9 +7,6 @@ import menu from "@/app/assets/menu.png"
 import Image from 'next/image'
 
 function NavBar(props){
-  useEffect(function(){
-    console.log(logo)
-  },[])
     return <div className={mergeText("flex justify-center items-center w-full",style.navbar)}>
     <div className={mergeText("grid grid-cols-[auto_1fr]",style.navinner)}>
       <div className={mergeText(style.betweencenter,style.naviconwrapper,style.navitem)}>
@@ -17,7 +14,11 @@ function NavBar(props){
           <Image src={logo}  className={mergeText(style.navimage,style.navlogo)} alt="logo unavaliable" />
           <span className={style.navtitletext}>SOLARITÉ</span>
         </span>
-        <Image src={menu}  className={mergeText(style.navimage,style.navmenuicon)} alt="logo unavaliable" />
+        <div className={mergeText(style.navmenuicon)}>
+          <span className={mergeText("",style.navmenuvicon,style.nmi1)}></span>
+          <span className={mergeText("",style.navmenuvicon,style.nmi2)}></span>
+          <span className={mergeText("",style.navmenuvicon,style.nmi3)}></span>
+        </div>
 
         </div>
       <div className={mergeText(style.betweencenter,style.navres)}>
