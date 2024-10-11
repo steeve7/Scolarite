@@ -27,7 +27,7 @@
 }
 .navitem{
     display: flex;
-    gap: 20px;
+    gap: 30px;
 }
 .navauth{
     border-radius: 20px;
@@ -61,6 +61,7 @@
     .navlinks{
         flex-direction: column;
         width: 100%;
+        gap: 20px;
     }
     .navinner{
         grid-template-columns: 1fr;
