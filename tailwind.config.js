@@ -7,6 +7,7 @@ module.exports = {
   ],
   theme: {
     extend: {
+      
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -14,5 +15,21 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+   function ({ addComponents }) {
+    
+      map = {}
+      for(var i=0;i < 5000; i++){
+        map[`.anidelay-${i}`] = {
+          animationDelay: `${i}ms`,
+        }
+      }    
+      for(var i=0;i < 5000; i++){
+        map[`.anidue-${i}`] = {
+          animationDuration: `${i}ms`,
+        }
+      }    //DESMOND 
+    addComponents(map)
+    },
+  ], 
 }

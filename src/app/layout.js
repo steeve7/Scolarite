@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/HomeLayouts/Header'
 import Footer from '@/components/HomeLayouts/Footer'
+import { mergeText } from './add'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,11 +14,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-    <div>
-    <Header />
-      <main className={inter.className}>{children}</main>
-    <Footer />
-    </div>
+    <main class="grid grid-rows-[auto_1fr] page-main">
+      <Header />
+        <main className={mergeText("page-content",inter.className)}>
+          {children}
+          <Footer />
+          </main>
+      
+    </main>
     </html>
   )
 }

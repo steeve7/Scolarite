@@ -1,0 +1,154 @@
+.main{
+    padding-block: 40px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+@keyframes imageAnimation {
+
+    50%{
+        translate: -10px 10px;
+    }
+
+}
+
+@keyframes imageAnimationr {
+
+    50%{
+        translate: -10px 10px;
+        rotate: 3deg;
+    }
+
+}
+.imgAni{
+    animation-name: imageAnimation;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+.imgAnir{
+    animation-name: imageAnimationr;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+}
+
+.g2wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    gap: 20px;
+}
+.pagename{
+    width: fit-content;
+    text-align: center;
+    /* font-family: 'Roboto'; */
+    font-style: normal;
+    font-weight: 500;
+    color: #252B3C;
+    display: flex;
+    gap: 10px;
+    justify-content:center ;
+    align-items: center;
+
+
+}
+.wrapper1{
+    place-items:initial;
+    padding-inline: 4%;
+}
+
+
+
+.title{
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    width:fit-content;
+}
+.wrapperimage{
+    width: 100%;
+}
+.wrapper2{
+    background: linear-gradient(180deg, #282E41 0%, #3E4A6F 100%);
+    color: white;
+    padding-inline: 9%;
+    padding-block: 7%;
+}
+
+.wrapper2item2{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.w2i2cli1{
+    position: relative;
+}
+.w2i2cli1::before{
+    content: "";
+    width: 3px;
+    height: 3px;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    top: 20%;
+    left: -14px;
+
+}
+.wrapper2i2content{
+    color: rgba(255, 255, 255, 0.8);
+}
+.orderedlist{
+    margin-left: 20px;
+    list-style-type:decimal;
+}
+.pagenameline{
+    display: inline-block;
+    width: 25px;
+    height: 2px;
+    overflow: hidden;
+    color: transparent;
+    border-radius: 2px;
+    background-color: #252B3C;
+}
+.joinbtn{
+    background-color: black;
+    color: white;
+    padding-inline: 40px;
+    padding-block:10px;
+    border-radius:20px;
+    font-size: 12px;
+    margin-top: 100px;
+}
+
+@media screen and (max-width: 768px) {
+    .g2wrapper{
+        display: flex;
+        flex-direction: column-reverse;
+        
+    }
+    .wrapperimagewrapper{
+        width: 100%;
+    }
+    .pagename{
+        
+        width: 100%;
+    }
+    .wrapper2{
+        padding-block: 4%;;
+    }
+
+}
+
+
+
+
+
+
+.hr{
+    margin-block: 30px;
+    border: 2px solid rgba(128, 128, 128, 0.514);
+}

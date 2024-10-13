@@ -31,7 +31,7 @@ function NavBar(props){
           <a  href ="" className={style.navlink}>Become an Affiliate</a>
         </div>
         <div className={style.navitem}>
-          <div className={mergeText(" ",style.navauth)}>LOGIN</div>
+          <div className={mergeText("text-white ",style.navauth)}>LOGIN</div>
           <div className={mergeText("bg-white text-black ",style.navauth)}>SIGN UP</div>
         </div>
       </div>
