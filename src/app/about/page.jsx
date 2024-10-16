@@ -3,6 +3,7 @@ import { mergeText } from "../add"
 import style from "./style.module.css"
 import w1i1 from "./assets/w1i1.png"
 import w2i1 from "./assets/w2i1.png"
+import w3i2 from "./assets/w3i1.png"
 import Link from "next/link"
 
 
@@ -55,6 +56,17 @@ export default function AboutPage(props){
                 </div>
             </div>
         </G2Wrapper> 
+        <G2Wrapper className={style.wrapper3}>
+        <div className={style.wrapper2item2}>
+            <div className={mergeText(style.wrapper3i1title,style.title)}>Our Results Speak the loudest!!!</div>
+                <div className={style.wrapper3i1content}>
+                At Scolarité, we are a team of dedicated educators, innovators, and lifelong learners committed to academic excellence.
+                </div>
+            </div>
+            <div className={mergeText(style.wrapperimagewrapper,style.wrapper3item1)}>
+            <Image src={w3i2} className={mergeText(style.imgAni,style.wrapperimage)} alt="about us" />
+            </div>
+        </G2Wrapper>
         
     </main>
    

@@ -123,12 +123,21 @@
     font-size: 12px;
     margin-top: 100px;
 }
+.wrapper3i1title{
+    width: 100%;
+}
+.wrapper3{
+    padding-inline: 4%;
+}
 
 @media screen and (max-width: 768px) {
     .g2wrapper{
         display: flex;
         flex-direction: column-reverse;
         
+    }
+    .wrapper3{
+        flex-direction: column;
     }
     .wrapperimagewrapper{
         width: 100%;

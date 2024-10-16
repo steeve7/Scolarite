@@ -80,10 +80,10 @@
 }
 
 @media (max-width: 820px) {
-    .navbar{
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-    }
+    /* .navbar{ */
+        /* border-bottom-left-radius: 10px; */
+        /* border-bottom-right-radius: 10px; */
+    /* } */
     .navlinks{
         flex-direction: column;
         width: 100%;
@@ -110,28 +110,28 @@
         margin-top: 0 ;
         transition: height 0.5s ease-in-out,margin-top 0.5s ease-in-out;
     }
-    .navbar:hover .navres{
+    .navbar.navhiddel .navres{
         height: 320px;
         margin-top: 20px;
     }
-    .navbar:hover .navmenuicon{
+    .navbar.navhiddel .navmenuicon{
         rotate: 90deg;
         gap: 0px;
         
     }
-    .navbar:hover .navmenuvicon{
+    .navbar.navhiddel .navmenuvicon{
         height: 5px;
     }
-    .navbar:hover .nmi3{
+    .navbar.navhiddel .nmi3{
         opacity: 0;
 
     }
-    .navbar:hover .nmi1{
+    .navbar.navhiddel .nmi1{
         rotate: -45deg;
         translate: 0px 3px;
 
     }
-    .navbar:hover .nmi2{
+    .navbar.navhiddel .nmi2{
         rotate: 45deg;
 
     }
