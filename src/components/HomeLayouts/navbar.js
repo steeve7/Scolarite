@@ -2,39 +2,37 @@
 import style from "./style.module.css"
 import { mergeText } from '@/app/add'
 import logo from "@/app/assets/logo.png"
-import menu from "@/app/assets/menu.png"
 import Image from 'next/image'
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
-
-export function Icon(){
-    function ToogleNavBar(){
-        document.getElementById("navbar").classList.toggle("navhidden")
-      }
-    return <div className={mergeText(style.navmenuicon)} id='menu' onClick={e=>{ToogleNavBar();console.log("clicked")}}>
-        <span className={mergeText("",style.navmenuvicon,style.nmi1)}></span>
-        <span className={mergeText("",style.navmenuvicon,style.nmi2)}></span>
-        <span className={mergeText("",style.navmenuvicon,style.nmi3)}></span>
-    </div>
-}
 
 
 export default function NavBar(){
 
-  
-  useEffect(function(){
-    console.log(`testing ${Math.random()*1000}`)
-    document.getElementById("navbar").addEventListener("click",ToogleNavBar)
-
-  },[])
-    return <div className={mergeText("flex justify-center  items-center w-full",style.navbar,"navhidden")} id='navbar'>
+  const [menuActive, setMenuActive] = useState(true)
+    function ToogleNavBar(){
+        setMenuActive(function(menuActive){
+            console.log(`testing ${Math.random()*1000}`)
+            return !menuActive})
+      }
+      useEffect(function(){
+        console.log(`testing  ${Math.random()*1000} ///////////////////////////////////////////////////`)
+        document.getElementById("navbar").addEventListener("click",ToogleNavBar)
+    
+      },[])
+ 
+    return <div className={mergeText("flex justify-center  items-center w-full",style.navbar,menuActive?style.navshow:"navhidden")} id='navbar'>
     <div className={mergeText("grid grid-cols-[auto_1fr]",style.navinner)}>
       <div className={mergeText(style.betweencenter,style.naviconwrapper,style.navitem)}>
         <span className={mergeText("flex gap-3 justify-center items-center",style.navtitle)}>
           <Image src={logo}  className={mergeText(style.navimage,style.navlogo)} alt="logo unavaliable" />
           <span className={style.navtitletext}>SOLARITÉ</span>
         </span> 
-        <Icon></Icon>
+        <div className={mergeText(style.navmenuicon)} id='menu' onClick={e=>{ToogleNavBar()}}>
+        <span className={mergeText("",style.navmenuvicon,style.nmi1)}></span>
+        <span className={mergeText("",style.navmenuvicon,style.nmi2)}></span>
+        <span className={mergeText("",style.navmenuvicon,style.nmi3)}></span>
+        </div>
 
         </div>
       <div className={mergeText(style.betweencenter,style.navres)}>
