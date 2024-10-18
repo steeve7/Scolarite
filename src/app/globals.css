@@ -22,3 +22,9 @@
   font-weight: normal;
   font-style: italic;
 }
+
+/* Hiding default slick-carousel arrows */
+.slick-prev:before,
+.slick-next:before {
+  display: none;
+}

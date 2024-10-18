@@ -9,8 +9,9 @@ import { CiLocationOn } from "react-icons/ci";
 
 export default function Footer() {
   return (
-    <div className="flex md:flex-row flex-col justify-between items-center gap-6 mt-60 bg-custom-dark w-full md:px-20 md:py-16">
-      <div className="flex justify-between items-center w-full pt-8 px-8">
+    <div className="flex md:flex-row flex-col items-center justify-between gap-6 mt-[7rem] bg-custom-dark w-full md:px-20 md:py-16">
+    {/*web & mobile view*/}
+      <div className="flex justify-between items-center w-full md:-mt-20 pt-8 px-8 md:w-[50%]">
         {/* Content Section */}
         <div className="flex items-center gap-2">
           <Image
@@ -67,32 +68,32 @@ export default function Footer() {
           Become Afflliate
         </Link>
       </div>
-
-      <div className="border-2 rounded-lg border-custom-border md:hidden flex flex-col gap-4 px-10 py-10">
-        <div className="flex items-center gap-2 border-[1.54px] border-custom-border-color px-5 py-5">
+      {/*Mobile view */}
+      <div className="border-[1.54px] rounded-lg border-custom-border md:hidden flex flex-col gap-4 px-10 py-10 w-[90%] justify-center">
+        <div className="flex items-center justify-center gap-2 border-[1.54px] border-custom-border-color px-5 py-5">
           <HiOutlineMail color="white" size={20} />
           <p className="font-medium font-roboto text-[15px] text-white">
             hello@squareup.com
           </p>
         </div>
-        <div className="flex items-center gap-2 border-[1.54px] border-custom-border-color px-5 py-5">
+        <div className="flex items-center justify-center gap-2 border-[1.54px] border-custom-border-color px-5 py-5">
           <BsTelephone color="white" size={20} />
           <p className="font-medium font-roboto text-[15px] text-white">
             +9191813232309
           </p>
         </div>
-        <div className="flex items-center gap-2 border-[1.54px] border-custom-border-color px-5 py-5">
+        <div className="flex items-center justify-center gap-2 border-[1.54px] border-custom-border-color px-5 py-5">
           <CiLocationOn color="white" size={20} />
           <p className="font-medium font-roboto text-[15px] text-white">
             Somewhere in the World
           </p>
         </div>
-        <p className="font-medium font-roboto text-[15px] text-white">
+        <p className="font-medium font-roboto text-[15px] text-white flex justify-center mt-5">
           @2024 SCOLARITE All rights reserved.
         </p>
       </div>
-
-      <div className="md:flex justify-center items-center gap-20 hidden">
+      {/*web view*/}
+      <div className="md:flex justify-center gap-20 hidden w-1/2">
         <div className="space-y-2">
           <h2 className="font-roboto font-bold text-text-color text-[20px] uppercase">
             Products
