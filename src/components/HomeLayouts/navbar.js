@@ -10,7 +10,7 @@ import { useEffect, useState } from "react"
 export default function NavBar(){
 
   const [menuActive, setMenuActive] = useState(true)
-    function ToogleNavBar(){
+    const ToogleNavBar = ()=>{
         setMenuActive(function(menuActive){
             console.log(`testing ${Math.random()*1000}`)
             return !menuActive})
@@ -28,7 +28,7 @@ export default function NavBar(){
           <Image src={logo}  className={mergeText(style.navimage,style.navlogo)} alt="logo unavaliable" />
           <span className={style.navtitletext}>SOLARITÉ</span>
         </span> 
-        <div className={mergeText(style.navmenuicon)} id='menu' onClick={e=>{ToogleNavBar()}}>
+        <div className={mergeText(style.navmenuicon)} id='menu' onClick={ToogleNavBar}>
         <span className={mergeText("",style.navmenuvicon,style.nmi1)}></span>
         <span className={mergeText("",style.navmenuvicon,style.nmi2)}></span>
         <span className={mergeText("",style.navmenuvicon,style.nmi3)}></span>
