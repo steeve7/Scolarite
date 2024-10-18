@@ -1,28 +1,26 @@
+"use client"
 import Image from "next/image"
 import { mergeText } from "../add"
-import style from "./style.module.css"
 import w1i1 from "./assets/w1i1.png"
 import w2i1 from "./assets/w2i1.png"
 import w3i2 from "./assets/w3i1.png"
 import Link from "next/link"
+import { AInput, CInput, G2Wrapper, Title } from "./addons"
+import style from "./style.module.css"
 
 
-function G2Wrapper(props){
-    return <section  className={mergeText(props.className,style.g2wrapper)} >
-        {props.children}
-    </section>
-}
 
 export default function AboutPage(props){
     return(<>
     <main className={mergeText("snap-y snap-mandatory",style.main)}>
+        {/* <CustomInput placeholder={"placeholder test"}></CustomInput> */}
         <G2Wrapper className={style.wrapper1}>
             <div className={mergeText(style.wrapperimagewrapper,style.wrapper1item1)}>
                 <Image src={w1i1} className={mergeText(style.imgAni,style.wrapperimage)} alt="about us" />
             </div>
             <div className={style.wrapper1item2}>
                 <div className={style.pagename}><span className={style.pagenameline}></span> About us</div>
-                <div className={style.title}>Empowering Aspirants: THE SCOLARITE STORY</div>
+                <Title className={style.title}>Empowering Aspirants: THE SCOLARITE STORY</Title>
                 <div className={style.wrapper1i2content}>
                 Over the last few decades, students’ performance in the JAMB examination across Nigeria has been steadily declining. In 2024, over 78% of students scored below 200. This result is both abysmal and unacceptable given the high academic potential of Nigerian students. For instance, one of our founding partners scored 207 in the 2013 JAMB examination but went on to graduate with a first-class degree from a top Nigerian university. Obviously, his JAMB score was not a true reflection of his true academic ability and this applies to many students who have taken JAMB examination in Nigeria. 
                     <br /> <br />
@@ -43,7 +41,7 @@ export default function AboutPage(props){
                 <Image src={w2i1} className={mergeText(style.imgAnir,"anidelay-600 ",style.wrapper2i1img)}  alt="about us" />
             </div>
             <div className={style.wrapper2item2}>
-            <div className={mergeText(style.wrapper2i2title,style.title)}>Our Mission & Vision</div>
+            <Title className={mergeText(style.wrapper2i2title)}>Our Mission & Vision</Title>
                 <div className={style.wrapper2i2content}>
                     <span className={style.w2i2cli1}>To be a global leader in educational services that enhance the quality of learning for people in Africa and beyond. </span>
 
@@ -58,7 +56,7 @@ export default function AboutPage(props){
         </G2Wrapper> 
         <G2Wrapper className={style.wrapper3}>
         <div className={style.wrapper2item2}>
-            <div className={mergeText(style.wrapper3i1title,style.title)}>Our Results Speak the loudest!!!</div>
+            <Title className={mergeText(style.wrapper3i1title)}>Our Results Speak the loudest!!!</Title>
                 <div className={style.wrapper3i1content}>
                 At Scolarité, we are a team of dedicated educators, innovators, and lifelong learners committed to academic excellence.
                 </div>
@@ -67,6 +65,31 @@ export default function AboutPage(props){
             <Image src={w3i2} className={mergeText(style.imgAni,style.wrapperimage)} alt="about us" />
             </div>
         </G2Wrapper>
+        <div className={mergeText("flex flex-col gap-4 items-center w-full",style.wrapper3)}>
+            <Title className = {style.wrapper3title}>
+                Get In Touch
+            </Title>
+            <div className={style.wrapper3decs}>
+                Send your message to us as a/an
+            </div>
+                <div className={style.w3switch}>
+                    <div className={mergeText(style.w3sit,style.w3switchitem)}>School</div>
+                    <div className={style.w3switchitem}>Student</div>
+                    <div className={style.w3switchitem}>Affiliate</div>
+            </div>
+
+            <div className={mergeText("",style.wrapper3inputwrapper)}>
+                <AInput label="Full Name" placeholder="Portela John"/>
+                <AInput label="Email" placeholder="johndoe@gmail.com"/>
+                <AInput label="Phone" placeholder="phone number"/>
+                <AInput label="Subject" placeholder="subject"/>
+            </div>
+            <AInput label="Message" placeholder="message" type="textarea" inClassName={style.wrapper3messageii} className={style.wrapper3messageinput}/>
+            <div className={style.w3sendbtn}>
+                SEND MESSAGE
+            </div>
+        </div>
+
         
     </main>
    

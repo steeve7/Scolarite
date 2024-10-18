@@ -110,28 +110,28 @@
         margin-top: 0 ;
         transition: height 0.5s ease-in-out,margin-top 0.5s ease-in-out;
     }
-    .navbar.navhiddel .navres{
+    .navbar:hover  .navres{
         height: 320px;
         margin-top: 20px;
     }
-    .navbar.navhiddel .navmenuicon{
+    .navbar:hover  .navmenuicon{
         rotate: 90deg;
         gap: 0px;
         
     }
-    .navbar.navhiddel .navmenuvicon{
+    .navbar:hover  .navmenuvicon{
         height: 5px;
     }
-    .navbar.navhiddel .nmi3{
+    .navbar:hover  .nmi3{
         opacity: 0;
 
     }
-    .navbar.navhiddel .nmi1{
+    .navbar:hover  .nmi1{
         rotate: -45deg;
         translate: 0px 3px;
 
     }
-    .navbar.navhiddel .nmi2{
+    .navbar:hover  .nmi2{
         rotate: 45deg;
 
     }

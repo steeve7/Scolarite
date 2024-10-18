@@ -35,12 +35,7 @@
     animation-iteration-count: infinite;
 }
 
-.g2wrapper{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    place-items: center;
-    gap: 20px;
-}
+
 .pagename{
     width: fit-content;
     text-align: center;
@@ -62,12 +57,6 @@
 
 
 
-.title{
-    font-weight: 500;
-    font-size: 20px;
-    text-align: center;
-    width:fit-content;
-}
 .wrapperimage{
     width: 100%;
 }
@@ -129,13 +118,58 @@
 .wrapper3{
     padding-inline: 4%;
 }
+.wrapper3inputwrapper{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+    padding:20px;
+    max-width: 600px;
+}
+.wrapper3messageinput{
+    column-span: 3;
+    width: 100%;
+    max-width: 600px;
+    padding-inline: 20px;
+}
+.wrapper3messageii{
+    height: 100px;
+}
+.w3sendbtn{
+    font-size: 10px;
+    padding-inline: 50px;
+    padding-block: 10px;
+    border-radius: 6px;
+    background-color: black;
+    color: white;
+    margin-top: 20px;
+}
+.w3switch{
+    display: flex;
+    gap: 20px;
+    border-radius: 20px;
+    padding: 3px;
+    border:2px solid rgba(40, 46, 64, 1);
+}
+.w3switchitem{
+    color: rgba(40, 46, 64, 1);
+    font-size: 12px;
+    border-radius: 20px;
+    padding: 5px;
+    padding-inline: 20px;
+    font-weight: 600;
+}
+.w3switchitem:focus{
+    color: white;
+    background-color: rgba(40, 46, 64, 1);
+}
+.w3sit{
+    color: white;
+    background-color:rgba(40, 46, 64, 1) ;
+}
 
 @media screen and (max-width: 768px) {
-    .g2wrapper{
-        display: flex;
-        flex-direction: column-reverse;
-        
-    }
+
     .wrapper3{
         flex-direction: column;
     }
