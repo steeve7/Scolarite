@@ -3,25 +3,26 @@ import style from "./style.module.css"
 import { mergeText } from '@/app/add'
 import logo from "@/app/assets/logo.png"
 import Image from 'next/image'
+import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 
 
 
 export default function NavBar(){
+  // const router = useRouter()
 
-  const [menuActive, setMenuActive] = useState(true)
     const ToogleNavBar = ()=>{
-        setMenuActive(function(menuActive){
-            console.log(`testing ${Math.random()*1000}`)
-            return !menuActive})
+      document.getElementById("navbar").classList.toggle(style.navhidden)
+      console.log(`testing ${Math.random()*1000}`)
+
       }
       useEffect(function(){
         console.log(`testing  ${Math.random()*1000} ///////////////////////////////////////////////////`)
-        document.getElementById("navbar").addEventListener("click",ToogleNavBar)
+        // document.getElementById("navbar").addEventListener("click",ToogleNavBar)
     
       },[])
  
-    return <div className={mergeText("flex justify-center  items-center w-full",style.navbar,menuActive?style.navshow:"navhidden")} id='navbar'>
+    return <div className={mergeText("flex justify-center  items-center w-full",style.navbar,)} id='navbar'>
     <div className={mergeText("grid grid-cols-[auto_1fr]",style.navinner)}>
       <div className={mergeText(style.betweencenter,style.naviconwrapper,style.navitem)}>
         <span className={mergeText("flex gap-3 justify-center items-center",style.navtitle)}>

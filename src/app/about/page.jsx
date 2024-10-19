@@ -4,13 +4,17 @@ import { mergeText } from "../add"
 import w1i1 from "./assets/w1i1.png"
 import w2i1 from "./assets/w2i1.png"
 import w3i2 from "./assets/w3i1.png"
+import w4i from "./assets/w4i.png"
+import wrapper from "./assets/wrapper.png"
 import Link from "next/link"
 import { AInput, CInput, G2Wrapper, Title } from "./addons"
 import style from "./style.module.css"
+import { useRouter } from "next/navigation"
 
 
 
 export default function AboutPage(props){
+    // console.log(router)
     return(<>
     <main className={mergeText("snap-y snap-mandatory",style.main)}>
         {/* <CustomInput placeholder={"placeholder test"}></CustomInput> */}
@@ -89,8 +93,16 @@ export default function AboutPage(props){
                 SEND MESSAGE
             </div>
         </div>
+        <div className={style.w4}>
+            <Image src={w4i} alt="" className={style.w4i} />
+            <div className={style.w4content}>
+                <Image src={wrapper} alt="" className={style.w4ci} />
+                <div className={style.w4title}>Take your First Step Towards Academic Excellence with Scolarité</div>
+                <div className={style.w4text}>This is the most comprehensive JAMB preparation course you have been searching for. Dont just take our words for it. Try the Scolarite’ JAMB course and see for yourself why we are the best.</div>
+                <div className={style.w4btn}>Join Us</div>
+            </div>
+            </div>
 
-        
     </main>
    
     </>)
