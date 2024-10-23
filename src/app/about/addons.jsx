@@ -1,3 +1,4 @@
+"use client"
 import style from "./addons.module.css"
 import { mergeText } from "../add"
 
@@ -22,6 +23,9 @@ export function CInput({className,placeholder,...props}){
     }
 }
 
+export function CButton({className,onClick,children}){
+    return <div className={mergeText(className,style.button)} onClick={onClick}>{children}</div>
+}
 
 export function AInput({label, placeholder , className , inClassName,type="input"}){
     return <div className={mergeText("flex flex-col gap-2",style.ainputwrapper,className)}>
@@ -37,3 +41,19 @@ export function AInput({label, placeholder , className , inClassName,type="input
 export function Title(props){
     return <div className={mergeText(props.className,style.title)}>{props.children}</div>
 }
+export function rclick (e){
+    const className = Array.from(e.target.classList).find((value,any)=> String(value).includes("w3switchitem"))
+    document.getElementById("w3before").style.left = getElementPositionRelativeToParent(e.target).left + "px"
+    document.getElementById("w3before").style.width = e.target.offsetWidth + "px"
+    document.querySelectorAll(`.${className}`).forEach(el => el.style.color = "rgba(40, 46, 64, 1)")
+    e.target.style.color = "white"
+}
+export function getElementPositionRelativeToParent(element) {
+    const elementRect = element.getBoundingClientRect();
+    const parentRect = element.parentElement.getBoundingClientRect();
+  
+    return {
+      top: elementRect.top - parentRect.top,
+      left: elementRect.left - parentRect.left-3,
+    };
+  }
