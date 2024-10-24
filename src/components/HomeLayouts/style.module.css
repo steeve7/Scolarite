@@ -1,8 +1,8 @@
 
 
 .navbar{
-    background-color: rgba(42, 48, 67, 1);
-    background-color:linear-gradient(180deg, #2F364B 0%, #262B3D 85.25%);
+    /* background-color: rgba(42, 48, 67, 1); */
+    background:linear-gradient(180deg, #2F364B 0%, #262B3D 85.25%);
     padding-block: 15px;
     padding-inline: 20px;
     
@@ -25,6 +25,7 @@
     color: #FFFFFF;
 
 }
+
 .navitem{
     display: flex;
     gap: 10px;
@@ -37,7 +38,23 @@
     border-radius: 20px;
     padding: 5px 20px;
     font-weight: bold;
+    color: black;
+   
 }
+.navauth1{
+    box-shadow: var(--BshadW);
+    background-color: white;
+}
+.navatextlogin{
+    color: white;
+}
+/* .navatext{ */
+    /* background-clip: text; */
+    /* --gray:rgb(59, 59, 59); */
+    /* background: linear-gradient(90deg,var(--gray),black,black,var(--gray)); */
+    /* -webkit-background-clip: text; */
+    /* transition: background-position 0.3s ease-in-out; */
+/* } */
 /* .navlinks{ */
 /* } */
 .navlink{

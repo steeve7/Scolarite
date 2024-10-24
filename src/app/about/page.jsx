@@ -4,10 +4,12 @@ import { mergeText } from "../add"
 import w1i1 from "./assets/w1i1.png"
 import w2i1 from "./assets/w2i1.png"
 import w3i2 from "./assets/w3i1.png"
+import w4i from "./assets/w4i.png"
 import Link from "next/link"
 import { AInput, CButton, CInput, G2Wrapper, getElementPositionRelativeToParent, rclick, Title } from "./addons"
 import style from "./style.module.css"
 import { useRouter } from "next/navigation"
+import logo from "@/app/assets/logo.png"
 
 
 
@@ -34,7 +36,7 @@ export default function AboutPage(props){
                     </ol>
                     <br /> 
                     <div>In view of the foregoing, Scolarite’ was founded to revolutionize the preparation process for JAMB students to comprehensively address these challenges. The principle we will show you will help teach students how to effectively study for any examination in the future and achieve academic excellence.</div>
-                    <br /><Link href="/" className={style.joinbtn}>Join Us</Link>
+                    <br /><CButton onClick={e=>window.location.href="/join"} className={mergeText(style.joinbtn)}>Join Us</CButton>
                 </div>
             </div>
         </G2Wrapper>
@@ -77,9 +79,9 @@ export default function AboutPage(props){
                 <div className={style.w3switch}>
                     
                     <div className={mergeText(style.w3sit,style.w3before)} id="w3before">before</div>
-                    <CButton className={mergeText(style.w3sit,style.w3switchitem)} onClick={e=>rclick(e)}>School</CButton>
-                    <CButton className={style.w3switchitem} onClick={e=>rclick(e)}>Student</CButton>
-                    <CButton className={style.w3switchitem} onClick={e=>rclick(e)}>Affiliate</CButton>
+                    <CButton ani={false} className={mergeText(style.w3sit,style.w3switchitem)} onClick={e=>rclick(e)}>School</CButton>
+                    <CButton ani={false} className={style.w3switchitem} onClick={e=>rclick(e)}>Student</CButton>
+                    <CButton ani={false} className={style.w3switchitem} onClick={e=>rclick(e)}>Affiliate</CButton>
                 
             </div>
 
@@ -90,15 +92,17 @@ export default function AboutPage(props){
                 <AInput label="Subject" placeholder="subject"/>
             </div>
             <AInput label="Message" placeholder="message" type="textarea" inClassName={style.wrapper3messageii} className={style.wrapper3messageinput}/>
-            <div className={style.w3sendbtn}>
+            <CButton className={style.w3sendbtn}>
                 SEND MESSAGE
-            </div>
+            </CButton>
         </div>
         <div className={style.w4}>
-            <img src="" alt="" className={style.w4i} />
+        <Image src={w4i} alt="" className={style.w4i} />
             <div className={style.w4content}>
-                <img src="" alt="" className={style.w4ci} />
-                {/* div.{style.w4title}>.{w4text}>. */}
+                <Image src={logo} alt="" className={style.w4img} />
+                <div className={style.w4title}>Take your First Step Towards Academic Excellence with Scolarité</div>
+                <div className={style.w4text}>This is the most comprehensive JAMB preparation course you have been searching for. Dont just take our words for it. Try the Scolarite’ JAMB course and see for yourself why we are the best.</div>
+                <CButton className={style.w4btn}>Join Us</CButton>           
             </div>
             </div>
 

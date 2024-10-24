@@ -23,8 +23,8 @@ export function CInput({className,placeholder,...props}){
     }
 }
 
-export function CButton({className,onClick,children}){
-    return <div className={mergeText(className,style.button)} onClick={onClick}>{children}</div>
+export function CButton({className,onClick,children,ani = true}){
+    return <div className={mergeText(className,style.button,ani?style.btnani:"")} onClick={onClick}>{children}</div>
 }
 
 export function AInput({label, placeholder , className , inClassName,type="input"}){

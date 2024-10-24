@@ -13,6 +13,14 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+    --boxinsetshadow:inset 0px 10px 15px  rgba(255, 255, 255, 0.253),
+    inset 0px -10px 15px  rgba(255, 255, 255, 0.144);
+    --boxinsetmshadow:inset 0px 10px 18px  rgba(255, 255, 255, 0.226),
+    inset 0px -10px 10px  rgba(255, 255, 255, 0.144);
+    --boxinsetrshadow:inset 0px 5px 5px  rgba(255, 255, 255, 0.151),
+    inset 0px -5px 5px  rgba(255, 255, 255, 0.096);
+    --BshadW:inset 0px 10px 15px rgba(255, 255, 255, 0.486),
+    inset 0px -10px 15px rgba(0, 0, 0, 0.432);
   }
 }
 

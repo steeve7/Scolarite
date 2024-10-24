@@ -18,6 +18,14 @@ export default function NavBar(){
       }
       useEffect(function(){
         console.log(`testing  ${Math.random()*1000} ///////////////////////////////////////////////////`)
+        setInterval(e=>{
+          
+          document.querySelectorAll(`.${style.navatext}`).forEach(e=>{
+            const bgpos = Number(String(e.style.backgroundPositionX).replace("px",""))+1
+            e.style.backgroundPositionX = `${bgpos}px`
+            console.log("pos x: ",bgpos)
+          })
+        },200)
         // document.getElementById("navbar").addEventListener("click",ToogleNavBar)
     
       },[])
@@ -46,8 +54,8 @@ export default function NavBar(){
           <a  href ="" className={style.navlink}>Become an Affiliate</a>
         </div>
         <div className={style.navitem}>
-          <div className={mergeText("text-white ",style.navauth)}>LOGIN</div>
-          <div className={mergeText("bg-white text-black ",style.navauth)}>SIGN UP</div>
+          <div className={mergeText("",style.navauth)}><span className={mergeText(style.navatextlogin,style.navatext)}>LOGIN</span></div>
+          <div className={mergeText("",style.navauth,style.navauth1)}><span className={style.navatext}>SIGN UP</span></div>
         </div>
       </div>
     </div>

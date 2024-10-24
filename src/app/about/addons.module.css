@@ -31,7 +31,13 @@
     font-weight: bolder;
 
 }
-
+.btnani{
+    transition: translate 0.5s ease-in-out;
+    cursor: pointer;
+}
+.btnani:hover{
+    translate: 0px -5px;
+}
 
 
 .title{
