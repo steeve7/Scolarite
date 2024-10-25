@@ -56,14 +56,16 @@ function FaqCom({text,title}){
         </div>
         <div className={style.faqctext}>
             {text}
-            <CLink href="/about" className={mergeText("ani-hidden left-hide",style.faqctw,style.edc,style.faqcom)}>
+            <div  className={mergeText("ani-hidden left-hide",style.faqctw,style.edc,style.faqcom)}>
                 <div className={mergeText(style.faqctitle,style.edctext)}>
                 Enrollment Process for Different Courses
                 </div>
-                <div className={mergeText(style.edcci,style.faqci)}>
-                <Image src={nexti} className="" alt="icon" width={30} height={30}/>
+                <div  className={mergeText(style.edcci,style.faqci)}>
+                <CLink ani={false} href="/about">
+                    <Image src={nexti}  className={mergeText(style.faqdl)} alt="icon" width={30} height={30}/>
+                </CLink>
             </div>
-            </CLink>
+            </div>
         </div>
 
     </CButton>
