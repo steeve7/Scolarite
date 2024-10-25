@@ -56,7 +56,7 @@ function FaqCom({text,title}){
         </div>
         <div className={style.faqctext}>
             <div className={style.edcctext}>{text}</div>
-            <div  className={mergeText("ani-hidden left-hide",style.faqctw,style.edc,style.faqcom)}>
+            <div  className={mergeText("ani-hidden left-hide",style.faqctw,style.edc)}>
                 <div className={mergeText(style.faqctitle,style.edctext)}>
                 Enrollment Process for Different Courses
                 </div>
