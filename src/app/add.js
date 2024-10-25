@@ -5,6 +5,6 @@ export function mergeText(...texts){
 
 export function mergeFunc(...func){
     return (param)=>{
-        func.forEach(e=>e(param))
+        func.forEach(e=>{if (e instanceof Function){e(param)}})
     }
 }

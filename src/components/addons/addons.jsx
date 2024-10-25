@@ -1,6 +1,6 @@
 "use client"
 import style from "./addons.module.css"
-import { mergeText } from "../../app/add"
+import { mergeFunc, mergeText } from "../../app/add"
 
 export function G2Wrapper(props){
     return <section  className={mergeText(props.className,style.g2wrapper)} >
@@ -23,8 +23,11 @@ export function CInput({className,placeholder,...props}){
     }
 }
 
-export function CButton({className,onClick,children,ani = true}){
-    return <div className={mergeText(className,style.button,ani?style.btnani:"")} onClick={onClick}>{children}</div>
+export function CButton({className,onClick,id,children,ani = true}){
+    return <div id={id} className={mergeText(className,style.button,ani?style.btnani:"")} onClick={onClick}>{children}</div>
+}
+export function CLink({className,href,onClick,id,children,ani = true}){
+    return <div id={id} className={mergeText(className,style.button,ani?style.btnani:"")} onClick={mergeFunc(onClick,()=>{window.location.href = href})}>{children}</div>
 }
 
 export function AInput({label, placeholder , className , inClassName,type="input"}){

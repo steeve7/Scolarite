@@ -111,7 +111,9 @@ export default function AboutPage(props){
                 <CButton className={style.w4btn}>Join Us</CButton>           
             </div>
             </div>
-
+        <br />
+        <br />
+        <br />
     </main>
    
     </>)

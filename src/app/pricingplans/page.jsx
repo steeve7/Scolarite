@@ -1,10 +1,13 @@
 "use client"
 import { useEffect, useState } from "react"
-import { CButton, rclick } from "../../components/addons/addons"
+import { CButton, CLink, rclick } from "../../components/addons/addons"
 import { mergeFunc, mergeText } from "../add"
 import style from  "./style.module.css"
 import pcfem from "./assets/pcfem.png"
 import pcfex from "./assets/pcfex.png"
+import faqi from "./assets/faqi.png"
+import faqci from "./assets/faqci.png"
+import nexti from "./assets/next.png"
 import Image from "next/image"
 
 
@@ -14,8 +17,8 @@ const  test = [
     "Basic community support.",
     "No certification upon completion.",
     "Ad-supported platform.",
-    "--X-- Access to exclusive Pro Plan community forums.",
-    "--X-- Early access to new courses and updates.",
+    " Access to exclusive Pro Plan community forums.",
+    " Early access to new courses and updates.",
 ]
 
 function PcFe(props){
@@ -28,19 +31,31 @@ function PcFe(props){
     
 }
 
-function PriceCom(props){
-    return <div className={style.priceCom}>
-        <div className={style.pclabel}>{props.label}</div>
-        <div className={style.pcvalue}>₦{props.value}<span className={style.pcsmonth}>/month</span></div>
+function PriceCom({label, value , list , className}){
+    return <div className={mergeText(style.priceCom,className)}>
+        <div className={style.pclabel}>{label}</div>
+        <div className={style.pcvalue}>₦{value}<span className={style.pcsmonth}>/month</span></div>
         <div className={style.pcav}>Avaliable features:</div>
         <div className={style.pcfew}>
             <div className={style.pcfei}>
-                <PcFe value = "there " ></PcFe>
-                {props.list.map((e,i)=><PcFe key={i} value={e}></PcFe>)}
+                {list.map((e,i)=><PcFe key={i} value={e}></PcFe>)}
             </div>
         </div>
         <CButton className={style.pcbutton}>Get Started</CButton>
     </div>
+}
+
+function FaqCom({text,title}){
+    const id = "faqcom ___ "+title
+    return <CButton className={mergeText("ani-hidden right-hide",style.faqcom)} id= {id} onClick={e=>document.getElementById(id).classList.toggle(style.faqactive)}>
+        <div  className={style.faqctw}>
+            <div className={style.faqctitle}>{title}</div>
+            <div className={style.faqci}>
+                <Image src={faqci} className={style.faqciicon} alt="icon" width={30} height={30}/>
+            </div>
+        </div>
+        <div className={style.faqctext}>{text}</div>
+    </CButton>
 }
 
 export default function PricingPage(props){
@@ -61,7 +76,8 @@ export default function PricingPage(props){
             e.click()
         })
     },[])
-    
+    const listetest = (...inde)=>{var test2 =Array.from(test);test2 = test2.map((val,index)=> inde.includes(index)?val+"--X--":val);return test2}
+
     return <div className={style.main}>
             <div className={style.pagename}>PRICING</div>
             <div className={style.title}>Choose Your Plan: <br />
@@ -80,12 +96,37 @@ export default function PricingPage(props){
                 </div>
             </div>
                 <div className={style.prices}>
-                    <PriceCom list={test} label="Basic Plan" value={prices[0]}/>
-                    <PriceCom list={test} label="Premium Plan" value={prices[1]}/>
-                    <PriceCom list={test} label="Custom Plan" value=" Custom "/>
+                    <PriceCom className={mergeText("ani-hidden right-hide ","")} list={listetest(6,3)} label="Basic Plan" value={prices[0]}/>
+                    <PriceCom className={mergeText("ani-hidden right-hide delay-100","")} list={listetest(0,1)} label="Premium Plan" value={prices[1]}/>
+                    <PriceCom className={mergeText("ani-hidden right-hide delay-200","")} list={listetest(4,2)} label="Custom Plan" value=" Custom "/>
                 </div>
             </div>
-
-
+        <div className={style.faqiw}>
+            <Image src={faqi} alt="faqi" className={mergeText("ani-hidden bottom-hide",style.faqi)} width={80} height={80}/>
+        </div>
+        <div className={mergeText(style.faqiw,style.faqtitle)}>Frequently Asked Questions</div>
+        <div className={mergeText(style.faqiw,style.faqtext)}>If you have any questions? 
+        Contact our Team viasupport@skillbridge.com</div>
+        <br />
+        <div className={style.fcw}>
+            <FaqCom text="Absolutely! You can enroll in multiple courses simultaneously and access them at your convenience." title="Can I enroll in multiple courses at once?"/>
+            <CLink href="/about" className={mergeText("ani-hidden left-hide",style.faqctw,style.edc,style.faqcom)}>
+                <div className={mergeText(style.faqctitle,style.edctext)}>
+                Enrollment Process for Different Courses
+                </div>
+                <div className={mergeText(style.edcci,style.faqci)}>
+                <Image src={nexti} className={style.faqciicon} alt="icon" width={30} height={30}/>
+            </div>
+            </CLink>
+            <FaqCom text="Absolutely! You can enroll in multiple courses simultaneously and access them at your convenience." title="What kind of support can I expect from instructors?"/>
+            <FaqCom text="Absolutely! You can enroll in multiple courses simultaneously and access them at your convenience." title="Are the courses self-paced or do they have specific start and end dates?"/>
+            <FaqCom text="Absolutely! You can enroll in multiple courses simultaneously and access them at your convenience." title="Are there any prerequisites for the courses?"/>
+            <FaqCom text="Absolutely! You can enroll in multiple courses simultaneously and access them at your convenience." title="Can I download the course materials for offline access?"/>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        
     </div>
 }
