@@ -47,12 +47,12 @@ function PriceCom({label, value , list , className}){
 
 function FaqCom({text,title}){
     const id = "faqcom ___ "+title
-    return <CButton className={mergeText("ani-hidden right-hide",style.faqcom)} id= {id} onClick={e=>document.getElementById(id).classList.toggle(style.faqactive)}>
+    return <div className={mergeText("ani-hidden right-hide",style.faqcom)} id= {id}>
         <div  className={style.faqctw}>
             <div className={style.faqctitle}>{title}</div>
-            <div className={style.faqci}>
+            <CButton  onClick={e=>document.getElementById(id).classList.toggle(style.faqactive)} className={style.faqci}>
                 <Image src={faqci} className={style.faqciicon} alt="icon" width={30} height={30}/>
-            </div>
+            </CButton>
         </div>
         <div className={style.faqctext}>
             <div className={style.edcctext}>{text}</div>
@@ -68,7 +68,7 @@ function FaqCom({text,title}){
             </div>
         </div>
 
-    </CButton>
+    </div>
 }
 
 export default function PricingPage(props){
