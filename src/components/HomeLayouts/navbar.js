@@ -23,16 +23,8 @@ export default function NavBar(){
 
       }
       useEffect(function(){
-        console.log(`main  ${Math.random()*1000}`)
 
-        setInterval(e=>{
-          
-          document.querySelectorAll(`.${style.navatext}`).forEach(e=>{
-            const bgpos = Number(String(e.style.backgroundPositionX).replace("px",""))+1
-            e.style.backgroundPositionX = `${bgpos}px`
-            console.log("pos x: ",bgpos)
-          })
-        },200)
+        
         const hides = document.querySelectorAll(".ani-hidden")
         const observer = new IntersectionObserver(e=>{
           e.forEach(e=>{

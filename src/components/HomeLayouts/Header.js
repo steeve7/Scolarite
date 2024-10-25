@@ -7,6 +7,9 @@ function Header() {
   return (
     <div className={style.header}>
       <NavBar/>
+      <br></br>
+      <br></br>
+      <br></br>
     </div>
   )
 }

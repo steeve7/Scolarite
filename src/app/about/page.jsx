@@ -7,15 +7,14 @@ import w3i2 from "./assets/w3i1.png"
 import w4i from "./assets/w4i.png"
 import Link from "next/link"
 import { AInput, CButton, CInput, G2Wrapper, getElementPositionRelativeToParent, rclick, Title } from "../../components/addons/addons"
-import style from "./style.module.css"
+import style from "./about.module.css"
 import { useRouter } from "next/navigation"
 import logo from "@/app/assets/logo.png"
 import { useEffect } from "react"
 
 
 
-export default function AboutPage(props){
-    // console.log(router)
+export default function AboutPage(){
     useEffect(()=>{
         document.querySelectorAll(`.${style.w3sit}`).forEach(e=>{
             e.click()

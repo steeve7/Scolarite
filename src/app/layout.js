@@ -20,14 +20,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
     <body>
-      <main className="grid grid-rows-[auto_1fr] page-main">
         <Header />
-          <main className={mergeText("page-content",inter.className)}>
-            {children}
-            <Footer />
-            </main>
-      
-      </main>
+          <main className={mergeText(inter.className)}>{children}</main>
+      <Footer />
+
     </body>
     </html>
   )
