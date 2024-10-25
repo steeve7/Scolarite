@@ -5,6 +5,7 @@
     flex-direction: column;
     gap: 40px;
     width: 100%;
+    overflow-x: hidden;
 }
 .page_content{
     width: 100%;
