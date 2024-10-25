@@ -347,7 +347,9 @@ button:hover{
         margin-top  : 3rem;
         width: 100%;
     }
-    
+    button{
+        margin-bottom: 3rem;
+    }
     .access{
         margin-bottom: 4.5px;
     }
