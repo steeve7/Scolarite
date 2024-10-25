@@ -4,6 +4,7 @@
     margin: 0;
     background-color: white;
     color: black;
+    font-family: Roboto;
 }
 
 .image{
@@ -73,7 +74,7 @@ button:hover{
 }
 .become{
     color: #272D3E;
-    font-family: DM Sans;
+    /* font-family: DM Sans; */
     font-size: 20px;
     font-weight: 500;
     /* line-height: 101.78px; */
@@ -132,7 +133,6 @@ button:hover{
     list-style-type: none;
 }
 .child-div{
-    /* border: 2px solid rebeccapurple; */
     width: 25%;
     display: flex;
     flex-direction: column;
@@ -156,7 +156,6 @@ button:hover{
     color: #272D3E;
     list-style-type:disc;
 }
-
 
 
 
@@ -248,18 +247,19 @@ button:hover{
         width: 100%;
     }
     .text{
-        width: 80%;
+        width: 87%;
         margin: 1rem;
         font-size: 20px;
-        margin-top: 5rem;
+        margin-top: 3rem;
     
     }
     .image{
         height: 50vh;
     }
     button{
-        width: 40%;
+        width: 30%;
         font-size: 15px;
+        padding: 0;
     }
     .Firstbody-div{
         margin-left: -3rem;
@@ -309,12 +309,17 @@ button:hover{
         justify-content: center;
     }
     .inner-text{
-        width: 87%;
-        padding-left: 2rem;
+        /* width: 100%; */
+        justify-content: flex-start;
+        /* padding-left: 2rem; */
         padding-bottom: 2rem;
         font-size: 15px;
         color: #272D3E;
     } 
+    .inner-text li{
+        width: 100%;
+
+    }
     .signup{
         /* width: 40%; */
         margin-left: 2rem;
@@ -336,3 +341,17 @@ button:hover{
     }
 }
 
+@media screen and (max-width:1024px){
+    
+    .become{
+        margin-top  : 3rem;
+        width: 100%;
+    }
+    
+    .access{
+        margin-bottom: 4.5px;
+    }
+    .promote{
+        margin-bottom: 4.5rem;
+    }
+}

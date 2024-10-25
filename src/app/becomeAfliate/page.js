@@ -25,7 +25,7 @@ export default function becomeAfliate (){
         {/* THE SECTION HOLDING THE INNER CONTENT AFTER THE BACKGROUND IMAGE */}
 
         <div className="Firstbody-div">
-              <p className="become"> <span className="dash">——</span> BECOME A SCOLARITÉ AFFILIATE PATNER</p> 
+              <p className="become"> <span className="dash">——</span> BECOME A SCOLARITÉ AFFILIATE PATNER</p>  
               <p className="Earn-money" >Earn Money While Helping Students Suceed Acdemically</p>
               <li className="first-text"> Join the scolarité Affiliate program today. As an affiliate,
                  you'll have the opportunity to earn commisions
@@ -79,14 +79,14 @@ export default function becomeAfliate (){
 
 
                 {/* AccessResources Starts Here */}
-                <div className="child-div">
+                <div className="child-div access">
                    <li>
                      <Image src="/Images/monitor 1.png"
                             width={100}
                             height ={300}
-                            alt="Sign Up" />
+                            alt="access" />
                     </li>
-                  <li className="header access">Access Resources</li>
+                  <li className="header ">Access Resources</li>
                     <br/>
 
                     <ul className="inner-text">
@@ -107,21 +107,21 @@ export default function becomeAfliate (){
                 <Image src="/Images/image 10.png"
                             width={100}
                             height ={300}
-                            alt="Sign Up"
+                            alt="arrow "
                             className ="sep-image" />
                 </li>
                    {/* STOPS HERE */}
 
 
                   {/* THE PROMOTE AND EARN  */}
-                <div className="child-div">
+                <div className="child-div promote">
                     <li>
                       <Image src="/Images/promotion 1.png"
                             width={100}
                             height ={300}
-                            alt="Sign Up" />
+                            alt="promote-image  " />
                     </li>
-                  <li className="header promote">Promote and Earn</li>
+                  <li className="header">Promote and Earn</li>
                     <br/>
 
                     <ul className="inner-text">
