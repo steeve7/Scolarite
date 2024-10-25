@@ -262,6 +262,9 @@
     background-color: white;
     border-radius: 50%;
 }
+.edcctext{
+    margin-top: 30px;
+}
 @media screen and (max-width: 768px) {
     .g2wrapper{
         display: flex;
