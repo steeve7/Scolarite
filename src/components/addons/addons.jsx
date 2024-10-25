@@ -1,6 +1,6 @@
 "use client"
 import style from "./addons.module.css"
-import { mergeText } from "../add"
+import { mergeText } from "../../app/add"
 
 export function G2Wrapper(props){
     return <section  className={mergeText(props.className,style.g2wrapper)} >
@@ -28,7 +28,7 @@ export function CButton({className,onClick,children,ani = true}){
 }
 
 export function AInput({label, placeholder , className , inClassName,type="input"}){
-    return <div className={mergeText("flex flex-col gap-2",style.ainputwrapper,className)}>
+    return <div className={mergeText("flex flex-col gap-2 ",style.ainputwrapper,className)}>
         <div className={style.ainputlabel}>
             {label}
         </div>
@@ -54,6 +54,6 @@ export function getElementPositionRelativeToParent(element) {
   
     return {
       top: elementRect.top - parentRect.top,
-      left: elementRect.left - parentRect.left-3,
+      left: elementRect.left - parentRect.left,
     };
   }

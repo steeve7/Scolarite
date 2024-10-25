@@ -2,10 +2,17 @@
 import style from "./style.module.css"
 import { mergeText } from '@/app/add'
 import logo from "@/app/assets/logo.png"
+import { Roboto } from "next/font/google"
 import Image from 'next/image'
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 
+const font = Roboto({
+  weight: ['300', '400', '500', '700',"900"],
+  subsets: ['latin'],
+  display:'swap',
+  fallback: ['Arial', 'sans-serif'],
+});
 
 
 export default function NavBar(){
@@ -13,11 +20,11 @@ export default function NavBar(){
 
     const ToogleNavBar = ()=>{
       document.getElementById("navbar").classList.toggle(style.navhidden)
-      console.log(`testing ${Math.random()*1000}`)
 
       }
       useEffect(function(){
-        console.log(`testing  ${Math.random()*1000} ///////////////////////////////////////////////////`)
+        console.log(`main  ${Math.random()*1000}`)
+
         setInterval(e=>{
           
           document.querySelectorAll(`.${style.navatext}`).forEach(e=>{
@@ -26,11 +33,28 @@ export default function NavBar(){
             console.log("pos x: ",bgpos)
           })
         },200)
-        // document.getElementById("navbar").addEventListener("click",ToogleNavBar)
+        const hides = document.querySelectorAll(".ani-hidden")
+        const observer = new IntersectionObserver(e=>{
+          e.forEach(e=>{
+            if(e.isIntersecting){
+              e.target.classList.add("ani-show")
+              e.target.classList.remove("ani-hidden")
+            }else{
+              /* e.target.classList.remove("ani-show")
+              e.target.classList.add("ani-hidden") */
+            }
+          })
+        },{
+          root:null,
+          threshold:0.5
+        })
+        hides.forEach(e=>{
+          observer.observe(e)
+        })
     
       },[])
  
-    return <div className={mergeText("flex justify-center  items-center w-full",style.navbar,)} id='navbar'>
+    return <div className={mergeText("flex justify-center  items-center w-full",style.navbar,font.className)} id='navbar'>
     <div className={mergeText("grid grid-cols-[auto_1fr]",style.navinner)}>
       <div className={mergeText(style.betweencenter,style.naviconwrapper,style.navitem)}>
         <span className={mergeText("flex gap-3 justify-center items-center",style.navtitle)}>
@@ -48,7 +72,7 @@ export default function NavBar(){
         <div className="!DO Not Remove"></div>
         <div className={mergeText(style.navlinks,"flex",style.navitem)}>
           <a  href ="" className={style.navlink}>Home</a>
-          <a  href ="" className={style.navlink}>Pricing/Plans</a>
+          <a  href ="/pricingplans" className={style.navlink}>Pricing/Plans</a>
           <a  href ="/about" className={style.navlink}>About us</a>
           <a  href ="" className={style.navlink}>Blog</a>
           <a  href ="" className={style.navlink}>Become an Affiliate</a>

@@ -1,10 +1,15 @@
-import { Inter } from 'next/font/google'
+import { Inter ,Montserrat_Alternates,Roboto} from 'next/font/google'
 import './globals.css'
 import Header from '@/components/HomeLayouts/Header'
 import Footer from '@/components/HomeLayouts/Footer'
 import { mergeText } from './add'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Roboto({
+  weight: ['300', '400', '500', '700',"900"],
+  subsets: ['latin'],
+  display:'swap',
+  fallback: ['Arial', 'sans-serif'],
+});
 
 export const metadata = {
   title: 'Scolarite',

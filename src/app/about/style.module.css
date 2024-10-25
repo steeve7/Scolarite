@@ -37,7 +37,7 @@
 }
 
 
-.pagename{
+.pagename{ 
     width: fit-content;
     text-align: center;
     /* font-family: 'Roboto'; */
@@ -48,15 +48,12 @@
     gap: 10px;
     justify-content:center ;
     align-items: center;
-
-
 }
+
 .wrapper1{
     place-items:initial;
     padding-inline: 4%;
 }
-
-
 
 .wrapperimage{
     width: 100%;
@@ -150,11 +147,12 @@
 .w3switch{
     display: flex;
     gap: 20px;
-    border-radius: 20px;
+    border-radius: 25px;
     padding: 3px;
     border:2px solid rgba(40, 46, 64, 1);
     position: relative;
     overflow: hidden;
+    width: fit-content;
 }
 
 .w3switchitem{
@@ -276,6 +274,11 @@
     text-transform: uppercase;
     font-weight: bolder;
     box-shadow:var(--BshadW);
+}
+.gnt{
+    font-size: 30px;
+    font-weight: bolder;
+
 }
  
 @media screen and (max-width: 768px) {

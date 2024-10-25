@@ -23,7 +23,35 @@
     inset 0px -10px 15px rgba(0, 0, 0, 0.432);
   }
 }
+.ani-hidden{
+  opacity: 0;
+  filter:blur(10px);
+}
 
+.right-hide{
+  translate: 100px 0;
+}
+.left-hide{
+  translate: -100px 0;
+}
+.top-hide{
+  translate: 0 -100px;
+}
+.bottom-hide{
+  translate: 0 100px;
+}
+.ani-show{
+  opacity: 1;
+  filter:blur(0px);
+  translate: 0 0;
+  transform: translate(0,0);
+}
+*{
+  transition: opacity 0.5s ease-in-out,
+   filter 0.5s ease-in-out,
+   translate 0.5s ease-in-out,
+   transform 0.5s ease-in-out;
+}
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -35,6 +63,7 @@ body {
     background: white;
     color: black;
   height: 100vh;
+  font-family: Montserrat Alternates;
 }
 .page-main{
   height: 100%;
