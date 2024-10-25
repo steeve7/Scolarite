@@ -53,20 +53,17 @@ const items = [
 
 export default function About() {
   return (
-    <div className="w-full lg:mt-20 mt-48">
-      <div className="flex flex-col justify-center">
+    <div className="w-full lg:mt-20 mt-20">
+      <div className="flex flex-col justify-center px-20">
         <h2 className="text-center font-roboto font-normal lg:text-[40px] text-[20px] uppercase">
           What Is Scolarite?
         </h2>
-        <div className='md:px-0 px-40'>
-        <button className="flex flex-row justify-center text-[12px] items-center gap-2 mt-4 border md:w-[15%] w-full py-4 m-auto uppercase font-roboto font-bold px-5 rounded-lg border-black border-b-8 border-b-black shadow-lg">
-          <BsPlayCircle size={30} className="font-bold font-roboto" />
-          watch video
-        </button>
+        <div className="xl:w-[15%] md:w-[30%] w-full flex flex-row justify-center items-center gap-2 mt-4 border py-4 m-auto uppercase font-roboto font-bold rounded-lg border-black border-b-8 border-b-black shadow-lg">
+          <BsPlayCircle size={30}  />
+          <button className=" xl:text-[12px] lg:text-[15px] text-[17px]">watch video</button>
         </div>
-        
       </div>
-      <div className="flex md:flex-row flex-col justify-center items-center md:text-start text-center md:gap-20 gap-2 px-20 md:mt-10 mt-20">
+      <div className="flex md:flex-row flex-col justify-center items-center md:text-start text-center md:gap-20 gap-2 xl:px-20 px-10 md:mt-10 mt-20">
         <div className="md:w-[40%] w-full lg:space-y-0 space-y-4">
           <div className="flex items-center md:justify-start justify-center gap-2">
             <div className="w-[5%] border-black h-[16%] border" />
@@ -87,9 +84,9 @@ export default function About() {
           </p>
         </div>
       </div>
-      <div className="grid md:grid-cols-3 grid-cols-1 justify-items-center items-center px-20 gap-16 mt-10">
+      <div className="grid md:grid-cols-3 grid-cols-1 justify-items-center items-center px-10 gap-16 mt-10">
         {items.map((item, i) => (
-          <div key={i} className="md:w-[80%] w-full text-center space-y-2 px-5">
+          <div key={i} className="xl:w-[80%] w-full text-center space-y-2 px-5">
             <Image
               src={item.icons}
               alt="image_icon"

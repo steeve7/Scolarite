@@ -3,9 +3,9 @@ import Hero from '@/components/Sections/Hero/Hero';
 import About from '@/components/Sections/About/About';
 import Choose from '@/components/Sections/Choose/Choose';
 import Analytic from '@/components/Sections/Analytic/Analytic';
+import Plan from "@/components/Sections/Plan/Plan";
 import Testimonial from '@/components/Sections/Testimonial/Testimonial';
 import Faq from '@/components/Sections/FAQ/Faq';
-import Plan from '@/components/Sections/Plan/Plan';
 
 export default function page() {
   return (
@@ -13,10 +13,10 @@ export default function page() {
       <Hero />
       <About />
       <Choose />
-      <Analytic />
+      <Analytic />  
       <Plan />
       <Testimonial />
-      <Faq />     
+      <Faq />
     </div>
   );
 }

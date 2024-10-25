@@ -25,23 +25,23 @@ export default function Analytic() {
     ];
 
   return (
-    <div className="flex md:flex-row flex-col justify-between lg:space-x-0 space-x-10 items-center w-full md:px-20 px-10 mt-10">
+    <div className="flex md:flex-row flex-col md:justify-between justify-center lg:space-x-0 space-x-10 items-center w-full md:px-20 px-10 mt-10">
       <div className="md:w-1/2 w-full md:order-1 order-2 md:mt-0 mt-10">
         <Image src={laptop} alt="laptop-image" className="md:w-[500px] w-[600px]" />
       </div>
-      <div className="md:w-1/2 w-full md:order-2 order-1">
+      <div className=" flex flex-col justify-center md:w-1/2 w-full md:order-2 order-1 md:pr-0 pr-10">
         <div className="flex flex-col gap-4 justify-center">
           <div className="flex md:justify-start justify-center items-center gap-2">
             <div className="w-[5%] border-black h-[16%] border" />
-            <h2 className="font-bold font-roboto lg:text-[20px] text-[15px] text-[rgba(40, 46, 65, 1)]">
+            <h2 className="font-bold font-roboto lg:text-[20px] text-[15px] text-analytic-color">
               Analytics Dashboard
             </h2>
           </div>
 
-          <p className="font-medium font-roboto md:text-start text-center lg:text-[30px] text-[20px] text-[rgba(39, 45, 62, 1)] md:w-[90%] w-full">
+          <p className="font-medium font-roboto md:text-start text-center lg:text-[30px] text-[20px] text-anal-color md:w-[90%] w-full">
             Visualise Your Progress with our Analytics Dashboard
           </p>
-          <p className="font-roboto font-normal lg:text-[15px] text-[10px] md:text-start text-center text-[rgba(39, 45, 62, 1)] md:w-[80%] w-full">
+          <p className="font-roboto font-normal lg:text-[15px] text-[10px] md:text-start text-center text-anal-color md:w-[80%] w-full">
             Gain insight into your academic potential with Scolarite's Analytics
             Dashboard. We have developed Scolarite’s user interface to track
             your progress, identify your strengths, and discover areas for
@@ -60,10 +60,10 @@ export default function Analytic() {
                 className="lg:w-[30px] w-[20px]"
               />
               <div className="flex flex-col gap-2">
-                <h2 className="font-roboto font-medium lg:text-[20px] text-[15px] text-[rgba(40, 46, 65, 1)]">
+                <h2 className="font-roboto font-medium lg:text-[20px] text-[15px] text-analytic-color">
                   {item.ttile}
                 </h2>
-                <p className="font-roboto font-normal lg:text-[15px] text-[10px] text-[rgba(39, 45, 62, 0.8)]">
+                <p className="font-roboto font-normal lg:text-[15px] text-[10px] text-anal-color">
                   {item.desc}
                 </p>
               </div>

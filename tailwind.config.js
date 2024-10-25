@@ -14,6 +14,7 @@ module.exports = {
         "custom-gray": "rgba(102, 112, 133, 1)",
         "custom-dark": "#2F364B",
         "custom-darker": "#262B3D",
+        "hero-color": "rgba(255, 255, 255, 0.4)",
         "text-color": "rgba(255, 255, 255, 0.6)",
         "custom-text-color": "rgba(255, 255, 255, 0.8)",
         "custom-white": "rgba(255, 255, 255, 1)",
@@ -32,6 +33,8 @@ module.exports = {
         "faq-text": "rgba(76, 76, 77, 1)",
         "faq-close": "rgba(170, 170, 170, 1)",
         "faq-color": "rgba(241, 241, 243, 1)",
+        "analytic-color": "rgba(40, 46, 65, 1)",
+        "anal-color": "rgba(39, 45, 62, 1)",
       },
       fontFamily: {
         roboto: ["Roboto", "sans-serif"],

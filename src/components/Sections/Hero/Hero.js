@@ -1,21 +1,20 @@
-import React from 'react';
-import { FaRegArrowAltCircleRight } from 'react-icons/fa';
-import Home from '../Hero/Assets/Image/hero1.png';
-import Back from "../Hero/Assets/Image/hero.png";
+import { FaRegArrowAltCircleRight } from "react-icons/fa";
+// import Home from "../Hero/Assets/Image/hero1.png";
+// import Back from "../Hero/Assets/Image/hero.png";
 import Mobile from "../Hero/Assets/Image/mobile.png";
-import Image from 'next/image';
+import Image from "next/image";
 
 export default function Hero() {
   return (
-    <div className="relative pt-20 md:mt-36 mt-28 flex flex-col md:flex-row justify-between bg-cover bg-center bg-no-repeat w-full md:h-[1000px] h-[150vh]">
+    <div className="relative flex flex-col xl:flex-row justify-between bg-cover bg-center bg-no-repeat w-full min-h-screen xl:h-[1200px] lg:h-[1500px] h-auto">
       {/* Background Image for Desktop */}
       <div className="absolute inset-0 z-0 hidden md:block">
         <Image
-          src={Back}
+          src="/image/hero.png"
           alt="Background image"
           fill // Replaces layout="fill"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw" // Define responsive sizes for different screen widths
-          style={{ objectFit: 'cover' }} // Replaces objectFit="cover"
+          style={{ objectFit: "cover" }} // Replaces objectFit="cover"
           priority
         />
       </div>
@@ -27,22 +26,22 @@ export default function Hero() {
           alt="mobile-image"
           fill // Replaces layout="fill"
           sizes="100vw" // Full width for mobile devices
-          style={{ objectFit: 'cover' }} // Replaces objectFit="cover"
+          style={{ objectFit: "cover" }} // Replaces objectFit="cover"
           priority
         />
       </div>
 
       {/* Content Section */}
-      <div className="relative md:w-1/2 w-full flex flex-col md:gap-12 gap-10 justify-start z-10 mt-20 px-10 md:px-20">
-        <div className="flex flex-col justify-start lg:text-start text-center">
-          <p className="font-roboto font-medium md:text-[55px] text-[35px] text-white leading-tight">
+      <div className="relative xl:w-1/2 w-full flex flex-col md:gap-12 gap-10 justify-start lg:mt-60 md:mt-52 mt-40 px-10 md:px-20">
+        <div className="flex flex-col justify-start xl:text-start text-center">
+          <p className="font-roboto font-medium lg:text-[55px] text-[35px] text-white leading-tight">
             Scolarité:
           </p>
           <p className="md:text-[50px] text-[32px] font-medium text-white font-roboto leading-tight">
             <b className="text-hero_color font-bold">Conquer JAMB</b> with Game
             Changing Strategies & Targeted Resources
           </p>
-          <p className="font-roboto font-normal text-[18px] md:text-[20px] text-white mt-4">
+          <p className="font-roboto font-normal text-[18px] md:text-[20px] text-hero-color mt-4">
             As seasoned JAMB veterans, we are here to empower you with
             professionally crafted learning strategies and proven approaches to
             help you achieve your dream JAMB score. Our comprehensive JAMB
@@ -51,35 +50,42 @@ export default function Hero() {
             your journey to a guaranteed success in JAMB.
           </p>
         </div>
-
         {/* Buttons Section */}
         <div className="flex flex-row justify-start items-center gap-5 md:gap-10 mt-6 md:mt-0">
           <button
             type="button"
-            className="text-white font_roboto uppercase md:w-[50%] w-full flex items-center justify-center gap-2 font-bold text-[15px] py-[1.5rem] px-[1.5rem] bg-black rounded-[212.76px] border-0 outline-none"
+            className="text-white font_roboto uppercase lg:w-[50%] w-full flex items-center justify-center gap-2 font-bold lg:text-[15px] md:text-[13px] text-[9px] py-[1.5rem] px-[1.5rem] bg-black rounded-[212.76px] border-0 outline-none"
           >
             Free trial
             <FaRegArrowAltCircleRight />
           </button>
           <button
             type="button"
-            className="text-black font_roboto md:w-[50%] w-full uppercase flex items-center justify-center gap-2 font-bold text-[15px] py-[1.5rem] px-[1.5rem] bg-button-color rounded-[212.76px] border-0 outline-none"
+            className="text-black font_roboto uppercase lg:w-[50%] w-full flex items-center justify-center gap-2 font-bold lg:text-[15px] md:text-[13px] text-[9px] py-[1.5rem] px-[1.5rem] bg-button-color rounded-[212.76px] border-0 outline-none"
           >
             View Pricing
             <FaRegArrowAltCircleRight />
           </button>
         </div>
+        <div className="flex flex-row items-center gap-2 xl:justify-start justify-center">
+          <div className="w-[6%] border-hero-color h-[2px] border" />
+          <p className="font-roboto font-bold lg:text-[15px] md:text-[18px] text-[10px] text-hero-color xl:text-start text-center">
+            🌟 ONGOING SALE ENDS SOON, GET REGIISTERED NOW
+          </p>
+        </div>
       </div>
 
       {/* Image Section */}
-      <div className="relative md:absolute md:right-0 md:w-1/2 w-full mt-24 z-10">
-        <Image
-          src={Home}
+      <div className="relative xl:w-1/2 lg:w-[55%] w-full xl:mt-60 lg:mt-16 lg:m-auto md:mt-20 mt-10">
+        <img
+          src="/image/hero1.png"
           alt="hero_page"
           width={1566}
-          height={1000} // Replaces layout="responsive"
+          height={1000}
           quality={75}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw" // Responsive sizing for different screen widths
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+          style={{ objectFit: "contain" }}
+          className="slow-bounce"
         />
       </div>
     </div>

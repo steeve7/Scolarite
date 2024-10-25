@@ -53,37 +53,28 @@ export default function Plan() {
   ];
 
   return (
-    <div className="relative mt-20 lg:py-20 py-44">
+    <div className="relative mt-20 lg:py-20 py-2 bg-gradient-to-b from-[#2F364B] to-[#262B3D] shadow-md">
       {/* Background Image */}
-      <div className="absolute inset-0 z-[-1]">
-        <Image
-          src={plan}
-          alt="Background"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-        />
-      </div>
 
       {/* First content */}
-      <div className="flex justify-center items-center flex-col lg:mt-0 mt-20">
-        <h2 className="font-roboto font-bold lg:text-[20px] text-[15px] text-plan-color bg-plan-custom rounded-full py-4 px-4 uppercase">
+      <div className="flex justify-center items-center flex-col lg:mt-0 mt-20 md:px-0 px-10">
+        <h2 className="font-roboto font-bold lg:text-[20px] md:text-[15px] text-[10px] text-plan-color bg-plan-custom rounded-full py-4 px-4 uppercase">
           pricing
         </h2>
-        <p className="font-roboto font-medium lg:text-[30px] text-[20px] text-white lg:mt-0 mt-5">
+        <p className="font-roboto font-medium lg:text-[30px] md:text-[20px] text-[15px] text-white lg:mt-0 mt-5">
           Choose Your Plan:
         </p>
-        <p className="font-roboto font-medium lg:text-[30px] text-[20px] text-white">
+        <p className="font-roboto font-medium lg:text-[30px] md:text-[20px] text-[15px] text-white">
           Affordable Learning, Priceless Success
         </p>
-        <p className="font-roboto font-normal lg:text-[20px] text-[15px] text-custom-text-color mt-5">
+        <p className="font-roboto font-normal text-center lg:text-[20px] md:text-[15px] text-[10px] text-custom-text-color mt-5">
           We have a range of affordable plans. Choose the option that fits your
           learning goals.
         </p>
       </div>
 
       {/* Second content */}
-      <div className="flex flex-row justify-center items-center mt-20 border border-custom-border-color rounded-md lg:w-[20%] w-full m-auto gap-3 py-2 lg:px-0 px-40">
+      <div className="flex flex-row justify-center items-center mt-20 border border-custom-border-color rounded-md xl:w-[20%] w-1/2 m-auto gap-3 py-2 lg:px-0">
         <button className="font-roboto font-medium lg:text-[15px] text-[10px] text-white bg-black rounded-full px-3 py-3">
           Monthly
         </button>
@@ -93,10 +84,10 @@ export default function Plan() {
         <button className="font-roboto font-medium lg:text-[15px] text-[10px] text-white">
           Yearly
         </button>
-      </div>
+      </div>  
 
       {/* Plan Cards */}
-      <div className="flex md:flex-row flex-col justify-center items-center gap-4 w-full mt-20 lg:px-20 px-10">
+      <div className="flex md:flex-row flex-col justify-center items-center gap-4 w-full mt-20 lg:px-20 px-10 md:px-5">
         {plans.map((plan, i) => (
           <div
             key={i}
@@ -108,7 +99,7 @@ export default function Plan() {
             {/* Conditionally render amount and months only if they exist */}
             {plan.type !== "Custom Plan" && (
               <div className="mt-10 flex justify-center items-center gap-2">
-                <p className="font-[Be Vietnam Pro] font-semibold lg:text-[50px] text-[30px]">
+                <p className="font-[Be Vietnam Pro] font-semibold lg:text-[40px] text-[30px]">
                   {plan.amount}
                 </p>
                 <p className="font-roboto font-medium lg:text-[15px] text-[10px]">

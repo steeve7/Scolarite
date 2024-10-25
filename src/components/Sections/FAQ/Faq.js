@@ -14,7 +14,7 @@ export default function Faq() {
         "Absolutely! You can enroll in multiple courses simultaneously and access them at your convenience.",
       desc: "Enrollment Process for Different Courses",
       icon: (
-        <IoIosArrowRoundForward className="w-6 h-6 p-2 rounded-full bg-white" />
+        <IoIosArrowRoundForward />
       ),
     },
     {
@@ -86,52 +86,49 @@ export default function Faq() {
       </div>
 
       {/* FAQ Section */}
-      <div className="mt-16 lg:w-[60%] w-full m-auto border-2 p-4">
+      <div className="mt-16 xl:w-[60%] md:w-[83%] w-full m-auto">
         {reads.map((read, index) => (
           <div
             key={index}
-            className="flex flex-col lg:flex-row gap-3 justify-between border-2 py-4 px-4 rounded-lg mb-5 w-full"
+            className="flex flex-row gap-3 justify-between border-2 rounded-lg mb-5 py-5 px-5"
           >
-            <div className="flex flex-col flex-1">
-              {/* Flex Container for Text and Icon */}
-              <div className="flex justify-between items-center">
-                <h2 className="font-medium text-[16px] md:text-[18px] font-roboto">
-                  {read.question}
-                </h2>
-                <div
-                  onClick={() => toggleSection(index)}
-                  className="cursor-pointer flex-shrink-0"
-                >
-                  {openSections[index] ? (
-                    <MdClose
-                      size={24}
-                      className="text-black bg-faq-close rounded-md p-2 w-8 h-8 md:w-10 md:h-10"
-                    />
-                  ) : (
-                    <FiPlus
-                      size={24}
-                      className="text-black bg-faq-close rounded-md p-2 w-8 h-8 md:w-10 md:h-10"
-                    />
-                  )}
-                </div>
-              </div>
-
-              {/* Answer Section */}
+            <div className="flex flex-col flex-1 mb-5">
+              <h2 className="font-medium text-[18px] font-circular text-dark-color">
+                {read.question}
+              </h2>
               <div
                 ref={(el) => (contentRefs.current[index] = el)}
                 style={{ maxHeight: height[index] }}
-                className="overflow-hidden transition-max-height duration-500 ease-in-out"
+                className={`overflow-hidden transition-max-height duration-500 ease-in-out`}
               >
-                <p className="text-[14px] md:text-[16px] font-normal font-roboto w-full mt-2 text-faq-text py-2">
+                <p className="text-[16px] font-normal font-circular w-full mt-2 text-light-green py-5">
                   {read.answer}
                 </p>
                 {read.desc && (
-                  <p className="font-roboto font-medium flex justify-between items-center bg-faq-close py-2 px-3">
+                  <p className="font-roboto font-medium flex justify-between items-center rounded-lg bg-faq-close py-4 px-3">
                     {read.desc}
-                    <span>{read.icon}</span>
+                    <span className="p-2 w-8 h-8 rounded-full bg-white">
+                      {read.icon}
+                    </span>
                   </p>
                 )}
               </div>
+            </div>
+            <div
+              onClick={() => toggleSection(index)}
+              className="cursor-pointer"
+            >
+              {openSections[index] ? (
+                <MdClose
+                  size={20}
+                  className="text-black bg-faq-close rounded-md p-2 w-8 h-8"
+                />
+              ) : (
+                <FiPlus
+                  size={20}
+                  className="text-black bg-faq-close rounded-md p-2 w-8 h-8"
+                />
+              )}
             </div>
           </div>
         ))}

@@ -9,9 +9,9 @@ import { CiLocationOn } from "react-icons/ci";
 
 export default function Footer() {
   return (
-    <div className="flex md:flex-row flex-col items-center justify-between gap-6 mt-[7rem] bg-custom-dark w-full md:px-20 md:py-16">
-    {/*web & mobile view*/}
-      <div className="flex justify-between items-center w-full md:-mt-20 pt-8 px-8 md:w-[50%]">
+    <div className="flex md:flex-row flex-col items-center justify-between gap-6 mt-[7rem] bg-custom-dark w-full lg:px-20 md:px-10 px-5 md:py-16">
+      {/*web & mobile view*/}
+      <div className="flex justify-between items-center w-full md:-mt-20 pt-8 md:w-[50%]">
         {/* Content Section */}
         <div className="flex items-center gap-2">
           <Image
@@ -20,10 +20,10 @@ export default function Footer() {
             className="md:w-[63px] w-[35px]"
           />
           <div className="flex flex-col gap-2">
-            <h2 className="font-roboto md:text-[30px] text-[15px] font-bold text-custom-white">
+            <h2 className="font-roboto lg:text-[30px] text-[15px] font-bold text-custom-white">
               Scolarite
             </h2>
-            <p className="md:flex hidden font-roboto font-normal text-[20px] text-custom-text-color">
+            <p className="md:flex hidden font-roboto font-normal lg:text-[20px] text-[10px] text-custom-text-color">
               Study smart, achieve your dreams
             </p>
           </div>
@@ -36,7 +36,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="md:hidden flex flex-row justify-start items-center gap-4 px-8 w-full">
+      <div className="md:hidden flex flex-row justify-start items-center gap-4 md:px-8 px-4 w-full">
         <Link
           href=""
           className="font-roboto font-medium text-[15px] text-white"
@@ -69,7 +69,7 @@ export default function Footer() {
         </Link>
       </div>
       {/*Mobile view */}
-      <div className="border-[1.54px] rounded-lg border-custom-border md:hidden flex flex-col gap-4 px-10 py-10 w-[90%] justify-center">
+      <div className="border-[1.54px] rounded-lg border-custom-border md:hidden flex flex-col gap-4 px-5 py-10 w-full justify-center">
         <div className="flex items-center justify-center gap-2 border-[1.54px] border-custom-border-color px-5 py-5">
           <HiOutlineMail color="white" size={20} />
           <p className="font-medium font-roboto text-[15px] text-white">
@@ -93,81 +93,81 @@ export default function Footer() {
         </p>
       </div>
       {/*web view*/}
-      <div className="md:flex justify-center gap-20 hidden w-1/2">
+      <div className="md:flex justify-center lg:gap-20 gap-10 hidden w-1/2">
         <div className="space-y-2">
-          <h2 className="font-roboto font-bold text-text-color text-[20px] uppercase">
+          <h2 className="font-roboto font-bold text-text-color lg:text-[20px] text-[15px] uppercase">
             Products
           </h2>
           <ul>
             <Link href="">
-              <li className="font-roboto font-normal text-text-color text-[17px]">
+              <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                 Courses
               </li>
             </Link>
             <Link href="">
-              <li className="font-roboto font-normal text-text-color text-[17px]">
+              <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                 Books
               </li>
             </Link>
             <Link href="">
-              <li className="font-roboto font-normal text-text-color text-[17px]">
+              <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                 Freebies
               </li>
             </Link>
             <Link href="">
-              <li className="font-roboto font-normal text-text-color text-[17px]">
+              <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                 Classes
               </li>
             </Link>
           </ul>
         </div>
         <div className="space-y-2">
-          <h2 className="font-roboto font-bold text-text-color text-[20px] uppercase">
+          <h2 className="font-roboto font-bold text-text-color lg:text-[20px] text-[15px] uppercase">
             Company
           </h2>
           <ul>
             <Link href="">
-              <li className="font-roboto font-normal text-text-color text-[17px]">
+              <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                 About Us
               </li>
             </Link>
             <Link href="">
-              <li className="font-roboto font-normal text-text-color text-[17px]">
+              <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                 Contact
               </li>
             </Link>
             <Link href="">
-              <li className="font-roboto font-normal text-text-color text-[17px]">
+              <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                 Privacy Policy
               </li>
             </Link>
             <Link href="">
-              <li className="font-roboto font-normal text-text-color text-[17px]">
+              <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                 Terms of Service
               </li>
             </Link>
-            <li className="font-roboto font-normal text-text-color text-[17px]">
+            <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
               Help
             </li>
           </ul>
         </div>
         <div className="space-y-2">
-          <h2 className="font-roboto font-bold text-text-color text-[20px] uppercase">
+          <h2 className="font-roboto font-bold text-text-color lg:text-[20px] text-[15px] uppercase">
             Get in Touch
           </h2>
           <ul>
             <Link href="">
-              <li className="font-roboto font-normal text-text-color text-[17px]">
+              <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                 Twitter
               </li>
             </Link>
             <Link href="">
-              <li className="font-roboto font-normal text-text-color text-[17px]">
+              <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                 Facebook
               </li>
             </Link>
             <Link href="">
-              <li className="font-roboto font-normal text-text-color text-[17px]">
+              <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                 Instagram
               </li>
             </Link>

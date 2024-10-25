@@ -116,7 +116,7 @@ export default function Testimonial() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center py-20 bg-bg-blue rounded-2xl mt-10 lg:w-[80%] w-full m-auto">
+    <div className="flex flex-col justify-center items-center py-20 bg-bg-blue rounded-2xl mt-10 lg:w-[80%] w-full m-auto md:overflow-visible overflow-hidden">
       {/* Header Section */}
       <div className="flex flex-col lg:justify-start lg:items-start md:px-0 px-6 justify-center items-center">
         <div className="w-[10%] border-black h-[2px] border mb-4" />
@@ -129,11 +129,11 @@ export default function Testimonial() {
       </div>
 
       {/* Testimonial Slider */}
-      <Slider {...settings} className="mt-16 w-full lg:px-0 px-4">
+      <Slider {...settings} className="mt-16 xl:w-full w-[80%] lg:px-0 px-4">
         {tests.map((test, i) => (
           <div
             key={i}
-            className="bg-white p-6 h-[250px] rounded-2xl mx-6 shadow-lg flex flex-col justify-between"
+            className="bg-white p-6 h-[250px] rounded-2xl shadow-lg flex flex-col justify-between"
           >
             <p className="font-roboto font-normal lg:text-[15px] text-[14px] leading-relaxed">
               {test.desc}
