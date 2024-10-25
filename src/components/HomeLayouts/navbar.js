@@ -9,7 +9,7 @@ import { useEffect, useState } from "react"
 
 const font = Roboto({
   weight: ['300', '400', '500', '700',"900"],
-  subsets: ['latin'],
+  subsets: ['greek'],
   display:'swap',
   fallback: ['Arial', 'sans-serif'],
 });

@@ -202,6 +202,7 @@
     display: flex;
     flex-direction: column;
     width: 90%;
+    gap: 20px;
     max-width: 800px;
 }
 .faqctext{
@@ -209,6 +210,9 @@
     opacity: 0;
     translate: 0px -15px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
     color: rgba(76, 76, 77, 1);
     transition: height 0.5s ease-in-out,
     translate 0.5s ease-in-out,
@@ -229,6 +233,14 @@
     font-weight: 500;
     color: rgba(40, 46, 64, 1);
 }
+.edc{
+    background-color: rgba(247, 247, 248, 1);
+    padding-inline: 20px;
+    padding-block: 10px;
+    border-radius: 10px;
+    display: none;
+    margin-bottom: 40px;
+}
 .faqcom.faqactive .faqctext{
     opacity: 1;
     translate: 0px 0px;
@@ -237,8 +249,12 @@
 .faqcom.faqactive .faqci .faqciicon{
     transform: rotate(45deg);
 }
+.faqcom.faqactive .edc{
+    display: grid;
+}
 .edcci{
-    background-color: transparent;
+    background-color: white;
+    border-radius: 50%;
 }
 @media screen and (max-width: 768px) {
     .g2wrapper{

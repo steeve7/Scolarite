@@ -113,6 +113,10 @@
 }
 .wrapper3i1title{
     width: 100%;
+    text-align: left;
+}
+.wrapper3item2{
+    width: 350px;
 }
 .wrapper3{
     padding-inline: 4%;
@@ -280,6 +284,7 @@
     font-weight: bolder;
 
 }
+
  
 @media screen and (max-width: 768px) {
 

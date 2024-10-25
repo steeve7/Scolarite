@@ -65,7 +65,7 @@ export default function AboutPage(props){
             </div>
         </G2Wrapper> 
         <G2Wrapper className={style.wrapper3}>
-        <div className={mergeText(style.wrapper2item2,"ani-hidden left-hide")}>
+        <div className={mergeText(style.wrapper2item2,style.wrapper3item2,"ani-hidden left-hide")}>
             <Title className={mergeText(style.wrapper3i1title)}>Our Results Speak the loudest!!!</Title>
                 <div className={style.wrapper3i1content}>
                 At Scolarité, we are a team of dedicated educators, innovators, and lifelong learners committed to academic excellence.

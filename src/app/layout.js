@@ -6,7 +6,7 @@ import { mergeText } from './add'
 
 const inter = Roboto({
   weight: ['300', '400', '500', '700',"900"],
-  subsets: ['latin'],
+  subsets: ['greek'],
   display:'swap',
   fallback: ['Arial', 'sans-serif'],
 });

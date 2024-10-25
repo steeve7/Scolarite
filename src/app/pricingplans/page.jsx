@@ -54,7 +54,18 @@ function FaqCom({text,title}){
                 <Image src={faqci} className={style.faqciicon} alt="icon" width={30} height={30}/>
             </div>
         </div>
-        <div className={style.faqctext}>{text}</div>
+        <div className={style.faqctext}>
+            {text}
+            <CLink href="/about" className={mergeText("ani-hidden left-hide",style.faqctw,style.edc,style.faqcom)}>
+                <div className={mergeText(style.faqctitle,style.edctext)}>
+                Enrollment Process for Different Courses
+                </div>
+                <div className={mergeText(style.edcci,style.faqci)}>
+                <Image src={nexti} className="" alt="icon" width={30} height={30}/>
+            </div>
+            </CLink>
+        </div>
+
     </CButton>
 }
 
@@ -110,14 +121,7 @@ export default function PricingPage(props){
         <br />
         <div className={style.fcw}>
             <FaqCom text="Absolutely! You can enroll in multiple courses simultaneously and access them at your convenience." title="Can I enroll in multiple courses at once?"/>
-            <CLink href="/about" className={mergeText("ani-hidden left-hide",style.faqctw,style.edc,style.faqcom)}>
-                <div className={mergeText(style.faqctitle,style.edctext)}>
-                Enrollment Process for Different Courses
-                </div>
-                <div className={mergeText(style.edcci,style.faqci)}>
-                <Image src={nexti} className={style.faqciicon} alt="icon" width={30} height={30}/>
-            </div>
-            </CLink>
+            
             <FaqCom text="Absolutely! You can enroll in multiple courses simultaneously and access them at your convenience." title="What kind of support can I expect from instructors?"/>
             <FaqCom text="Absolutely! You can enroll in multiple courses simultaneously and access them at your convenience." title="Are the courses self-paced or do they have specific start and end dates?"/>
             <FaqCom text="Absolutely! You can enroll in multiple courses simultaneously and access them at your convenience." title="Are there any prerequisites for the courses?"/>
