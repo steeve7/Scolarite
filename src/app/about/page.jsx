@@ -25,7 +25,7 @@ export default function AboutPage(){
         {/* <CustomInput placeholder={"placeholder test"}></CustomInput> */}
         <G2Wrapper className={style.wrapper1}>
             <div className={mergeText(style.wrapperimagewrapper,style.wrapper1item1,"ani-hidden left-hide")}>
-                <Image src={w1i1} className={mergeText(style.imgAni,style.wrapperimage)} alt="about us" />
+                <Image src={w1i1} className={mergeText(style.imgAni,style.wrapperimage,style.imgsg)} alt="about us" />
             </div>
             <div className={mergeText("ani-hidden right-hide",style.wrapper1item2)}>
                 <div className={style.pagename}><span className={style.pagenameline}></span> About us</div>
@@ -47,7 +47,7 @@ export default function AboutPage(){
         </G2Wrapper>
         <G2Wrapper className={style.wrapper2}>
             <div className={mergeText(style.wrapperimagewrapper,style.wrapper2item1,"ani-hidden left-hide")}>
-                <Image src={w2i1} className={mergeText(style.imgAnir,"anidelay-600 ",style.wrapper2i1img)}  alt="about us" />
+                <Image src={w2i1} className={mergeText(style.imgAnir,"anidelay-600 ",style.wrapper2i1img,style.imgsg)}  alt="about us" />
             </div>
             <div className={mergeText(style.wrapper2item2,"ani-hidden right-hide")}>
             <Title className={mergeText(style.wrapper2i2title)}>Our Mission & Vision</Title>
@@ -71,7 +71,7 @@ export default function AboutPage(){
                 </div>
             </div>
             <div className={mergeText(style.wrapperimagewrapper,style.wrapper3item1,"ani-hidden right-hide")}>
-            <Image src={w3i2} className={mergeText(style.imgAni,style.wrapperimage)} alt="about us" />
+            <Image src={w3i2} className={mergeText(style.imgAni,style.wrapperimage,style.imgsg)} alt="about us" />
             </div>
         </G2Wrapper>
         <div className={mergeText("flex flex-col gap-4 items-center w-full",style.wrapper3)}>

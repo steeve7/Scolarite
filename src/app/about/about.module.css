@@ -283,7 +283,13 @@
     font-weight: bolder;
 
 }
-
+.imgsg{
+    max-width: 400px;
+}
+.wrapper1item1{
+    display: grid;
+    place-items: center;
+}
  
 @media screen and (max-width: 768px) {
 
