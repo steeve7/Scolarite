@@ -1,6 +1,9 @@
+import React from 'react'
 
-export default function AboutPage(props){
-    return(<>
-    page
-    </>)
+export default function page() {
+  return (
+    <div>
+      <h1>About page</h1>
+    </div>
+  )
 }
