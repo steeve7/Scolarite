@@ -1,6 +1,7 @@
 "use client"
 import style from "./addons.module.css"
 import { mergeFunc, mergeText } from "../../app/add"
+import { useEffect } from "react"
 
 export function G2Wrapper(props){
     return <section  className={mergeText(props.className,style.g2wrapper)} >
@@ -8,19 +9,30 @@ export function G2Wrapper(props){
     </section>
 }
 export function CInput({className,placeholder,...props}){
+    useEffect(()=>{
+        document.querySelectorAll(`.${style.w3sit}`).forEach(e=>{
+            e.click()
+        })
+    },[])
     className = mergeText(className,style.custominput)
     const attr = {
         placeholder:placeholder,
         className:className,
-        ...props
+        // ...props
     }
-    const inputType = props.type || "input"
-    if(inputType === "input"){
-        return <input {...attr}/>
+    
+    return <input {...attr}/>
+}
+export function Carea({className,placeholder,...props}){
+   
+    className = mergeText(className,style.custominput)
+    const attr = {
+        placeholder:placeholder,
+        className:className,
+        // ...props
     }
-    if(inputType === "textarea"){
-        return <textarea {...attr}/>
-    }
+    
+    return <textarea {...attr}/>
 }
 
 export function CButton({className,onClick,id,children,ani = true}){
@@ -30,13 +42,23 @@ export function CLink({className,href,onClick,id,children,ani = true}){
     return <div id={id} className={mergeText(className,style.button,ani?style.btnani:"")} onClick={mergeFunc(onClick,()=>{window.location.href = href})}>{children}</div>
 }
 
-export function AInput({label, placeholder , className , inClassName,type="input"}){
+export function AInput({label, placeholder , className = "" , inClassName = "",type="input"}){
     return <div className={mergeText("flex flex-col gap-2 ",style.ainputwrapper,className)}>
         <div className={style.ainputlabel}>
             {label}
+        </div> 
+        <div className={style.ainput}>
+            <CInput placeholder={placeholder} className={mergeText(style.custominput,inClassName)} ></CInput>
+        </div>
+    </div>
+}
+export function Aarea({label, placeholder , className = "" , inClassName = "",type="input"}){
+    return <div className={mergeText("flex flex-col gap-2 ",style.ainputwrapper,className)}>
+        <div className={style.ainputlabel}> 
+            {label}
         </div>
         <div className={style.ainput}>
-            <CInput placeholder={placeholder} type={type} className={mergeText(style.custominput,inClassName)} ></CInput>
+            <Carea placeholder={placeholder} className={mergeText(style.custominput,inClassName)} ></Carea>
         </div>
     </div>
 }

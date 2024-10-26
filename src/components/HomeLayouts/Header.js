@@ -1,4 +1,4 @@
-import style from "./style.module.css"
+import style from "./navbar.module.css"
 import NavBar from '@/components/HomeLayouts/navbar'
 // import React, { useEffect } from 'react'
 

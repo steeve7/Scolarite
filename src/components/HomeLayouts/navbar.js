@@ -1,5 +1,5 @@
 "use client"
-import style from "./style.module.css"
+import style from "./navbar.module.css"
 import { mergeText } from '@/app/add'
 import logo from "@/app/assets/logo.png"
 import { Roboto } from "next/font/google"

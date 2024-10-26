@@ -6,20 +6,15 @@ import w2i1 from "./assets/w2i1.png"
 import w3i2 from "./assets/w3i1.png"
 import w4i from "./assets/w4i.png"
 import Link from "next/link"
-import { AInput, CButton, CInput, G2Wrapper, getElementPositionRelativeToParent, rclick, Title } from "../../components/addons/addons"
+import { Aarea, AInput, CButton, CLink, G2Wrapper, rclick, Title } from "../../components/addons/addons"
 import style from "./about.module.css"
-import { useRouter } from "next/navigation"
 import logo from "@/app/assets/logo.png"
-import { useEffect } from "react"
+
 
 
 
 export default function AboutPage(){
-    useEffect(()=>{
-        document.querySelectorAll(`.${style.w3sit}`).forEach(e=>{
-            e.click()
-        })
-    },[])
+    
     return(<>
     <main className={style.page_content}>
         <main className={mergeText("snap-y snap-mandatory",style.main)}>
@@ -42,7 +37,7 @@ export default function AboutPage(){
                         </ol>
                         <br />
                         <div>In view of the foregoing, Scolarite’ was founded to revolutionize the preparation process for JAMB students to comprehensively address these challenges. The principle we will show you will help teach students how to effectively study for any examination in the future and achieve academic excellence.</div>
-                        <br /><CButton onClick={e=>window.location.href="/join"} className={mergeText(style.joinbtn)}>Join Us</CButton>
+                        <br /><CLink href={"/about"} className={mergeText(style.joinbtn)}>Join Us</CLink>
                     </div>
                 </div>
             </G2Wrapper>
@@ -95,7 +90,7 @@ export default function AboutPage(){
                     <AInput className={mergeText("ani-hidden right-hide delay-200")} label="Phone" placeholder="phone number"/>
                     <AInput className={mergeText("ani-hidden right-hide delay-300")} label="Subject" placeholder="subject"/>
                 </div>
-                <AInput label="Message" placeholder="message" type="textarea" inClassName={style.wrapper3messageii} className={style.wrapper3messageinput}/>
+                <Aarea label="Message" placeholder="message"  inClassName={style.wrapper3messageii} className={style.wrapper3messageinput}/>
                 <CButton className={style.w3sendbtn}>
                     SEND MESSAGE
                 </CButton>
