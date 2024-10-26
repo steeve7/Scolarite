@@ -65,6 +65,7 @@ button:hover{
     padding: 5rem;
     
 }
+
 .dash{
     color: #272D3E;
     /* border: 2px solid red; */
@@ -139,6 +140,14 @@ button:hover{
     align-items: center;
     /* flex-wrap: nowrap; */
     
+}
+.sep-image{
+    width: auto;
+    height: auto;
+}
+.directional-images{
+    width: auto;
+    height: auto;
 }
 .header{
     font-size: 25px;
@@ -230,7 +239,11 @@ button:hover{
         padding-bottom: 2rem;
         font-size: 15px;
         color: #272D3E;
+        /* margin-left: -2rem; */
     } 
+    .inner-text li{
+        margin-left: -4rem;
+    }
     
     .sep-image{
         rotate: 90deg;

@@ -19,6 +19,7 @@ export default function becomeAfliate (){
                 width ={1000} 
                 height ={50}
                 className ="image" 
+                priority
             />
         </div>
 
@@ -57,7 +58,8 @@ export default function becomeAfliate (){
                         <Image src="/Images/signup 2.png"
                             width={100}
                             height ={300}
-                            alt="Sign Up" />
+                            alt="Sign Up"
+                            className="directional-images" />
                     </li>
                     
                     <li className="header">Sign Up</li>
@@ -84,9 +86,11 @@ export default function becomeAfliate (){
                      <Image src="/Images/monitor 1.png"
                             width={100}
                             height ={300}
-                            alt="access" />
+                            alt="Sign Up"
+                            className ="directional-images"
+                             />
                     </li>
-                  <li className="header ">Access Resources</li>
+                  <li className="header">Access Resources</li>
                     <br/>
 
                     <ul className="inner-text">
@@ -107,7 +111,7 @@ export default function becomeAfliate (){
                 <Image src="/Images/image 10.png"
                             width={100}
                             height ={300}
-                            alt="arrow "
+                            alt="Sign Up"
                             className ="sep-image" />
                 </li>
                    {/* STOPS HERE */}
@@ -119,7 +123,9 @@ export default function becomeAfliate (){
                       <Image src="/Images/promotion 1.png"
                             width={100}
                             height ={300}
-                            alt="promote-image  " />
+                            alt="Sign Up"
+                            className ="directional-images"
+                             />
                     </li>
                   <li className="header">Promote and Earn</li>
                     <br/>
