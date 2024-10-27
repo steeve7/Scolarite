@@ -8,7 +8,7 @@ export function G2Wrapper(props){
         {props.children}
     </section>
 }
-export function CInput({className,placeholder,...props}){
+export function CInput({className,placeholder}){
     useEffect(()=>{
         document.querySelectorAll(`.${style.w3sit}`).forEach(e=>{
             e.click()
@@ -23,7 +23,7 @@ export function CInput({className,placeholder,...props}){
     
     return <input {...attr}/>
 }
-export function Carea({className,placeholder,...props}){
+export function Carea({className,placeholder}){
    
     className = mergeText(className,style.custominput)
     const attr = {
