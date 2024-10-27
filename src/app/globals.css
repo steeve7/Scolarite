@@ -1,27 +1,36 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* Set body and html background to white */
+html, body {
+  background-color: #fff; /* This will make the background white */
+  color: #000; /* Ensure text is black */
+  height: auto; /* Full height for the body */
+  width: 100%; /* Full width */
+  overflow-x: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/* Style vertical scrollbar */
+body::-webkit-scrollbar {
+  width: 8px;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+  border: 2px solid #f1f1f1;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+
+/* Center container with white background */
+.container {
+  max-width: 1200px; /* Set a max width for the main content */
+  margin: 0 auto; /* Center the content */
+  padding: 20px; /* Add some padding */
+  background-color: #fff; /* Ensure container is white */
 }
