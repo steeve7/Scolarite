@@ -21,7 +21,7 @@ export function CInput({className,placeholder,type="input",...props}){
         ...props
     }
     
-    return type=="input"? <input {...attr} fdprocessedid = ""/>: <textarea {...attr}fdprocessedid = ""/>
+    return type=="input"? <input {...attr} fdprocessedid = "CInput"/>: <textarea {...attr}fdprocessedid = "CInput"/>
 }
 
 
