@@ -6,7 +6,7 @@ import w2i1 from "./assets/w2i1.png"
 import w3i2 from "./assets/w3i1.png"
 import w4i from "./assets/w4i.png"
 import Link from "next/link"
-import { Aarea, AInput, CButton, CLink, G2Wrapper, rclick, Title } from "../../components/addons/addons"
+import { AInput, CButton, CLink, G2Wrapper, rclick, Title } from "../../components/addons/addons"
 import style from "./about.module.css"
 import logo from "@/app/assets/logo.png"
 
@@ -90,7 +90,7 @@ export default function AboutPage(){
                     <AInput className={mergeText("ani-hidden right-hide delay-200")} label="Phone" placeholder="phone number"/>
                     <AInput className={mergeText("ani-hidden right-hide delay-300")} label="Subject" placeholder="subject"/>
                 </div>
-                <Aarea label="Message" placeholder="message"  inClassName={style.wrapper3messageii} className={style.wrapper3messageinput}/>
+                <AInput label="Message" placeholder="message" type="textarea"  inClassName={style.wrapper3messageii} className={style.wrapper3messageinput}/>
                 <CButton className={style.w3sendbtn}>
                     SEND MESSAGE
                 </CButton>
