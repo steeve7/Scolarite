@@ -10,8 +10,8 @@
 .image{
     /* z-index: -5; */
     width: 100%;
-    height: 90vh;
-    /* opacity: 1005; */
+    height: 75vh;
+    
 }
 .background-text{
     position: relative;
@@ -51,6 +51,7 @@ button{
     justify-content: center;
     background:#272D3E;
     /* border: 2px solid red; */
+    border: 2px solid #3e4862 ;
     font-size: 30px;
     height: 20%;
     color: white;
@@ -170,7 +171,7 @@ button:hover{
 
 
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 450px) {
     
     .background-text{
         width: 100%;
@@ -179,13 +180,14 @@ button:hover{
         width: 100%;
         margin-top: 4rem;
         font-size: 15px;
-        
     }
+
     button{
         width: 50%;
         padding: 0rem;
-        font-size: 15px;
+        font-size: 10px;
     }
+
     .image{
         height: 50vh;
     }
@@ -237,12 +239,13 @@ button:hover{
         width: 87%;
         padding-left: 2rem;
         padding-bottom: 2rem;
-        font-size: 15px;
+        font-size: 15.5px;
         color: #272D3E;
-        /* margin-left: -2rem; */
+        /* margin-left: 5rem; */
     } 
     .inner-text li{
-        margin-left: -4rem;
+        margin-left: 4.5rem;
+        width: 100%;
     }
     
     .sep-image{
@@ -252,6 +255,12 @@ button:hover{
     }
 
 }
+    @media screen  and (max-width: 768px) {
+        .inner-text li{
+            margin-right: -2rem;
+        }
+        
+    }
 
 
 
@@ -267,12 +276,12 @@ button:hover{
     
     }
     .image{
-        height: 50vh;
+        height: 40vh;
     }
     button{
-        width: 30%;
+        /* width: 60%; */
         font-size: 15px;
-        padding: 0;
+        padding: 1rem;
     }
     .Firstbody-div{
         margin-left: -3rem;
@@ -328,10 +337,15 @@ button:hover{
         padding-bottom: 2rem;
         font-size: 15px;
         color: #272D3E;
+        margin-left: -4rem;
     } 
     .inner-text li{
         width: 100%;
+        margin-left: -5rem;
 
+    }
+    .sign-text{
+            margin-left: -2rem;
     }
     .signup{
         /* width: 40%; */
@@ -355,14 +369,22 @@ button:hover{
 }
 
 @media screen and (max-width:1024px){
-    
-    .become{
-        margin-top  : 3rem;
+    .background-text{
         width: 100%;
     }
-    button{
-        margin-bottom: 3rem;
+    
+    
+    .become{
+        margin-top  : 1rem;
+        width: 100%;
     }
+     
+    /* button{
+        margin-bottom: 3rem;
+        font-size: 15px;
+        padding: 1rem;
+       
+    } */
     .access{
         margin-bottom: 4.5px;
     }

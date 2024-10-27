@@ -18,6 +18,7 @@ export default function becomeAfliate (){
                 alt ="backround-image"
                 width ={1000} 
                 height ={50}
+                // sizes ="(max-width:1024px)600vw"
                 className ="image" 
                 priority
             />
@@ -66,7 +67,7 @@ export default function becomeAfliate (){
 
                     <br/>
 
-                    <ul className="inner-text">
+                    <ul className="inner-text sign-text">
                     <li>Register for the Scolarité Affiliate Program 
                         through our simple online application.
                     </li>
