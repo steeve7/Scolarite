@@ -21,13 +21,15 @@ export function CInput({className,placeholder,type="input",...props}){
         ...props
     }
     
-    return type=="input"? <input {...attr} fdprocessedid = "CInput"/>: <textarea {...attr}fdprocessedid = "CInput"/>
+    return type=="input"? <input {...attr} fdprocessedid = "CInput" />  : <textarea {...attr}fdprocessedid = "CInput"/>
 }
 
 
 export function CButton({className,onClick,id,children,ani = true}){
     return <div id={id} className={mergeText(className,style.button,ani?style.btnani:"")} onClick={onClick}>{children}</div>
 }
+
+
 export function CLink({className,href,onClick,id,children,ani = true}){
     return <div id={id} className={mergeText(className,style.button,ani?style.btnani:"")} onClick={mergeFunc(onClick,()=>{window.location.href = href})}>{children}</div>
 }
