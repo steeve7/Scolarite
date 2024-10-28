@@ -1,13 +1,16 @@
 // [id].js
+"use client"
+// import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/router';
 
-import { useRouter } from 'next/router';
-import styles from './blog.module.css';
-import { BlogPosts } from './page';
+import styles from '../blog.module.css';
+import { BlogPosts } from '../page';
+import { useParams } from 'next/navigation';
 
 function BlogPost() {
-  const router = useRouter();
-  const { id } = router.query;
-
+  /* const router = useRouter();
+  const { id } = router.query; */
+  const { id } = useParams();
   // You would typically fetch post details from an API or data file based on the `id`
   // For this example, we'll use a placeholder post
   const post = BlogPosts.find((postObj)=> postObj.id == Number(id))
@@ -29,4 +32,4 @@ function BlogPost() {
   );
 };
 
-export default BlogPost;
+export default BlogPost; 
