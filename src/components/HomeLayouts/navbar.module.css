@@ -1,11 +1,35 @@
 
+.nb{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+.note{
+    display: grid;
+    place-items: center;
+    background:linear-gradient(to left, #2F364B 0%,  rgba(102, 112, 133, 1) 85.25%);
+    color:white;
+    padding-block: 10px;
+    padding-inline: 30px;
+}
+.notecontent{
+    display: flex;
+    gap: 10px;
+    font-size: 12px;
+    align-items: center;
+    
 
+}
+.nextw{
+    height: 20px;
+    width: 20px;
+}
 .navbar{
     /* background-color: rgba(42, 48, 67, 1); */
     background:linear-gradient(180deg, #2F364B 0%, #262B3D 85.25%);
     padding-block: 15px;
     padding-inline: 20px;
-    position: fixed;
     width: 100%;
     top: 0;
     z-index: 100;

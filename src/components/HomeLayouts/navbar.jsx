@@ -1,11 +1,15 @@
 "use client"
 import style from "./navbar.module.css"
-import { mergeText } from '@/app/add'
+import { genId, mergeText } from '@/app/add'
 import logo from "@/app/assets/logo.png"
+import nextw from "./assets/nextw.png"
 import { Roboto } from "next/font/google"
 import Image from 'next/image'
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
+import { CLink } from "../addons/addons"
+
+const noteid = `noteification`
 
 const font = Roboto({
   weight: ['300', '400', '500', '700',"900"],
@@ -14,8 +18,28 @@ const font = Roboto({
   fallback: ['Arial', 'sans-serif'],
 });
 
+function Notification({message,link}){
+  useEffect(()=>{
+    /* setTimeout(()=>{
+      document.getElementById(noteid).classList.toggle(style.notehidden)
+    },3000) */
+  },[])
+  return <div id={noteid}  className={style.note}>
+    <CLink ani={false} href={link} className={style.notecontent}>
+      {message} <div className={style.notegoto}><Image src={nextw} className={style.nextw} alt="logo" />
+</div>
+    </CLink>
+  </div>
+}
+export default function NavbarMain(){
+  return <div className={style.nb}>
+    <Notification message="Limited Time Offer🌟: Save Up To ₦xxx On SCOLARITÉ  Plans Until December 31, 2200" link = "/pricingplans"/>
+    <NavBar/>
+  </div>
+}
 
-export default function NavBar(){
+
+function NavBar(){
   // const router = useRouter()
 
     const ToogleNavBar = ()=>{
