@@ -8,7 +8,7 @@ import w4i from "./assets/w4i.png"
 import Link from "next/link"
 import { AInput, CButton, CLink, G2Wrapper, rclick, Title } from "../../components/addons/addons"
 import style from "./about.module.css"
-import logo from "@/app/assets/logo.png"
+import logo from "@/app/assets/image/logo.png"
 
 
 

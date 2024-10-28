@@ -1,11 +1,10 @@
 "use client"
 import style from "./navbar.module.css"
 import { mergeText } from '@/app/add'
-import logo from "@/app/assets/logo.png"
+import logo from "@/components/HomeLayouts/Assets/images/logo.png";
 import { Roboto } from "next/font/google"
 import Image from 'next/image'
-import { useRouter } from "next/router"
-import { useEffect, useState } from "react"
+import { useEffect} from "react"
 
 const font = Roboto({
   weight: ['300', '400', '500', '700',"900"],
@@ -63,7 +62,7 @@ export default function NavBar(){
       <div className={mergeText(style.betweencenter,style.navres)}>
         <div className="!DO Not Remove"></div>
         <div className={mergeText(style.navlinks,"flex",style.navitem)}>
-          <a  href ="" className={style.navlink}>Home</a>
+          <a  href ="/" className={style.navlink}>Home</a>
           <a  href ="/pricingplans" className={style.navlink}>Pricing/Plans</a>
           <a  href ="/about" className={style.navlink}>About us</a>
           <a  href ="" className={style.navlink}>Blog</a>
