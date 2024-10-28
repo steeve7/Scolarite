@@ -67,7 +67,7 @@ export default function becomeAfliate (){
 
                     <br/>
 
-                    <ul className="inner-text sign-text">
+                    <ul className="inner-text">
                     <li>Register for the Scolarité Affiliate Program 
                         through our simple online application.
                     </li>
@@ -94,8 +94,8 @@ export default function becomeAfliate (){
                   <li className="header">Access Resources</li>
                     <br/>
 
-                    <ul className="inner-text">
-                       <li>Undergo training on how the affiliateprogram works.
+                    <ul className="inner-text access-text">
+                       <li>Undergo training on how the affiliate program works.
                        </li>
                        <li>These resources are designed to help you promote Scolarité
                         effectively to your audience.
@@ -131,7 +131,7 @@ export default function becomeAfliate (){
                   <li className="header">Promote and Earn</li>
                     <br/>
 
-                    <ul className="inner-text">
+                    <ul className="inner-text access-text">
                         <li>Use referral details to invite potential customers.
                         </li>
                         <li>Get paid by month end based on number of referrals achieved.
