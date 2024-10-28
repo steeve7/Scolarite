@@ -12,6 +12,8 @@
     color:white;
     padding-block: 10px;
     padding-inline: 30px;
+    transition: top 0.5s ease-in-out,
+    opacity 0.5s ease-in-out;
 }
 .notecontent{
     display: flex;
@@ -19,7 +21,12 @@
     font-size: 12px;
     align-items: center;
     
+    
 
+}
+.notehidden{
+    /* opacity: 0; */
+    
 }
 .nextw{
     height: 20px;

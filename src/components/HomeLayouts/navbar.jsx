@@ -20,9 +20,9 @@ const font = Roboto({
 
 function Notification({message,link}){
   useEffect(()=>{
-    /* setTimeout(()=>{
+    setTimeout(()=>{
       document.getElementById(noteid).classList.toggle(style.notehidden)
-    },3000) */
+    },3000)
   },[])
   return <div id={noteid}  className={style.note}>
     <CLink ani={false} href={link} className={style.notecontent}>
