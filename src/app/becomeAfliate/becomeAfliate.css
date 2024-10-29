@@ -350,12 +350,15 @@ button:hover{
         justify-content: center;
     }
     .inner-text{
-        width: 92%;
+        width: 95%;
         padding-bottom: 2rem;
         font-size: 20px;
         color: #272D3E;
         /* margin-left: 4rem; */
     } 
+    .inner-text li{
+        width: 100%;
+    }
    
     .sign-text{
             margin-left: -2rem;
