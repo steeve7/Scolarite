@@ -120,7 +120,7 @@ export default function PricingPage(props){
             </div>
             <div className={mergeText(style.faqiw,style.faqtitle)}>Frequently Asked Questions</div>
             <div className={mergeText(style.faqiw,style.faqtext)}>If you have any questions?
-            Contact our Team <a href="mailto:viasupport@skillbridge.com">viasupport@skillbridge.com</a></div>
+            Contact our Team <a href="mailto:viasupport@skillbridge.com" style={{textDecoration:"underline"}}>viasupport@skillbridge.com</a></div>
             <br />
             <div className={style.fcw}>
                 <FaqCom text="Absolutely! You can enroll in multiple courses simultaneously and access them at your convenience." title="Can I enroll in multiple courses at once?"/>
