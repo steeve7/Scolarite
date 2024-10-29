@@ -13,8 +13,9 @@
 .note{
     display: grid;
     place-items: center;
-    background:linear-gradient(to left, #2F364B 0%,  rgba(102, 112, 133, 1) 85.25%);
+    background:rgba(102, 112, 133, 1);
     color:white;
+    
     padding-block: 10px;
     padding-inline: 30px;
     transition: top 0.5s ease-in-out,
@@ -34,8 +35,8 @@
     
 }
 .nextw{
-    height: 20px;
-    width: 20px;
+    width: 30px;
+    object-fit:contain;
 }
 .navbar{
     /* background-color: rgba(42, 48, 67, 1); */
@@ -88,7 +89,6 @@
    
 }
 .navauth1{
-    box-shadow: var(--BshadW);
     background-color: white;
 }
 .navatextlogin{
@@ -175,6 +175,11 @@
         overflow: hidden;
         margin-top: 0 ;
         transition: height 0.5s ease-in-out,margin-top 0.5s ease-in-out;
+    }
+    .note{
+        margin: 10px;
+        border-radius: 10px;
+        padding-block: 5px;
     }
     .navbar.navhidden  .navres{
         height: 370px;

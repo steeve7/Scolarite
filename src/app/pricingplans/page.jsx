@@ -56,7 +56,7 @@ function FaqCom({text,title}){
         </div>
         <div className={style.faqctext}>
             <div className={style.edcctext}>{text}</div>
-            <div  className={mergeText("ani-hidden left-hide",style.faqctw,style.edc)}>
+            <div  className={mergeText("",style.faqctw,style.edc)}>
                 <div className={mergeText(style.faqctitle,style.edctext)}>
                 Enrollment Process for Different Courses
                 </div>
@@ -120,7 +120,7 @@ export default function PricingPage(props){
             </div>
             <div className={mergeText(style.faqiw,style.faqtitle)}>Frequently Asked Questions</div>
             <div className={mergeText(style.faqiw,style.faqtext)}>If you have any questions?
-            Contact our Team viasupport@skillbridge.com</div>
+            Contact our Team <a href="mailto:viasupport@skillbridge.com" style={{textDecoration:"underline"}}>viasupport@skillbridge.com</a></div>
             <br />
             <div className={style.fcw}>
                 <FaqCom text="Absolutely! You can enroll in multiple courses simultaneously and access them at your convenience." title="Can I enroll in multiple courses at once?"/>

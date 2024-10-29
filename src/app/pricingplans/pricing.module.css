@@ -247,19 +247,14 @@
 }
 .faqcom.faqactive .faqctext{
     opacity: 1;
-    height: 200px;
+    height: 250px;
     translate: 0px 0px;
 
 }
 .faqcom.faqactive .faqci .faqciicon{
     transform: rotate(45deg);
 }
-.faqdl{
-    display: none;
-}
-.faqcom.faqactive .faqdl{
-    display: block;
-}
+
 .edcci{
     background-color: white;
     border-radius: 50%;
