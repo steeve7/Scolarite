@@ -1,15 +1,50 @@
 
+.nb{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background:linear-gradient(180deg, #2F364B 0%, #262B3D 85.25%);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.note{
+    display: grid;
+    place-items: center;
+    background:linear-gradient(to left, #2F364B 0%,  rgba(102, 112, 133, 1) 85.25%);
+    color:white;
+    padding-block: 10px;
+    padding-inline: 30px;
+    transition: top 0.5s ease-in-out,
+    opacity 0.5s ease-in-out;
+}
+.notecontent{
+    display: flex;
+    gap: 10px;
+    font-size: 12px;
+    align-items: center;
+    
+    
 
+}
+
+.nextw{
+    height: 20px;
+    width: 20px;
+}
 .navbar{
     /* background-color: rgba(42, 48, 67, 1); */
-    background:linear-gradient(180deg, #2F364B 0%, #262B3D 85.25%);
+    max-width: 2000px;
     padding-block: 15px;
     padding-inline: 20px;
-    position: fixed;
-    width: 100%;
+    width: 98%;
     top: 0;
     z-index: 100;
     z-index: 100;
+    display: flex;
+   justify-content: center;
 
 }
 .header{
@@ -67,7 +102,7 @@
 /* } */
 .navlink{
     color: rgba(255, 255, 255, 0.477);
-    font-size: 14px;
+    font-size: 16px;
 }
 .navlink:hover{
     color: rgba(255, 255, 255, 1);
@@ -136,7 +171,7 @@
         transition: height 0.5s ease-in-out,margin-top 0.5s ease-in-out;
     }
     .navbar.navhidden  .navres{
-        height: 320px;
+        height: 370px;
         margin-top: 20px;
     }
     .navbar.navhidden  .navmenuicon{

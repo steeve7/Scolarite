@@ -305,6 +305,9 @@
     }
     .wrapperimagewrapper{
         width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .pagename{
         
@@ -312,6 +315,10 @@
     }
     .wrapper2{
         padding-block: 4%;;
+    }
+    .w4{
+        display: grid;
+        place-items: center;
     }
 
 }

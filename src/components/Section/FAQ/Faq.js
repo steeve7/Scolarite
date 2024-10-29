@@ -56,7 +56,7 @@ export default function Faq() {
   };
 
   return (
-    <div className="mt-16 w-full px-4 md:px-10 lg:px-0">
+    <div className="mt-16 w-full px-4 md:px-10 lg:px-0 mb-20">
       {/* Header Section */}
       <div className="flex flex-col justify-center items-center gap-4">
         <Image src={Fag} alt="faq_image" className="w-[40px] md:w-[60px]" />
