@@ -4,6 +4,7 @@
     position: fixed;
     top: 0;
     z-index: 100;
+    background:linear-gradient(180deg, #2F364B 0%, #262B3D 85.25%);
 }
 .note{
     display: grid;
@@ -34,7 +35,7 @@
 }
 .navbar{
     /* background-color: rgba(42, 48, 67, 1); */
-    background:linear-gradient(180deg, #2F364B 0%, #262B3D 85.25%);
+    
     padding-block: 15px;
     padding-inline: 20px;
     width: 100%;
@@ -98,7 +99,7 @@
 /* } */
 .navlink{
     color: rgba(255, 255, 255, 0.477);
-    font-size: 14px;
+    font-size: 16px;
 }
 .navlink:hover{
     color: rgba(255, 255, 255, 1);
@@ -167,7 +168,7 @@
         transition: height 0.5s ease-in-out,margin-top 0.5s ease-in-out;
     }
     .navbar.navhidden  .navres{
-        height: 320px;
+        height: 370px;
         margin-top: 20px;
     }
     .navbar.navhidden  .navmenuicon{
