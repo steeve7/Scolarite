@@ -3,9 +3,9 @@
 // import { useRouter } from 'next/navigation';
 // import { useRouter } from 'next/router';
 
-import styles from '../blog.module.css';
-import { BlogPosts } from '../page';
+import styles from './style.module.css';
 import { useParams } from 'next/navigation';
+import { BlogPosts } from '../BlogPostsData';
 
 function BlogPost() {
   /* const router = useRouter();
@@ -25,9 +25,19 @@ function BlogPost() {
   return (
     <div className={styles.blogPost}>
       <img src={post.imgSrc} alt={post.title} className={styles.postImage} />
-      <h1 className={styles.postTitle}>{post.title}</h1>
-      <p className={styles.postDate}>{post.date}</p>
-      <div className={styles.postContent}>{post.content}</div>
+      <div className={styles.postintrowrapper}>
+        <div className={styles.piwinner}>
+          <h1 className={styles.postTitle}>{post.title}</h1>
+          <p className={styles.postDate}>
+            <div className={styles.pageauthor}>Written By {post.author}</div> 
+            {post.date}
+            </p>
+        </div>
+    </div>
+      <div className={styles.postContent}>{post.content.map((paragraph,index)=><div className={styles.contentwrapper}>
+      <div key={`key-title-${index}`}className={styles.contenttitle}>{paragraph.title}</div>
+      <div key={`key-content-${index}`}className={styles.contentcontent}>{paragraph.content}</div>
+      </div>)}</div>
     </div>
   );
 };
