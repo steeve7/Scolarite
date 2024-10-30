@@ -36,24 +36,58 @@ function Notification({ message, link }) {
   );
 }
 export default function NavbarMain() {
+  const pathname = usePathname();
+  
+  /* const [navbar, setNavbar] = useState(false);
+  const [isNavOpened, setIsNavOpened] = useState(false);
+  const handleScroll = () => {
+    if (pathname === "/") {
+      // Only apply scroll effect on the home page
+      if (isNavOpened) {
+        setNavbar(true);
+      } else {setNavbar(window.scrollY > 50);}
+    }
+  };
+  useEffect(() => {
+    
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+
+  }, [pathname]);
+  const navbarBackgroundClass =
+  pathname === "/"
+    ? navbar
+      ? "bg-gradient-to-b from-[#2F364B] to-[#262B3D] shadow-md w-full"
+      : "bg-transparent"
+    : "bg-gradient-to-b from-[#2F364B] to-[#262B3D] shadow-md w-full";
+ */
+
   return (
-    <div className={style.nb}>
+    <div className={mergeText(style.nb, "navbarBackgroundClass")}>
       <Notification
         message="Limited Time Offer🌟: Save Up To ₦xxx On SCOLARITÉ  Plans Until December 31, 2200"
         link="/pricingplans"
       />
-      <NavBar />
+      <NavBar /> {/* navattr ={[navbar,setNavbar]} isattr = {[isNavOpened,setIsNavOpened]} onscroll = {handleScroll} */}
     </div>
   );
 }
 
-function NavBar() {
+function NavBar(props) {
     const pathname = usePathname();
-    const [navbar, setNavbar] = useState(false);
 
-  const ToogleNavBar = () => {
-    document.getElementById("navbar").classList.toggle(style.navhidden);
-  };
+   /*  const [navbar, setNavbar] = props.navattr
+    const [isNavOpened, setIsNavOpened] = props.isattr */
+
+    const ToogleNavBar = () => {
+      document.getElementById("navbar").classList.toggle(style.navhidden);
+
+      /* setIsNavOpened(e=>!document.getElementById("navbar").classList.contains(style.navhidden));
+      console.log("navopen--",isNavOpened)
+      console.log("navbar--",navbar)
+      props.onscroll() */
+      
+    };
   useEffect(
     function () {
       const hides = document.querySelectorAll(".ani-hidden");
@@ -77,30 +111,17 @@ function NavBar() {
       hides.forEach((e) => {
         observer.observe(e);
       });
-      const handleScroll = () => {
-        if (pathname === "/") {
-          // Only apply scroll effect on the home page
-          setNavbar(window.scrollY > 50);
-        }
-      };
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
+      
     },
-    [pathname]
+    []
   );
 
   // Navbar background style based on route and scroll position
-  const navbarBackgroundClass =
-    pathname === "/"
-      ? navbar
-        ? "bg-gradient-to-b from-[#2F364B] to-[#262B3D] shadow-md w-full"
-        : "bg-transparent"
-      : "bg-gradient-to-b from-[#2F364B] to-[#262B3D] shadow-md w-full";
-
+ 
   return (
     <div
       className={mergeText(
-        `flex justify-center items-center w-full ${navbarBackgroundClass}`,
+        `flex justify-center items-center w-full`,
         style.navbar,
         font.className
       )}
