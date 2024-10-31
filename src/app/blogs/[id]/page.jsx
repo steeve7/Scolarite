@@ -34,7 +34,7 @@ function BlogPost() {
             </p>
         </div>
     </div>
-      <div className={styles.postContent}>{post.content.map((paragraph,index)=><div className={styles.contentwrapper}>
+      <div className={styles.postContent}>{post.content.map((paragraph,index)=><div key={`key-wrapper-${index}`} className={styles.contentwrapper}>
       <div key={`key-title-${index}`}className={styles.contenttitle}>{paragraph.title}</div>
       <div key={`key-content-${index}`}className={styles.contentcontent}>{paragraph.content}</div>
       </div>)}</div>

@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       {/* PLS DO NOT REMOVE THIS CODE, THERE WOULD BE ERROR */}
-      <body data-new-gr-c-s-check-loaded="14.1204.0" data-gr-ext-installed="">
+      <body data-new-gr-c-s-check-loaded="14.1205.0" data-gr-ext-installed="">
     <div>
     <Header />
       <main className={inter.className}>{children}</main>

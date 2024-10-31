@@ -26,7 +26,7 @@ const BlogPage = () => {
           </h1>
           
           {/* Hero image */}
-          <img src="/images/blog-hero.jpg" alt="Hero" className={styles.heroImage} />
+          <img src="/images/blog-hero.svg" alt="Hero" className={styles.heroImage} />
         </div>
 
         {/* Hero post details */}
@@ -35,7 +35,7 @@ const BlogPage = () => {
           
           {/* Post title with arrow icon */}
           <h2 className={styles.postTitle}>
-            5 Must-Know Tips for Acing the JAMB Examination
+            <Link href={"/blogs/0"}>5 Must-Know Tips for Acing the JAMB Examination</Link>
             <img src="/images/arrow-icon.jpg" alt="Arrow Icon" className={styles.arrowIcon} />
           </h2>
 
@@ -52,10 +52,11 @@ const BlogPage = () => {
         
         {/* Grid of blog cards */}
         <div className={styles.grid}>
-          {blogPosts.map((post) => {
+          {blogPosts.map((post, index) => {
             // <Link href={`/blogs/${post.id}`} key={post.id} passHref>
               {/* Each BlogCard is clickable and navigates to a dynamic blog page based on post.id */}
-              return <BlogCard 
+              return index==0 ? "" : <BlogCard 
+              key={post.id}
                 title={post.title}
                 date={post.date}
                 description={post.description}
