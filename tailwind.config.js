@@ -7,6 +7,7 @@ module.exports = {
   ],
   theme: {
     extend: {
+      
       backgroundImage: {
         "plan-background": "url('/src/Plan/Assets/Image/plan.png')",
       },

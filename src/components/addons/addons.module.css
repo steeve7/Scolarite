@@ -1,0 +1,57 @@
+
+.g2wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    gap: 20px;
+}
+
+.custominput{
+    position: relative;
+    width: 100%;
+    outline: none;
+    padding-inline: 16px;
+
+}
+.custominput::placeholder{
+    display: block;
+    color: rgba(0, 0, 0, 0.849);
+
+}
+
+.ainputwrapper .custominput{
+    border: 1px solid rgba(40, 46, 64, 1);
+    padding-block: 10px;
+    border-radius: 5px;
+    font-size: 12px;
+
+}
+.ainputwrapper .ainputlabel{
+    font-size: 11px;
+    font-weight: bolder;
+
+}
+.btnani{
+    transition: translate 0.5s ease-in-out;
+    cursor: pointer;
+}
+.btnani:hover{
+    translate: 0px -5px;
+}
+
+
+.title{
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    width:fit-content;
+}
+
+@media screen and (max-width: 768px) {
+    .g2wrapper{
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;;
+        
+    }
+}

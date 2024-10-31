@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <div className="relative flex flex-col xl:flex-row justify-between bg-cover bg-center bg-no-repeat w-full min-h-screen xl:h-[1200px] lg:h-[1500px] h-auto">
+    <div className="relative flex flex-col -mt-40 xl:flex-row justify-between bg-cover bg-center bg-no-repeat w-full min-h-screen xl:h-[1200px] lg:h-[1500px] h-auto">
       {/* Background Image for Desktop */}
       <div className="absolute inset-0 z-0 hidden md:block">
         <Image
@@ -16,7 +16,6 @@ export default function Hero() {
           priority
         />
       </div>
-
       {/* Mobile Background Image */}
       <div className="absolute inset-0 z-0 block md:hidden">
         <Image
@@ -30,7 +29,8 @@ export default function Hero() {
       </div>
 
       {/* Content Section */}
-      <div className="relative xl:w-1/2 w-full flex flex-col md:gap-12 gap-10 justify-start lg:mt-60 md:mt-52 mt-40 px-10 md:px-20">
+      <div className="relative xl:w-1/2 w-full flex flex-col md:gap-12 gap-10 justify-start lg:mt-60 md:mt-52 mt-40 px-10 md:px-20" 
+      style={{paddingTop:"calc(15px + 20px)"}}>
         <div className="flex flex-col justify-start xl:text-start text-center">
           <p className="font-roboto font-medium lg:text-[55px] text-[35px] text-white leading-tight">
             Scolarité:
