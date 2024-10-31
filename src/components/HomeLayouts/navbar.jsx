@@ -75,7 +75,13 @@ export default function NavbarMain() {
 
 function NavBar(props) {
     const pathname = usePathname();
-
+    const navigationObject = [
+      {PATH:"/",NAME:"Home"},
+      {PATH:"/pricingplans",NAME:"Pricing/Plans"},
+      {PATH:"/about",NAME:"About us"},
+      {PATH:"/blogs",NAME:"Blog"},
+      {PATH:"/becomeAffliate",NAME:"Become an Affiliate"}
+    ]
    /*  const [navbar, setNavbar] = props.navattr
     const [isNavOpened, setIsNavOpened] = props.isattr */
 
@@ -167,21 +173,12 @@ function NavBar(props) {
         <div className={mergeText(style.betweencenter, style.navres)}>
           <div className="!DO Not Remove"></div>
           <div className={mergeText(style.navlinks, "flex", style.navitem)}>
-            <a href="/" className={style.navlink}>
-              Home
-            </a>
-            <a href="/pricingplans" className={style.navlink}>
-              Pricing/Plans
-            </a>
-            <a href="/about" className={style.navlink}>
-              About us
-            </a>
-            <a href="" className={style.navlink}>
-              Blog
-            </a>
-            <a href="" className={style.navlink}>
-              Become an Affiliate
-            </a>
+            {navigationObject.map((object,index)=>{
+              return(
+                <a href={object.PATH}  className={mergeText(style.navlink,pathname===object.PATH?style.active:null)} key={index}>{object.NAME}</a>
+              )
+            })}
+            
           </div>
           <div className={style.navitem}>
             <div className={mergeText("", style.navauth)}>

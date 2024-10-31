@@ -138,6 +138,10 @@
 .nmi3{
     width: 60%;
 }
+.navlink.active{
+    color: white;
+}
+
 
 @media (max-width: 820px) {
     /* .navbar{ */
@@ -217,5 +221,8 @@
         color: rgba(191, 244, 249, 0.732);
         background-color: rgba(191, 244, 249, 0.144);
     }
-
+    .navlink.active{
+        color: rgba(191, 244, 249, 1);
+        background-color: rgba(191, 244, 249, 0.144);
+    }
 } 
