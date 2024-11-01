@@ -1,6 +1,7 @@
 import React from "react";
 import './becomeAfliate.css'
 import Image from "next/image";
+import Faq from "@/components/Section/FAQ/Faq";
 
 export default function becomeAfliate (){
     return(
@@ -10,7 +11,7 @@ export default function becomeAfliate (){
             <p className="text"> <span> PATNER WITH SCHOLARITÉ AND PROFIT FROM 
                 EMPOWERING EDUCATION</span>
                 <br/>
-                <button>GET STARTED</button>
+                <button className="button">GET STARTED</button>
            
             </p> 
             
@@ -149,6 +150,7 @@ export default function becomeAfliate (){
         </div>       
 
         {/* FIRST BODY DIV STOPS HERE */}
+        <Faq />
          
      </div>
     

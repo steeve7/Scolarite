@@ -179,7 +179,7 @@ function NavBar(props) {
             <a href="" className={style.navlink}>
               Blog
             </a>
-            <a href="" className={style.navlink}>
+            <a href="/becomeAfliate" className={style.navlink}>
               Become an Affiliate
             </a>
           </div>
