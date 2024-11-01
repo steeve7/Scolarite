@@ -49,7 +49,6 @@
 
 // [id].js
 "use client";
-
 import styles from './style.module.css';
 import { useParams } from 'next/navigation';
 import { BlogPosts } from '../BlogPostsData';
