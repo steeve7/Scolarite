@@ -152,7 +152,7 @@ function NavBar(props) {
               className={mergeText(style.navimage, style.navlogo)}
               alt="logo unavaliable"
             />
-            <span className={style.navtitletext}>SOLARITÉ</span>
+            <span className={style.navtitletext}>SCOLARITÉ</span>
           </span>
           <div
             className={mergeText(style.navmenuicon)}

@@ -115,10 +115,10 @@ export default function AboutPage() {
                 "ani-hidden right-hide"
               )}
             >
-              <Title className={mergeText(style.wrapper2i2title)}>
+              <Title className={mergeText(style.wrapper2i2title,style.title)}>
                 Our Mission & Vision
               </Title>
-              <div className={style.wrapper2i2content}>
+              <div className={mergeText(style.wrapper2i2content,style.wrapper1i2content)}>
                 <span className={style.w2i2cli1}>
                   To be a global leader in educational services that enhance the
                   quality of learning for people in Africa and beyond.{" "}

@@ -118,9 +118,7 @@ export default function PricingPage(props){
                     </G2Wrapper>
                 </div>
                 <div className={style.priceview}>
-                <div className={style.swrapper}>
-                    
-                </div>
+                
                     <div className={style.prices}>
                         <PriceCom className={mergeText("ani-hidden right-hide ","")} list={listetest(6,3)} label="Basic Plan" value={prices[0]}/>
                         <PriceCom className={mergeText("ani-hidden right-hide delay-100","")} list={listetest(0,1)} label="Premium Plan" value={prices[1]}/>

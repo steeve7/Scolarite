@@ -3,6 +3,7 @@
     font-size: 14px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 20px;
     width: 100%;
     box-sizing:border-box;
@@ -26,7 +27,7 @@
 }
 .title{
     font-weight: 500;
-    font-size: 30px;
+    font-size: 40px;
     width:100%;
 
 
@@ -39,7 +40,6 @@
     width: 90%;
     color: white;
     place-items: center;
-    max-width: 900px;
 
 }
 .w1wrapper{
@@ -55,8 +55,8 @@
     position: absolute;
     width: 100vw;
     height: 200%;
-    top: 0;
     left: 0;
+    transform: translateY(-25px);
     background-color: rgba(47, 54, 75, 1);
     z-index: -5000;
 }
@@ -142,11 +142,12 @@
 .priceview{
     margin-top: 10px;
     padding-inline: 20px;
+    width: 90%;
 }
 .prices{
-    margin-top: 40px;
+    margin-top: 50px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr) );
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr) );
     gap: 40px 20px;
 }
 .priceCom{
@@ -154,10 +155,11 @@
     flex-direction: column;
     gap: 10px;
     background-color: white;
-    padding: 10px;
+    padding: 20px;
     padding-top:30px;
     box-sizing: border-box;
     border-radius: 10px;
+    border: 5px solid rgba(241, 241, 243, 1);
 }
 .pclabel{
     font-size: 12px;
@@ -169,7 +171,7 @@
     border-radius: 5px;
 }
 .pcvalue{
-    font-size: 25px;
+    font-size: 40px;
     font-weight: bolder;
     text-align: center;
     width: 100%;
@@ -188,12 +190,17 @@
     display: flex;
     gap: 10px;
     font-size: 12px;
+    box-sizing: border-box;
+    padding-inline: 10px;
+    border: 1px solid rgba(241, 241, 243, 1);
+    padding-block: 8px;
+    border-radius: 5px;
 
 }.pcfei{
     width: fit-content;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 }
 .pcfew{
     display: grid;
@@ -204,9 +211,7 @@
     color: white;
     padding-block: 10px;
     padding-inline: 20px;
-    border-radius: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+    border-radius: 5px;
     text-align: center;
     font-size: 12px;
     font-weight: 500;
