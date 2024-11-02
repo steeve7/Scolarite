@@ -93,12 +93,19 @@ export default function PricingPage(props){
 
     return <main className={style.page_content}>
         <div className={style.main}>
+        {<div className={style.w1bg}/>}
 
                 <div className={mergeText(style.w1wrapper,"pdt")}>
-                {<div className={style.w1bg}/>}
-                    <G2Wrapper className = {style.w1} >
                         <div className={style.w1i1}>
-                        <div className={style.w3switch}>
+                        
+    <br />
+                            <div className={mergeText(style.title)}>Choose Your Plan: <br />
+                            Affordable Learning, Priceless Success</div>
+                            <div className={style.text1}>We have a range of affordable plans. Choose the option that fits <br /> your learning goals. <mark style={{backgroundColor:"transparent",color:"yellow"}}>Don't miss out on this opportunity to level up your skills.</mark></div>
+                        </div>
+                       
+                </div>
+                <div className={style.w3switch}>
         
         <div className={mergeText(style.w3sit,style.w3before)} id="w3before">before</div>
         {["Monthly","Quarterly","Yearly"].map((label,index) => <CButton key={index} ani={false}
@@ -107,18 +114,8 @@ export default function PricingPage(props){
         )}
 
     </div>
-    <br />
-                            <div className={style.title}>Choose Your Plan: <br />
-                            Affordable Learning, Priceless Success</div>
-                            <div className={style.text1}>We have a range of affordable plans. Choose the option that fits <br /> your learning goals. <mark style={{backgroundColor:"transparent",color:"yellow"}}>Don't miss out on this opportunity to level up your skills.</mark></div>
-                        </div>
-                        <div className={style.w1gif}>
-                            <Image src={w1gif} className={style.w1gifimg} alt="" />
-                        </div>
-                    </G2Wrapper>
-                </div>
                 <div className={style.priceview}>
-                
+                    
                     <div className={style.prices}>
                         <PriceCom className={mergeText("ani-hidden right-hide ","")} list={listetest(6,3)} label="Basic Plan" value={prices[0]}/>
                         <PriceCom className={mergeText("ani-hidden right-hide delay-100","")} list={listetest(0,1)} label="Premium Plan" value={prices[1]}/>

@@ -145,7 +145,7 @@ export default function AboutPage() {
                 "ani-hidden left-hide"
               )}
             >
-              <Title className={mergeText(style.wrapper3i1title)}>
+              <Title className={mergeText(style.wrapper3i1title,style.title)}>
                 Our Results Speak the loudest!!!
               </Title>
               <div className={style.wrapper3i1content}>

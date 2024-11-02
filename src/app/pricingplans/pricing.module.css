@@ -25,6 +25,11 @@
     font-size: 12px ;
 
 }
+.w1i1{
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
 .title{
     font-weight: 500;
     font-size: 40px;
@@ -54,7 +59,7 @@
 .w1bg{
     position: absolute;
     width: 100vw;
-    height: 200%;
+    height: 100%;
     left: 0;
     transform: translateY(-25px);
     background-color: rgba(47, 54, 75, 1);
@@ -140,7 +145,7 @@
     width: 100%;
 }
 .priceview{
-    margin-top: 10px;
+    /* margin-top: 10px; */
     padding-inline: 20px;
     width: 90%;
 }
