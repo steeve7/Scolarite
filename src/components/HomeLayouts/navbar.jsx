@@ -104,8 +104,8 @@ function NavBar(props) {
               e.target.classList.add("ani-show");
               e.target.classList.remove("ani-hidden");
             } else {
-              /* e.target.classList.remove("ani-show")
-              e.target.classList.add("ani-hidden") */
+              if (e.target.classList.contains("ani-loop")){e.target.classList.remove("ani-show")
+              e.target.classList.add("ani-hidden")}
             }
           });
         },

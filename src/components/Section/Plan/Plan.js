@@ -55,7 +55,7 @@ export default function Plan() {
 
       {/* First content */}
       <div className="flex justify-center items-center flex-col lg:mt-0 mt-20 md:px-0 px-10">
-        <h2 className="font-roboto font-bold lg:text-[20px] md:text-[15px] text-[10px] text-plan-color bg-plan-custom rounded-full py-4 px-4 uppercase">
+        <h2 className="font-roboto font-bold lg:text-[20px] md:text-[15px] text-[10px] ani-hidden bottom-hide text-plan-color bg-plan-custom rounded-full py-4 px-4 uppercase">
           pricing
         </h2>
         <p className="font-roboto font-medium lg:text-[30px] md:text-[20px] text-[15px] text-white lg:mt-0 mt-5">
@@ -84,11 +84,11 @@ export default function Plan() {
       </div>  
 
       {/* Plan Cards */}
-      <div className="flex md:flex-row flex-col justify-center items-center gap-4 w-full mt-20 lg:px-20 px-10 md:px-5">
+      <div className="flex md:flex-row flex-col justify-center items-center gap-4  w-full mt-20 lg:px-20 px-10 md:px-5">
         {plans.map((plan, i) => (
           <div
             key={i}
-            className="bg-white rounded-md py-7 lg:px-7 w-full px-10"
+            className={`bg-white rounded-md py-7 ani-hidden right-hide delay-${i*100} lg:px-7 w-full px-10`}
           >
             <h2 className="font-roboto font-medium flex justify-center items-center border border-custom-border w-full m-auto p-2 rounded-md">
               {plan.type}

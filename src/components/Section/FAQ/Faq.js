@@ -71,16 +71,16 @@ export default function Faq() {
 
       {/* Support Buttons */}
       <div className="flex flex-wrap justify-center items-center mt-10 gap-4">
-        <button className="bg-black text-white py-2 px-4 md:py-4 md:px-6 rounded-lg font-roboto font-bold text-[12px] md:text-[15px]">
+        <button className="bg-black ani-hidden bottom-hide delay-0 text-white py-2 px-4 md:py-4 md:px-6 rounded-lg font-roboto font-bold text-[12px] md:text-[15px]">
           Technical Support
         </button>
-        <button className="border-2 border-black py-2 px-4 md:py-4 md:px-6 rounded-lg font-roboto font-bold text-[12px] md:text-[15px]">
+        <button className="border-2 ani-hidden bottom-hide delay-100 border-black py-2 px-4 md:py-4 md:px-6 rounded-lg font-roboto font-bold text-[12px] md:text-[15px]">
           Billing Support
         </button>
-        <button className="border-2 border-black py-2 px-4 md:py-4 md:px-6 rounded-lg font-roboto font-bold text-[12px] md:text-[15px]">
+        <button className="border-2 ani-hidden bottom-hide delay-200 border-black py-2 px-4 md:py-4 md:px-6 rounded-lg font-roboto font-bold text-[12px] md:text-[15px]">
           Academic & Course Support
         </button>
-        <button className="border-2 border-black py-2 px-4 md:py-4 md:px-6 rounded-lg font-roboto font-bold text-[12px] md:text-[15px]">
+        <button className="border-2 ani-hidden bottom-hide delay-300 border-black py-2 px-4 md:py-4 md:px-6 rounded-lg font-roboto font-bold text-[12px] md:text-[15px]">
           Upgrade Related Support
         </button>
       </div>
@@ -90,7 +90,7 @@ export default function Faq() {
         {reads.map((read, index) => (
           <div
             key={index}
-            className="flex flex-row gap-3 justify-between border-2 rounded-lg mb-5 py-5 px-5"
+            className="flex flex-row gap-3 justify-between border-2 rounded-lg mb-5 py-5 px-5 ani-hidden right-hide "
           >
             <div className="flex flex-col flex-1 mb-5">
               <h2 className="font-medium text-[18px] font-circular text-dark-color">
