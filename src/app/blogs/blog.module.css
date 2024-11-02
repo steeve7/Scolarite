@@ -240,6 +240,7 @@
   }
 
   .blogPage {
+    max-width: 100vw;
     overflow-x: hidden;
   }
 }
@@ -280,6 +281,7 @@
   }
 
   .blogPage {
+    max-width: 100vw;
     overflow-x: hidden;
   }
 
@@ -316,9 +318,18 @@
   }
 
   .blogPage {
+    max-width: 100vw;
     overflow-x: hidden;
   }
 
+}
+
+
+@media (max-width: 400px) {
+  .blogPage {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
 }
 
 
@@ -364,6 +375,7 @@
   }
 
   .blogPage {
+    max-width: 100vw;
     overflow-x: hidden;
   }
 
@@ -411,11 +423,7 @@
   }
 
   .blogPage {
+    max-width: 100vw;
     overflow-x: hidden;
   }
-
-  .blogPage {
-    overflow-x: hidden;
-  }
-
 }

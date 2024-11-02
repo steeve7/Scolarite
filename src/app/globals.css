@@ -5,6 +5,7 @@ html, body {
   height: auto; /* Full height for the body */
   width: 100%; /* Full width */
   overflow-x: hidden;
+  max-width: 100vw;
 }
 
 /* Style vertical scrollbar */
@@ -33,4 +34,8 @@ body::-webkit-scrollbar-thumb:hover {
   margin: 0 auto; /* Center the content */
   padding: 20px; /* Add some padding */
   background-color: #fff; /* Ensure container is white */
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
