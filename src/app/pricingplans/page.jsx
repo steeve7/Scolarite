@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useState } from "react"
-import { CButton, CLink, rclick } from "../../components/addons/addons"
+import { CButton, CLink, G2Wrapper, rclick } from "../../components/addons/addons"
 import { mergeFunc, mergeText } from "../add"
 import style from  "./pricing.module.css"
 import pcfem from "./assets/pcfem.png"
@@ -9,7 +9,7 @@ import faqi from "./assets/faqi.png"
 import faqci from "./assets/faqci.png"
 import nexti from "./assets/next.png"
 import Image from "next/image"
-
+import w1gif from "./assets/w1gif.gif"
 
 const  test = [
     "Access to selected free courses.",
@@ -93,21 +93,33 @@ export default function PricingPage(props){
 
     return <main className={style.page_content}>
         <div className={style.main}>
-                <div className={style.pagename}>PRICING</div>
-                <div className={style.title}>Choose Your Plan: <br />
-                Affordable Learning, Priceless Success</div>
-                <div className={style.text1}>We have a range of affordable plans. Choose the option that fits your learning goals.</div>
+
+                <div className={mergeText(style.w1wrapper,"pdt")}>
+                {<div className={style.w1bg}/>}
+                    <G2Wrapper className = {style.w1} >
+                        <div className={style.w1i1}>
+                        <div className={style.w3switch}>
+        
+        <div className={mergeText(style.w3sit,style.w3before)} id="w3before">before</div>
+        {["Monthly","Quarterly","Yearly"].map((label,index) => <CButton key={index} ani={false}
+         className={mergeText(index==0?style.w3sit:"" ,style.w3switchitem)}
+          onClick={mergeFunc((e)=>rclick(e),priceMapFunc[label],()=>document.querySelectorAll(`.${style.w3switchitem}`).forEach(e=>e.classList.remove(style.w3sit)))}>{label}</CButton>
+        )}
+
+    </div>
+    <br />
+                            <div className={style.title}>Choose Your Plan: <br />
+                            Affordable Learning, Priceless Success</div>
+                            <div className={style.text1}>We have a range of affordable plans. Choose the option that fits <br /> your learning goals. <mark style={{backgroundColor:"transparent",color:"yellow"}}>Don't miss out on this opportunity to level up your skills.</mark></div>
+                        </div>
+                        <div className={style.w1gif}>
+                            <Image src={w1gif} className={style.w1gifimg} alt="" />
+                        </div>
+                    </G2Wrapper>
+                </div>
                 <div className={style.priceview}>
                 <div className={style.swrapper}>
-                    <div className={style.w3switch}>
-        
-                        <div className={mergeText(style.w3sit,style.w3before)} id="w3before">before</div>
-                        {["Monthly","Quarterly","Yearly"].map((label,index) => <CButton key={index} ani={false}
-                         className={mergeText(index==0?style.w3sit:"" ,style.w3switchitem)}
-                          onClick={mergeFunc((e)=>rclick(e),priceMapFunc[label],()=>document.querySelectorAll(`.${style.w3switchitem}`).forEach(e=>e.classList.remove(style.w3sit)))}>{label}</CButton>
-                        )}
-        
-                    </div>
+                    
                 </div>
                     <div className={style.prices}>
                         <PriceCom className={mergeText("ani-hidden right-hide ","")} list={listetest(6,3)} label="Basic Plan" value={prices[0]}/>
