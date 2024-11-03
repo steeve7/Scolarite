@@ -1,0 +1,279 @@
+.main{
+    padding-block: 40px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    box-sizing:border-box;
+    padding-inline:20px;
+    max-width: 1200px;
+    overflow-x: hidden;
+}
+
+.pagename{
+    width: 100%;
+    text-align: center;
+    /* font-family: 'Roboto'; */
+    font-style: normal;
+    font-weight: 500;
+    color: #252B3C;
+    display: flex;
+    gap: 10px;
+    justify-content:center ;
+    align-items: center;
+    font-size: 12px ;
+
+}
+.title{
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    width:100%;
+
+}
+.text1{
+    text-align: center;
+    font-size: 12px;
+    width: 100%;
+}
+.w3switch{
+    display: flex;
+    gap: 20px;
+    border-radius: 20px;
+    padding: 3px;
+    position: relative;
+    overflow: hidden;
+    width: fit-content;
+}
+
+.w3switchitem{
+    color: rgba(40, 46, 64, 1);
+    font-size: 12px;
+    border-radius: 20px;
+    text-align: center;
+    padding: 5px;
+    padding-inline: 20px;
+    font-weight: 600;
+    transition: color 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
+    background-color 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+   
+}
+.w3switchitem::before{
+    --blob: cubic-bezier(0.175, 0.885, 0.32, 1.575) ;
+    color: white;
+    content: "";
+    display: block;
+    width: 0;
+    height:0;
+    position: absolute;
+    border-radius: inherit;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -100;
+    background-color: rgba(40, 46, 64, 0);
+    transition: width 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    height 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    background-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.w3switchitem:hover::before{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(40, 46, 64, 0.277);
+}
+
+.w3sit{
+    color: white;
+    /* width: 200px ; */
+}
+.w3switch .w3before{
+    content: "student";
+    font-size: 12px;
+    border-radius: 20px;
+    padding: 5px;
+    padding-inline: 20px;
+    font-weight: 600;
+    background-color: black;
+    border-radius: 20px;
+    display: inline-block;
+    position: absolute;
+    color: transparent;
+    z-index: -200;
+    box-shadow: var(--boxinsetmshadow);
+    transition: left 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
+    width 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.swrapper{
+    display: grid;
+    place-items: center;
+    width: 100%;
+}
+.priceview{
+    margin-top: 40px;
+}
+.prices{
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr) );
+    gap: 40px 20px;
+}
+.priceCom{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.pclabel{
+    font-size: 12px;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+    border: 1px solid black;
+    padding-block: 8px;
+    border-radius: 5px;
+}
+.pcvalue{
+    font-size: 25px;
+    font-weight: bolder;
+    text-align: center;
+    width: 100%;
+}
+.pcsmonth{
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+}
+.pcav{
+    width: 100%;
+    text-align: center;
+    margin-block: 20px;
+}
+.pcfe{
+    display: flex;
+    gap: 10px;
+    font-size: 12px;
+
+}.pcfei{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.pcfew{
+    display: grid;
+    place-items: center;
+}
+.pcbutton{
+    background:linear-gradient(45deg, #444f6d 0%, #262B3D 85.25%);
+    color: white;
+    padding-block: 10px;
+    padding-inline: 20px;
+    border-radius: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 20px;
+}
+.faqiw{
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+.faqi{
+    margin-top: 40px;
+}
+.faqtitle{
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+}
+.faqtext{
+    font-size: 12px;
+    text-align: center;
+}
+.fcw{
+    width: 100%;
+    display: grid;
+    place-items: center;
+    gap: 50px;
+}
+.faqcom{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    gap: 20px;
+    max-width: 800px;
+    border: 1px solid rgba(128, 128, 128, 0.514);
+    padding: 20px;
+    border-radius: 10px;
+}
+.faqctext{
+    width: 100%;
+    height: 0;
+    opacity: 0;
+    translate: 0px -15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    color: rgba(76, 76, 77, 1);
+    transition: height 0.5s ease-in-out,
+    translate 0.5s ease-in-out,
+    opacity 0.5s ease-in-out;
+}
+.faqctw{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+}
+.faqci{
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgba(170, 170, 170, 1) ;
+}
+.faqctitle{
+    font-size: 20px;
+    font-weight: 500;
+    color: rgba(40, 46, 64, 1);
+}
+.edc{
+    background-color: rgba(247, 247, 248, 1);
+    padding-inline: 20px;
+    padding-block: 10px;
+    border-radius: 10px;
+}
+.faqcom.faqactive .faqctext{
+    opacity: 1;
+    height: 250px;
+    translate: 0px 0px;
+
+}
+.faqcom.faqactive .faqci .faqciicon{
+    transform: rotate(45deg);
+}
+
+.edcci{
+    background-color: white;
+    border-radius: 50%;
+}
+.edcctext{
+    margin-top: 30px;
+}
+.page_content{
+    width: 100%;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+@media screen and (max-width: 768px) {
+    .g2wrapper{
+        display: flex;
+        flex-direction: column-reverse;
+        
+    }
+}
+
