@@ -7,7 +7,7 @@ export default function becomeAfliate (){
      <div>
         {/* THE DIV WITH THE BACKGROUND IMAGE AND TEXT */}
         <div className="background-text">
-            <p className="text"> <span> PATNER WITH SCHOLARITÉ AND PROFIT FROM 
+            <p className="text"> <span> PARTNER WITH SCOLARITÉ AND PROFIT FROM 
                 EMPOWERING EDUCATION</span>
                 <br/>
                 <button>GET STARTED</button>
@@ -27,10 +27,10 @@ export default function becomeAfliate (){
         {/* THE SECTION HOLDING THE INNER CONTENT AFTER THE BACKGROUND IMAGE */}
 
         <div className="Firstbody-div">
-              <p className="become"> <span className="dash">——</span> BECOME A SCOLARITÉ AFFILIATE PATNER</p>  
-              <p className="Earn-money" >Earn Money While Helping Students Suceed Acdemically</p>
+              <p className="become"> <span className="dash">——</span> BECOME A SCOLARITÉ AFFILIATE PARTNER</p>  
+              <p className="Earn-money" >Earn Money While Helping Students Succeed Academically</p>
               <li className="first-text"> Join the scolarité Affiliate program today. As an affiliate,
-                 you'll have the opportunity to earn commisions
+                 you'll have the opportunity to earn commissions
                 by promoting our comprehensive exam preperation resources.
               </li>
 
@@ -80,7 +80,17 @@ export default function becomeAfliate (){
                 </div>
                 {/* signUp Stops Here */}
 
+                {/* SEPERATE IMAGE */}
+                <li>
+                <Image src="/Images/image 10.png"
+                            width={100}
+                            height ={300}
+                            alt="Sign Up"
+                            className ="sep-image" />
+                </li>
+                 {/* SEPERATE IMAGE STOPS HERE */}
 
+                 
                 {/* AccessResources Starts Here */}
                 <div className="child-div access">
                    <li>
