@@ -176,7 +176,7 @@ function NavBar(props) {
             <a href="/about" className={style.navlink}>
               About us
             </a>
-            <a href="" className={style.navlink}>
+            <a href="/blogs" className={style.navlink}>
               Blog
             </a>
             <a href="/becomeAfliate" className={style.navlink}>
