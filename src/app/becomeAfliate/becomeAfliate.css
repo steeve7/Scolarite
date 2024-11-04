@@ -140,7 +140,8 @@ button:hover{
 }
 .sep-image{
     width: auto;
-    height: auto;
+    height: 40px;
+    
     
 }
 .directional-images{
@@ -230,6 +231,7 @@ button:hover{
         flex-direction: column;
         align-items: center;
     }
+    
     .child-div{
         width: 130%;
     }
@@ -262,9 +264,10 @@ button:hover{
     }
     
     .sep-image{
-        rotate: 90deg;
+        rotate: 95deg;
         margin-top: 2rem;
         margin-bottom: 3rem;
+        height: 40px;
     }
 
 }
