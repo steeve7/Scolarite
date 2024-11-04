@@ -27,7 +27,7 @@ export default function becomeAfliate (){
         {/* THE SECTION HOLDING THE INNER CONTENT AFTER THE BACKGROUND IMAGE */}
 
         <div className="Firstbody-div">
-              <p className="become"> <span className="dash">——</span> BECOME A SCOLARITÉ AFFILIATE PARTNER</p>  
+              <p className="become"> <span className="dash">—— </span> BECOME A SCOLARITÉ AFFILIATE PARTNER</p>  
               <p className="Earn-money" >Earn Money While Helping Students Succeed Academically</p>
               <li className="first-text"> Join the scolarité Affiliate program today. As an affiliate,
                  you'll have the opportunity to earn commissions
