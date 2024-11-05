@@ -102,9 +102,27 @@ body {
 }
 
 
-
+/* Scroll  bar styling */
 body::-webkit-scrollbar-thumb:hover {
   background-color: #555;
+}
+
+/* Width of the scrollbar */
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track (the background of the scrollbar) */
+body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Thumb (the draggable part of the scrollbar) */
+body::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+  border: 1.5px solid #f1f1f1; /* Optional: Adds space around the thumb */
 }
 
 
