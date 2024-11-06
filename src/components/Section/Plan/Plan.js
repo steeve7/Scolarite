@@ -50,11 +50,19 @@ export default function Plan() {
   ];
 
   return (
-    <div className="relative mt-20 lg:py-20 py-2 bg-gradient-to-b from-[#2F364B] to-[#262B3D] shadow-md">
+    <div
+      className="relative py-40 w-full bg-center bg-no-repeat"
+      style={{
+        backgroundImage: "url('/image/plan.svg')",
+        backgroundSize: "cover",
+        paddingTop: "80px", // Add padding instead of minHeight
+    paddingBottom: "300px",
+      }}
+    >
       {/* Background Image */}
 
       {/* First content */}
-      <div className="flex justify-center items-center flex-col lg:mt-0 mt-20 md:px-0 px-10">
+      <div className="flex justify-center items-center flex-col lg:mt-44 mt-20 md:px-0 px-10">
         <h2 className="font-roboto font-bold lg:text-[15px] md:text-[15px] text-[10px] text-plan-color bg-plan-custom rounded-full py-2 px-6 uppercase">
           pricing
         </h2>
@@ -81,7 +89,7 @@ export default function Plan() {
         <button className="font-roboto font-medium lg:text-[15px] text-[10px] text-white">
           Yearly
         </button>
-      </div>  
+      </div>
 
       {/* Plan Cards */}
       <div className="flex md:flex-row flex-col justify-center items-center gap-4 w-full mt-20 lg:px-20 px-10 md:px-5">
@@ -112,24 +120,22 @@ export default function Plan() {
             </h2>
             <div className="flex flex-col justify-start mt-10 gap-4">
               {/* Feature Descriptions */}
-                             {[...Array(5)].map((_, index) => (
-                  <div className="flex items-center gap-2" key={index}>
-                    <span className="bg-icon-color p-3 text-[10px]">
-                      {plan.icon}
-                    </span>
-                    <p className="font-roboto font-normal text-[rgba(76, 76, 77, 1)] lg:text-[13px] text-[10px]">
-                      {
-                        plan[
-                          `${
-                            ["first", "second", "third", "fourth", "fifth"][
-                              index
-                            ]
-                          }_desc`
-                        ]
-                      }
-                    </p>
-                  </div>
-                ))}
+              {[...Array(5)].map((_, index) => (
+                <div className="flex items-center gap-2" key={index}>
+                  <span className="bg-icon-color p-3 text-[10px]">
+                    {plan.icon}
+                  </span>
+                  <p className="font-roboto font-normal text-[rgba(76, 76, 77, 1)] lg:text-[13px] text-[10px]">
+                    {
+                      plan[
+                        `${
+                          ["first", "second", "third", "fourth", "fifth"][index]
+                        }_desc`
+                      ]
+                    }
+                  </p>
+                </div>
+              ))}
               {/* Render HiMiniXMark icon for Basic Plan's six_desc and seven_desc */}
               <div className="flex items-center gap-2">
                 <span className="bg-icon-color p-3 text-[10px]">

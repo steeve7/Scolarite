@@ -4,13 +4,15 @@ export default function Hero() {
   return (
     <div className="relative flex flex-col xl:flex-row w-full">
       {/* Background Image for Desktop */}
-      <div className="absolute inset-0 z-0 hidden md:block bg-cover bg-center bg-no-repeat ">
-        <img
-          src="/image/hero.png"
-          alt="Background image"
-          style={{ objectFit: "cover" }}
-          className="xl:h-auto lg:h-[90%] md:h-full"
-        />
+      <div
+        className="absolute inset-0 z-0 hidden md:block bg-cover bg-center bg-no-repeat "
+        style={{
+          backgroundImage: "url('/image/hero.svg')",
+          backgroundSize: "contain",
+          minHeight: "100vh",
+        }}
+      >
+      
       </div>
 
       {/* Mobile Background Image */}
@@ -27,7 +29,7 @@ export default function Hero() {
       <div className="relative xl:w-[50%] w-full flex flex-col md:gap-12 gap-10 justify-start lg:mt-40 md:mt-52 mt-40 px-5 md:px-20">
         <div className="flex flex-col justify-start xl:text-start text-center">
           <p className="font-roboto font-medium lg:text-[40px] md:text-[35px] text-[25px] text-white leading-tight">
-            Scolarité:{" "}<br/>
+            Scolarité: <br />
             <b className="text-hero_color font-bold font-roboto">
               Conquer JAMB
             </b>{" "}

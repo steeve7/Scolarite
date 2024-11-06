@@ -5,37 +5,37 @@ import {MdArrowOutward } from 'react-icons/md'
 
 const items = [
   {
-    icons: "/image/Icon1.png",
+    icons: "/image/Icon1.svg",
     icons2: <MdArrowOutward />,
     title: "Over 10,000+JAMB Solutions",
     desc: "Enhance your abilities with a vast array of authentic JAMB questions covering all question types.",
   },
   {
-    icons: "/image/Icon2.png",
+    icons: "/image/Icon2.svg",
     icons2: <MdArrowOutward />,
     title: "Expert Instruction",
     desc: "Learn from industry experts with hands-on experience in curriculum design and development.",
   },
   {
-    icons: "/image/Icon3.png",
+    icons: "/image/Icon4.svg",
     icons2: <MdArrowOutward />,
     title: "All in one platform",
     desc: "Every study material  for JAMB examination is on our platform.",
   },
   {
-    icons: "/image/Icon4.png",
+    icons: "/image/Icon6.svg",
     icons2: <MdArrowOutward />,
     title: "Scolarité Analytics",
     desc: "Pinpoint your weak areas using powerful analytics and error tracking, and then transform them to strength.",
   },
   {
-    icons: "/image/Icon5.png",
+    icons: "/image/Icon3.svg",
     icons2: <MdArrowOutward />,
     title: "Personalized Curriculum",
     desc: "Receive a customized study plan based on your strengths and weaknesses for maximum preparation",
   },
   {
-    icons: "/image/Icon6.png",
+    icons: "/image/Icon5.svg",
     icons2: <MdArrowOutward />,
     title: "Guaranteed Success",
     desc: "Join our platform and become part of our success driven community.",

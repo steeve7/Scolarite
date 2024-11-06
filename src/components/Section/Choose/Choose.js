@@ -1,12 +1,6 @@
 "use client";
 import React from "react";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
-import choose from "../Choose/Assets/Image/choose.png";
-import student from "../Choose/Assets/Image/student.png";
-import student1 from "../Choose/Assets/Image/student1.png";
-import student2 from "../Choose/Assets/Image/student2.png";
-import student3 from "../Choose/Assets/Image/student3.png";
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function Choose() {
@@ -61,8 +55,8 @@ export default function Choose() {
               duration: 1,
             }}
           >
-            <Image
-              src={choose}
+            <img
+              src="/image/student.svg"
               alt="student_image"
               className="xl:w-[500px] w-[300px]"
             />
@@ -75,7 +69,7 @@ export default function Choose() {
           title: "UNLOCKING STUDENT POTENTIAL",
           description:
             "Our approach is designed to guide students to study effectively. This will not only be useful for JAMB preparation but also for higher educational endeavors.",
-          image: student,
+          image: "/image/student.png",
           order: "order-2",
           lines: "max-w-[80%] md:max-w-[75%] xl:max-w-[85%] lg:max-w-[80%] sm:max-w-[72%]",
           bgColor: "bg-white",
@@ -85,7 +79,7 @@ export default function Choose() {
           title: "CULTIVATING ACADEMIC FOUNDATIONS",
           description:
             "The platform enables students to reinforce their strengths, address their weaknesses, and build a robust foundation for academic and future careers.",
-          image: student2,
+          image: "/image/choose.svg",
           order: "order-1",
           color: "text-white",
           lines: "max-w-[90%] md:max-w-[88%] xl:max-w-[85%] lg:max-w-[90%] sm:max-w-[80%]",
@@ -95,7 +89,7 @@ export default function Choose() {
           title: "PERSONALIZED EXAM PREPARATION",
           description:
             "We are dedicated to guiding you through your exam preparations with a personalized learning experience. You will be exposed to proven strategies that will help you study effectively for exams, even beyond JAMB.",
-          image: student1,
+          image: "/image/student1.svg",
           order: "order-2",
           bgColor: "bg-white",
           lines: "max-w-[85%] md:max-w-[80%] xl:max-w-[78%] lg:max-w-[86%] sm:max-w-[75%]",
@@ -105,7 +99,7 @@ export default function Choose() {
           title: "ALL FACULTIES ARE COVERED",
           description:
             "Use our platform to advance your career in various specializations such as Arts, Education, Law, Management Sciences, Medical sciences, Physical/Environmental Sciences, Engineering and Social Sciences, among others.",
-          image: student3,
+          image: "image/student3.svg",
           order: "order-2",
           color: "text-white",
           lines: "max-w-[68%] md:max-w-[65%] xl:max-w-[63%] lg:max-w-[70%] sm:w-[60%]",
@@ -162,7 +156,7 @@ export default function Choose() {
                 duration: 1,
               }}
             >
-              <Image
+              <img
                 src={image}
                 alt="student_image"
                 className="xl:w-[500px] w-[300px]"
