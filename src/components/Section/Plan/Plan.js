@@ -5,7 +5,7 @@ export default function Plan() {
   const plans = [
     {
       type: "Basic Plan",
-      amount: "₦10000",
+      amount: "₦10,000",
       months: "/month",
       feature: "Avaliable Features",
       icon: <GrCheckmark />,
@@ -21,7 +21,7 @@ export default function Plan() {
     },
     {
       type: "Premium Plan",
-      amount: "₦25000",
+      amount: "₦25,000",
       months: "/month",
       feature: "Avaliable Features",
       icon: <GrCheckmark />,
@@ -55,10 +55,10 @@ export default function Plan() {
 
       {/* First content */}
       <div className="flex justify-center items-center flex-col lg:mt-0 mt-20 md:px-0 px-10">
-        <h2 className="font-roboto font-bold lg:text-[20px] md:text-[15px] text-[10px] text-plan-color bg-plan-custom rounded-full py-4 px-4 uppercase">
+        <h2 className="font-roboto font-bold lg:text-[15px] md:text-[15px] text-[10px] text-plan-color bg-plan-custom rounded-full py-2 px-6 uppercase">
           pricing
         </h2>
-        <p className="font-roboto font-medium lg:text-[30px] md:text-[20px] text-[15px] text-white lg:mt-0 mt-5">
+        <p className="font-roboto font-medium lg:text-[30px] md:text-[20px] text-[15px] text-white lg:mt-2 mt-5">
           Choose Your Plan:
         </p>
         <p className="font-roboto font-medium lg:text-[30px] md:text-[20px] text-[15px] text-white">
@@ -71,7 +71,7 @@ export default function Plan() {
       </div>
 
       {/* Second content */}
-      <div className="flex flex-row justify-center items-center mt-20 border border-custom-border-color rounded-md xl:w-[20%] w-1/2 m-auto gap-3 py-2 lg:px-0">
+      <div className="flex flex-row justify-center items-center mt-40 border border-custom-border-color rounded-md xl:w-[20%] w-1/2 m-auto gap-3 py-2 lg:px-0">
         <button className="font-roboto font-medium lg:text-[15px] text-[10px] text-white bg-black rounded-full px-3 py-3">
           Monthly
         </button>
@@ -88,7 +88,7 @@ export default function Plan() {
         {plans.map((plan, i) => (
           <div
             key={i}
-            className="bg-white rounded-md py-7 lg:px-7 w-full px-10"
+            className="bg-white rounded-md py-7 lg:px-12 w-full px-10"
           >
             <h2 className="font-roboto font-medium flex justify-center items-center border border-custom-border w-full m-auto p-2 rounded-md">
               {plan.type}
@@ -112,36 +112,38 @@ export default function Plan() {
             </h2>
             <div className="flex flex-col justify-start mt-10 gap-4">
               {/* Feature Descriptions */}
-              {[...Array(5)].map((_, index) => (
-                <div className="flex items-center gap-2" key={index}>
-                  <span className="bg-icon-color p-3 text-[15px]">
-                    {plan.icon}
-                  </span>
-                  <p className="font-roboto font-normal text-[rgba(76, 76, 77, 1)] lg:text-[15px] text-[10px]">
-                    {
-                      plan[
-                        `${
-                          ["first", "second", "third", "fourth", "fifth"][index]
-                        }_desc`
-                      ]
-                    }
-                  </p>
-                </div>
-              ))}
+                             {[...Array(5)].map((_, index) => (
+                  <div className="flex items-center gap-2" key={index}>
+                    <span className="bg-icon-color p-3 text-[10px]">
+                      {plan.icon}
+                    </span>
+                    <p className="font-roboto font-normal text-[rgba(76, 76, 77, 1)] lg:text-[13px] text-[10px]">
+                      {
+                        plan[
+                          `${
+                            ["first", "second", "third", "fourth", "fifth"][
+                              index
+                            ]
+                          }_desc`
+                        ]
+                      }
+                    </p>
+                  </div>
+                ))}
               {/* Render HiMiniXMark icon for Basic Plan's six_desc and seven_desc */}
               <div className="flex items-center gap-2">
-                <span className="bg-icon-color p-3 text-[15px]">
+                <span className="bg-icon-color p-3 text-[10px]">
                   {i === 0 ? plan.icon2 : plan.icon}
                 </span>
-                <p className="font-roboto font-normal text-[rgba(76, 76, 77, 1)] lg:text-[15px] text-[10px]">
+                <p className="font-roboto font-normal text-[rgba(76, 76, 77, 1)] lg:text-[13px] text-[10px]">
                   {plan.six_desc}
                 </p>
               </div>
               <div className="flex items-center gap-2">
-                <span className="bg-icon-color p-3 text-[15px]">
+                <span className="bg-icon-color p-3 text-[10px]">
                   {i === 0 ? plan.icon2 : plan.icon}
                 </span>
-                <p className="font-roboto font-normal text-[rgba(76, 76, 77, 1)] lg:text-[15px] text-[10px]">
+                <p className="font-roboto font-normal text-[rgba(76, 76, 77, 1)] lg:text-[13px] text-[10px]">
                   {plan.seven_desc}
                 </p>
               </div>
@@ -154,4 +156,4 @@ export default function Plan() {
       </div>
     </div>
   );
-} 
+}

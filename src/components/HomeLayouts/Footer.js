@@ -108,7 +108,7 @@ export default function Footer() {
           <h2 className="font-roboto font-bold text-text-color lg:text-[20px] text-[15px] uppercase">
             Products
           </h2>
-          <ul>
+          <ul className="flex flex-col gap-2">
             <Link href="">
               <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                 Courses
@@ -135,7 +135,7 @@ export default function Footer() {
           <h2 className="font-roboto font-bold text-text-color lg:text-[20px] text-[15px] uppercase">
             Company
           </h2>
-          <ul>
+          <ul className="flex flex-col gap-2">
             <Link href="">
               <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                 About Us
@@ -165,7 +165,7 @@ export default function Footer() {
           <h2 className="font-roboto font-bold text-text-color lg:text-[20px] text-[15px] uppercase">
             Get in Touch
           </h2>
-          <ul>
+          <ul className="flex flex-col gap-2">
             <Link href="">
               <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                 Twitter

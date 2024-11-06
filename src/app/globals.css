@@ -42,3 +42,25 @@
 .slow-bounce {
   animation: slowBounce 3s ease-in-out infinite; /* Adjust 3s for speed */
 }
+
+@keyframes slow-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.bounce-on-hover:hover {
+  animation: slow-bounce 1s ease-in-out infinite;
+}
+
+.slick-list {
+  padding: 0 10px; /* Adjust padding as needed */
+}
+
+.slick-slide > div {
+  padding: 0 10px; /* This will add padding on both sides of each card */
+  /* width: 150%; */
+}

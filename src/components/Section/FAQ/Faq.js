@@ -71,7 +71,7 @@ export default function Faq() {
 
       {/* Support Buttons */}
       <div className="flex flex-wrap justify-center items-center mt-10 gap-4">
-        <button className="bg-black text-white py-2 px-4 md:py-4 md:px-6 rounded-lg font-roboto font-bold text-[12px] md:text-[15px]">
+        <button className="bg-anal-color text-white py-2 px-4 md:py-4 md:px-6 rounded-lg font-roboto font-bold text-[12px] md:text-[15px]">
           Technical Support
         </button>
         <button className="border-2 border-black py-2 px-4 md:py-4 md:px-6 rounded-lg font-roboto font-bold text-[12px] md:text-[15px]">

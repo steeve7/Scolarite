@@ -45,8 +45,8 @@ const items = [
 export default function About() {
   return (
     <div className="w-full lg:mt-0 mt-20">
-      <div className="flex flex-col justify-center px-20">
-        <h2 className="text-center font-roboto font-medium lg:text-[40px] text-[20px] uppercase">
+      <div className="flex flex-col justify-center px-20 py-10">
+        <h2 className="text-center font-roboto font-medium lg:text-[30px] text-[20px] uppercase">
           WHAT IS SCOLARITÉ ?
         </h2>
         <div className="xl:w-[15%] md:w-[30%] w-full flex flex-row justify-center items-center gap-2 mt-4 border py-4 m-auto uppercase font-roboto font-bold rounded-lg border-black border-b-4 border-b-black shadow-xl">
@@ -56,7 +56,7 @@ export default function About() {
           </button>
         </div>
       </div>
-      <div className="flex md:flex-row flex-col justify-center items-center md:text-start text-center md:gap-20 gap-2 xl:px-20 px-10 md:mt-10 mt-20">
+      <div className="flex md:flex-row flex-col justify-center md:text-start text-center md:gap-36 gap-2 xl:px-20 px-10 mt-20">
         <div className="md:w-[40%] w-full lg:space-y-0 space-y-4">
           <div className="flex items-center md:justify-start justify-center gap-2">
             <div className="w-[5%] border-black h-[16%] border" />
@@ -70,30 +70,32 @@ export default function About() {
           </p>
         </div>
         <div className="md:w-[55%] w-full">
-          <p className="font-medium font-roboto lg:text-[20px] text-[15px] text-light-blue">
+          <p className="font-medium font-roboto lg:text-[18px] text-[15px] text-light-blue">
             We have cracked the JAMB exam. Let us equip you with everything you
             need to crack it yourself, guiding you through every step of the
             way.
           </p>
         </div>
       </div>
-      <div className="grid md:grid-cols-3 grid-cols-1 justify-items-center items-center gap-16 px-10 mt-10">
+      <div className="grid md:grid-cols-3 grid-cols-1 justify-items-center items-center px-10 mt-10">
         {items.map((item, i) => (
-          <div key={i} className="xl:w-[80%] w-full text-center px-5">
+          <div key={i} className="xl:w-[80%] w-full text-center px-5 py-20 space-y-2">
+            {/*image icon */}
             <img
               src={item.icons}
               alt="image_icon"
               width={70}
               height={70}
-              className="m-auto w-[80px]"
+              className="m-auto w-[80px] bounce-on-hover"
             />
+
             <h5 className="font-roboto font-semibold text-[20px] text-[rgba(51,51,51,1)]">
               {item.title}
             </h5>
             <p className="font-roboto font-normal text-[13px] text-[rgba(76, 76, 77, 1)]">
               {item.desc}
             </p>
-            <div className="flex justify-end">
+            <div className="flex justify-end mt-10">
               <p className="bg-[rgba(241, 241, 243, 1)]  border w-[40px] py-2 px-3 rounded">
                 {item.icons2}
               </p>
