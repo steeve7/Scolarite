@@ -52,6 +52,7 @@ export function rclick (e){
     const className = Array.from(e.target.classList).find((value,any)=> String(value).includes("w3switchitem"))
     document.getElementById("w3before").style.left = getElementPositionRelativeToParent(e.target).left + "px"
     document.getElementById("w3before").style.width = e.target.offsetWidth + "px"
+    document.getElementById("w3before").style.height = e.target.offsetHeight + "px"
     document.querySelectorAll(`.${className}`).forEach(el => el.style.color = "rgba(40, 46, 64, 1)")
     e.target.style.color = "white"
 }

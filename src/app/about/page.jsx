@@ -16,8 +16,14 @@ import {
 } from "../../components/addons/addons";
 import style from "./about.module.css";
 import logo from "@/app/assets/image/logo.png";
+import { useEffect } from "react";
 
 export default function AboutPage() {
+  useEffect(()=>{
+    document.querySelectorAll(`.${style.w3sit}`).forEach(e=>{
+        e.click()
+    })
+  },[])
   return (
     <>
       <main className={style.page_content}>

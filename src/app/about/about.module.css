@@ -130,25 +130,25 @@
 
 .wrapper3inputwrapper{
     display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     width: 100%;
     padding:20px;
-    max-width: 600px;
+    max-width: 800px;
 }
 .wrapper3messageinput{
     column-span: 3;
     width: 100%;
-    max-width: 600px;
+    max-width: 800px;
     padding-inline: 20px;
 }
 .wrapper3messageii{
     height: 100px;
 }
 .w3sendbtn{
-    font-size: 10px;
+    font-size: 14px;
     padding-inline: 50px;
-    padding-block: 10px;
+    padding-block: 15px;
     border-radius: 6px;
     background-color: black;
     color: white;
@@ -159,7 +159,7 @@
     display: flex;
     gap: 20px;
     border-radius: 25px;
-    padding: 3px;
+    padding: 5px;
     border:2px solid rgba(40, 46, 64, 1);
     position: relative;
     overflow: hidden;
@@ -168,7 +168,7 @@
 
 .w3switchitem{
     color: rgba(40, 46, 64, 1);
-    font-size: 12px;
+    font-size: 15px;
     border-radius: 20px;
     text-align: center;
     padding: 5px;
@@ -249,7 +249,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 10px;
-    background-color: rgba(0, 0, 0, 0.199);
+    /* background-color: rgba(0, 0, 0, 0.199); */
     color: white;
     font-size: 12px;
     align-items: center;
@@ -290,11 +290,13 @@
     box-shadow:var(--BshadW);
 }
 .gnt{
-    font-size: 30px;
+    font-size: 40px;
     font-weight: bolder;
 
 }
-
+.wrapper3decs{
+    font-size: 17px;
+}
 .wrapper1item1{
     display: grid;
     place-items: center;
