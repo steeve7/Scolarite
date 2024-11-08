@@ -5,28 +5,30 @@ export default function Hero() {
     <div className="relative flex flex-col xl:flex-row w-full">
       {/* Background Image for Desktop */}
       <div
-        className="absolute inset-0 z-0 hidden md:block bg-cover bg-center bg-no-repeat "
+        className="absolute inset-0 z-0 hidden md:block xl:bg-contain bg-cover bg-center bg-no-repeat "
         style={{
           backgroundImage: "url('/image/hero.svg')",
-          backgroundSize: "contain",
-          minHeight: "100vh",
+          
+          height: "100%",
+          width:"100%"
         }}
-      >
-      
-      </div>
+      ></div>
 
       {/* Mobile Background Image */}
       <div className="absolute inset-0 z-0 block md:hidden bg-cover bg-center bg-no-repeat">
         <img
           src="/image/mobile.png"
           alt="mobile-image"
-          style={{ objectFit: "cover" }}
-          className="h-full"
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover", // Ensures it scales within viewport boundaries
+          }}
         />
       </div>
 
       {/* Content Section */}
-      <div className="relative xl:w-[50%] w-full flex flex-col md:gap-12 gap-10 justify-start lg:mt-40 md:mt-52 mt-40 px-5 md:px-20">
+      <div className="relative xl:w-[50%] w-full flex flex-col md:gap-12 gap-10 justify-start lg:mt-60 md:mt-52 mt-40 px-5 md:px-20">
         <div className="flex flex-col justify-start xl:text-start text-center">
           <p className="font-roboto font-medium lg:text-[40px] md:text-[35px] text-[25px] text-white leading-tight">
             Scolarité: <br />
@@ -35,7 +37,7 @@ export default function Hero() {
             </b>{" "}
             with Game Changing Strategies & Targeted Resources
           </p>
-          <p className="font-roboto font-normal text-[12px] md:text-[20px] leading-[30px] text-custom-text-color mt-4 xl:w-[80%] w-full text-center">
+          <p className="font-roboto font-normal text-[12px] md:text-[20px] leading-[30px] text-custom-text-color mt-4 xl:w-[80%] w-full">
             As seasoned JAMB veterans, wne are here to empower you with
             professionally crafted learning strategies and proven approaches to
             help you achieve your dream JAMB score. Our comprehensive JAMB
@@ -70,11 +72,10 @@ export default function Hero() {
       </div>
 
       {/* Image Section */}
-      <div className="relative xl:w-[50%] lg:w-[55%] w-full xl:mt-60 lg:mt-16 lg:m-auto md:mt-20 mt-10">
+      <div className="relative xl:w-[50%] lg:w-[55%] w-full xl:mt-72 lg:mt-16 lg:m-auto md:mt-20 mt-10">
         <img
-          src="/image/hero1.png"
+          src="/image/book.svg"
           alt="hero_page"
-          style={{ objectFit: "contain" }}
           className="slow-bounce w-[2500px]"
         />
       </div>

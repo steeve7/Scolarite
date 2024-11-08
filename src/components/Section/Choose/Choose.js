@@ -6,14 +6,15 @@ import { motion } from "framer-motion";
 export default function Choose() {
   return (
     <div className="w-full flex flex-col justify-center items-center overflow-hidden">
-      <div className="relative w-full bg-gradient-to-b from-[#282E41] to-[#3E4A6F] py-20 min-h-[500px] flex flex-col justify-center items-center">
+      {/*section Template */}
+      <div className="relative w-full bg-gradient-to-b from-[#282E41] to-[#3E4A6F] py-20 flex flex-col justify-center items-center">
         <div className="text-center text-white">
           <h2 className="font-roboto font-medium lg:text-[30px] text-[20px]">
             WHY CHOOSE SCOLARITÉ?
           </h2>
           <div className="border-b-2 border-custom-border-color xl:w-[700px] w-[100%] lg:w-[800px] md:max-w-[1200px] mx-auto my-4" />
         </div>
-        <div className="relative w-full flex md:flex-row flex-col items-center justify-center py-10 min-h-[500px] md:px-0 px-10">
+        <div className="relative w-full flex md:flex-row flex-col items-center justify-center min-h-[500px] md:px-0 px-10">
           <motion.div
             className="md:w-[40%] w-full flex flex-col justify-start items-start text-start gap-6"
             initial={{ x: -100, opacity: 0 }}
@@ -71,7 +72,8 @@ export default function Choose() {
             "Our approach is designed to guide students to study effectively. This will not only be useful for JAMB preparation but also for higher educational endeavors.",
           image: "/image/student.png",
           order: "order-2",
-          lines: "max-w-[80%] md:max-w-[75%] xl:max-w-[85%] lg:max-w-[80%] sm:max-w-[72%]",
+          lines:
+            "max-w-[80%] md:max-w-[75%] xl:max-w-[85%] lg:max-w-[80%] sm:max-w-[72%]",
           bgColor: "bg-white",
           color: "text-black",
         },
@@ -82,7 +84,8 @@ export default function Choose() {
           image: "/image/choose.svg",
           order: "order-1",
           color: "text-white",
-          lines: "max-w-[90%] md:max-w-[88%] xl:max-w-[85%] lg:max-w-[90%] sm:max-w-[80%]",
+          lines:
+            "max-w-[90%] md:max-w-[88%] xl:max-w-[85%] lg:max-w-[90%] sm:max-w-[80%]",
           bgColor: "bg-gradient-to-b from-[#282E41] to-[#3E4A6F]",
         },
         {
@@ -92,7 +95,8 @@ export default function Choose() {
           image: "/image/student1.svg",
           order: "order-2",
           bgColor: "bg-white",
-          lines: "max-w-[85%] md:max-w-[80%] xl:max-w-[78%] lg:max-w-[86%] sm:max-w-[75%]",
+          lines:
+            "max-w-[85%] md:max-w-[80%] xl:max-w-[78%] lg:max-w-[86%] sm:max-w-[75%]",
           color: "text-black",
         },
         {
@@ -102,14 +106,15 @@ export default function Choose() {
           image: "image/student3.svg",
           order: "order-2",
           color: "text-white",
-          lines: "max-w-[68%] md:max-w-[65%] xl:max-w-[63%] lg:max-w-[70%] sm:w-[60%]",
+          lines:
+            "max-w-[68%] md:max-w-[65%] xl:max-w-[63%] lg:max-w-[70%] sm:w-[60%]",
           bgColor: "bg-gradient-to-b from-[#282E41] to-[#3E4A6F]",
         },
       ].map(
         ({ title, description, image, order, bgColor, color, lines }, idx) => (
           <div
             key={idx}
-            className={`relative w-full flex md:flex-row flex-col items-center justify-center py-10 md:px-0 px-10 ${bgColor} ${
+            className={`relative w-full flex md:flex-row flex-col items-center justify-center py-40 md:px-0 px-10 ${bgColor} ${
               idx === 0 ? "min-h-[500px]" : ""
             }`}
           >
@@ -131,7 +136,9 @@ export default function Choose() {
                 {title}
               </h2>
               {/*lines */}
-              <div className={`border-b-2 border-custom-border-color w-full ${lines} h-[2px] -mt-2`} />
+              <div
+                className={`border-b-2 border-custom-border-color w-full ${lines} h-[2px] -mt-2`}
+              />
               <p
                 className={`${color} font-roboto font-normal lg:text-[20px] text-[15px]`}
               >

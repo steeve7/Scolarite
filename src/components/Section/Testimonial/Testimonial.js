@@ -110,16 +110,16 @@ export default function Testimonial() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center py-20 rounded-2xl bg-bg-blue w-[80%] mt-10 m-auto md:overflow-visible overflow-hidden">
+    <div className="flex flex-col justify-center items-center py-20 rounded-2xl bg-bg-blue w-[80%] mt-20 m-auto md:overflow-visible overflow-hidden">
       {/* Header Section */}
-      <div className="flex flex-col lg:justify-start lg:items-start md:px-0 px-6 justify-center items-center">
-        {/* title Section */}
-        <div className="w-[10%] border-black h-[2px] border" />
-        <h2 className="font-roboto font-bold lg:text-[20px] text-[16px] text-dark-blue">
-          Testimonial
-        </h2>
-        {/* end of title Section */}
-        <p className="font-roboto font-medium lg:text-[30px] text-[22px] text-custom-blue lg:w-[70%] w-full md:text-start text-center mt-4">
+      <div className="flex flex-col gap-4 justify-center">
+        <div className="flex md:justify-start justify-center items-center gap-2">
+          <div className="w-[5%] border-black h-[16%] border" />
+          <h2 className="font-bold font-roboto lg:text-[20px] text-[15px] text-analytic-color uppercase">
+            Testimonial
+          </h2>
+        </div>
+        <p className="font-medium font-roboto md:text-start text-center lg:text-[30px] text-[20px] text-anal-color md:w-[90%] w-full">
           Hear from Our Achievers: Real Success Stories
         </p>
       </div>

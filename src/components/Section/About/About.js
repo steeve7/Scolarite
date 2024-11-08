@@ -79,7 +79,10 @@ export default function About() {
       </div>
       <div className="grid md:grid-cols-3 grid-cols-1 justify-items-center items-center px-10 mt-10">
         {items.map((item, i) => (
-          <div key={i} className="xl:w-[80%] w-full text-center px-5 py-20 space-y-2">
+          <div
+            key={i}
+            className="xl:w-[80%] w-full text-center px-5 py-20 space-y-2"
+          >
             {/*image icon */}
             <img
               src={item.icons}
