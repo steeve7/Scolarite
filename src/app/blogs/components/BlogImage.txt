@@ -1,0 +1,13 @@
+// src/app/blog/components/BlogImage.js
+import styles from '../blog.module.css';
+import Image from 'next/image';
+const BlogImage = ({ src, alt,className }) => {
+    if (!src) return null;  // Avoid rendering the component if `src` is null
+    return (
+      <div  className="blog-image">
+        <img src={src} alt={alt} className={className} />
+      </div>
+    );
+  };
+  
+  export default BlogImage;
