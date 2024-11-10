@@ -173,12 +173,21 @@ function NavBar(props) {
         <div className={mergeText(style.betweencenter, style.navres)}>
           <div className="!DO Not Remove"></div>
           <div className={mergeText(style.navlinks, "flex", style.navitem)}>
-            {navigationObject.map((object,index)=>{
-              return(
-                <a href={object.PATH}  className={mergeText(style.navlink,pathname===object.PATH?style.active:null)} key={index}>{object.NAME}</a>
-              )
-            })}
-            
+            <a href="/" className={style.navlink}>
+              Home
+            </a>
+            <a href="/pricingplans" className={style.navlink}>
+              Pricing/Plans
+            </a>
+            <a href="/about" className={style.navlink}>
+              About us
+            </a>
+            <a href="" className={style.navlink}>
+              Blog
+            </a>
+            <a href="/becomeAfliate" className={style.navlink}>
+              Become an Affiliate
+            </a>
           </div>
           <div className={style.navitem}>
             <div className={mergeText("", style.navauth)}>
