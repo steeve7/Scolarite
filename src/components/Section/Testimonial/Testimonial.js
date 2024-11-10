@@ -120,7 +120,7 @@ export default function Testimonial() {
       {/* Header Section */}
       <div className="flex flex-col lg:justify-start lg:items-start md:px-0 px-6 justify-center items-center">
         <div className="w-[10%] border-black h-[2px] border mb-4" />
-        <h2 className="font-roboto font-bold lg:text-[20px] text-[16px] text-dark-blue">
+        <h2 className="font-roboto font-bold lg:text-[20px] text-[16px] ani-hidden right-hide text-dark-blue">
           Testimonial
         </h2>
         <p className="font-roboto font-medium lg:text-[30px] text-[22px] text-custom-blue lg:w-[70%] w-full md:text-start text-center mt-4">

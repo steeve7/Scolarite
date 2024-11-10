@@ -70,7 +70,9 @@
     padding-inline: 9%;
     padding-block: 7%;
 }
-
+.wrapper1i2content{
+    font-size: 16px;
+}
 .wrapper2item2{
     display: flex;
     flex-direction: column;
@@ -121,33 +123,32 @@
     width: 100%;
     text-align: left;
 }
-.wrapper3item2{
-    width: 350px;
-}
+
 .wrapper3{
     padding-inline: 4%;
 }
+
 .wrapper3inputwrapper{
     display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     width: 100%;
     padding:20px;
-    max-width: 600px;
+    max-width: 800px;
 }
 .wrapper3messageinput{
     column-span: 3;
     width: 100%;
-    max-width: 600px;
+    max-width: 800px;
     padding-inline: 20px;
 }
 .wrapper3messageii{
     height: 100px;
 }
 .w3sendbtn{
-    font-size: 10px;
+    font-size: 14px;
     padding-inline: 50px;
-    padding-block: 10px;
+    padding-block: 15px;
     border-radius: 6px;
     background-color: black;
     color: white;
@@ -158,7 +159,7 @@
     display: flex;
     gap: 20px;
     border-radius: 25px;
-    padding: 3px;
+    padding: 5px;
     border:2px solid rgba(40, 46, 64, 1);
     position: relative;
     overflow: hidden;
@@ -167,7 +168,7 @@
 
 .w3switchitem{
     color: rgba(40, 46, 64, 1);
-    font-size: 12px;
+    font-size: 15px;
     border-radius: 20px;
     text-align: center;
     padding: 5px;
@@ -226,7 +227,7 @@
 .w4{
     width: 100%;
     position: relative;
-    height: 350px;
+    height: 550px;
     overflow: hidden;
     margin-top: 20px;
     box-sizing: border-box;
@@ -242,13 +243,13 @@
     object-position: center;
 }
 .w4content{
-    width: 300px;
+    width: 40%;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 10px;
-    background-color: rgba(0, 0, 0, 0.199);
+    /* background-color: rgba(0, 0, 0, 0.199); */
     color: white;
     font-size: 12px;
     align-items: center;
@@ -260,9 +261,12 @@
     position: relative;
     box-sizing: border-box;
 }
+.w4text{
+    font-size: 20px;
+}
 .w4title{
     font-weight: bolder;
-    font-size: 16px;
+    font-size: 35px;
     margin-bottom: 10px;
 }
 .w4img{
@@ -280,25 +284,35 @@
     padding: 5px;
     padding-inline: 15px;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 20px;
     text-transform: uppercase;
     font-weight: bolder;
     box-shadow:var(--BshadW);
 }
 .gnt{
-    font-size: 30px;
+    font-size: 40px;
     font-weight: bolder;
 
 }
-.imgsg{
-    max-width: 400px;
+.wrapper3decs{
+    font-size: 17px;
 }
 .wrapper1item1{
     display: grid;
     place-items: center;
 }
+.title{
+    font-size: 28px;
+}
+.wrapper3i1content{
+    font-size: 20px;
+}
+.wrapper3i1title{
+    width: 100%;
+    text-align: center;
+}
  
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 908px) {
 
     .wrapper3{
         flex-direction: column;
@@ -319,6 +333,9 @@
     .w4{
         display: grid;
         place-items: center;
+    }
+    .w4content{
+        width: 90%;
     }
 
 }

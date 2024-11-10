@@ -23,11 +23,11 @@
     border: 1px solid rgba(40, 46, 64, 1);
     padding-block: 10px;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: 15px;
 
 }
 .ainputwrapper .ainputlabel{
-    font-size: 11px;
+    font-size: 14px;
     font-weight: bolder;
 
 }

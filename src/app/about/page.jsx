@@ -16,8 +16,14 @@ import {
 } from "../../components/addons/addons";
 import style from "./about.module.css";
 import logo from "@/app/assets/image/logo.png";
+import { useEffect } from "react";
 
 export default function AboutPage() {
+  useEffect(()=>{
+    document.querySelectorAll(`.${style.w3sit}`).forEach(e=>{
+        e.click()
+    })
+  },[])
   return (
     <>
       <main className={style.page_content}>
@@ -115,10 +121,10 @@ export default function AboutPage() {
                 "ani-hidden right-hide"
               )}
             >
-              <Title className={mergeText(style.wrapper2i2title)}>
+              <Title className={mergeText(style.wrapper2i2title,style.title)}>
                 Our Mission & Vision
               </Title>
-              <div className={style.wrapper2i2content}>
+              <div className={mergeText(style.wrapper2i2content,style.wrapper1i2content)}>
                 <span className={style.w2i2cli1}>
                   To be a global leader in educational services that enhance the
                   quality of learning for people in Africa and beyond.{" "}
@@ -145,7 +151,7 @@ export default function AboutPage() {
                 "ani-hidden left-hide"
               )}
             >
-              <Title className={mergeText(style.wrapper3i1title)}>
+              <Title className={mergeText(style.wrapper3i1title,style.title)}>
                 Our Results Speak the loudest!!!
               </Title>
               <div className={style.wrapper3i1content}>

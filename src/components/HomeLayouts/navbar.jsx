@@ -75,7 +75,13 @@ export default function NavbarMain() {
 
 function NavBar(props) {
     const pathname = usePathname();
-
+    const navigationObject = [
+      {PATH:"/",NAME:"Home"},
+      {PATH:"/pricingplans",NAME:"Pricing/Plans"},
+      {PATH:"/about",NAME:"About us"},
+      {PATH:"/blogs",NAME:"Blog"},
+      {PATH:"/becomeAffliate",NAME:"Become an Affiliate"}
+    ]
    /*  const [navbar, setNavbar] = props.navattr
     const [isNavOpened, setIsNavOpened] = props.isattr */
 
@@ -98,8 +104,8 @@ function NavBar(props) {
               e.target.classList.add("ani-show");
               e.target.classList.remove("ani-hidden");
             } else {
-              /* e.target.classList.remove("ani-show")
-              e.target.classList.add("ani-hidden") */
+              if (e.target.classList.contains("ani-loop")){e.target.classList.remove("ani-show")
+              e.target.classList.add("ani-hidden")}
             }
           });
         },
@@ -146,7 +152,7 @@ function NavBar(props) {
               className={mergeText(style.navimage, style.navlogo)}
               alt="logo unavaliable"
             />
-            <span className={style.navtitletext}>SOLARITÉ</span>
+            <span className={style.navtitletext}>SCOLARITÉ</span>
           </span>
           <div
             className={mergeText(style.navmenuicon)}
