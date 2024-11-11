@@ -10,12 +10,12 @@ export default function Home() {
   return (
     <div>
       <Hero />
-      <About />
-      <Choose />
-      <Analytic />
-      <Plan />
-      <Testimonial />
-      <Faq />
+     <About />
+     <Choose />
+     <Analytic />
+     <Plan />
+     <Testimonial />
+     <Faq />
     </div>
   );
 }
