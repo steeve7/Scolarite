@@ -70,7 +70,7 @@
   padding: 0 10px; /* This will add padding on both sides of each card */
   /* width: 150%; */
 }
-=======
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -166,4 +166,3 @@ body::-webkit-scrollbar-thumb {
 *, *::before, *::after {
   box-sizing: border-box;
 }
->>>>>>> main

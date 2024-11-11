@@ -1,24 +1,19 @@
 import React from "react";
-import analytic from "../Analytic/Assets/Image/analytic.png";
-import analytic1 from "../Analytic/Assets/Image/analytic1.png";
-import analytic2 from "../Analytic/Assets/Image/analytic2.png";
-import laptop from "../Analytic/Assets/Image/laptop.png";
-import Image from "next/image";
 
 export default function Analytic() {
   const items = [
     {
-      image: analytic2,
+      image: "/image/analytic1.svg",
       ttile: "Performance Overview",
       desc: "Visualise your scores and study patterns in one glance for smarter, and targeted learning strategy.",
     },
     {
-      image: analytic1,
+      image: "/image/analytic2.svg",
       ttile: "Study Habits Analysis",
       desc: "Analyze and optimize your study habits to boost learning efficiency.",
     },
     {
-      image: analytic,
+      image: "/image/analytic.svg",
       ttile: "Goal Setting & Tracking",
       desc: "Set and track your goals to stay motivated and measure your performance.",
     },
@@ -29,8 +24,8 @@ export default function Analytic() {
       {/* Centered Content */}
       <div className="container mx-auto flex md:flex-row flex-col md:justify-between justify-center items-center px-10">
         <div className="md:w-1/2 w-full md:order-1 order-2 md:mt-0 mt-10">
-          <Image
-            src={laptop}
+          <img
+            src="/image/laptop.svg"
             alt="laptop-image"
             className="md:w-[570px] w-[600px]"
           />
@@ -60,7 +55,7 @@ export default function Analytic() {
                 key={i}
                 className="flex items-center gap-2 shadow-lg py-7 px-5 bg-white rounded-lg"
               >
-                <Image
+                <img
                   src={item.image}
                   alt="analytic-image"
                   className="lg:w-[30px] w-[20px]"

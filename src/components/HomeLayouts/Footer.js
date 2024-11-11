@@ -30,7 +30,7 @@ export default function Footer() {
             className="md:w-[63px] w-[35px]"
           />
           <div className="flex flex-col gap-2">
-            <h2 className="font-[Century] lg:text-[25px] text-[15px] font-normal text-custom-white">
+            <h2 className="font-[Century] lg:text-[22px] text-[15px] font-normal text-custom-white">
               SCOLARITÉ
             </h2>
             <p className="md:flex hidden font-roboto font-normal lg:text-[20px] text-[10px] text-custom-text-color">

@@ -2,7 +2,7 @@ import { FaRegArrowAltCircleRight } from "react-icons/fa";
 
 export default function Hero() {
   return (
-    <div className="relative flex flex-col xl:flex-row w-full">
+    <div className="relative flex flex-col xl:flex-row w-full -mt-20">
       {/* Background Image for Desktop */}
       <div
         className="absolute inset-0 z-0 hidden md:block xl:bg-contain bg-cover bg-center bg-no-repeat "

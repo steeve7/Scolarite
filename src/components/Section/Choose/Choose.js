@@ -114,8 +114,8 @@ export default function Choose() {
         ({ title, description, image, order, bgColor, color, lines }, idx) => (
           <div
             key={idx}
-            className={`relative w-full flex md:flex-row flex-col items-center justify-center py-40 md:px-0 px-10 ${bgColor} ${
-              idx === 0 ? "min-h-[500px]" : ""
+            className={`relative w-full flex md:flex-row flex-col items-center justify-center py-56 md:px-0 px-10 ${bgColor} ${
+              idx === 0 ? "min-h-[700px]" : ""
             }`}
           >
             <motion.div

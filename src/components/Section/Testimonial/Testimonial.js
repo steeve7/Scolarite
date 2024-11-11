@@ -1,10 +1,6 @@
 "use client";
 import React from "react";
-import Image from "next/image";
 import Slider from "react-slick";
-import test from "../Testimonial/Assets/Image/tests.png";
-import test1 from "../Testimonial/Assets/Image/test1.png";
-import test2 from "../Testimonial/Assets/Image/test2.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
@@ -63,19 +59,19 @@ export default function Testimonial() {
       desc: "“Buku ini membantu banget buat kalian yang mau cobain tailwind, lengkap mulai dari instalasi sampai ke penggunaannya. Penjelasannya lengkap & enak dibaca kok :)”",
       name: "Ahmad Saugi",
       title: "Mahasiswa",
-      image: test,
+      image: "/image/test2.svg",
     },
     {
       desc: "“Terimakasih atas bukunya mas. Sangat membantu saya yang masih pemula dalam proses memahami tailwindcss. Isinya cukup lengkap dan detail.”",
       name: "Dedik Sugiharto",
       title: "Front-end Engineer",
-      image: test1,
+      image: "/image/test1.svg",
     },
     {
       desc: "“Sebagai pemula yang tidak memiliki latar belakang pemrograman, buku ini sangat cocok untuk dijadikan referensi belajar. Penjelasannya ringkas tapi mudah dipahami.”",
       name: "Lutfi Hanafiah Ramadhan",
       title: "IT Support",
-      image: test2,
+      image: "/image/test3.svg",
     },
   ];
 
@@ -136,7 +132,7 @@ export default function Testimonial() {
                 {test.desc}
               </p>
               <div className="flex items-center gap-3 mt-5">
-                <Image
+                <img
                   src={test.image}
                   alt="testimonial_image"
                   width={40}
