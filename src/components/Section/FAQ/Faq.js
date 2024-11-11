@@ -1,7 +1,5 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import Fag from "../FAQ/Assets/Image/faq.png";
-import Image from "next/image";
 import { FiPlus } from "react-icons/fi";
 import { MdClose } from "react-icons/md";
 import { IoIosArrowRoundForward } from "react-icons/io";
@@ -13,9 +11,7 @@ export default function Faq() {
       answer:
         "Absolutely! You can enroll in multiple courses simultaneously and access them at your convenience.",
       desc: "Enrollment Process for Different Courses",
-      icon: (
-        <IoIosArrowRoundForward />
-      ),
+      icon: <IoIosArrowRoundForward />,
     },
     {
       question: "What kind of support can I expect from instructors?",
@@ -56,10 +52,10 @@ export default function Faq() {
   };
 
   return (
-    <div className="mt-16 w-full px-4 md:px-10 lg:px-0">
+    <div className="mt-16 w-full px-4 md:px-10 lg:px-0 mb-20">
       {/* Header Section */}
       <div className="flex flex-col justify-center items-center gap-4">
-        <Image src={Fag} alt="faq_image" className="w-[40px] md:w-[60px]" />
+        <img src="/image/faq.svg" alt="faq_image" className="w-[40px] md:w-[60px]" />
         <h2 className="font-roboto font-semibold text-[20px] md:text-[24px] lg:text-[30px] text-center">
           Frequently Asked Questions
         </h2>
@@ -71,16 +67,16 @@ export default function Faq() {
 
       {/* Support Buttons */}
       <div className="flex flex-wrap justify-center items-center mt-10 gap-4">
-        <button className="bg-anal-color text-white py-2 px-4 md:py-4 md:px-6 rounded-lg font-roboto font-bold text-[12px] md:text-[15px]">
+        <button className="bg-black ani-hidden bottom-hide delay-0 text-white py-2 px-4 md:py-4 md:px-6 rounded-lg font-roboto font-bold text-[12px] md:text-[15px]">
           Technical Support
         </button>
-        <button className="border-2 border-black py-2 px-4 md:py-4 md:px-6 rounded-lg font-roboto font-bold text-[12px] md:text-[15px]">
+        <button className="border-2 ani-hidden bottom-hide delay-100 border-black py-2 px-4 md:py-4 md:px-6 rounded-lg font-roboto font-bold text-[12px] md:text-[15px]">
           Billing Support
         </button>
-        <button className="border-2 border-black py-2 px-4 md:py-4 md:px-6 rounded-lg font-roboto font-bold text-[12px] md:text-[15px]">
+        <button className="border-2 ani-hidden bottom-hide delay-200 border-black py-2 px-4 md:py-4 md:px-6 rounded-lg font-roboto font-bold text-[12px] md:text-[15px]">
           Academic & Course Support
         </button>
-        <button className="border-2 border-black py-2 px-4 md:py-4 md:px-6 rounded-lg font-roboto font-bold text-[12px] md:text-[15px]">
+        <button className="border-2 ani-hidden bottom-hide delay-300 border-black py-2 px-4 md:py-4 md:px-6 rounded-lg font-roboto font-bold text-[12px] md:text-[15px]">
           Upgrade Related Support
         </button>
       </div>
@@ -90,7 +86,7 @@ export default function Faq() {
         {reads.map((read, index) => (
           <div
             key={index}
-            className="flex flex-row gap-3 justify-between border-2 rounded-lg mb-5 py-5 px-5"
+            className="flex flex-row gap-3 justify-between border-2 rounded-lg mb-5 py-5 px-5 ani-hidden right-hide "
           >
             <div className="flex flex-col flex-1 mb-5">
               <h2 className="font-medium text-[18px] font-circular text-dark-color">

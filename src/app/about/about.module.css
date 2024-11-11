@@ -1,0 +1,351 @@
+.main{
+    padding-block: 40px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+    overflow-x: hidden;
+}
+.page_content{
+    width: 100%;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+@keyframes imageAnimation {
+
+    50%{
+        translate: -10px 10px;
+    }
+
+}
+
+@keyframes imageAnimationr {
+
+    50%{
+        translate: -10px 10px;
+        rotate: 3deg;
+    }
+
+}
+
+.imgAni{
+    animation-name: imageAnimation;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+.imgAnir{
+    animation-name: imageAnimationr;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+}
+
+
+.pagename{ 
+    width: fit-content;
+    text-align: center;
+    /* font-family: 'Roboto'; */
+    font-style: normal;
+    font-weight: 500;
+    color: #252B3C;
+    display: flex;
+    gap: 10px;
+    justify-content:center ;
+    align-items: center;
+}
+
+.wrapper1{
+    place-items:initial;
+    padding-inline: 4%;
+}
+
+.wrapperimage{
+    width: 100%;
+}
+.wrapper2{
+    background: linear-gradient(180deg, #282E41 0%, #3E4A6F 100%);
+    color: white;
+    padding-inline: 9%;
+    padding-block: 7%;
+}
+.wrapper1i2content{
+    font-size: 16px;
+}
+.wrapper2item2{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.w2i2cli1{
+    position: relative;
+}
+.w2i2cli1::before{
+    content: "";
+    width: 3px;
+    height: 3px;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    top: 20%;
+    left: -14px;
+
+}
+.wrapper2i2content{
+    color: rgba(255, 255, 255, 0.8);
+}
+.orderedlist{
+    margin-left: 20px;
+    list-style-type:decimal;
+}
+.pagenameline{
+    display: inline-block;
+    width: 25px;
+    height: 2px;
+    overflow: hidden;
+    color: transparent;
+    border-radius: 2px;
+    background-color: #252B3C;
+}
+.joinbtn{
+    background-color: black;
+    color: white;
+    width: fit-content;
+    padding-inline: 40px;
+    padding-block:10px;
+    border-radius:20px;
+    font-size: 12px;
+    box-shadow: var(--boxinsetmshadow);
+}
+.wrapper3i1title{
+    width: 100%;
+    text-align: left;
+}
+
+.wrapper3{
+    padding-inline: 4%;
+}
+
+.wrapper3inputwrapper{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+    padding:20px;
+    max-width: 800px;
+}
+.wrapper3messageinput{
+    column-span: 3;
+    width: 100%;
+    max-width: 800px;
+    padding-inline: 20px;
+}
+.wrapper3messageii{
+    height: 100px;
+}
+.w3sendbtn{
+    font-size: 14px;
+    padding-inline: 50px;
+    padding-block: 15px;
+    border-radius: 6px;
+    background-color: black;
+    color: white;
+    margin-top: 20px;
+    box-shadow: var(--boxinsetshadow);
+}
+.w3switch{
+    display: flex;
+    gap: 20px;
+    border-radius: 25px;
+    padding: 5px;
+    border:2px solid rgba(40, 46, 64, 1);
+    position: relative;
+    overflow: hidden;
+    width: fit-content;
+}
+
+.w3switchitem{
+    color: rgba(40, 46, 64, 1);
+    font-size: 15px;
+    border-radius: 20px;
+    text-align: center;
+    padding: 5px;
+    padding-inline: 20px;
+    font-weight: 600;
+    transition: color 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
+    background-color 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+   
+}
+.w3switchitem::before{
+    --blob: cubic-bezier(0.175, 0.885, 0.32, 1.575) ;
+    color: white;
+    content: "";
+    display: block;
+    width: 0;
+    height:0;
+    position: absolute;
+    border-radius: inherit;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -100;
+    background-color: rgba(40, 46, 64, 0);
+    transition: width 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    height 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    background-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.w3switchitem:hover::before{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(40, 46, 64, 0.277);
+}
+
+.w3sit{
+    color: white;
+    /* width: 200px ; */
+}
+.w3switch .w3before{
+    content: "student";
+    font-size: 12px;
+    border-radius: 20px;
+    padding: 5px;
+    padding-inline: 20px;
+    font-weight: 600;
+    background-color: rgba(40, 46, 64, 1);
+    border-radius: 20px;
+    display: inline-block;
+    position: absolute;
+    color: transparent;
+    z-index: -200;
+    transition: left 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
+    width 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.w4{
+    width: 100%;
+    position: relative;
+    height: 550px;
+    overflow: hidden;
+    margin-top: 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+.w4i{
+    position: absolute;
+    width: 100%;
+    z-index: -100;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.w4content{
+    width: 40%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    /* background-color: rgba(0, 0, 0, 0.199); */
+    color: white;
+    font-size: 12px;
+    align-items: center;
+    height: 80%;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    position: relative;
+    box-sizing: border-box;
+}
+.w4text{
+    font-size: 20px;
+}
+.w4title{
+    font-weight: bolder;
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+.w4img{
+    width: 50px;
+    position: absolute;
+    top: -25px;
+
+}
+.w4content{
+    margin: 20px;
+}
+.w4btn{
+    background-color: rgb(233, 233, 233);
+    color: black;
+    padding: 5px;
+    padding-inline: 15px;
+    border-radius: 5px;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    box-shadow:var(--BshadW);
+}
+.gnt{
+    font-size: 40px;
+    font-weight: bolder;
+
+}
+.wrapper3decs{
+    font-size: 17px;
+}
+.wrapper1item1{
+    display: grid;
+    place-items: center;
+}
+.title{
+    font-size: 28px;
+}
+.wrapper3i1content{
+    font-size: 20px;
+}
+.wrapper3i1title{
+    width: 100%;
+    text-align: center;
+}
+ 
+@media screen and (max-width: 908px) {
+
+    .wrapper3{
+        flex-direction: column;
+    }
+    .wrapperimagewrapper{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .pagename{
+        
+        width: 100%;
+    }
+    .wrapper2{
+        padding-block: 4%;;
+    }
+    .w4{
+        display: grid;
+        place-items: center;
+    }
+    .w4content{
+        width: 90%;
+    }
+
+}
+
+
+
+
+
+
+.hr{
+    margin-block: 30px;
+    border: 2px solid rgba(128, 128, 128, 0.514);
+}

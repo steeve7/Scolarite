@@ -1,0 +1,15 @@
+// src/app/blog/components/BlogHeader.js
+import styles from '../blog.module.css';
+
+// Example: BlogHeader.js
+const BlogHeader = ({ title }) => {
+    if (!title) return null;  // This will ensure title is not null or undefined
+    return (
+      <header>
+        <h1>{title}</h1>
+      </header>
+    );
+  };
+  
+  export default BlogHeader;
+  

@@ -1,9 +1,20 @@
-import React from 'react'
+import NavbarMain from "@/components/HomeLayouts/navbar"
+import style from "./navbar.module.css"
+import NavBar from '@/components/HomeLayouts/navbar'
+// import React, { useEffect } from 'react'
 
-export default function Header() {
+
+function Header() {
   return (
-    <div>
-      <h1>Header</h1>
+    <div className={style.header}>
+      <NavbarMain/>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
     </div>
   )
 }
+
+export default Header
