@@ -40,7 +40,7 @@ function PcFe(props){
     
 }
 
-function PriceCom({label, value , list , className}){
+export function PriceCom({label, value , list , className}){
     return <div className={mergeText(style.priceCom,className)}>
         <div className={style.pclabel}>{label}</div>
         <div className={style.pcvalue}>₦{value}<span className={style.pcsmonth}>/month</span></div>
@@ -54,7 +54,7 @@ function PriceCom({label, value , list , className}){
     </div>
 }
 
-function FaqCom({text,title}){
+export function FaqCom({text,title}){
     const id = "faqcom ___ "+title
     return <div className={mergeText("ani-hidden right-hide",style.faqcom)} id= {id}>
         <div  className={style.faqctw}>
@@ -137,7 +137,21 @@ export default function PricingPage(props){
             <div className={mergeText(style.faqiw,style.faqtitle)}>Frequently Asked Questions</div>
             <div className={mergeText(style.faqiw,style.faqtext)}>If you have any questions?
             Contact our Team <a href="mailto:viasupport@skillbridge.com" style={{textDecoration:"underline"}}>viasupport@skillbridge.com</a></div>
-            <br />
+            {/* Support Buttons */}
+      <div className="flex flex-wrap justify-center items-center mt-10 gap-4">
+        <button className="bg-black ani-hidden bottom-hide delay-0 text-white py-2 px-4 md:py-4 md:px-6 rounded-lg font-roboto font-bold text-[12px] md:text-[15px]">
+          Technical Support
+        </button>
+        <button className="border-2 ani-hidden bottom-hide delay-100 border-black py-2 px-4 md:py-4 md:px-6 rounded-lg font-roboto font-bold text-[12px] md:text-[15px]">
+          Billing Support
+        </button>
+        <button className="border-2 ani-hidden bottom-hide delay-200 border-black py-2 px-4 md:py-4 md:px-6 rounded-lg font-roboto font-bold text-[12px] md:text-[15px]">
+          Academic & Course Support
+        </button>
+        <button className="border-2 ani-hidden bottom-hide delay-300 border-black py-2 px-4 md:py-4 md:px-6 rounded-lg font-roboto font-bold text-[12px] md:text-[15px]">
+          Upgrade Related Support
+        </button>
+      </div>
             <div className={style.fcw}>
                 <FaqCom text="Absolutely! You can enroll in multiple courses simultaneously and access them at your convenience." title="Can I enroll in multiple courses at once?"/>
         
