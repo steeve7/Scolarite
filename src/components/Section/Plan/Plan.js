@@ -45,7 +45,7 @@ export default function Plan() {
 
       {/* First content */}
       <div className="flex justify-center items-center flex-col lg:mt-0 mt-20 md:px-0 px-10">
-        <h2 className="font-roboto font-bold lg:text-[20px] md:text-[15px] text-[10px] ani-hidden bottom-hide text-plan-color bg-plan-custom rounded-full py-4 px-4 uppercase">
+        <h2 className="font-roboto font-bold lg:text-[20px] md:text-[15px] text-[10px] ani-hidden bottom-hide text-plan-color bg-plan-custom rounded-full py-2 px-4 uppercase">
           pricing
         </h2>
         <p className="font-roboto font-medium lg:text-[30px] md:text-[20px] text-[15px] text-white lg:mt-0 mt-5">
