@@ -1,5 +1,5 @@
 .main{
-    padding-block: 40px;
+    /* padding-block: 40px; */
     font-size: 14px;
     display: flex;
     flex-direction: column;
@@ -294,6 +294,7 @@
     font-weight: bolder;
 
 }
+
 .wrapper3decs{
     font-size: 17px;
 }
@@ -310,6 +311,11 @@
 .wrapper3i1title{
     width: 100%;
     text-align: center;
+}
+.w0{
+    background-color: #262b3d;
+    padding-block:20px ;
+    color: white;
 }
  
 @media screen and (max-width: 908px) {

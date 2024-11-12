@@ -3,7 +3,8 @@ import Image from "next/image";
 import { mergeText } from "../add";
 import w1i1 from "./assets/w1i1.png";
 import w2i1 from "./assets/w2i1.png";
-import w3i2 from "./assets/w3i1.png";
+import w3i2 from "./assets/w3i1.gif";
+import w0i1 from "./assets/woi1.gif";
 import w4i from "./assets/w4i.png";
 import Link from "next/link";
 import {
@@ -29,6 +30,39 @@ export default function AboutPage() {
       <main className={style.page_content}>
         <main className={mergeText("snap-y snap-mandatory", style.main)}>
           {/* <CustomInput placeholder={"placeholder test"}></CustomInput> */}
+          <G2Wrapper className={mergeText(style.wrapper3,style.w0)}>
+            <div
+              className={mergeText(
+                style.wrapper2item2,
+                style.wrapper3item2,
+                "ani-hidden left-hide"
+              )}
+            >
+              <Title className={mergeText(style.wrapper3i1title,style.title)}>
+              Welcome to Our Thriving Learning Community!
+              </Title>
+              <div className={style.wrapper3i1content}>
+              Join a vibrant network of passionate learners where knowledge, support, and inspiration flow freely. Connect with like-minded individuals, gain valuable insights from experts, and discover a pathway to unlock your full potential. <span style={{color:"yellow"}}>Embark on a journey of growth, collaboration, and endless possibilities—your learning adventure starts here!</span>
+              </div>
+            </div>
+            <div
+              className={mergeText(
+                style.wrapperimagewrapper,
+                style.wrapper3item1,
+                "ani-hidden right-hide"
+              )}
+            >
+              <Image
+                src={w0i1}
+                className={mergeText(
+                  style.imgAni,
+                  style.wrapperimage,
+                  style.imgsg
+                )}
+                alt="about us"
+              />
+            </div>
+          </G2Wrapper>
           <G2Wrapper className={style.wrapper1}>
             <div
               className={mergeText(

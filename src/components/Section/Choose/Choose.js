@@ -22,16 +22,8 @@ export default function Choose() {
         {/*first section*/}
         <div className="flex md:flex-row flex-col justify-around items-center gap-4 md:gap-0 mt-24 px-10">
           <motion.div
-            className="flex flex-col justify-start items-start text-start md:w-[40%] w-full gap-6"
-            initial={{ x: -100, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{
-              delay: 0.2,
-              x: { type: "spring", stiffness: 60 },
-              opacity: { duration: 1 },
-              ease: "easeIn",
-              duration: 1,
-            }}
+            className="flex flex-col ani-hidden  left-hide justify-start items-start text-start md:w-[40%] w-full gap-6"
+            
           >
             <h2 className="font-medium xl:text-[30px] lg:text-[25px] md:text-[18px] text-[13px] font-roboto text-white">
               EXPERTISE AND EXCELLENCE
@@ -54,16 +46,8 @@ export default function Choose() {
             </div>
           </motion.div>
           <motion.div
-            className="md:-mt-20"
-            initial={{ x: 100, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{
-              delay: 0.4,
-              x: { type: "spring", stiffness: 60 },
-              opacity: { duration: 1 },
-              ease: "easeIn",
-              duration: 1,
-            }}
+            className="md:-mt-20 ani-hidden  right-hide"
+            
           >
             <Image
               src={choose}
@@ -76,16 +60,8 @@ export default function Choose() {
       {/*second section*/}
       <div className="flex md:flex-row flex-col justify-around items-center gap-4 md:gap-0 md:py-7 py-10 md:px-0 px-10">
         <motion.div
-          className="flex flex-col justify-start items-start text-left md:w-[40%] w-full md:order-2 order-1 gap-6"
-          initial={{ x: 100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{
-            delay: 0.4,
-            x: { type: "spring", stiffness: 60 },
-            opacity: { duration: 1 },
-            ease: "easeIn",
-            duration: 1,
-          }}
+          className="flex flex-col justify-start ani-hidden  right-hide items-start text-left md:w-[40%] w-full md:order-2 order-1 gap-6"
+          
         >
           <h2 className="font-medium xl:text-[30px] lg:text-[25px] text-[18px] font-roboto text-black">
             UNLOCKING STUDENT POTENTIAL
@@ -107,16 +83,8 @@ export default function Choose() {
           </div>
         </motion.div>
         <motion.div
-          className="md:order-1 order-2"
-          initial={{ x: -100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{
-            delay: 0.2,
-            x: { type: "spring", stiffness: 60 },
-            opacity: { duration: 1 },
-            ease: "easeIn",
-            duration: 1,
-          }}
+          className="md:order-1 order-2 ani-hidden  left-hide"
+          
         >
           <Image
             src={student}
@@ -128,16 +96,11 @@ export default function Choose() {
       {/*third section*/}
       <div className="flex md:flex-row flex-col justify-around items-center gap-4 md:gap-0 px-10 bg-gradient-to-b from-[#282E41] to-[#3E4A6F] py-20">
         <motion.div
-          className="flex flex-col justify-start items-start text-left md:w-[40%] w-full gap-6"
-          initial={{ x: -100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{
-            delay: 0.2,
-            x: { type: "spring", stiffness: 60 },
-            opacity: { duration: 1 },
-            ease: "easeIn",
-            duration: 1,
+          style={{
+            paddingBlock:"10%"
           }}
+          className="flex flex-col justify-start ani-hidden   left-hide items-start text-left md:w-[40%] w-full gap-6"
+          
         >
           <h2 className="font-medium xl:text-[25px] lg:text-[20px] md:text-[15px] text-[15px] font-roboto text-white">
             CULTIVATING ACADEMIC FOUNDATIONS
@@ -159,16 +122,8 @@ export default function Choose() {
           </div>
         </motion.div>
         <motion.div
-          className=""
-          initial={{ x: 100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{
-            delay: 0.4,
-            x: { type: "spring", stiffness: 60 },
-            opacity: { duration: 1 },
-            ease: "easeIn",
-            duration: 1,
-          }}
+          className="ani-hidden  right-hide"
+          
         >
           <Image
             src={student2}
@@ -180,16 +135,8 @@ export default function Choose() {
       {/*fourth section*/}
       <div className="flex md:flex-row flex-col justify-around items-center gap-4 md:gap-0 py-10 md:px-0 px-10">
         <motion.div
-          className="flex flex-col justify-start items-start text-left md:w-[40%] w-full md:order-2 order-1 gap-6"
-          initial={{ x: 100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{
-            delay: 0.4,
-            x: { type: "spring", stiffness: 60 },
-            opacity: { duration: 1 },
-            ease: "easeIn",
-            duration: 1,
-          }}
+          className="flex flex-col ani-hidden  right-hide justify-start items-start text-left md:w-[40%] w-full md:order-2 order-1 gap-6"
+          
         >
           <h2 className="font-medium xl:text-[30px] lg:text-[22px] md:text-[18px] text-[15px] font-roboto text-black">
             PERSONALIZED EXAM PREPARATION
@@ -212,16 +159,8 @@ export default function Choose() {
           </div>
         </motion.div>
         <motion.div
-          className="md:order-1 order-2"
-          initial={{ x: -100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{
-            delay: 0.2,
-            x: { type: "spring", stiffness: 60 },
-            opacity: { duration: 1 },
-            ease: "easeIn",
-            duration: 1,
-          }}
+          className="md:order-1 order-2 ani-hidden  left-hide"
+          
         >
           <Image
             src={student1}
@@ -233,16 +172,8 @@ export default function Choose() {
       {/*fifth section*/}
       <div className="flex md:flex-row flex-col justify-around items-center gap-4 md:gap-0 px-10 bg-gradient-to-b from-[#282E41] to-[#3E4A6F] py-20">
         <motion.div
-          className="flex flex-col justify-start items-start text-left md:w-[40%] w-full md:order-2 order-1 gap-5"
-          initial={{ x: 100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{
-            delay: 0.4,
-            x: { type: "spring", stiffness: 60 },
-            opacity: { duration: 1 },
-            ease: "easeIn",
-            duration: 1,
-          }}
+          className="flex flex-col justify-start items-start ani-hidden  right-hide text-left md:w-[40%] w-full md:order-2 order-1 gap-5"
+          
         >
           <h2 className="font-medium xl:text-[30px] lg:text-[22px] text-[20px] font-roboto text-white">
             ALL FACULTIES ARE COVERED
@@ -265,16 +196,8 @@ export default function Choose() {
           </div>
         </motion.div>
         <motion.div
-          className="md:order-1 order-2"
-          initial={{ x: -100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{
-            delay: 0.2,
-            x: { type: "spring", stiffness: 60 },
-            opacity: { duration: 1 },
-            ease: "easeIn",
-            duration: 1,
-          }}
+          className="md:order-1 order-2 ani-hidden  left-hide"
+          
         >
           <Image
             src={student3}

@@ -20,6 +20,15 @@ const  test = [
     " Access to exclusive Pro Plan community forums.",
     " Early access to new courses and updates.",
 ]
+const  test2 = [
+    "Access to selected free courses.",
+    "Limited course materials and resources.",
+    "Basic community support.",
+    "No certification upon completion.",
+    "Ad-supported platform.",
+    " Access to exclusive Pro Plan community forums.",
+    " Early access to new courses and updates.",
+]
 
 function PcFe(props){
     const icon = String(props.value).includes("--X--")?pcfex:pcfem
@@ -89,7 +98,7 @@ export default function PricingPage(props){
             e.click()
         })
     },[])
-    const listetest = (...inde)=>{var test2 =Array.from(test);test2 = test2.map((val,index)=> inde.includes(index)?val+"--X--":val);return test2}
+    const listed = (list,...inde)=>{var test2 =Array.from(list);test2 = test2.map((val,index)=> inde.includes(index)?val+"--X--":val);return test2}
 
     return <main className={style.page_content}>
         <div className={style.main}>
@@ -117,9 +126,9 @@ export default function PricingPage(props){
                 <div className={style.priceview}>
                     
                     <div className={style.prices}>
-                        <PriceCom className={mergeText("ani-hidden right-hide ","")} list={listetest(6,3)} label="Basic Plan" value={prices[0]}/>
-                        <PriceCom className={mergeText("ani-hidden right-hide delay-100","")} list={listetest(0,1)} label="Premium Plan" value={prices[1]}/>
-                        <PriceCom className={mergeText("ani-hidden right-hide delay-200","")} list={listetest(4,2)} label="Custom Plan" value=" Custom "/>
+                        <PriceCom className={mergeText("ani-hidden right-hide ","")} list={listed(test,6,3)} label="Basic Plan" value={prices[0]}/>
+                        <PriceCom className={mergeText("ani-hidden right-hide delay-100","")} list={listed(test,0,1)} label="Premium Plan" value={prices[1]}/>
+                        <PriceCom className={mergeText("ani-hidden right-hide delay-200","")} list={listed(test2,4,2)} label="Custom Plan" value=" Custom "/>
                     </div>
                 </div>
             <div className={style.faqiw}>

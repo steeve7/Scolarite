@@ -96,7 +96,16 @@ body {
     rgb(var(--background-start-rgb));
     background: white;
     color: black;
-  height: 100vh;
   overflow-x: hidden;
   font-family: Montserrat Alternates;
+}
+*::selection{
+  background-color: rgba(0, 255, 255, 0.164);
+}
+::-webkit-scrollbar{
+  width: 12px;
+}
+::-webkit-scrollbar-thumb{
+  background-color:rgba(47, 54, 75, 1);
+  border-radius: 2px;
 }
