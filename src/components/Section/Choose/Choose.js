@@ -112,7 +112,7 @@ export default function Choose() {
             future careers.
           </p>
           <div className="md:w-[50%] w-full">
-            <button
+            <button 
               type="button"
               className="text-white font_roboto uppercase flex items-center gap-2 font-bold text-[10px] xl:text-[15px] py-[.7rem] px-[1.5rem] bg-black rounded-[212.76px] border-0 outline-none"
             >
