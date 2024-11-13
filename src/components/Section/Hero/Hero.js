@@ -8,9 +8,8 @@ export default function Hero() {
         className="absolute inset-0 z-0 hidden md:block xl:bg-contain bg-cover bg-center bg-no-repeat "
         style={{
           backgroundImage: "url('/image/hero.svg')",
-          
           height: "100%",
-          width:"100%"
+          width: "100%",
         }}
       ></div>
 
@@ -76,7 +75,7 @@ export default function Hero() {
         <img
           src="/image/book.svg"
           alt="hero_page"
-          className="slow-bounce w-[2500px]"
+          className="slow-bounce animated-image w-[2500px]"
         />
       </div>
     </div>

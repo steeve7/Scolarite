@@ -47,7 +47,7 @@ export default function Choose() {
           </motion.div>
           <motion.div
             className="md:order-1 order-2"
-            initial={{ x: -100, opacity: 0 }}
+            initial={{ x: 100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{
               delay: 0.3,
