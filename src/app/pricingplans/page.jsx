@@ -20,6 +20,15 @@ const  test = [
     " Access to exclusive Pro Plan community forums.",
     " Early access to new courses and updates.",
 ]
+const  test2 = [
+    "Access to selected free courses.",
+    "Limited course materials and resources.",
+    "Basic community support.",
+    "No certification upon completion.",
+    "Ad-supported platform.",
+    " Access to exclusive Pro Plan community forums.",
+    " Early access to new courses and updates.",
+]
 
 function PcFe(props){
     const icon = String(props.value).includes("--X--")?pcfex:pcfem
@@ -31,7 +40,7 @@ function PcFe(props){
     
 }
 
-function PriceCom({label, value , list , className}){
+export function PriceCom({label, value , list , className}){
     return <div className={mergeText(style.priceCom,className)}>
         <div className={style.pclabel}>{label}</div>
         <div className={style.pcvalue}>₦{value}<span className={style.pcsmonth}>/month</span></div>
@@ -45,7 +54,7 @@ function PriceCom({label, value , list , className}){
     </div>
 }
 
-function FaqCom({text,title}){
+export function FaqCom({text,title}){
     const id = "faqcom ___ "+title
     return <div className={mergeText("ani-hidden right-hide",style.faqcom)} id= {id}>
         <div  className={style.faqctw}>
@@ -89,7 +98,7 @@ export default function PricingPage(props){
             e.click()
         })
     },[])
-    const listetest = (...inde)=>{var test2 =Array.from(test);test2 = test2.map((val,index)=> inde.includes(index)?val+"--X--":val);return test2}
+    const listed = (list,...inde)=>{var test2 =Array.from(list);test2 = test2.map((val,index)=> inde.includes(index)?val+"--X--":val);return test2}
 
     return <main className={style.page_content}>
         <div className={style.main}>
@@ -117,9 +126,9 @@ export default function PricingPage(props){
                 <div className={style.priceview}>
                     
                     <div className={style.prices}>
-                        <PriceCom className={mergeText("ani-hidden right-hide ","")} list={listetest(6,3)} label="Basic Plan" value={prices[0]}/>
-                        <PriceCom className={mergeText("ani-hidden right-hide delay-100","")} list={listetest(0,1)} label="Premium Plan" value={prices[1]}/>
-                        <PriceCom className={mergeText("ani-hidden right-hide delay-200","")} list={listetest(4,2)} label="Custom Plan" value=" Custom "/>
+                        <PriceCom className={mergeText("ani-hidden right-hide ","")} list={listed(test,6,3)} label="Basic Plan" value={prices[0]}/>
+                        <PriceCom className={mergeText("ani-hidden right-hide delay-100","")} list={listed(test,0,1)} label="Premium Plan" value={prices[1]}/>
+                        <PriceCom className={mergeText("ani-hidden right-hide delay-200","")} list={listed(test2,4,2)} label="Custom Plan" value=" Custom "/>
                     </div>
                 </div>
             <div className={style.faqiw}>
@@ -128,7 +137,21 @@ export default function PricingPage(props){
             <div className={mergeText(style.faqiw,style.faqtitle)}>Frequently Asked Questions</div>
             <div className={mergeText(style.faqiw,style.faqtext)}>If you have any questions?
             Contact our Team <a href="mailto:viasupport@skillbridge.com" style={{textDecoration:"underline"}}>viasupport@skillbridge.com</a></div>
-            <br />
+            {/* Support Buttons */}
+      <div className="flex flex-wrap justify-center items-center mt-10 gap-4">
+        <button className="bg-black ani-hidden bottom-hide delay-0 text-white py-2 px-4 md:py-4 md:px-6 rounded-lg font-roboto font-bold text-[12px] md:text-[15px]">
+          Technical Support
+        </button>
+        <button className="border-2 ani-hidden bottom-hide delay-100 border-black py-2 px-4 md:py-4 md:px-6 rounded-lg font-roboto font-bold text-[12px] md:text-[15px]">
+          Billing Support
+        </button>
+        <button className="border-2 ani-hidden bottom-hide delay-200 border-black py-2 px-4 md:py-4 md:px-6 rounded-lg font-roboto font-bold text-[12px] md:text-[15px]">
+          Academic & Course Support
+        </button>
+        <button className="border-2 ani-hidden bottom-hide delay-300 border-black py-2 px-4 md:py-4 md:px-6 rounded-lg font-roboto font-bold text-[12px] md:text-[15px]">
+          Upgrade Related Support
+        </button>
+      </div>
             <div className={style.fcw}>
                 <FaqCom text="Absolutely! You can enroll in multiple courses simultaneously and access them at your convenience." title="Can I enroll in multiple courses at once?"/>
         

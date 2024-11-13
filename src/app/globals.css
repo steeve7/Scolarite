@@ -42,7 +42,7 @@
 .slow-bounce {
   animation: slowBounce 3s ease-in-out infinite; /* Adjust 3s for speed */
 }
-<<<<<<< HEAD
+
 
 @keyframes slow-bounce {
   0%, 100% {
@@ -125,44 +125,16 @@ body {
     rgb(var(--background-start-rgb));
     background: white;
     color: black;
-  height: 100vh;
   overflow-x: hidden;
   font-family: Montserrat Alternates;
 }
-
-
-/* Scroll  bar styling */
-body::-webkit-scrollbar-thumb:hover {
-  background-color: #555;
+*::selection{
+  background-color: rgba(0, 255, 255, 0.164);
 }
-
-/* Width of the scrollbar */
-body::-webkit-scrollbar {
-  width: 10px;
+::-webkit-scrollbar{
+  width: 12px;
 }
-
-/* Track (the background of the scrollbar) */
-body::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
-
-/* Thumb (the draggable part of the scrollbar) */
-body::-webkit-scrollbar-thumb {
-  background-color: #888;
-  border-radius: 10px;
-  border: 1.5px solid #f1f1f1; /* Optional: Adds space around the thumb */
-}
-
-
-/* Center container with white background */
-.container {
-  max-width: 1200px; /* Set a max width for the main content */
-  margin: 0 auto; /* Center the content */
-  padding: 20px; /* Add some padding */
-  background-color: #fff; /* Ensure container is white */
-}
-
-*, *::before, *::after {
-  box-sizing: border-box;
+::-webkit-scrollbar-thumb{
+  background-color:rgba(47, 54, 75, 1);
+  border-radius: 2px;
 }

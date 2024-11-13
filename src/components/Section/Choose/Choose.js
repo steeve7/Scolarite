@@ -7,14 +7,17 @@ export default function Choose() {
   return (
     <div className="w-full flex flex-col justify-center items-center overflow-hidden">
       {/*section Template */}
-      <div className="relative w-full bg-gradient-to-b from-[#282E41] to-[#3E4A6F] py-20 flex flex-col justify-center items-center">
-        <div className="text-center text-white">
+      <div
+        className="relative w-full bg-gradient-to-b from-[#282E41] to-[#3E4A6F] flex flex-col justify-center items-center"
+        
+      >
+        <div className="text-center text-white mt-14">
           <h2 className="font-roboto font-medium lg:text-[30px] text-[20px]">
             WHY CHOOSE SCOLARITÉ?
           </h2>
           <div className="border-b-2 border-custom-border-color xl:w-[700px] w-[100%] lg:w-[800px] md:max-w-[1200px] mx-auto my-4" />
         </div>
-        <div className="relative w-full flex md:flex-row flex-col items-center justify-center min-h-[500px] md:px-0 px-10">
+        <div className="relative w-full flex py-40 md:flex-row flex-col items-center justify-center md:px-0 px-10">
           <motion.div
             className="md:w-[40%] w-full flex flex-col justify-start items-start text-start gap-6"
             initial={{ x: -100, opacity: 0 }}
@@ -47,7 +50,7 @@ export default function Choose() {
           </motion.div>
           <motion.div
             className="md:order-1 order-2"
-            initial={{ x: -100, opacity: 0 }}
+            initial={{ x: 100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{
               delay: 0.3,
@@ -114,8 +117,8 @@ export default function Choose() {
         ({ title, description, image, order, bgColor, color, lines }, idx) => (
           <div
             key={idx}
-            className={`relative w-full flex md:flex-row flex-col items-center justify-center py-56 md:px-0 px-10 ${bgColor} ${
-              idx === 0 ? "min-h-[700px]" : ""
+            className={`relative w-full flex md:flex-row py-64 flex-col items-center justify-center md:px-0 px-10 ${bgColor} ${
+              idx === 0 ? "" : ""
             }`}
           >
             <motion.div

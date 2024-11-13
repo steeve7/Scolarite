@@ -8,11 +8,6 @@ function Header() {
   return (
     <div className={style.header}>
       <NavbarMain/>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
     </div>
   )
 }

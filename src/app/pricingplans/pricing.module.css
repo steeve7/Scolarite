@@ -121,6 +121,7 @@
 
 .w3sit{
     color: white;
+    cursor: pointer;
     /* width: 200px ; */
 }
 .w3switch .w3before{
@@ -138,6 +139,7 @@
     /* z-index: -200; */
     transition: left 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
     width 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    
 }
 .swrapper{
     display: grid;
@@ -240,12 +242,15 @@
     text-align: center;
 }
 .fcw{
-    width: 100%;
+    width: 97%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content:center;
+    margin: auto;
     gap: 50px;
     overflow: visible;
+    margin-top: 50px;
 }
 .faqcom{
     display: flex;

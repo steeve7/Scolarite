@@ -1,7 +1,7 @@
 
 .nb{
     width: 100%;
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     z-index: 100;
     background:rgba(47, 54, 75, 1);
@@ -10,7 +10,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
 }
+
 .note{
     display: grid;
     place-items: center;
@@ -21,6 +23,7 @@
     padding-inline: 30px;
     transition: top 0.5s ease-in-out,
     opacity 0.5s ease-in-out;
+    
 }
 .notecontent{
     display: flex;
@@ -31,6 +34,7 @@
     
 
 }
+
 
 .nextw{
     width: 20px;
@@ -51,6 +55,9 @@
 }
 .header{
     width: 100vw;
+    position: sticky;
+    top: 0;
+    z-index: 10000;
 }
 
 .navinner{ 
@@ -184,8 +191,9 @@
     }
     .note{
         margin: 10px;
+        width: 97%;
         border-radius: 10px;
-        padding-block: 5px;
+        padding-block: 10px;
     }
     .navbar.navhidden  .navres{
         height: 370px;
