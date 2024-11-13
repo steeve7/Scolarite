@@ -40,7 +40,15 @@ export default function Plan() {
   const listed = (list,...inde)=>{var test2 =Array.from(list);test2 = test2.map((val,index)=> inde.includes(index)?val+"--X--":val);return test2}
 
   return (
-    <div className="relative mt-20 lg:py-20 py-2 bg-gradient-to-b from-[#2F364B] to-[#262B3D] shadow-md">
+    <div
+      className="relative py-40 w-full bg-center bg-no-repeat"
+      style={{
+        backgroundImage: "url('/image/plan.svg')",
+        backgroundSize: "cover",
+        paddingTop: "80px", // Add padding instead of minHeight
+    paddingBottom: "300px",
+      }}
+    >
       {/* Background Image */}
 
       {/* First content */}
@@ -48,7 +56,7 @@ export default function Plan() {
         <h2 className="font-roboto font-bold lg:text-[20px] md:text-[15px] text-[10px] ani-hidden bottom-hide text-plan-color bg-plan-custom rounded-full py-2 px-4 uppercase">
           pricing
         </h2>
-        <p className="font-roboto font-medium lg:text-[30px] md:text-[20px] text-[15px] text-white lg:mt-0 mt-5">
+        <p className="font-roboto font-medium lg:text-[30px] md:text-[20px] text-[15px] text-white lg:mt-2 mt-5">
           Choose Your Plan:
         </p>
         <p className="font-roboto font-medium lg:text-[30px] md:text-[20px] text-[15px] text-white">
@@ -82,4 +90,4 @@ export default function Plan() {
 
     </div>
   );
-} 
+}

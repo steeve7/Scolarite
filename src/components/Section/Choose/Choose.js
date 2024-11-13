@@ -1,36 +1,32 @@
-'use client'
-import React from 'react'
-import {FaRegArrowAltCircleRight} from 'react-icons/fa'
-import choose from '../Choose/Assets/Image/choose.png'
-import student from '../Choose/Assets/Image/student.png'
-import student1 from '../Choose/Assets/Image/student1.png'
-import student2 from '../Choose/Assets/Image/student2.png'
-import student3 from '../Choose/Assets/Image/student3.png'
-import Image from 'next/image'
-import {motion} from 'framer-motion'
+"use client";
+import React from "react";
+import { FaRegArrowAltCircleRight } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 export default function Choose() {
   return (
-    <div className="w-full py-[60px] flex flex-col justify-center items-center overflow-hidden">
-      <div className="bg-gradient-to-b from-[#282E41] to-[#3E4A6F] py-20">
-        <div className="flex flex-col justify-center items-center gap-4">
-          <h2 className="font-roboto font-medium lg:text-[30px] text-[20px] text-white">
-            WHY CHOOSE SCOLARITÉ ?
+    <div className="w-full flex flex-col justify-center items-center overflow-hidden">
+      {/*section Template */}
+      <div className="relative w-full bg-gradient-to-b from-[#282E41] to-[#3E4A6F] py-20 flex flex-col justify-center items-center">
+        <div className="text-center text-white">
+          <h2 className="font-roboto font-medium lg:text-[30px] text-[20px]">
+            WHY CHOOSE SCOLARITÉ?
           </h2>
-          <div className="border-b-2 border-custom-border-color md:w-[50%] w-[70%] h-[15%]" />
+          <div className="border-b-2 border-custom-border-color xl:w-[700px] w-[100%] lg:w-[800px] md:max-w-[1200px] mx-auto my-4" />
         </div>
-        {/*first section*/}
-        <div className="flex md:flex-row flex-col justify-around items-center gap-4 md:gap-0 mt-24 px-10">
+        <div className="relative w-full flex md:flex-row flex-col items-center justify-center min-h-[500px] md:px-0 px-10">
           <motion.div
             className="flex flex-col ani-hidden  left-hide justify-start items-start text-start md:w-[40%] w-full gap-6"
             
           >
-            <h2 className="font-medium xl:text-[30px] lg:text-[25px] md:text-[18px] text-[13px] font-roboto text-white">
+            {/*titles section */}
+            <h2 className="font-medium lg:text-[25px] text-[18px] font-roboto text-white">
               EXPERTISE AND EXCELLENCE
             </h2>
-            <div className="border-b-2 border-custom-border-color xl:w-[80%] lg:w-[90%] md:w-[85%] w-[75%] h-[15%] -mt-3" />
+            {/*lines section */}
+            <div className="border-b-2 border-custom-border-color w-full max-w-[85%] md:max-w-[80%] xl:max-w-[62%] h-[2px] -mt-2" />
             <p className="font-roboto font-normal lg:text-[20px] text-[15px] text-white">
-              At Scolarité, we are a team of first class graduates and JAMB
+              At Scolarité, we are a team of first-class graduates and JAMB
               experts. Therefore, we have what it takes to impart academic
               excellence.
             </p>
@@ -49,8 +45,8 @@ export default function Choose() {
             className="md:-mt-20 ani-hidden  right-hide"
             
           >
-            <Image
-              src={choose}
+            <img
+              src="/image/student.svg"
               alt="student_image"
               className="xl:w-[500px] w-[300px]"
             />

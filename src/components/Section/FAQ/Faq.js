@@ -1,7 +1,5 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import Fag from "../FAQ/Assets/Image/faq.png";
-import Image from "next/image";
 import { FiPlus } from "react-icons/fi";
 import { MdClose } from "react-icons/md";
 import { IoIosArrowRoundForward } from "react-icons/io";
@@ -15,9 +13,7 @@ export default function Faq() {
       answer:
         "Absolutely! You can enroll in multiple courses simultaneously and access them at your convenience.",
       desc: "Enrollment Process for Different Courses",
-      icon: (
-        <IoIosArrowRoundForward />
-      ),
+      icon: <IoIosArrowRoundForward />,
     },
     {
       question: "What kind of support can I expect from instructors?",
