@@ -1,10 +1,7 @@
 "use client"
-
 import { mergeFunc, mergeText } from "@/app/add";
 import { PriceCom } from "@/app/pricingplans/page";
 import { CButton, rclick } from "@/components/addons/addons";
-import { GrCheckmark } from "react-icons/gr";
-import { HiMiniXMark } from "react-icons/hi2";
 import style from  "@/app/pricingplans/pricing.module.css"
 import { useEffect, useState } from "react";
 
@@ -21,9 +18,9 @@ const  test = [
 
 export default function Plan() {
   const priceMap = {
-    "Monthly":[10000,25000],
-    "Quarterly":[30000,75000],
-    "Yearly":[120000,250000]
+    "Monthly":["10,000","25,000"],
+    "Quarterly":["30,000","75,000"],
+    "Yearly":["120,000","250,000"]
   }
   const [prices,setPrices] = useState(priceMap["Monthly"])
 
@@ -45,8 +42,7 @@ export default function Plan() {
       style={{
         backgroundImage: "url('/image/plan.svg')",
         backgroundSize: "cover",
-        paddingTop: "80px", // Add padding instead of minHeight
-    paddingBottom: "300px",
+       width: "100%"
       }}
     >
       {/* Background Image */}

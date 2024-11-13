@@ -42,7 +42,7 @@
 .slow-bounce {
   animation: slowBounce 3s ease-in-out infinite; /* Adjust 3s for speed */
 }
-<<<<<<< HEAD
+
 
 @keyframes slow-bounce {
   0%, 100% {

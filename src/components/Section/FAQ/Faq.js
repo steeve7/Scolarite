@@ -57,7 +57,7 @@ export default function Faq() {
     <div className="mt-16 w-full px-4 md:px-10 lg:px-0 mb-20">
       {/* Header Section */}
       <div className="flex flex-col justify-center items-center gap-4">
-        <Image src={Fag} alt="faq_image" className="w-[40px] ani-hidden bottom-hide md:w-[60px]" />
+        <img src="/image/faq.svg" alt="faq_image" className="w-[40px] ani-hidden bottom-hide md:w-[60px]" />
         <h2 className="font-roboto font-semibold text-[20px] md:text-[24px] lg:text-[30px] text-center">
           Frequently Asked Questions
         </h2>
