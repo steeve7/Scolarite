@@ -1,10 +1,10 @@
 'use client'
 import React from 'react'
 import {FaRegArrowAltCircleRight} from 'react-icons/fa'
-import choose from '../Choose/Assets/Image/choose.png'
-import student from '../Choose/Assets/Image/student.png'
-import student1 from '../Choose/Assets/Image/student1.png'
-import student2 from '../Choose/Assets/Image/student2.png'
+import choose from '../Choose/Assets/Image/choose.gif'
+import student from '../Choose/Assets/Image/student.gif'
+import student1 from '../Choose/Assets/Image/student1.gif'
+import student2 from '../Choose/Assets/Image/student2.gif'
 import student3 from '../Choose/Assets/Image/student3.png'
 import Image from 'next/image'
 import {motion} from 'framer-motion'
@@ -12,7 +12,9 @@ import {motion} from 'framer-motion'
 export default function Choose() {
   return (
     <div className="w-full py-[60px] flex flex-col justify-center items-center overflow-hidden">
-      <div className="bg-gradient-to-b from-[#282E41] to-[#3E4A6F] py-20">
+      <div style={{
+            paddingBlock:"10%"
+          }} className="bg-gradient-to-b from-[#282E41] to-[#3E4A6F] py-20">
         <div className="flex flex-col justify-center items-center gap-4">
           <h2 className="font-roboto font-medium lg:text-[30px] text-[20px] text-white">
             WHY CHOOSE SCOLARITÉ ?
@@ -52,7 +54,7 @@ export default function Choose() {
             <Image
               src={choose}
               alt="student_image"
-              className="xl:w-[500px] w-[300px]"
+              className="xl:w-[500px] w-[300px] "
             />
           </motion.div>
         </div>
@@ -97,7 +99,7 @@ export default function Choose() {
       <div className="flex md:flex-row flex-col justify-around items-center gap-4 md:gap-0 px-10 bg-gradient-to-b from-[#282E41] to-[#3E4A6F] py-20">
         <motion.div
           style={{
-            paddingBlock:"10%"
+            paddingBlock:"11%"
           }}
           className="flex flex-col justify-start ani-hidden   left-hide items-start text-left md:w-[40%] w-full gap-6"
           

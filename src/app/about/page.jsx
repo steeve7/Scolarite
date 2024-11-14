@@ -306,8 +306,6 @@ export default function AboutPage() {
             </div>
           </div>
           <br />
-          <br />
-          <br />
         </main>
       </main>
     </>
