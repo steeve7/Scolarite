@@ -38,7 +38,7 @@ export default function Plan() {
 
   return (
     <div
-      className="relative py-40 w-full bg-center bg-no-repeat"
+      className="relative py-[17rem] w-full bg-center bg-no-repeat"
       style={{
         backgroundImage: "url('/image/plan.svg')",
         backgroundSize: "cover",
