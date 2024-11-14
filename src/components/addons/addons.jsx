@@ -4,7 +4,17 @@ import { mergeFunc, mergeText } from "../../app/add"
 import { useEffect } from "react"
 
 export function G2Wrapper(props){
-    return <section  className={mergeText(props.className,style.g2wrapper)} >
+    var styleg2 =props.repel ? {
+        // color: "white",
+        paddingInline:" 9%",
+        paddingBlock: "11%",
+    }: {color:""}
+    styleg2 = {
+        ...styleg2
+    }
+    return <section   className={mergeText(props.className,props.rev==true?style.g2wrapperReverse:style.g2wrapper)} style={
+        styleg2
+    } >
         {props.children}
     </section>
 }

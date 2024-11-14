@@ -5,6 +5,13 @@
     place-items: center;
     gap: 20px;
 }
+.g2wrapperReverse{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* grid-auto-flow: dense; */
+    place-items: center;
+    gap: 20px;
+}
 
 .custominput{
     position: relative;
@@ -53,5 +60,10 @@
         flex-direction: column-reverse;
         align-items: center;;
         
+    }
+    .g2wrapperReverse{
+        display: flex;
+        flex-direction: column;
+        align-items: center;;
     }
 }
