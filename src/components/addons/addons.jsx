@@ -7,12 +7,12 @@ export function G2Wrapper(props){
     var styleg2 =props.repel ? {
         // color: "white",
         paddingInline:" 9%",
-        paddingBlock: "11%",
+        paddingBlock: "14%",
     }: {color:""}
     styleg2 = {
         ...styleg2
     }
-    return <section   className={mergeText(props.className,props.rev==true?style.g2wrapperReverse:style.g2wrapper)} style={
+    return <section   className={mergeText(props.rev==true?style.g2wrapperReverse:style.g2wrapper,props.className)} style={
         styleg2
     } >
         {props.children}

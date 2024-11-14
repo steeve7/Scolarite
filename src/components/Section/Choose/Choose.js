@@ -9,13 +9,14 @@ import student3 from '../Choose/Assets/Image/student3.png'
 import Image from 'next/image'
 import {motion} from 'framer-motion'
 import { G2Wrapper } from '@/components/addons/addons'
-
+import "./choose.css"
 export default function Choose() {
   return (
     <div className="w-full py-[60px] flex flex-col justify-center items-center overflow-hidden">
       <div style={{
-            paddingBlock:"10%"
-          }} className="bg-gradient-to-b from-[#282E41] to-[#3E4A6F] py-20">
+            paddingBlock:"5%",
+            paddingBottom:"3px"
+          }} className="bg-gradient-to-b from-[#282E41] to-[#3E4A6F]">
         <div className="flex flex-col justify-center items-center gap-4">
           <h2 className="font-roboto font-medium lg:text-[30px] text-[20px] text-white">
             WHY CHOOSE SCOLARITÉ ?
@@ -23,7 +24,7 @@ export default function Choose() {
           <div className="border-b-2 border-custom-border-color md:w-[50%] w-[70%] h-[15%]" />
         </div>
         {/*first section*/}
-        <G2Wrapper repel = {true} >
+        <G2Wrapper  className="p-[10%]">
           <motion.div
             className="flex flex-col ani-hidden  left-hide gap-2"
             
@@ -55,7 +56,7 @@ export default function Choose() {
             <Image
               src={choose}
               alt="student_image"
-              className="xl:w-[500px] w-[300px] "
+              className="xl:w-[900px] w-[800px] "
             />
           </motion.div>
         </G2Wrapper>
@@ -97,12 +98,10 @@ export default function Choose() {
         </motion.div>
       </G2Wrapper>
       {/*third section*/}
-      <div className="flex md:flex-row flex-col justify-around items-center gap-4 md:gap-0 px-10 bg-gradient-to-b from-[#282E41] to-[#3E4A6F] py-20">
+      <G2Wrapper repel = {true} className=" bg-gradient-to-b from-[#282E41] to-[#3E4A6F] py-20">
         <motion.div
-          style={{
-            paddingBlock:"11%"
-          }}
-          className="flex flex-col justify-start ani-hidden   left-hide items-start text-left md:w-[40%] w-full gap-6"
+          
+          className="flex flex-col  ani-hidden left-hide gap-2"
           
         >
           <h2 className="font-medium xl:text-[25px] lg:text-[20px] md:text-[15px] text-[15px] font-roboto text-white">
@@ -125,7 +124,7 @@ export default function Choose() {
           </div>
         </motion.div>
         <motion.div
-          className="ani-hidden  right-hide"
+          className="ani-hidden  right-hide order-1"
           
         >
           <Image
@@ -134,11 +133,11 @@ export default function Choose() {
             className="xl:w-[500px] w-[300px]"
           />
         </motion.div>
-      </div>
+      </G2Wrapper>
       {/*fourth section*/}
       <G2Wrapper repel = {true} >
         <motion.div
-          className="flex flex-col ani-hidden order-2  right-hide gap-2"
+          className="flex flex-col ani-hidden  right-hide gap-2"
           
         >
           <h2 className="font-medium xl:text-[30px] lg:text-[22px] md:text-[18px] text-[15px] font-roboto text-black">
