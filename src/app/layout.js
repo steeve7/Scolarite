@@ -1,7 +1,7 @@
 import "./globals.css";
 import Header from "@/components/HomeLayouts/Header";
 import FooterWrapper from "@/components/HomeLayouts/FooterWrapper";
-import { Inter ,Montserrat_Alternates,Roboto} from 'next/font/google'
+import { Roboto } from 'next/font/google'
 import { mergeText } from './add'
 
 const inter = Roboto({
@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
       <body>
         <Header />
         <main className={mergeText(inter.className)}>{children}</main>
-        <FooterWrapper /> {/* Use FooterWrapper instead of Footer */}
+        <FooterWrapper />
       </body>
     </html>
   );

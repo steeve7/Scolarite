@@ -1,0 +1,83 @@
+ {/* Blog Posts Grid */}
+      <section className={styles.blogPosts}>
+        <h3>All blog posts</h3>
+        <div className={styles.grid}>
+          <BlogCard 
+            title="Engineering Innovations: How to Prepare for a Future in Engineering"
+            date="Sunday, 1 Jan 2023"
+            imgSrc="/images/post1-image.jpg"
+          />
+
+        <BlogCard 
+          title="Medical Aspirants: Essential Skills Beyond the Books"
+          date="Sunday, 1 Jan 2023"
+          imgSrc="/images/post2-image.jpg"
+        />
+
+        <BlogCard 
+          title="Navigating the Path to a Career in the Arts: What Every Student Should Know"
+          date="Sunday, 1 Jan 2023"
+          imgSrc="/images/post3-image.jpg"
+        />
+
+        <BlogCard 
+          title="The Future of Commerce: Skills That Will Set You Apart"
+          date="Sunday, 1 Jan 2023"
+          imgSrc="/images/post4-image.jpg"
+        />
+
+        <BlogCard 
+          title="Study Strategies for Success: How Top Students Prepare for Exams"
+          date="Sunday, 1 Jan 2023"
+          imgSrc="/images/post5-image.jpg"
+        />
+
+        <BlogCard 
+          title="Balancing Act: Managing Studies and Personal Life as a Student"
+          date="Sunday, 1 Jan 2023"
+          imgSrc="/images/post6-image.jpg"
+        />
+          {/* Add more BlogCard components for each post */}
+        </div>
+      </section>
+
+
+
+
+ {/* BlogCard.js */}
+import styles from '../blog.module.css';  // Corrected import
+
+const BlogCard = ({ title, date, imgSrc }) => {
+  return (
+    <div className={styles.blogCard}>
+      <img src={imgSrc} alt={title} className={styles.cardImage} />
+      <div className={styles.cardContent}>
+        <p className={styles.cardDate}>{date}</p>
+        <h3 className={styles.cardTitle}>{title}</h3>
+      </div>
+    </div>
+  );
+};
+
+export default BlogCard;
+
+
+ {/* Pagination.js */}
+import styles from '../blog.module.css';  // Corrected import
+
+const Pagination = () => {
+  return (
+    <div className={styles.pagination}>
+      <a href="#" className={styles.prev}>Previous</a>
+      <div className={styles.pageNumbers}>
+        <a href="#" className={`${styles.page} ${styles.active}`}>1</a>
+        <a href="#" className={styles.page}>2</a>
+        <a href="#" className={styles.page}>3</a>
+        {/* Add more page numbers as needed */}
+      </div>
+      <a href="#" className={styles.next}>Next</a>
+    </div>
+  );
+};
+
+export default Pagination;

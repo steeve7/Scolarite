@@ -19,7 +19,7 @@ export default function Footer() {
    if (!isClient) return null;
 
   return (
-    <div className="flex md:flex-row flex-col items-center justify-between gap-6 bg-custom-dark w-full lg:px-20 md:px-10 px-5 md:py-16">
+    <div className="flex md:flex-row flex-col items-center justify-between gap-6 mt-[7rem] bg-custom-dark w-full lg:px-20 md:px-10 px-5 md:py-16 rounded-tr-[2rem]">
       {/*web & mobile view*/}
       <div className="flex justify-between items-center w-full md:-mt-20 pt-8 md:w-[50%]">
         {/* Content Section */}
@@ -30,8 +30,8 @@ export default function Footer() {
             className="md:w-[63px] w-[35px]"
           />
           <div className="flex flex-col gap-2">
-            <h2 className="font-roboto lg:text-[30px] text-[15px] font-bold text-custom-white">
-              Scolarite
+            <h2 className="font-[Century] lg:text-[22px] text-[15px] font-normal text-custom-white">
+              SCOLARITÉ
             </h2>
             <p className="md:flex hidden font-roboto font-normal lg:text-[20px] text-[10px] text-custom-text-color">
               Study smart, achieve your dreams
@@ -108,7 +108,7 @@ export default function Footer() {
           <h2 className="font-roboto font-bold text-text-color lg:text-[20px] text-[15px] uppercase">
             Products
           </h2>
-          <ul>
+          <ul className="flex flex-col gap-2">
             <Link href="">
               <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                 Courses
@@ -135,7 +135,7 @@ export default function Footer() {
           <h2 className="font-roboto font-bold text-text-color lg:text-[20px] text-[15px] uppercase">
             Company
           </h2>
-          <ul>
+          <ul className="flex flex-col gap-2">
             <Link href="">
               <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                 About Us
@@ -165,7 +165,7 @@ export default function Footer() {
           <h2 className="font-roboto font-bold text-text-color lg:text-[20px] text-[15px] uppercase">
             Get in Touch
           </h2>
-          <ul>
+          <ul className="flex flex-col gap-2">
             <Link href="">
               <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                 Twitter

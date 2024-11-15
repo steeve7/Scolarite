@@ -1,10 +1,7 @@
 "use client"
-
 import { mergeFunc, mergeText } from "@/app/add";
 import { PriceCom } from "@/app/pricingplans/page";
 import { CButton, rclick } from "@/components/addons/addons";
-import { GrCheckmark } from "react-icons/gr";
-import { HiMiniXMark } from "react-icons/hi2";
 import style from  "@/app/pricingplans/pricing.module.css"
 import { useEffect, useState } from "react";
 
@@ -21,9 +18,9 @@ const  test = [
 
 export default function Plan() {
   const priceMap = {
-    "Monthly":[10000,25000],
-    "Quarterly":[30000,75000],
-    "Yearly":[120000,250000]
+    "Monthly":["10,000","25,000"],
+    "Quarterly":["30,000","75,000"],
+    "Yearly":["120,000","250,000"]
   }
   const [prices,setPrices] = useState(priceMap["Monthly"])
 
@@ -40,7 +37,14 @@ export default function Plan() {
   const listed = (list,...inde)=>{var test2 =Array.from(list);test2 = test2.map((val,index)=> inde.includes(index)?val+"--X--":val);return test2}
 
   return (
-    <div className="relative mt-20 lg:py-20 py-2 bg-gradient-to-b from-[#2F364B] to-[#262B3D] shadow-md">
+    <div
+      className="relative py-[17rem] w-full bg-center bg-no-repeat"
+      style={{
+        backgroundImage: "url('/image/plan.svg')",
+        backgroundSize: "cover",
+       width: "100%"
+      }}
+    >
       {/* Background Image */}
 
       {/* First content */}
@@ -48,7 +52,7 @@ export default function Plan() {
         <h2 className="font-roboto font-bold lg:text-[20px] md:text-[15px] text-[10px] ani-hidden bottom-hide text-plan-color bg-plan-custom rounded-full py-2 px-4 uppercase">
           pricing
         </h2>
-        <p className="font-roboto font-medium lg:text-[30px] md:text-[20px] text-[15px] text-white lg:mt-0 mt-5">
+        <p className="font-roboto font-medium lg:text-[30px] md:text-[20px] text-[15px] text-white lg:mt-2 mt-5">
           Choose Your Plan:
         </p>
         <p className="font-roboto font-medium lg:text-[30px] md:text-[20px] text-[15px] text-white">
@@ -82,4 +86,4 @@ export default function Plan() {
 
     </div>
   );
-} 
+}

@@ -1,12 +1,6 @@
 'use client'
 import React from 'react'
 import {FaRegArrowAltCircleRight} from 'react-icons/fa'
-import choose from '../Choose/Assets/Image/choose.gif'
-import student from '../Choose/Assets/Image/student.gif'
-import student1 from '../Choose/Assets/Image/student1.gif'
-import student2 from '../Choose/Assets/Image/student2.gif'
-import student3 from '../Choose/Assets/Image/student3.png'
-import Image from 'next/image'
 import {motion} from 'framer-motion'
 import { G2Wrapper } from '@/components/addons/addons'
 import "./choose.css"
@@ -21,7 +15,7 @@ export default function Choose() {
           <h2 className="font-roboto font-medium lg:text-[30px] text-[20px] text-white">
             WHY CHOOSE SCOLARITÉ ?
           </h2>
-          <div className="border-b-2 border-custom-border-color md:w-[50%] w-[70%] h-[15%]" />
+          <div className="border-b-2 border-custom-border-color xl:w-[700px] w-[100%] lg:w-[800px] md:max-w-[1200px] mx-auto my-4" />
         </div>
         {/*first section*/}
         <G2Wrapper  className="p-[10%]">
@@ -32,29 +26,34 @@ export default function Choose() {
             <h2 className="font-medium xl:text-[30px] lg:text-[25px] md:text-[18px] text-[13px] font-roboto text-white">
               EXPERTISE AND EXCELLENCE
             </h2>
-            <div className="border-b-2 border-custom-border-color xl:w-[80%] lg:w-[90%] md:w-[85%] w-[75%] h-[15%] -mt-3" />
+            {/*lines section */}
+            <div className="border-b-2 border-custom-border-color w-full max-w-[85%] md:max-w-[80%] xl:max-w-[62%] h-[2px] -mt-2" />
             <p className="font-roboto font-normal lg:text-[20px] text-[15px] text-white">
-              At Scolarité, we are a team of first class graduates and JAMB
+              At Scolarité, we are a team of first-class graduates and JAMB
               experts. Therefore, we have what it takes to impart academic
               excellence.
             </p>
-            {/*button section*/}
-            <div className="md:w-[50%] w-full">
-              <button
-                type="button"
-                className="text-white font_roboto uppercase flex items-center gap-2 font-bold xl:text-[15px] text-[10px] py-[.7rem] px-[1.5rem] bg-black rounded-[212.76px] border-0 outline-none"
-              >
-                Register
-                <FaRegArrowAltCircleRight />
-              </button>
-            </div>
+            <button
+              type="button"
+              className="text-white font_roboto uppercase flex items-center gap-2 font-bold xl:text-[15px] text-[10px] py-[1.5rem] px-[2rem] bg-black rounded-[212.76px] border-0 outline-none"
+            >
+              Register
+              <FaRegArrowAltCircleRight />
+            </button>
           </motion.div>
           <motion.div
-            className="md:-mt-20 ani-hidden  right-hide"
-            
+            className="md:order-1 order-2"
+            initial={{ x: 100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{
+              delay: 0.3,
+              type: "spring",
+              stiffness: 60,
+              duration: 1,
+            }}
           >
-            <Image
-              src={choose}
+            <img
+              src="/image/choose.gif"
               alt="student_image"
               className="xl:w-[900px] w-[800px] "
             />
@@ -90,8 +89,8 @@ export default function Choose() {
           className="md:order-1 order-1 ani-hidden  left-hide"
           
         >
-          <Image
-            src={student}
+          <img
+            src="/image/student.gif"
             alt="student_image"
             className="xl:w-[500px] w-[300px]"
           />
@@ -127,8 +126,8 @@ export default function Choose() {
           className="ani-hidden  right-hide order-1"
           
         >
-          <Image
-            src={student2}
+          <img
+            src="/image/student2.gif"
             alt="student_image"
             className="xl:w-[500px] w-[300px]"
           />
@@ -164,8 +163,8 @@ export default function Choose() {
           className="md:order-1 order-1 ani-hidden  left-hide"
           
         >
-          <Image
-            src={student1}
+          <img
+            src="/image/student1.gif"
             alt="student_image"
             className="xl:w-[500px] w-[300px]"
           />
@@ -201,8 +200,8 @@ export default function Choose() {
           className="md:order-1 order-2 ani-hidden  left-hide"
           
         >
-          <Image
-            src={student3}
+          <img
+            src="/image/student.gif"
             alt="student_image"
             className="xl:w-[500px] w-[300px]"
           />
