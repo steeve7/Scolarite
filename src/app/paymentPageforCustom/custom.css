@@ -1,0 +1,187 @@
+*{
+    background-color: white;
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+.background{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 2px solid black;
+    height: 100vh;
+}
+.inner-body{
+    border: 3px solid #E8EBF1;
+    /* border: 2px solid rebeccapurple; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    height: 85%;
+    box-shadow: 0px 103.87px 311.62px 0px #e9effb;
+    /* backdrop-filter: blur(649.2153930664062px); */
+    
+    /* box-shadow: 20px 10px 20px 17px rgb(166, 166, 244); */
+}
+
+.Card-payment-info{
+    width: 100%;
+    background-color: white;
+    height: 100%;
+    margin-left: 2rem;
+    /* border: 2px solid red; */
+}
+.nav{
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+    list-style-type: none;
+}
+.logo{
+    width: 30px;
+}
+.scolar{
+    padding-left: 1rem;
+    font-size: 30px;
+}
+.card{
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+    list-style-type: none;
+}
+.credit-cd{
+    width: 35px;
+}
+.credit-info{
+    padding-left: 1rem;
+    font-size: 20px;
+}
+
+
+/* FORM */
+
+form{
+    margin-top: 1rem;
+}
+.input-headings ul{
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    margin-bottom: 5px;
+
+}
+.text{
+    padding-right: 1rem;
+    color: #253058;
+}
+.info{
+    width: 15px;
+    
+}
+.input{
+    width: 70%;
+    height: 3rem;
+     background: #F8F9FB;
+    border: 3px solid #c8cacd;
+    padding-left: 0.5rem;
+    border-radius: 10px;
+    color: #253058;
+    
+}
+.payment-method{
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    width: 70%;
+    padding-left: 0.5rem;
+    align-items: center;
+    height: 3rem;
+    background: #F8F9FB;
+    border: 3px solid #c8cacd;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: #253058;
+
+
+}
+.payment-method ul{
+    display: flex;
+    align-items: center;
+    line-height: 1rem;
+}
+.visa{
+    /* border-radius: 50%; */
+    padding-right: 1rem;
+    line-height: 2px;
+    cursor: pointer;
+    font-size: 10px;
+}
+.date-cvv{
+    display: flex;
+    width: 100%;  
+    margin-top: 1rem;
+}
+.date-cvv div{
+    padding-right: 3rem;
+}
+.input-expiry{
+    width: 100%;
+    height: 3rem;
+     background: #F8F9FB;
+    border: 3px solid #c8cacd;
+    padding-left: 0.5rem;
+    border-radius: 10px;
+    color: #253058;
+
+}
+.input-cvv{
+    width: 70%;
+    height: 3rem;
+     background: #F8F9FB;
+    border: 3px solid #c8cacd;
+    padding-left: 0.5rem;
+    border-radius: 10px;
+    color: #253058;
+
+}
+.subscribe{
+    width: 70%;
+    height: 3rem;
+    border: 3px solid #c8cacd;
+    padding-left: 0.5rem;
+    border-radius: 10px;
+    background: #253058;
+    margin-top: 1.5rem;
+    color: white;
+}
+
+.subscribe:hover{
+    border: 2px solid  #253058;
+    background-color: #35457d;
+}
+
+@media screen and (max-width:375px) {
+    .inner-body{
+        display: grid;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* SECOND DIV */
+.Payment-summary{
+    width: 100%;
+}
