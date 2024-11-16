@@ -94,8 +94,14 @@
 .right-hide{
   translate: 100px 0;
 }
+.right-hidee{
+  translate: -100px 0;
+}
 .left-hide{
   translate: -100px 0;
+}
+.left-hidee{
+  translate: 100px 0;
 }
 .top-hide{
   translate: 0 -100px;
