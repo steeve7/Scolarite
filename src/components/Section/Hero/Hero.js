@@ -2,15 +2,15 @@ import { FaRegArrowAltCircleRight } from "react-icons/fa";
 
 export default function Hero() {
   return (
-    <div className="relative flex flex-col xl:flex-row w-full -mt-20">
+    <div className="relative flex flex-col xl:flex-row w-full -mt-20 pb-80">
       {/* Background Image for Desktop */}
       <div
-        className="absolute inset-0 z-0 hidden md:block xl:bg-contain bg-cover bg-center bg-no-repeat "
+        className="absolute inset-0 z-0 hidden md:block bg-cover bg-center bg-no-repeat "
         style={{
           backgroundImage: "url('/image/hero.svg')",
-          
+
           height: "100%",
-          width:"100%"
+          width: "100vw",
         }}
       ></div>
 
@@ -28,7 +28,7 @@ export default function Hero() {
       </div>
 
       {/* Content Section */}
-      <div className="relative xl:w-[50%] w-full flex flex-col md:gap-12 gap-10 justify-start lg:mt-60 md:mt-52 mt-40 px-5 md:px-20">
+      <div className="relative z-40 xl:w-[50%] w-full flex flex-col md:gap-12 gap-10 justify-start lg:mt-60 md:mt-52 mt-40 px-5 md:px-20">
         <div className="flex flex-col justify-start xl:text-start text-center">
           <p className="font-roboto font-medium lg:text-[40px] md:text-[35px] text-[25px] text-white leading-tight">
             Scolarité: <br />
@@ -37,7 +37,7 @@ export default function Hero() {
             </b>{" "}
             with Game Changing Strategies & Targeted Resources
           </p>
-          <p className="font-roboto font-normal text-[12px] md:text-[20px] leading-[30px] text-custom-text-color mt-4 xl:w-[80%] w-full">
+          <p className="font-roboto font-normal text-[12px] md:text-[20px] leading-[30px] text-custom-text-color mt-4 w-full">
             As seasoned JAMB veterans, wne are here to empower you with
             professionally crafted learning strategies and proven approaches to
             help you achieve your dream JAMB score. Our comprehensive JAMB
@@ -72,17 +72,11 @@ export default function Hero() {
       </div>
 
       {/* Image Section */}
-      <div className="relative xl:w-[50%] lg:w-[55%] w-full xl:mt-72 lg:mt-16 lg:m-auto md:mt-20 mt-10">
+      <div className="xl:absolute relative xl:w-[100%] lg:w-[55%] w-full md:-mt-32 xl:right-[-350px] overflow-hidden">
         <img
-          src="/image/hero1.gif"
+          src="/image/book.gif"
           alt="hero_page"
-          width={1566}
-          height={1000}
-          quality={75}
-          loading="lazy"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
-          style={{ objectFit: "contain" ,translate:"0px -20%"}}
-          className="slow-bounce"
+          className="h-[100%] w-[120%]"
         />
       </div>
     </div>
