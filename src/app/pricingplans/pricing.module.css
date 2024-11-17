@@ -26,8 +26,9 @@
 
 }
 .w1i1{
-    text-align: center;
+    text-align: left;
     margin-bottom: 30px;
+    padding: 9%;
     color: white;
 }
 .title{
@@ -38,7 +39,7 @@
 
 }
 .text1{
-    font-size: 12px;
+    font-size: 20px;
     width: 100%;
 }
 .w1{
@@ -87,7 +88,7 @@
     font-size: 12px;
     border-radius: 20px;
     text-align: center;
-    padding: 5px;
+    padding: 8px;
     padding-inline: 20px;
     font-weight: 600;
     transition: color 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),

@@ -74,9 +74,15 @@ export default function Hero() {
       {/* Image Section */}
       <div className="relative xl:w-[50%] lg:w-[55%] w-full xl:mt-72 lg:mt-16 lg:m-auto md:mt-20 mt-10">
         <img
-          src="/image/book.svg"
+          src="/image/hero1.gif"
           alt="hero_page"
-          className="slow-bounce w-[2500px]"
+          width={1566}
+          height={1000}
+          quality={75}
+          loading="lazy"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+          style={{ objectFit: "contain" ,translate:"0px -20%"}}
+          className="slow-bounce"
         />
       </div>
     </div>
