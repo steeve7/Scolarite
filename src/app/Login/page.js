@@ -57,26 +57,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // import Image from 'next/image';
 // import './LoginPage.module.css'; // Import CSS module if using modular CSS
 
@@ -137,15 +117,154 @@
 
 
 
+// import Image from 'next/image';
+// import styles from './LoginPage.module.css'; // CSS module for styling
+
+// export default function LoginPage() {
+//     return (
+//         <div className={styles.loginPage}>
+            
+//             <video autoPlay loop muted className={styles.backgroundVideo}>
+//                 <source src="/images/backvid.mp4" type="video/mp4" />
+//                 Your browser does not support the video tag.
+//             </video>
+
+          
+//             <div className={styles.overlay}></div>
+
+           
+//             <div className={styles.loginCard}>
+//                 <div className={styles.logoContainer}>
+//                     <Image
+//                         src="/images/logo.png"
+//                         alt="Scolarité logo"
+//                         width={45}
+//                         height={40}
+//                         className={styles.logo}
+//                     />
+//                     <span className={styles.logoText}>SCOLARITÉ</span>
+//                 </div>
+
+//                 <h2 className={styles.welcomeText}>Welcome Back</h2>
+//                 <p className={styles.subtitle}>
+//                     Enter your email and password to access your account
+//                 </p>
+
+//                 <form>
+//                     <div className={styles.inputGroup}>
+//                         <label htmlFor="email">Email</label>
+//                         <input id="email" type="email" placeholder="Enter your email" />
+//                     </div>
+
+//                     <div className={styles.inputGroup}>
+//                         <label htmlFor="password">Password</label>
+//                         <input id="password" type="password" placeholder="Enter your password" />
+//                     </div>
+
+//                     <div className={styles.options}>
+//                         <label>
+//                             <input type="checkbox" /> Remember me
+//                         </label>
+//                         <a href="#" className={styles.forgotPassword}>
+//                             Forgot Password?
+//                         </a>
+//                     </div>
+
+//                     <button type="submit" className={styles.signinBtn}>
+//                         Sign In
+//                     </button>
+
+//                     <button type="button" className={styles.googleBtn}>
+//                         <Image
+//                             src="/images/google-logo.png"
+//                             alt="Google logo"
+//                             width={20}
+//                             height={20}
+//                             className={styles.googleLogo}
+//                         />
+//                         Sign in with Google
+//                     </button>
+
+//                     <p className={styles.signupText}>
+//                         Don’t have an account? <a href="#">Sign Up</a>
+//                     </p>
+//                 </form>
+//             </div>
+//         </div>
+//     );
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"use client"
+import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import styles from './LoginPage.module.css'; // CSS module for styling
 
 export default function LoginPage() {
+    const videoRef = useRef(null);
+    const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+
+    // List of video sources
+    const videos = [
+        "/images/backvid.mp4",
+        "/images/backvid2.mp4",
+        "/images/backvid3.mp4" // Add more videos as needed
+    ];
+
+    useEffect(() => {
+        const videoElement = videoRef.current;
+
+        // Event listener for when the video ends
+        const handleVideoEnd = () => {
+            setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
+        };
+
+        videoElement.addEventListener('ended', handleVideoEnd);
+
+        // Cleanup the event listener
+        return () => {
+            videoElement.removeEventListener('ended', handleVideoEnd);
+        };
+    }, [videos.length]);
+
+    useEffect(() => {
+        const videoElement = videoRef.current;
+
+        // Change the video source and play
+        videoElement.src = videos[currentVideoIndex];
+        videoElement.load(); // Load the new video
+        videoElement.play(); // Automatically play the new video
+    }, [currentVideoIndex, videos]);
+
     return (
         <div className={styles.loginPage}>
             {/* Video Background */}
-            <video autoPlay loop muted className={styles.backgroundVideo}>
-                <source src="/images/backvid.mp4" type="video/mp4" />
+            <video
+                ref={videoRef}
+                autoPlay
+                loop={false} // Turn off loop since videos are handled manually
+                muted
+                className={styles.backgroundVideo}
+            >
+                <source src={videos[0]} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
 
@@ -154,30 +273,16 @@ export default function LoginPage() {
 
             {/* Login Card */}
             <div className={styles.loginCard}>
-               {/* Logo with Text */}
-                {/* <Image
-                    src="/images/logo.png"
-                    alt="Scolarité logo"
-                    width={80}
-                    height={40}
-                    className={styles.logo}
-                />
-
-                <span className={styles.logoText}>SCOLARITÉ</span> */}
-
                 <div className={styles.logoContainer}>
                     <Image
                         src="/images/logo.png"
                         alt="Scolarité logo"
-                        width={80}
+                        width={45}
                         height={40}
                         className={styles.logo}
                     />
                     <span className={styles.logoText}>SCOLARITÉ</span>
                 </div>
-
-
-
 
                 <h2 className={styles.welcomeText}>Welcome Back</h2>
                 <p className={styles.subtitle}>

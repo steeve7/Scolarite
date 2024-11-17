@@ -350,11 +350,11 @@
   /* Login Card */
   .loginCard {
     position: relative;
-    background-color: rgba(255, 255, 255, 0.92);
+    background-color: rgba(255, 255, 255, 0.2);
     padding: 2rem;
     border-radius: 10px;
     width: 100%;
-    max-width: 400px;
+    max-width: 420px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     z-index: 1;
     text-align: center;
@@ -375,7 +375,7 @@
   .logoText {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #333; /* Adjust based on design */
+    color: white; /* Adjust based on design */
     letter-spacing: 0.05rem; /* Slight spacing for a clean look */
     margin-bottom: 1.5rem;
   }
@@ -385,10 +385,11 @@
     font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
+    color: white;
   }
   
   .subtitle {
-    color: #666;
+    color: white;
     font-size: 0.95rem;
     margin-bottom: 1.5rem;
   }
@@ -397,11 +398,12 @@
   .inputGroup {
     margin-bottom: 1rem;
     text-align: left;
+    color: white;
   }
   
   .inputGroup label {
     display: block;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 500;
     margin-bottom: 0.3rem;
   }
@@ -409,7 +411,7 @@
   .inputGroup input {
     width: 100%;
     padding: 0.6rem;
-    font-size: 1rem;
+    font-size: 0.9rem;
     border: 1px solid #ccc;
     border-radius: 5px;
   }
@@ -420,14 +422,16 @@
     align-items: center;
     font-size: 0.85rem;
     margin-bottom: 1.5rem;
+    color: white;
   }
   
   .forgotPassword {
-    color: #0070f3;
+    color: white;
     text-decoration: none;
   }
   
   .forgotPassword:hover {
+    color: gray;
     text-decoration: underline;
   }
   
@@ -443,7 +447,7 @@
   }
   
   .signinBtn {
-    background-color: #333;
+    background-color: black;
     color: white;
     margin-bottom: 1rem;
   }
@@ -453,7 +457,7 @@
     align-items: center;
     justify-content: center;
     background-color: white;
-    color: #333;
+    color: black;
     border: 1px solid #ddd;
     margin-bottom: 1rem;
   }
@@ -468,16 +472,18 @@
   
   /* Signup Text */
   .signupText {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     margin-top: 1rem;
+    color: white;
   }
   
   .signupText a {
-    color: #0070f3;
+    color: white;
     text-decoration: none;
   }
   
   .signupText a:hover {
+    color: gray;
     text-decoration: underline;
   }
   
