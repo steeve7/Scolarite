@@ -40,8 +40,9 @@ export function CButton({className,onClick,id,children,ani = true}){
 }
 
 
-export function CLink({className,href,onClick,id,children,ani = true}){
-    return <div id={id} className={mergeText(className,style.button,ani?style.btnani:"")} onClick={mergeFunc(onClick,()=>{window.location.href = href})}>{children}</div>
+export function CLink({className,href,onClick,id,children,target,ani = true}){
+    const linkFunc = ()=>{window.open(href,target).focus()}
+    return <div id={id} className={mergeText(className,style.button,ani?style.btnani:"")}  onClick={mergeFunc(onClick,linkFunc)}>{children}</div>
 }
 
 export function AInput({label, placeholder , className = "", inClassName = "",type="input"}){
