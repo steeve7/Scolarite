@@ -217,6 +217,7 @@
 import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import styles from './LoginPage.module.css'; // CSS module for styling
+import { BOTHHIDE, HEADHIDE } from '@/components/HomeLayouts/navbar';
 
 export default function LoginPage() {
     const videoRef = useRef(null);
@@ -228,6 +229,7 @@ export default function LoginPage() {
         "/images/backvid2.mp4",
         "/images/backvid3.mp4" // Add more videos as needed
     ];
+    HEADHIDE()
 
     useEffect(() => {
         const videoElement = videoRef.current;
@@ -255,7 +257,9 @@ export default function LoginPage() {
     }, [currentVideoIndex, videos]);
 
     return (
+        
         <div className={styles.loginPage}>
+
             {/* Video Background */}
             <video
                 ref={videoRef}
