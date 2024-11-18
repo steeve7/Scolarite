@@ -191,7 +191,7 @@ function NavBar(props) {
             
           </div>
           <div className={style.navitem}>
-            <CLink className={mergeText("", style.navauth)}>
+            <CLink href={""} target={"_blank"} className={mergeText("", style.navauth)}>
               <span className={mergeText(style.navatextlogin, style.navatext)}>
                 LOGIN
               </span>
