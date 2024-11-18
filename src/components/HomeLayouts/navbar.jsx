@@ -117,7 +117,6 @@ function NavBar(props) {
       hides.forEach((e) => {
         observer.observe(e);
       });
-
       navigationObject.forEach(entry=>{
         var el = document.getElementById(`${entry.PATH}-navbarlink`)
         el.classList.remove(style.active)
@@ -127,6 +126,7 @@ function NavBar(props) {
           el.classList.add(style.active)
         }
       })
+      document.querySelectorAll("NONE").forEach(NONES => NONES.style.display = "none")
     },
     []
   );

@@ -18,6 +18,21 @@ export function G2Wrapper(props){
         {props.children}
     </section>
 }
+
+export function Flip({CompList}){
+    const list = CompList
+    const bClassName = style.FlipButtonClick
+    function FlipButtonFunc(){
+
+    }
+    return (
+        <div className={style.Flip}>
+            {list}
+        <CButton id={bClassName} onClick={FlipButtonFunc} className={mergeText(bClassName,"NONE")}> </CButton>
+        </div>
+    )
+}
+
 export function CInput({className,placeholder,type="input",...props}){
     useEffect(()=>{
         document.querySelectorAll(`.${style.w3sit}`).forEach(e=>{
