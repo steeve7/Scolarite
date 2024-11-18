@@ -10,7 +10,25 @@ import { useEffect, useState } from "react";
 import { CButton, CLink } from "../addons/addons";
 
 const noteid = `noteification`;
-
+export function HEADHIDE(){
+  useEffect(()=>{
+    document.getElementById("HEADER_SECTION").style.display = "none"
+  
+    },[])
+}
+export function FOOTHIDE(){
+  useEffect(()=>{
+    document.getElementById("FOOTER_SECTION").style.display = "none"
+  
+    },[])
+}
+export function BOTHHIDE(){
+  useEffect(()=>{
+    document.getElementById("HEADER_SECTION").style.display = "none"
+    document.getElementById("FOOTER_SECTION").style.display = "none"
+  
+    },[])
+}
 const font = Roboto({
   weight: ["300", "400", "500", "700", "900"],
   subsets: ["greek"],
@@ -191,12 +209,12 @@ function NavBar(props) {
             
           </div>
           <div className={style.navitem}>
-            <CLink href={""} target={"_blank"} className={mergeText("", style.navauth)}>
+            <CLink href={"/Login"} target={"_blank"} className={mergeText("", style.navauth)}>
               <span className={mergeText(style.navatextlogin, style.navatext)}>
                 LOGIN
               </span>
             </CLink>
-            <CLink className={mergeText("", style.navauth, style.navauth1)}>
+            <CLink href={"/Login"} target={"_blank"}  className={mergeText("", style.navauth, style.navauth1)}>
               <span className={style.navatext}>SIGN UP</span>
             </CLink>
           </div>

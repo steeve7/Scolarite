@@ -40,7 +40,7 @@ export function CButton({className,onClick,id,children,ani = true}){
 }
 
 
-export function CLink({className,href,onClick,id,children,target,ani = true}){
+export function CLink({className,href,onClick,id,children,target = "_self",ani = true}){
     const linkFunc = ()=>{window.open(href,String(target).toLowerCase()).focus()}
     return <div id={id} className={mergeText(className,style.button,ani?style.btnani:"")}  onClick={mergeFunc(onClick,linkFunc)}>{children}</div>
 }
