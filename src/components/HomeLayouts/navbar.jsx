@@ -7,7 +7,7 @@ import { Roboto } from "next/font/google";
 import Image from "next/image";
 import { usePathname } from "next/navigation"; 
 import { useEffect, useState } from "react";
-import { CLink } from "../addons/addons";
+import { CButton, CLink } from "../addons/addons";
 
 const noteid = `noteification`;
 
@@ -117,7 +117,16 @@ function NavBar(props) {
       hides.forEach((e) => {
         observer.observe(e);
       });
-      
+
+      navigationObject.forEach(entry=>{
+        var el = document.getElementById(`${entry.PATH}-navbarlink`)
+        el.classList.remove(style.active)
+        if (pathname== entry.PATH ){
+          console.log(el)
+          console.log(pathname)
+          el.classList.add(style.active)
+        }
+      })
     },
     []
   );
@@ -134,7 +143,9 @@ function NavBar(props) {
       id="navbar"
     >
       <div className={mergeText("grid grid-cols-[auto_1fr]", style.navinner)}>
-        <div
+        <CButton
+        ani = {false}
+        onClick={e=>{window.location.reload()}}
           className={mergeText(
             style.betweencenter,
             style.naviconwrapper,
@@ -169,35 +180,25 @@ function NavBar(props) {
               className={mergeText("", style.navmenuvicon, style.nmi3)}
             ></span>
           </div>
-        </div>
+        </CButton>
         <div className={mergeText(style.betweencenter, style.navres)}>
           <div className="!DO Not Remove"></div>
           <div className={mergeText(style.navlinks, "flex", style.navitem)}>
-            <a href="/" className={style.navlink}>
-              Home
-            </a>
-            <a href="/pricingplans" className={style.navlink}>
-              Pricing/Plans
-            </a>
-            <a href="/about" className={style.navlink}>
-              About us
-            </a>
-            <a href="/blogs" className={style.navlink}>
-              Blog
-            </a>
-            <a href="/becomeAfliate" className={style.navlink}>
-              Become an Affiliate
-            </a>
+            {navigationObject.map((entry,i)=><CLink key={i} href={entry.PATH} id = {`${entry.PATH}-navbarlink`} className={style.navlink}>
+                {entry.NAME}
+            </CLink>
+            )}
+            
           </div>
           <div className={style.navitem}>
-            <div className={mergeText("", style.navauth)}>
+            <CLink href={""} target={"_blank"} className={mergeText("", style.navauth)}>
               <span className={mergeText(style.navatextlogin, style.navatext)}>
                 LOGIN
               </span>
-            </div>
-            <div className={mergeText("", style.navauth, style.navauth1)}>
+            </CLink>
+            <CLink className={mergeText("", style.navauth, style.navauth1)}>
               <span className={style.navatext}>SIGN UP</span>
-            </div>
+            </CLink>
           </div>
         </div>
       </div>

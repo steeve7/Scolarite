@@ -317,6 +317,13 @@
     padding-block:20px ;
     color: white;
 }
+
+@media screen and (max-width:1200px) {
+    .wrapper3i1content{
+        text-align: center;
+    }
+
+}
  
 @media screen and (max-width: 908px) {
 
@@ -343,6 +350,7 @@
     .w4content{
         width: 90%;
     }
+
 
 }
 

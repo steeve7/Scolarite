@@ -4,7 +4,17 @@ import { mergeFunc, mergeText } from "../../app/add"
 import { useEffect } from "react"
 
 export function G2Wrapper(props){
-    return <section  className={mergeText(props.className,style.g2wrapper)} >
+    var styleg2 =props.repel ? {
+        // color: "white",
+        paddingInline:" 9%",
+        paddingBlock: "14%",
+    }: {color:""}
+    styleg2 = {
+        ...styleg2
+    }
+    return <section   className={mergeText(props.rev==true?style.g2wrapperReverse:style.g2wrapper,props.className)} style={
+        styleg2
+    } >
         {props.children}
     </section>
 }
@@ -30,8 +40,9 @@ export function CButton({className,onClick,id,children,ani = true}){
 }
 
 
-export function CLink({className,href,onClick,id,children,ani = true}){
-    return <div id={id} className={mergeText(className,style.button,ani?style.btnani:"")} onClick={mergeFunc(onClick,()=>{window.location.href = href})}>{children}</div>
+export function CLink({className,href,onClick,id,children,target,ani = true}){
+    const linkFunc = ()=>{window.open(href,String(target).toLowerCase()).focus()}
+    return <div id={id} className={mergeText(className,style.button,ani?style.btnani:"")}  onClick={mergeFunc(onClick,linkFunc)}>{children}</div>
 }
 
 export function AInput({label, placeholder , className = "", inClassName = "",type="input"}){

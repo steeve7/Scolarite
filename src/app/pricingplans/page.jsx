@@ -105,13 +105,16 @@ export default function PricingPage(props){
         {<div className={style.w1bg}/>}
 
                 <div className={mergeText(style.w1wrapper,"pdt")}>
-                        <div className={style.w1i1}>
-                        
-    <br />
-                            <div className={mergeText(style.title)}>Choose Your Plan: <br />
-                            Affordable Learning, Priceless Success</div>
-                            <div className={style.text1}>We have a range of affordable plans. Choose the option that fits <br /> your learning goals. <mark style={{backgroundColor:"transparent",color:"yellow"}}>Don't miss out on this opportunity to level up your skills.</mark></div>
-                        </div>
+                        <G2Wrapper>
+                            <div className={style.w1i1}>
+                                <div className={mergeText(style.title)}>Choose Your Plan: <br />
+                                Affordable Learning, Priceless Success</div>
+                                <div className={style.text1}>We have a range of affordable plans. Choose the option that fits <br /> your learning goals. <mark style={{backgroundColor:"transparent",color:"yellow"}}>Don't miss out on this opportunity to level up your skills.</mark></div>
+                            </div>
+                            <Image src={w1gif} alt="image">
+
+                            </Image>
+                        </G2Wrapper>
                        
                 </div>
                 <div className={style.w3switch}>

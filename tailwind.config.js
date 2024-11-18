@@ -7,9 +7,12 @@ module.exports = {
   ],
   theme: {
     extend: {
-      
+      colors: {
+        "custom-start": "#282e41",
+        "custom-end": "#3e4a6f",
+      },
       backgroundImage: {
-        "plan-background": "url('/src/Plan/Assets/Image/plan.png')",
+        "custom-gradient": "linear-gradient(180deg, #282e41 0%, #3e4a6f 100%)",
       },
       colors: {
         "custom-gray": "rgba(102, 112, 133, 1)",
@@ -22,7 +25,7 @@ module.exports = {
         "custom-border": "rgba(102, 112, 133, 1)",
         "custom-border-color": "rgba(102, 112, 133, 1)",
         "button-color": "rgba(211, 211, 211, 1)",
-        "hero_color": "rgba(255, 224, 0, 1)",
+        hero_color: "rgba(255, 224, 0, 1)",
         "custom-blue": "rgba(39, 45, 62, 1)",
         "light-blue": "rgba(39, 45, 62, 0.8)",
         "plan-button": "rgba(39, 45, 62, 1)",
