@@ -9,6 +9,22 @@ export function mergeFunc(...func){
     }
 }
 
+
+export function LastIndex(list){
+  const running = true
+  const count = 0
+  while (running){
+    try{
+      const indexretrive = list[count]
+      count ++
+    }catch(error){
+      running = false
+    }
+  }
+  return count
+}
+
+
 export function genId(p = "",length = 8){
     const letters = "abcdefghijklmnopqrstuvwxyz"
     const numbers = "0123456789"

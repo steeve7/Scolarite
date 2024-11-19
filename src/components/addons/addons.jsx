@@ -1,7 +1,9 @@
 "use client"
 import style from "./addons.module.css"
-import { mergeFunc, mergeText } from "../../app/add"
-import { useEffect } from "react"
+import { genId, LastIndex, mergeFunc, mergeText } from "../../app/add"
+import React, { useEffect } from "react"
+
+const indexId = genId("b")
 
 export function G2Wrapper(props){
     var styleg2 =props.repel ? {
@@ -12,26 +14,43 @@ export function G2Wrapper(props){
     styleg2 = {
         ...styleg2
     }
-    return <section   className={mergeText(props.rev==true?style.g2wrapperReverse:style.g2wrapper,props.className)} style={
+    return <section   className={mergeText(style.g2wrapper,props.className)} style={
         styleg2
     } >
         {props.children}
     </section>
 }
 
-export function Flip({CompList}){
-    const list = CompList
-    const bClassName = style.FlipButtonClick
+export function  INDEX ({name, value = 0}){
+    const IndexName = `INDEX-${name}`
+    return <span className="NONE" id={IndexName}>{value}</span>
+}
+
+
+export function Flip({id,Name, className,List}){
+    const buttonName = `FHB-${Name}`
+    const list  = List
+    const currentIName = "FLIP"
+    const lastIndex = LastIndex(list)
+    const childName = "FlipChildID"
     function FlipButtonFunc(){
+        const Index = document.getElementById(`INDEX-${currentIName}`)
+        const value = Number(Index.innerText)
 
     }
     return (
-        <div className={style.Flip}>
-            {list}
-        <CButton id={bClassName} onClick={FlipButtonFunc} className={mergeText(bClassName,"NONE")}> </CButton>
+        <div className={mergeText(style.Flip,className)} id = {id} >
+            {list.map((comp, index)=>
+                React.cloneElement(comp,{
+                    id:`${childName} ${index}`
+                })
+            )}
+        <CButton id={buttonName} onClick={FlipButtonFunc} className={mergeText(style.FlipButtonClick,"NONE")}> </CButton>
+        <INDEX name={currentIName} />
         </div>
     )
 }
+
 
 export function CInput({className,placeholder,type="input",...props}){
     useEffect(()=>{
