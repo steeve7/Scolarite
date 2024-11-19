@@ -11,8 +11,8 @@ export function mergeFunc(...func){
 
 
 export function LastIndex(list){
-  const running = true
-  const count = 0
+  var running = true
+  var count = 0
   while (running){
     try{
       const indexretrive = list[count]

@@ -1,10 +1,10 @@
 "use client"
 import style from "./addons.module.css"
 import { genId, LastIndex, mergeFunc, mergeText } from "../../app/add"
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
+import { frame } from "framer-motion"
 
 const indexId = genId("b")
-
 export function G2Wrapper(props){
     var styleg2 =props.repel ? {
         // color: "white",
@@ -27,28 +27,74 @@ export function  INDEX ({name, value = 0}){
 }
 
 
-export function Flip({id,Name, className,List}){
-    const buttonName = `FHB-${Name}`
-    const list  = List
-    const currentIName = "FLIP"
-    const lastIndex = LastIndex(list)
-    const childName = "FlipChildID"
-    function FlipButtonFunc(){
-        const Index = document.getElementById(`INDEX-${currentIName}`)
-        const value = Number(Index.innerText)
+export function HiddenButton({id,onClick}){
+    return <CButton id={id} onClick={onClick} className={mergeText(style.Hiddenbutton,"NONE")}></CButton>
+}
+
+export function clickHidden(id , click = true){
+    const button = document.getElementById(id)
+    if (window && click){
+        button.click()
+    }
+    return button
+    
+}
+
+
+export function Flip({id,Name, className, children}){
+    const [framePosX, setFramePosX] = useState(0) 
+    const forwardBName = `FB-${Name}-FORWARD`
+    const backwardBName = `FB-${Name}-BACKWARD`
+    const frameID = style.FlipInnerFrame
+
+    function ForwardButtonFunc(){
+        const frame = document.getElementById(frameID)
+        const frameParent = frame.parentElement
+        const parentWidth = frameParent.offsetWidth
+        const frameWidth = frame.scrollWidth
+        var scroll = framePosX + parentWidth
+        var check = Number(frameWidth-(frameWidth/((frameWidth/parentWidth))))
+        if (scroll >check){
+            
+            scroll = 0
+        }
+        frame.style.transform = `translateX(-${scroll}px)`
+        setFramePosX(()=> scroll)
+
+    }
+    function BackwardButtonFunc(){
+        const frame = document.getElementById(frameID)
+        const frameParent = frame.parentElement
+        const parentWidth = frameParent.offsetWidth
+        const frameWidth = frame.scrollWidth
+        var scroll = framePosX - parentWidth
+        var check = Number(frameWidth-(frameWidth/((frameWidth/parentWidth))))
+        if (scroll < 0){
+            scroll = check
+        }
+        frame.style.transform = `translateX(-${scroll}px)`
+        setFramePosX(()=> scroll)
 
     }
     return (
         <div className={mergeText(style.Flip,className)} id = {id} >
-            {list.map((comp, index)=>
-                React.cloneElement(comp,{
-                    id:`${childName} ${index}`
-                })
-            )}
-        <CButton id={buttonName} onClick={FlipButtonFunc} className={mergeText(style.FlipButtonClick,"NONE")}> </CButton>
-        <INDEX name={currentIName} />
+            <div id={frameID}  className={frameID}>
+                {children}
+            </div>
+        <HiddenButton id={forwardBName} onClick={ForwardButtonFunc}/>
+        <HiddenButton id={backwardBName} onClick={BackwardButtonFunc}/>
         </div>
     )
+}
+
+export function Cg2wrapper({className,id,children,paddingInline = "10px", paddingBlock = "20px",height = "100%"}){
+    return <div id={id} className={mergeText(style.cg2w,className)} style={{
+        paddingInline:paddingInline
+        ,paddingBlock:paddingBlock
+        ,height:height
+        }}>
+        {children}
+    </div>
 }
 
 

@@ -53,8 +53,32 @@
     text-align: center;
     width:fit-content;
 }
+.Flip{
+    width: 100%;
+    overflow: hidden;
+}
+.FlipInnerFrame{
+    display: flex;
+    width:100%;
+    height: 100%;
+    overflow-x: visible;
+    min-width: 100%;
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.cg2w{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
 
 @media screen and (max-width: 768px) {
+    .cg2w{
+        display: flex;
+        flex-direction: column;
+        
+    }
     .g2wrapper{
         display: flex;
         flex-direction: column-reverse;
