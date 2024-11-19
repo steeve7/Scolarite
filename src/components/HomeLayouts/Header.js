@@ -15,9 +15,12 @@ function Header() {
 
   },[])
   return (
-    <div id="HEADER_SECTION" className={mergeText(...classes)}>
-      <NavbarMain/>
-    </div>
+    <>
+      <div id="HEADER_SECTION" className={mergeText(...classes)}>
+        <NavbarMain/>
+      </div>
+      <div style={{marginBottom:"130px"}}></div>
+    </>
   )
 }
 
