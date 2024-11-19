@@ -1,8 +1,9 @@
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
-
+import style from "./style.module.css"
+import { mergeText } from "@/app/add";
 export default function Hero() {
   return (
-    <div className="relative flex flex-col xl:flex-row w-full -mt-20 pb-80">
+    <div className="relative  flex flex-col xl:flex-row w-full -mt-20 pb-80">
       {/* Background Image for Desktop */}
       <div
         className="absolute inset-0 z-0 hidden md:block bg-cover bg-center bg-no-repeat "
@@ -72,11 +73,11 @@ export default function Hero() {
       </div>
 
       {/* Image Section */}
-      <div className="xl:absolute relative xl:w-[100%] lg:w-[55%] w-full md:-mt-32 xl:right-[-350px] overflow-hidden">
+      <div className="xl:absolute relative xl:w-[100%] lg:w-[55%] w-full  overflow-hidden">
         <img
           src="/image/book.gif"
           alt="hero_page"
-          className="h-[100%] w-[120%]"
+          className={mergeText("h-[100%] w-[120%] ",style.heroimage)}
         />
       </div>
     </div>
