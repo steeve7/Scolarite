@@ -35,8 +35,11 @@ export function CInput({className,placeholder,type="input",...props}){
 }
 
 
-export function CButton({className,onClick,id,children,ani = true}){
-    return <div id={id} className={mergeText(className,style.button,ani?style.btnani:"")} onClick={onClick}>{children}</div>
+export function CButton({className,onClick,id,children,Style,ani = true}){
+    return <div id={id} style={Style} className={mergeText(className,style.button,ani?style.btnani:"")} onClick={onClick}>{children}</div>
+}
+export function CSButton({className,onClick,id,children,Style,ani = true}){
+    return <span id={id} style={Style} className={mergeText(className,style.button,ani?style.btnani:"")} onClick={onClick}>{children}</span>
 }
 
 

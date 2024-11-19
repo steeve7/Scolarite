@@ -73,11 +73,11 @@ export default function Hero() {
       </div>
 
       {/* Image Section */}
-      <div className="xl:absolute relative xl:w-[100%] lg:w-[55%] w-full  overflow-hidden">
+      <div className="xl:absolute relative   w-full  overflow-hidden">
         <img
           src="/image/book.gif"
           alt="hero_page"
-          className={mergeText("h-[100%] w-[120%] ",style.heroimage)}
+          className={mergeText(" ",style.heroimage)}
         />
       </div>
     </div>

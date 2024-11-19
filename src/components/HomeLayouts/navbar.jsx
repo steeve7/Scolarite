@@ -161,9 +161,8 @@ function NavBar(props) {
       id="navbar"
     >
       <div className={mergeText("grid grid-cols-[auto_1fr]", style.navinner)}>
-        <CButton
-        ani = {false}
-        onClick={e=>{window.location.reload()}}
+        <div
+        
           className={mergeText(
             style.betweencenter,
             style.naviconwrapper,
@@ -176,12 +175,21 @@ function NavBar(props) {
               style.navtitle
             )}
           >
-            <Image
-              src={logo}
-              className={mergeText(style.navimage, style.navlogo)}
-              alt="logo unavaliable"
-            />
-            <span className={style.navtitletext}>SCOLARITÉ</span>
+            <CButton 
+        onClick={e=>{window.location.reload()}}
+         
+        >
+              <Image
+                src={logo}
+                className={mergeText(style.navimage, style.navlogo)}
+                alt="logo unavaliable"
+              />
+            </CButton>
+            <span className={style.navtitletext}><CButton 
+        ani = {false}
+        onClick={e=>{window.location.reload()}}
+         
+        >SCOLARITÉ </CButton></span>
           </span>
           <div
             className={mergeText(style.navmenuicon)}
@@ -198,7 +206,7 @@ function NavBar(props) {
               className={mergeText("", style.navmenuvicon, style.nmi3)}
             ></span>
           </div>
-        </CButton>
+        </div>
         <div className={mergeText(style.betweencenter, style.navres)}>
           <div className="!DO Not Remove"></div>
           <div className={mergeText(style.navlinks, "flex", style.navitem)}>

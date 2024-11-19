@@ -156,6 +156,7 @@
     margin-top: 50px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr) );
+    overflow: hidden;
     gap: 40px 20px;
 }
 .priceCom{
@@ -168,7 +169,7 @@
     box-sizing: border-box;
     border-radius: 10px;
     border: 5px solid rgba(241, 241, 243, 1);
-}
+} 
 .pclabel{
     font-size: 12px;
     font-weight: 500;
