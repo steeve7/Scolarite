@@ -28,8 +28,9 @@ export function  INDEX ({name, value = 0}){
 
 
 export function HiddenButton({id,onClick}){
-    return <CButton id={id} onClick={onClick} className={mergeText(style.Hiddenbutton,"NONE")}></CButton>
+    return <div id={id} onClick={onClick} style={{display:"none"}}/>
 }
+
 
 export function clickHidden(id , click = true){
     const button = document.getElementById(id)
@@ -38,6 +39,33 @@ export function clickHidden(id , click = true){
     }
     return button
     
+}
+
+export function CEDispatch(Name,Event){
+    const CEventName = `CEvent-${Name}`
+    useEffect(
+        ()=>{
+            const el = document.getElementById(CEventName)
+            el.dispatchEvent(Event)
+        } , []
+    )
+}
+
+export function CEventH({Name , Event, Func = function(){}}){
+    const CEventName = `CEvent-${Name}`
+    useEffect(
+        ()=>{
+            const event = Event
+            const func = Func
+            const el = document.getElementById(CEventName)
+            el.addEventListener(event.type,()=>{
+                func()
+            })
+
+        }
+    )
+    return <div id={CEventName} style={{display:"none"}} ></div>
+
 }
 
 
@@ -86,6 +114,8 @@ export function Flip({id,Name, className, children}){
         </div>
     )
 }
+
+
 
 export function Cg2wrapper({className,id,children,paddingInline = "10px", paddingBlock = "20px",height = "100%"}){
     return <div id={id} className={mergeText(style.cg2w,className)} style={{

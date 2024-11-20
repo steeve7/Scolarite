@@ -6,7 +6,7 @@ import NavBar from '@/components/HomeLayouts/navbar'
 
 function Header() {
   return (
-    <div className={style.header}>
+    <div id="HEADER" className={style.header}>
       <NavbarMain/>
     </div>
   )
