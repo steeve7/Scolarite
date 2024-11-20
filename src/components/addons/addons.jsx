@@ -42,24 +42,22 @@ export function clickHidden(id , click = true){
 }
 
 export function CEDispatch(Name,Event){
-    const CEventName = `CEvent-${Name}`
-    useEffect(
-        ()=>{
+    const CEventName = `CEVENT-${Name}`
+    if (window){
             const el = document.getElementById(CEventName)
             el.dispatchEvent(Event)
-        } , []
-    )
+    }
 }
 
-export function CEventH({Name , Event, Func = function(){}}){
-    const CEventName = `CEvent-${Name}`
+export function CEventH({Name , Type, onEvent = function(){}}){
+    const CEventName = `CEVENT-${Name}`
     useEffect(
         ()=>{
-            const event = Event
-            const func = Func
+            const func = onEvent
+            const type = Type
             const el = document.getElementById(CEventName)
-            el.addEventListener(event.type,()=>{
-                func()
+            el.addEventListener(type,(e)=>{
+                func(e)
             })
 
         }
