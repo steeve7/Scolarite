@@ -24,9 +24,10 @@ function Fill({className, Name,purpose={start: 0, end: 10} , need = true}){
         const index = Number(e.detail.index)
         const End = purpose.end
         const Start = purpose.start
-        const el = ref.current
+        var el = ref.current
         const barWidth = Number((index/(End - Start))*100)
-        if (el){if (index > Start){
+
+       if (index > Start){
             el.style.width = `${barWidth}%`
         }
         else{
@@ -35,33 +36,35 @@ function Fill({className, Name,purpose={start: 0, end: 10} , need = true}){
         if (index >= End){
             setdone(()=> true)
         }
-    }}
-    return <div className={mergeText(style.fill,className)}>
-        {need && <div className={mergeText(style.fillbar,"")}>
-            <div ref={ref} className={mergeText(style.fillbarthumb)}/>
-        </div>}
+    console.log(barName,End,Start,index)}
+    return <>
+     <div style={{display:need?"initial": "none"}} className={mergeText(style.fillbar,"")}>
+            <div  ref={ref} id={barName} className={mergeText(style.fillbarthumb)}/>
+        </div>
         <div className={style.fillcircle}> 
             {done && <Image src={doneimg} alt="2" className={style.filldoneimg}/> }
             {!done && purpose.end}
         </div>
         <CEventH Name={EventName} Type={EventList.multiFormMove().type} onEvent={FillFunc}   />
-    </div>
+    </>
 }
 
 
 export default function Page(props){
     const [Index, setIndex] = useState(2)
-    var section1fills = CRange(0,4).map((value,index)=> {return{Name:`fill${value+1}`, Index:value+1,purpose:{start:value,end:value+1}}})
+    var section1fills = CRange(0,4).map((value,index)=> {return{Name:`fill${value}`, Index:value+1,purpose:{start:value,end:value+1}}})
     const ImageList = [frame1i1,frame2i1,frame2i1]
     useEffect(function(){
+        console.log(section1fills)
         document.getElementById("HEADER").style.display = "none"
         // document.getElementById("FOOTER").style.display = "none"
     },[])
     function ehandle(){
         const Event = EventList.multiFormMove({index:Index})
-        for(var i in section1fills){
-            CEDispatch(`FILL-${section1fills[i].Name}`,Event)
-        }
+        section1fills.map((i)=>{
+            CEDispatch(`FILL-${i.Name}`,Event)
+            console.log(`FILL-${i.Name}`)
+        })
     }
     return <div className={style.main}>
         <Cg2wrapper height="100vh">
