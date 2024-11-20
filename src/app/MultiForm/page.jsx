@@ -7,7 +7,7 @@ import doneimg from "./assets/done.png"
 import Image from "next/image"
 
 import { useEffect, useRef, useState } from "react"
-import { mergeText } from "../add"
+import { CRange, mergeText, Range } from "../add"
 
 
 const EventList = {
@@ -15,33 +15,34 @@ const EventList = {
     multiFormReload:(detail = {index:0})=>new CustomEvent("MULTIFORM-RELOAD",{detail:detail})
 }
 
-function Fill({className, Name,propose={start: 0, end: 10} , need = true}){
+function Fill({className, Name,purpose={start: 0, end: 10} , need = true}){
     const EventName = `FILL-${Name}`
     const barName = `FILL-${Name}`
     const ref = useRef(null)
     const [done,setdone] = useState(false)
     function FillFunc(e){
         const index = Number(e.detail.index)
-        const End = propose.end
-        const Start = propose.start
+        const End = purpose.end
+        const Start = purpose.start
         const el = ref.current
         const barWidth = Number((index/(End - Start))*100)
-        if (index > Start){
+        if (el){if (index > Start){
             el.style.width = `${barWidth}%`
-        }else if (index >= End){
-            setdone(()=> true)
         }
         else{
             el.style.width = `0%`
         }
-    }
+        if (index >= End){
+            setdone(()=> true)
+        }
+    }}
     return <div className={mergeText(style.fill,className)}>
-        <div className={mergeText(style.fillbar,"")}>
-           {need && <div ref={ref} className={mergeText(style.fillbarthumb)}/>}
-        </div>
+        {need && <div className={mergeText(style.fillbar,"")}>
+            <div ref={ref} className={mergeText(style.fillbarthumb)}/>
+        </div>}
         <div className={style.fillcircle}> 
-            {done && <Image src={doneimg} className={style.filldoneimg}/> }
-            {!done && propose.end}
+            {done && <Image src={doneimg} alt="2" className={style.filldoneimg}/> }
+            {!done && purpose.end}
         </div>
         <CEventH Name={EventName} Type={EventList.multiFormMove().type} onEvent={FillFunc}   />
     </div>
@@ -49,10 +50,19 @@ function Fill({className, Name,propose={start: 0, end: 10} , need = true}){
 
 
 export default function Page(props){
+    const [Index, setIndex] = useState(2)
+    var section1fills = CRange(0,4).map((value,index)=> {return{Name:`fill${value+1}`, Index:value+1,purpose:{start:value,end:value+1}}})
     const ImageList = [frame1i1,frame2i1,frame2i1]
     useEffect(function(){
         document.getElementById("HEADER").style.display = "none"
+        // document.getElementById("FOOTER").style.display = "none"
     },[])
+    function ehandle(){
+        const Event = EventList.multiFormMove({index:Index})
+        for(var i in section1fills){
+            CEDispatch(`FILL-${section1fills[i].Name}`,Event)
+        }
+    }
     return <div className={style.main}>
         <Cg2wrapper height="100vh">
             <Flip className={style.side1} Name={"frame1"}>
@@ -73,12 +83,16 @@ export default function Page(props){
                         Help us create a focused study plan tailored just for you.
                         </div>
                     </div>
-
+                    <div className="w-full flex justify-center">
+                        <div className={style.fillcom}>
+                            {section1fills.map((obj,index)=><Fill key={index} need = {index !== 0} {...obj}/>)}
+                        </div>
+                    </div>
                 </div>
                 
             </Flip>
-            <Fill Name="DEMO1" ></Fill>
-        <CButton onClick={()=>{clickHidden("FB-frame1-FORWARD");CEDispatch("FILL-DEMO1",EventList.multiFormMove({index:11}))}}> button next</CButton>
+            
+        <CButton onClick={()=>{clickHidden("FB-frame1-FORWARD");ehandle()}}> button next</CButton>
             <CButton onClick={()=>clickHidden("FB-frame1-BACKWARD")}> button back</CButton>
         </Cg2wrapper>
     </div>

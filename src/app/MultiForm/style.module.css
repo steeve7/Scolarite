@@ -10,7 +10,7 @@
     height: 100%;
 }
 .fill{
-    width: 100px;
+    /* width: 100px; */
     display: grid;
     grid-template-columns: 1fr auto;
     place-items: center;
@@ -20,6 +20,7 @@
     width: 100%;
     border-radius: 4px;
     background-color: rgba(161, 174, 190, 1);
+    overflow: hidden;
 }
 .fillbarthumb{
     width:0%;
@@ -55,4 +56,11 @@
 }
 .filldoneimg{
     width: 100%;
+}
+.fillcom{
+    display: grid;
+    gap: 10px;
+    width: 100%;
+    max-width: 500px;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
 }

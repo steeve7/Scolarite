@@ -24,6 +24,17 @@ export function LastIndex(list){
   return count
 }
 
+export function CRange(start= 0,stop = 0,step=1){
+  const list = []
+  for(let i = start;i<stop+step;i+=step){
+    if (i >= stop){
+      list.push(stop)
+      break
+    }else{list.push(i)}
+  }
+  return list
+}
+
 
 export function genId(p = "",length = 8){
     const letters = "abcdefghijklmnopqrstuvwxyz"
