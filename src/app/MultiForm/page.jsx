@@ -3,6 +3,7 @@ import { CButton, CEDispatch, CEventH, Cg2wrapper, clickHidden, Flip } from "@/c
 import style from "./style.module.css"
 import frame1i1 from "./assets/frame1i1.png"
 import frame2i1 from "./assets/frame2i1.png"
+import sliderthumbimg from "./assets/sliderthumb.png"
 import doneimg from "./assets/done.png"
 import Image from "next/image"
 
@@ -49,26 +50,46 @@ function Fill({className, Name,purpose={start: 0, end: 10} , need = true}){
     </>
 }
 
+function Innerframe1({onClick}){
+    const [index, setIndex] = useState(0)
+    const Name = "IF1"
+
+    return <Flip  Type={EventList.multiFormMove().type}  Name={Name}>
+        <div className={style.if1}>
+            <div className={style.if1title}>
+            What's your target jamb score? 
+            </div>
+            <Slider/>
+            <div className={style.if1button1w}>
+                <CButton onClick={onClick}>Next step</CButton>
+            </div>
+        </div>
+        <CEventH Type={EventList.multiFormMove().type} Name={Name} />
+    </Flip>
+}
 
 export default function Page(props){
-    const [Index, setIndex] = useState(2)
+    const [Index, setIndex] = useState(0)
+    const FilllistAssign = ["Academic Goals", "Current Academic Status", "Study Preference", "Customization", "Congratulations"]
     var section1fills = CRange(0,4).map((value,index)=> {return{Name:`fill${value}`, Index:value+1,purpose:{start:value,end:value+1}}})
     const ImageList = [frame1i1,frame2i1,frame2i1]
     useEffect(function(){
         console.log(section1fills)
-        document.getElementById("HEADER").style.display = "none"
+        // document.getElementById("HEADER").style.display = "none"
         // document.getElementById("FOOTER").style.display = "none"
     },[])
     function ehandle(){
         const Event = EventList.multiFormMove({index:Index})
         section1fills.map((i)=>{
             CEDispatch(`FILL-${i.Name}`,Event)
-            console.log(`FILL-${i.Name}`)
         })
+        CEDispatch("FLIP-frame1",Event)
+        
+        setIndex(()=>Index < 4 ? Index+1 : Index)
     }
     return <div className={style.main}>
-        <Cg2wrapper height="100vh">
-            <Flip className={style.side1} Name={"frame1"}>
+        <Cg2wrapper className={style.wrapper}>
+            <Flip Type={EventList.multiFormMove().type} className={style.side1}  Name={"frame1"}>
             
                 {ImageList.map((image,i)=>
                     <div key={i} className={style.imagewrap}>
@@ -86,17 +107,177 @@ export default function Page(props){
                         Help us create a focused study plan tailored just for you.
                         </div>
                     </div>
-                    <div className="w-full flex justify-center">
+                    <div className="w-full flex justify-center mb-4">
                         <div className={style.fillcom}>
                             {section1fills.map((obj,index)=><Fill key={index} need = {index !== 0} {...obj}/>)}
                         </div>
+                    </div>
+                    <div className="w-full flex justify-center">
+                        <div className={mergeText(style.fillcom,style.fillassigncom)}>
+                            {FilllistAssign.map((obj,index)=> <div key={`index-${index}`} className={style.fillassign}>{obj}</div>)}
+                        </div>
+                    </div>
+                    <div className={style.notetext}>
+                        Please ensure you fill in the correct information to help us tailor your JAMB preparation effectively.
                     </div>
                 </div>
                 
             </Flip>
             
-        <CButton onClick={()=>{clickHidden("FB-frame1-FORWARD");ehandle()}}> button next</CButton>
+        <CButton onClick={()=>{ehandle()}}> button next</CButton>
             <CButton onClick={()=>clickHidden("FB-frame1-BACKWARD")}> button back</CButton>
         </Cg2wrapper>
+    </div>
+}
+
+
+
+
+
+function Slider(prop){
+    useEffect(()=>{
+        
+const parentKey = document.getElementById("parentKey")
+const value = document.getElementById("value-slider")
+const snap = document.getElementById("snap-audio")
+function getElPosToParent(element) {
+    const elementRect = element.getBoundingClientRect();
+    const elparent = element.parentElement
+    const parentRect = elparent.getBoundingClientRect();
+    var top = elementRect.top - parentRect.top
+    var left = elementRect.left - parentRect.left
+    var topPercent = ((top/elparent.offsetHeight)*100)
+    var leftPercent = ((left/elparent.offsetWidth)*100)
+    return {
+      top: top,
+      left: left,
+      topPercent:topPercent,
+      leftPercent:leftPercent
+    };
+  }
+
+class Key{
+    index
+    style
+    varyStyle
+    self
+    trigger
+
+    getPosToParent() {
+        const element = this.self
+        const elementRect = element.getBoundingClientRect();
+        const elparent = element.parentElement
+        const parentRect = elparent.getBoundingClientRect();
+        var top = elementRect.top - parentRect.top
+        var left = elementRect.left - parentRect.left
+        var topPercent = ((top/elparent.offsetHeight)*100)
+        var leftPercent = ((left/elparent.offsetWidth)*100)
+        return {
+          top: top,
+          left: left,
+          topPercent:topPercent,
+          leftPercent:leftPercent
+        };
+      }
+    
+
+    constructor(index){
+        this.index = index
+        this.self = document.createElement("div")
+        this.self.id = `slider-${this.index}-key`
+        this.self.className = `slider-key`
+        this.self.style.height = "50%"
+        const height = 20
+        const width = 2
+        this.style = {
+            display:"block",
+            minWidth:`${width}px`,
+            height:`${height}%`,
+            backgroundColor:"rgba(215, 216, 217, 1)",
+            borderRadius:"5px"
+        }
+        if (index%5 == 0){
+            this.style.minWidth = `${width*2}px`
+            this.style.height = `${height*2}%`
+            this.style.backgroundColor = "rgba(186, 187, 190, 1)"
+        }
+        Object.assign(this.self.style,{...this.style})
+
+    }
+
+
+}
+
+const before = document.createElement("div")
+const after = document.createElement("div")
+parentKey.append(before)
+before.style.display = "block"
+before.style.minWidth = "60%"
+
+var keys = []
+
+for (var i= 0; i<401;i++){
+    var key = new Key(i)
+    parentKey.appendChild(key.self)
+    keys.push(key)
+
+}
+parentKey.append(after)
+after.style.display = "block"
+after.style.minWidth = "60%"
+
+parentKey.onscroll = ()=>{
+    keys.forEach(key=>{
+        if (key.getPosToParent().leftPercent <= 51 && key.getPosToParent().leftPercent >= 49){
+            value.innerText = String(key.index)
+            snap.currentTime = 0
+            snap.volume = 0.34
+            snap.play()
+            parentKey.scrollLeft += 50 - key.getPosToParent().leftPercent
+
+        }
+        if (key.index == 400){
+            if (key.getPosToParent().leftPercent <= 52 ){
+                value.innerText = String(key.index) 
+            }
+        }
+        if (key.index == 0){
+            if (key.getPosToParent().leftPercent >= 52 ){
+                value.innerText = String(key.index) 
+            }
+        }
+    })
+}
+    },[])
+
+    return   <div style={{
+        width:"100%",
+        minHeight:"240px",
+        overflowX:"hidden",
+        position:"relative",
+
+        }}>
+        <div className="text" id="value-slider" style={{width: "100%", textAlign:"center", fontSize: "50px",fontWeight:"bold",}}>0</div>
+        <div id="parentKey"style ={{ 
+            width:"100%",
+            height:"150px",
+            display:"flex",
+            alignItems:"center",
+            overflowY:"hidden",
+            overflowX:"auto",
+            gap:"20px",
+            boxSizing:"border-box",
+            paddingInline:"20px",
+        }}>
+        </div>
+        <Image src={sliderthumbimg} alt="weghjktrewetkl" className="before" id="keyThumb" style={{
+            position:"absolute",
+            height:"120px",
+            width:"auto",
+            left:"50%",
+            top:"60%",
+            translate:"-50% -50%",
+         }}/>
+        {/* <audio src="app\assets\snap.mp3" style={{display: "none",}} id="snap-audio"></audio> */}
     </div>
 }

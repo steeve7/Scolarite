@@ -41,7 +41,10 @@
 .frame2section *{
     text-align: center;
 }
-
+.frame2section{
+    min-width: 100%;
+    min-height: 100%;
+}
 .frame2section1title{
     font-weight: 500;
     font-size: 25px;
@@ -54,6 +57,7 @@
     flex-direction: column;
     gap: 10px;
     margin-top: 15%;
+    margin-bottom:2rem;
 }
 .filldoneimg{
     width: 100%;
@@ -65,4 +69,37 @@
     max-width: 500px;
     place-items: center;
     grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+}
+.fillassigncom{
+    gap: 10px;
+}
+.fillassign{
+    font-size: 12px;
+}
+.notetext{
+    margin-top: 2rem;
+    font-weight: 550;
+}
+.wrapper{
+    height: 100vh;
+}
+.if1title{
+    font-size: 20px;
+    font-weight: 600;
+}
+.if1{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+@media (max-width:720px){
+    .fillassign{
+        font-size: 10px;
+    }
+    .wrapper{
+        height: fit-content;
+    }
 }

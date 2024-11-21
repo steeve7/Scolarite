@@ -67,11 +67,12 @@ export function CEventH({Name , Type, onEvent = function(){}}){
 }
 
 
-export function Flip({id,Name, className, children}){
+export function Flip({id,Name, className, children,totalframe,Type}){
     const [framePosX, setFramePosX] = useState(0) 
     const forwardBName = `FB-${Name}-FORWARD`
     const backwardBName = `FB-${Name}-BACKWARD`
     const frameID = style.FlipInnerFrame
+    const [frameIndex,setFrameIndex] = useState(0)
 
     function ForwardButtonFunc(){
         const frame = document.getElementById(frameID)
@@ -102,6 +103,15 @@ export function Flip({id,Name, className, children}){
         setFramePosX(()=> scroll)
 
     }
+    function DispatchFunc(e){
+        const inputIndex = e.detail==undefined?0: e.detail.index
+        if (frameIndex < inputIndex){
+            ForwardButtonFunc()
+        }else if (frameIndex > inputIndex){
+            BackwardButtonFunc()
+        }
+        setFrameIndex(inputIndex)
+    }
     return (
         <div className={mergeText(style.Flip,className)} id = {id} >
             <div id={frameID}  className={frameID}>
@@ -109,6 +119,7 @@ export function Flip({id,Name, className, children}){
             </div>
         <HiddenButton id={forwardBName} onClick={ForwardButtonFunc}/>
         <HiddenButton id={backwardBName} onClick={BackwardButtonFunc}/>
+        <CEventH Name={`FLIP-${Name}`} Type={Type} onEvent={DispatchFunc}  />
         </div>
     )
 }
