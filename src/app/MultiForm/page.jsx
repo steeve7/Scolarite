@@ -37,6 +37,9 @@ function Fill({className, Name,purpose={start: 0, end: 10} , need = true}){
         if (index >= End){
             setdone(()=> true)
         }
+        else{
+            setdone(()=> false)
+        }
     // console.log(barName,End,Start,index)
     }
     return <>
@@ -51,21 +54,35 @@ function Fill({className, Name,purpose={start: 0, end: 10} , need = true}){
     </>
 }
 
-function Innerframe1({onClick}){
-    const [index, setIndex] = useState(0)
+function Innerframe1({state,ehandle}){
+    const [index, setIndex] = state
     const Name = "IF1"
 
     return <Flip  Type={EventList.multiFormMove().type}   Name={Name}>
         <div className={style.if1}>
-            <div className={style.if1title}>
+            <div onClick={()=>clickHidden("FB-IF1-FORWARD")} className={style.if1title}>
             What's your target jamb score? 
             </div>
             <Slider/>
             <div className={style.if1button1w}>
-                <CButton className={style.if1button1} onClick={onClick}>Next step</CButton>
+                <CButton className={style.if1button1} onClick={()=>{setIndex(1);ehandle()}}>Next step</CButton>
             </div>
         </div>
-        <CEventH Type={EventList.multiFormMove().type} Name={Name} />
+        <div className={style.if1}>
+        <div onClick={()=>clickHidden("FB-IF1-FORWARD")} className={style.if1title}>
+            What's your target School? 
+            </div>
+            <Center><input type="text" className={style.ifts} placeholder="Enter school name" /></Center>
+           <br />
+           <br />
+           <br />
+           <br />
+            <div className={style.if1button2w}>
+                <CButton className={mergeText(style.if1button1,style.if1button2)} onClick={()=>{setIndex(0);ehandle()}}>Previous step</CButton>
+                <CButton className={style.if1button1} onClick={()=>{setIndex(2);ehandle()}}>Next step</CButton>
+            </div>
+        </div>
+        
     </Flip>
 }
 
@@ -80,6 +97,7 @@ export default function Page(props){
         // document.getElementById("FOOTER").style.display = "none"
     },[])
     function ehandle(){
+        console.log(`- ${Math.floor(Math.random()*1000)} - `,Index)
         const Event = EventList.multiFormMove({index:Index})
         /* section1fills.map((i)=>{
             CEDispatch(`FILL-${i.Name}`,Event)
@@ -87,7 +105,6 @@ export default function Page(props){
         CEDispatch("FLIP-frame1",Event)
          */
         FADispatch(Event)
-        setIndex(()=>Index < 4 ? Index+1 : Index)
     }
     return <div className={style.main}>
         <Cg2wrapper className={style.wrapper}>
@@ -123,8 +140,8 @@ export default function Page(props){
                         Please ensure you fill in the correct information to help us tailor your JAMB preparation effectively.
                     </div>
                     <br />
-                <Innerframe1/>
-        <CButton onClick={()=>{ehandle()}}> button next</CButton>
+                <Innerframe1 state = {[Index,setIndex]} ehandle = {ehandle} />
+        {/* <CButton onClick={()=>{ehandle()}}> button next</CButton> */}
 
                 </div>
             </Flip>

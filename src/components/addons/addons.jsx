@@ -93,7 +93,7 @@ export function Flip({id,Name, className, children,Type}){
     const forwardBName = `FB-${Name}-FORWARD`
     const backwardBName = `FB-${Name}-BACKWARD`
     const [index,setIndex] = useState(0)
-    const frameID = style.FlipInnerFrame
+    const frameID = `FB-${Name}`
 
     function ForwardButtonFunc(){
         var nowIndex = index < totalIndex ? index+1 : totalIndex
@@ -113,7 +113,7 @@ export function Flip({id,Name, className, children,Type}){
         const frameWidth = frame.scrollWidth
         const IndexPosX = []
         const TotalIndex = (frameWidth/parentWidth)
-        const assumeIndex = Math.floor(TotalIndex)
+        const assumeIndex = Math.ceil(TotalIndex)
         CRange(0,assumeIndex).forEach(index=>{
                 IndexPosX.push(index*(frameWidth/TotalIndex))
         })
@@ -124,6 +124,7 @@ export function Flip({id,Name, className, children,Type}){
         }
         setTotalIndex(()=>assumeIndex)
         setIndex(()=>inputIndex)
+        // console.log("name:",Name,"index:",inputIndex,"IndexPosX:",IndexPosX,"frame:",frameID)
     }
     function DispatchFunc(e){
         indexTo(e.detail.index)
@@ -131,7 +132,7 @@ export function Flip({id,Name, className, children,Type}){
     }
     return (
         <div className={mergeText(style.Flip,className)} id = {id} >
-            <div id={frameID}  className={frameID}>
+            <div id={frameID}  className={style.FlipInnerFrame}>
                 {children}
             </div>
         <HiddenButton id={forwardBName} onClick={ForwardButtonFunc}/>
