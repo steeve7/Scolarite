@@ -1,5 +1,5 @@
 "use client"
-import { CButton, CEDispatch, CEventH, Cg2wrapper, clickHidden, Flip } from "@/components/addons/addons"
+import { CButton, CEDispatch, Center, CEventH, Cg2wrapper, clickHidden, FADispatch, Flip } from "@/components/addons/addons"
 import style from "./style.module.css"
 import frame1i1 from "./assets/frame1i1.png"
 import frame2i1 from "./assets/frame2i1.png"
@@ -37,7 +37,8 @@ function Fill({className, Name,purpose={start: 0, end: 10} , need = true}){
         if (index >= End){
             setdone(()=> true)
         }
-    console.log(barName,End,Start,index)}
+    // console.log(barName,End,Start,index)
+    }
     return <>
      <div style={{display:need?"initial": "none"}} className={mergeText(style.fillbar,"")}>
             <div  ref={ref} id={barName} className={mergeText(style.fillbarthumb)}/>
@@ -54,14 +55,14 @@ function Innerframe1({onClick}){
     const [index, setIndex] = useState(0)
     const Name = "IF1"
 
-    return <Flip  Type={EventList.multiFormMove().type}  Name={Name}>
+    return <Flip  Type={EventList.multiFormMove().type}   Name={Name}>
         <div className={style.if1}>
             <div className={style.if1title}>
             What's your target jamb score? 
             </div>
             <Slider/>
             <div className={style.if1button1w}>
-                <CButton onClick={onClick}>Next step</CButton>
+                <CButton className={style.if1button1} onClick={onClick}>Next step</CButton>
             </div>
         </div>
         <CEventH Type={EventList.multiFormMove().type} Name={Name} />
@@ -74,17 +75,18 @@ export default function Page(props){
     var section1fills = CRange(0,4).map((value,index)=> {return{Name:`fill${value}`, Index:value+1,purpose:{start:value,end:value+1}}})
     const ImageList = [frame1i1,frame2i1,frame2i1]
     useEffect(function(){
-        console.log(section1fills)
-        // document.getElementById("HEADER").style.display = "none"
+        document.getElementById("HEADER").style.display = "none"
+        // document.querySelector("body").style.overflow = "hidden"
         // document.getElementById("FOOTER").style.display = "none"
     },[])
     function ehandle(){
         const Event = EventList.multiFormMove({index:Index})
-        section1fills.map((i)=>{
+        /* section1fills.map((i)=>{
             CEDispatch(`FILL-${i.Name}`,Event)
         })
         CEDispatch("FLIP-frame1",Event)
-        
+         */
+        FADispatch(Event)
         setIndex(()=>Index < 4 ? Index+1 : Index)
     }
     return <div className={style.main}>
@@ -97,7 +99,7 @@ export default function Page(props){
                     </div>
                 )}
             </Flip>
-            <Flip className={style.side1} Name={"frame2"}>
+            <Flip className={style.side2} Type={EventList.multiFormMove().type} Name={"frame2"}>
                 <div className={mergeText(style.frame2section,style.frame2section1)}>
                     <div className={mergeText(style.frame2section1titlewrapper)}>
                         <div className={style.frame2section1title}>
@@ -120,12 +122,13 @@ export default function Page(props){
                     <div className={style.notetext}>
                         Please ensure you fill in the correct information to help us tailor your JAMB preparation effectively.
                     </div>
+                    <br />
+                <Innerframe1/>
+        <CButton onClick={()=>{ehandle()}}> button next</CButton>
+
                 </div>
-                
             </Flip>
             
-        <CButton onClick={()=>{ehandle()}}> button next</CButton>
-            <CButton onClick={()=>clickHidden("FB-frame1-BACKWARD")}> button back</CButton>
         </Cg2wrapper>
     </div>
 }
@@ -139,7 +142,7 @@ function Slider(prop){
         
 const parentKey = document.getElementById("parentKey")
 const value = document.getElementById("value-slider")
-const snap = document.getElementById("snap-audio")
+// const snap = document.getElementById("snap-audio")
 function getElPosToParent(element) {
     const elementRect = element.getBoundingClientRect();
     const elparent = element.parentElement
@@ -230,9 +233,9 @@ parentKey.onscroll = ()=>{
     keys.forEach(key=>{
         if (key.getPosToParent().leftPercent <= 51 && key.getPosToParent().leftPercent >= 49){
             value.innerText = String(key.index)
-            snap.currentTime = 0
+        /*     snap.currentTime = 0
             snap.volume = 0.34
-            snap.play()
+            snap.play() */
             parentKey.scrollLeft += 50 - key.getPosToParent().leftPercent
 
         }
@@ -250,34 +253,36 @@ parentKey.onscroll = ()=>{
 }
     },[])
 
-    return   <div style={{
-        width:"100%",
-        minHeight:"240px",
-        overflowX:"hidden",
-        position:"relative",
-
-        }}>
-        <div className="text" id="value-slider" style={{width: "100%", textAlign:"center", fontSize: "50px",fontWeight:"bold",}}>0</div>
-        <div id="parentKey"style ={{ 
+    return   <Center>
+        <div style={{
             width:"100%",
-            height:"150px",
-            display:"flex",
-            alignItems:"center",
-            overflowY:"hidden",
-            overflowX:"auto",
-            gap:"20px",
-            boxSizing:"border-box",
-            paddingInline:"20px",
-        }}>
+            maxWidth:"400px",
+            minHeight:"240px",
+            overflowX:"hidden",
+            position:"relative",
+            }}>
+            <div className="text" id="value-slider" style={{width: "100%", textAlign:"center", fontSize: "50px",fontWeight:"bold",}}>0</div>
+            <div id="parentKey"style ={{
+                width:"100%",
+                height:"150px",
+                display:"flex",
+                alignItems:"center",
+                overflowY:"hidden",
+                overflowX:"auto",
+                gap:"20px",
+                boxSizing:"border-box",
+                paddingInline:"20px",
+            }}>
+            </div>
+            <Image src={sliderthumbimg} alt="weghjktrewetkl" className="before" id="keyThumb" style={{
+                position:"absolute",
+                height:"120px",
+                width:"auto",
+                left:"50%",
+                top:"60%",
+                translate:"-50% -50%",
+             }}/>
+            {/* <audio src="app\assets\snap.mp3" style={{display: "none",}} id="snap-audio"></audio> */}
         </div>
-        <Image src={sliderthumbimg} alt="weghjktrewetkl" className="before" id="keyThumb" style={{
-            position:"absolute",
-            height:"120px",
-            width:"auto",
-            left:"50%",
-            top:"60%",
-            translate:"-50% -50%",
-         }}/>
-        {/* <audio src="app\assets\snap.mp3" style={{display: "none",}} id="snap-audio"></audio> */}
-    </div>
+    </Center>
 }

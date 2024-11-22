@@ -1,6 +1,6 @@
 "use client"
 import style from "./addons.module.css"
-import { genId, LastIndex, mergeFunc, mergeText } from "../../app/add"
+import { CRange, genId, LastIndex, mergeFunc, mergeText } from "../../app/add"
 import React, { useEffect, useState } from "react"
 import { frame } from "framer-motion"
 
@@ -48,6 +48,27 @@ export function CEDispatch(Name,Event){
             el.dispatchEvent(Event)
     }
 }
+export function FADispatch(Event,excludedId=[""],excludedClass=[""]){
+    if (window){
+        const ListAll = document.querySelectorAll("html *")
+        ListAll.forEach((el)=>{
+            var excluded  = false
+            if (excludedId.includes(el.id)){
+                excluded = true
+            }
+
+            excludedClass.forEach(className=>{
+                if (el.classList.contains(className)){
+                    excluded = true
+                }
+            })
+            if (!excluded){
+                el.dispatchEvent(Event)
+            }
+            
+        })
+}
+}
 
 export function CEventH({Name , Type, onEvent = function(){}}){
     const CEventName = `CEVENT-${Name}`
@@ -67,50 +88,46 @@ export function CEventH({Name , Type, onEvent = function(){}}){
 }
 
 
-export function Flip({id,Name, className, children,totalframe,Type}){
-    const [framePosX, setFramePosX] = useState(0) 
+export function Flip({id,Name, className, children,Type}){
+    const [totalIndex, setTotalIndex] = useState(0) 
     const forwardBName = `FB-${Name}-FORWARD`
     const backwardBName = `FB-${Name}-BACKWARD`
+    const [index,setIndex] = useState(0)
     const frameID = style.FlipInnerFrame
-    const [frameIndex,setFrameIndex] = useState(0)
 
     function ForwardButtonFunc(){
-        const frame = document.getElementById(frameID)
-        const frameParent = frame.parentElement
-        const parentWidth = frameParent.offsetWidth
-        const frameWidth = frame.scrollWidth
-        var scroll = framePosX + parentWidth
-        var check = Number(frameWidth-(frameWidth/((frameWidth/parentWidth))))
-        if (scroll >check){
-            
-            scroll = 0
-        }
-        frame.style.transform = `translateX(-${scroll}px)`
-        setFramePosX(()=> scroll)
+        var nowIndex = index < totalIndex ? index+1 : totalIndex
+        indexTo(nowIndex)
 
     }
     function BackwardButtonFunc(){
+        var nowIndex = index <= 0 ? index-1 : totalIndex
+        indexTo(nowIndex)
+
+    }
+    function indexTo(index){
+        const inputIndex = index
         const frame = document.getElementById(frameID)
         const frameParent = frame.parentElement
         const parentWidth = frameParent.offsetWidth
         const frameWidth = frame.scrollWidth
-        var scroll = framePosX - parentWidth
-        var check = Number(frameWidth-(frameWidth/((frameWidth/parentWidth))))
-        if (scroll < 0){
-            scroll = check
+        const IndexPosX = []
+        const TotalIndex = (frameWidth/parentWidth)
+        const assumeIndex = Math.floor(TotalIndex)
+        CRange(0,assumeIndex).forEach(index=>{
+                IndexPosX.push(index*(frameWidth/TotalIndex))
+        })
+        if (inputIndex< assumeIndex){
+            scroll = IndexPosX[inputIndex]
+            scroll = (scroll/parentWidth)*100
+            frame.style.transform = `translateX(-${scroll}%)`
         }
-        frame.style.transform = `translateX(-${scroll}px)`
-        setFramePosX(()=> scroll)
-
+        setTotalIndex(()=>assumeIndex)
+        setIndex(()=>inputIndex)
     }
     function DispatchFunc(e){
-        const inputIndex = e.detail==undefined?0: e.detail.index
-        if (frameIndex < inputIndex){
-            ForwardButtonFunc()
-        }else if (frameIndex > inputIndex){
-            BackwardButtonFunc()
-        }
-        setFrameIndex(inputIndex)
+        indexTo(e.detail.index)
+        
     }
     return (
         <div className={mergeText(style.Flip,className)} id = {id} >
@@ -136,6 +153,9 @@ export function Cg2wrapper({className,id,children,paddingInline = "10px", paddin
     </div>
 }
 
+export function Center(props){
+    return <div className={mergeText(style.center,props.className)}>{props.children}</div>
+}
 
 export function CInput({className,placeholder,type="input",...props}){
     useEffect(()=>{

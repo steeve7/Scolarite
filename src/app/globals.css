@@ -141,7 +141,7 @@ body {
   width: 12px;
 }
 ::-webkit-scrollbar-thumb{
-  background-color:rgba(47, 54, 75, 1);
+  background-color:rgba(47, 54, 75, 0.497);
   border-radius: 2px;
 }
 
