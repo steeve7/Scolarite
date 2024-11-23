@@ -1,8 +1,14 @@
 "use client"
-import { CButton, CEDispatch, Center, CEventH, Cg2wrapper, clickHidden, FADispatch, Flip } from "@/components/addons/addons"
+import { CButton, CEDispatch, Center, CEventH, Cg2wrapper, clickHidden, FADispatch, Flip, ToolTip } from "@/components/addons/addons"
 import style from "./style.module.css"
 import frame1i1 from "./assets/frame1i1.png"
 import frame2i1 from "./assets/frame2i1.png"
+import frame3i1 from "./assets/frame3i1.png"
+import frame4i1 from "./assets/frame4i1.png"
+import frame5i1 from "./assets/frame5i1.png"
+import frame6i1 from "./assets/frame6i1.png"
+import frame7i1 from "./assets/frame7i1.png"
+import frame8i1 from "./assets/frame8i1.png"
 import sliderthumbimg from "./assets/sliderthumb.png"
 import doneimg from "./assets/done.png"
 import Image from "next/image"
@@ -60,7 +66,7 @@ function Innerframe1({state,ehandle}){
 
     return <Flip  Type={EventList.multiFormMove().type}   Name={Name}>
         <div className={style.if1}>
-            <div onClick={()=>clickHidden("FB-IF1-FORWARD")} className={style.if1title}>
+            <div  className={style.if1title}>
             What's your target jamb score? 
             </div>
             <Slider/>
@@ -68,8 +74,9 @@ function Innerframe1({state,ehandle}){
                 <CButton className={style.if1button1} onClick={()=>{setIndex(1);ehandle()}}>Next step</CButton>
             </div>
         </div>
+
         <div className={style.if1}>
-        <div onClick={()=>clickHidden("FB-IF1-FORWARD")} className={style.if1title}>
+        <div  className={style.if1title}>
             What's your target School? 
             </div>
             <Center><input type="text" className={style.ifts} placeholder="Enter school name" /></Center>
@@ -81,7 +88,23 @@ function Innerframe1({state,ehandle}){
                 <CButton className={mergeText(style.if1button1,style.if1button2)} onClick={()=>{setIndex(0);ehandle()}}>Previous step</CButton>
                 <CButton className={style.if1button1} onClick={()=>{setIndex(2);ehandle()}}>Next step</CButton>
             </div>
+        </div> 
+
+        <div className={style.if1}>
+        <div  className={style.if1title}>
+        Choose your target Department
+            </div>
+            <Center><input type="text" className={style.ifts} placeholder="Enter school name" /></Center>
+           <br />
+           <br />
+           <br />
+           <br />
+            <div className={style.if1button2w}>
+                <CButton className={mergeText(style.if1button1,style.if1button2)} onClick={()=>{setIndex(2);ehandle()}}>Previous step</CButton>
+                <CButton className={style.if1button1} onClick={()=>{setIndex(3);ehandle()}}>Next step</CButton>
+            </div>
         </div>
+        
         
     </Flip>
 }
@@ -90,15 +113,15 @@ export default function Page(props){
     const [Index, setIndex] = useState(0)
     const FilllistAssign = ["Academic Goals", "Current Academic Status", "Study Preference", "Customization", "Congratulations"]
     var section1fills = CRange(0,4).map((value,index)=> {return{Name:`fill${value}`, Index:value+1,purpose:{start:value,end:value+1}}})
-    const ImageList = [frame1i1,frame2i1,frame2i1]
+    const ImageList = [frame1i1,frame2i1,frame3i1,frame4i1,frame5i1,frame6i1,frame7i1,frame8i1]
     useEffect(function(){
         document.getElementById("HEADER").style.display = "none"
         // document.querySelector("body").style.overflow = "hidden"
         // document.getElementById("FOOTER").style.display = "none"
     },[])
     function ehandle(){
-        console.log(`- ${Math.floor(Math.random()*1000)} - `,Index)
-        const Event = EventList.multiFormMove({index:Index})
+        // console.log(`- ${Math.floor(Math.random()*1000)} - `,Index)
+        var Event = EventList.multiFormMove({index:Index})
         /* section1fills.map((i)=>{
             CEDispatch(`FILL-${i.Name}`,Event)
         })
@@ -109,14 +132,15 @@ export default function Page(props){
     return <div className={style.main}>
         <Cg2wrapper className={style.wrapper}>
             <Flip Type={EventList.multiFormMove().type} className={style.side1}  Name={"frame1"}>
-            
+            <ToolTip message={"message success"} />
+
                 {ImageList.map((image,i)=>
                     <div key={i} className={style.imagewrap}>
                         <Image src={image} alt="alt" style={{width:"100%"}}></Image>
                     </div>
                 )}
             </Flip>
-            <Flip className={style.side2} Type={EventList.multiFormMove().type} Name={"frame2"}>
+            <Flip className={style.side2}  Name={"frame2"}>
                 <div className={mergeText(style.frame2section,style.frame2section1)}>
                     <div className={mergeText(style.frame2section1titlewrapper)}>
                         <div className={style.frame2section1title}>

@@ -3,7 +3,8 @@ import style from "./addons.module.css"
 import { CRange, genId, LastIndex, mergeFunc, mergeText } from "../../app/add"
 import React, { useEffect, useState } from "react"
 import { frame } from "framer-motion"
-
+import tooltiptri from "./assets/tooltiptri.png"
+import Image from "next/image"
 const indexId = genId("b")
 export function G2Wrapper(props){
     var styleg2 =props.repel ? {
@@ -88,6 +89,58 @@ export function CEventH({Name , Type, onEvent = function(){}}){
 }
 
 
+
+
+export function ToolTip({message}){
+    const tipRef = React.useRef()
+    const [enter, setEnter] = useState(false)
+    function Enter(e){
+         var el = tipRef.current
+         el.classList.add(style.show)
+         var x = e.pageX
+         var y = e.pageY
+         console.log(x,y)
+          x = x-el.offsetWidth/2
+          y = y-el.offsetHeight
+         el.style.translate = `${x}px ${y}px`
+         setEnter(true)
+    }
+    function Leave(){
+        var el = tipRef.current
+         el.classList.remove(style.show)
+         setEnter(false)
+    }
+    useEffect(()=>{
+        var PARENTNAME = `tooltipcontainer-${Math.ceil(Math.random()*1000)}`
+        var el = tipRef.current
+        el.parentElement.classList.add(PARENTNAME) 
+        const parent = document.querySelector(`.${PARENTNAME}`)
+        parent.addEventListener("mouseenter",Enter)
+        parent.addEventListener("mouseleave",Leave)
+        parent.addEventListener("click",Leave)
+        // Attach a mousemove event listener to the window
+        window.addEventListener('mousemove', (e) => {
+            var el = tipRef.current
+            var x = e.pageX
+            var y = e.pageY
+            console.log(x,y)
+            x = x-el.offsetWidth/2
+                y = y-el.offsetHeight
+                el.style.translate = `${x}px ${y}px`
+        });
+            
+    },[])
+    return <div  className={style.tooltip}  ref={tipRef} >
+        <div className={style.tooltiptext}>{message} </div>
+        <Center>
+            <Image src={tooltiptri} alt="arrow" className={style.tooltipimg}></Image>
+        </Center>
+    </div>
+}
+
+
+
+
 export function Flip({id,Name, className, children,Type}){
     const [totalIndex, setTotalIndex] = useState(0) 
     const forwardBName = `FB-${Name}-FORWARD`
@@ -96,35 +149,38 @@ export function Flip({id,Name, className, children,Type}){
     const frameID = `FB-${Name}`
 
     function ForwardButtonFunc(){
-        var nowIndex = index < totalIndex ? index+1 : totalIndex
-        indexTo(nowIndex)
+        
+        indexTo(index+1)
 
     }
     function BackwardButtonFunc(){
-        var nowIndex = index <= 0 ? index-1 : totalIndex
-        indexTo(nowIndex)
+        
+        indexTo(index-1)
 
     }
     function indexTo(index){
-        const inputIndex = index
-        const frame = document.getElementById(frameID)
-        const frameParent = frame.parentElement
-        const parentWidth = frameParent.offsetWidth
-        const frameWidth = frame.scrollWidth
-        const IndexPosX = []
-        const TotalIndex = (frameWidth/parentWidth)
-        const assumeIndex = Math.ceil(TotalIndex)
+        var inputIndex = index
+        var frame = document.getElementById(frameID)
+        var frameParent = frame.parentElement
+        var parentWidth = frameParent.offsetWidth
+        var frameWidth = frame.scrollWidth
+        var IndexPosX = []
+        var TotalIndex = (frameWidth/parentWidth)
+        var assumeIndex = Math.ceil(TotalIndex)
         CRange(0,assumeIndex).forEach(index=>{
-                IndexPosX.push(index*(frameWidth/TotalIndex))
+                var x = index*(frameWidth/TotalIndex)
+                if (x > frameWidth){
+                    return
+                }
+                IndexPosX.push(x)
         })
-        if (inputIndex< assumeIndex){
+        if (inputIndex < assumeIndex){
             scroll = IndexPosX[inputIndex]
             scroll = (scroll/parentWidth)*100
             frame.style.transform = `translateX(-${scroll}%)`
         }
-        setTotalIndex(()=>assumeIndex)
         setIndex(()=>inputIndex)
-        // console.log("name:",Name,"index:",inputIndex,"IndexPosX:",IndexPosX,"frame:",frameID)
+        // console.log("name:",Name,"index:",inputIndex,"IndexPosX:",IndexPosX,"frame:",frameID,"frameWidth:",frameWidth,"parentWidth:",parentWidth,"assumeIndex",assumeIndex)
     }
     function DispatchFunc(e){
         indexTo(e.detail.index)

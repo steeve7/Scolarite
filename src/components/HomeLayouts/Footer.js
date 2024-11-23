@@ -19,9 +19,9 @@ export default function Footer() {
    if (!isClient) return null;
 
   return (
-    <div className="flex md:flex-row flex-col items-center justify-between gap-6 mt-[7rem] bg-custom-dark w-full lg:px-20 md:px-10 px-5 md:py-16 rounded-tr-[2rem]">
+    <div  className="flex md:flex-row flex-col items-center justify-between gap-6 mt-[7rem] bg-custom-dark w-full lg:px-20 md:px-10 px-5 md:py-16 rounded-tr-[2rem]">
       {/*web & mobile view*/}
-      <div className="flex justify-between items-center w-full md:-mt-20 pt-8 md:w-[50%]">
+      <div  className="flex justify-between items-center w-full md:-mt-20 pt-8 md:w-[50%]">
         {/* Content Section */}
         <div className="flex items-center gap-2">
           <Image
