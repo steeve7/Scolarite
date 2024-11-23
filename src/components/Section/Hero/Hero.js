@@ -1,32 +1,14 @@
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
-import style from "./style.module.css"
+import style from "./style.module.css";
 import { mergeText } from "@/app/add";
 export default function Hero() {
   return (
-    <div className="relative  flex flex-col xl:flex-row w-full -mt-20 pb-80">
+    <div className="relative flex flex-col xl:flex-row w-full -mt-20 xl:pb-80">
       {/* Background Image for Desktop */}
-      <div
-        className="absolute inset-0 z-0 hidden md:block bg-cover bg-center bg-no-repeat "
-        style={{
-          backgroundImage: "url('/image/hero.svg')",
-
-          height: "100%",
-          width: "100vw",
-        }}
-      ></div>
+      <div className="absolute inset-0 z-0 hidden md:block bg-cover bg-center bg-no-repeat bg-[url('/image/hero.svg')] xl:h-full lg:h-[80%] md:h-[85%] w-[100vw]" />
 
       {/* Mobile Background Image */}
-      <div className="absolute inset-0 z-0 block md:hidden bg-cover bg-center bg-no-repeat">
-        <img
-          src="/image/mobile.png"
-          alt="mobile-image"
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover", // Ensures it scales within viewport boundaries
-          }}
-        />
-      </div>
+      <div className="absolute inset-0 z-0 block md:hidden bg-cover bg-center bg-no-repeat bg-[url('/image/mobile.png')] h-full w-full" />
 
       {/* Content Section */}
       <div className="relative z-40 xl:w-[50%] w-full flex flex-col md:gap-12 gap-10 justify-start lg:mt-60 md:mt-52 mt-40 px-5 md:px-20">
@@ -73,11 +55,11 @@ export default function Hero() {
       </div>
 
       {/* Image Section */}
-      <div className="xl:absolute relative   w-full  overflow-hidden">
+      <div className="xl:absolute relative w-full overflow-hidden">
         <img
           src="/image/book.gif"
           alt="hero_page"
-          className={mergeText(" ",style.heroimage)}
+          className={mergeText(" ", style.heroimage)}
         />
       </div>
     </div>

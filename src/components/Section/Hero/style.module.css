@@ -4,11 +4,42 @@
 
 }
 
+/* .heroimage{
+    margin-top:50px;
+} */
+
 @media (min-width:720px){
     .heroimage{
         position:relative;
-        right: -30%;
+        right: -20%;
         margin-top: -20%;
         max-width: 1700px;
+    }
+}
+
+@media (max-width:1024px){
+    .heroimage{
+        position:relative;
+        right: 10%;
+        margin-top: -20%;
+        max-width: 1700px;
+    }
+}
+@media (max-width:430px){
+    .heroimage{
+        position:relative;
+        right: 10%;
+        margin-top: -20%;
+        max-width: 1700px;
+        /* height: 40%; */
+    }
+}
+@media (max-width:375px){
+    .heroimage{
+        position:relative;
+        right: 10%;
+        margin-top: -20%;
+        max-width: 1700px;
+        /* height: 40%; */
     }
 }

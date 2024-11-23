@@ -44,7 +44,7 @@ const items = [
 
 export default function About() {
   return (
-    <div className="w-full lg:mt-0 mt-20">
+    <div className="w-full lg:-mt-60 md:-mt-48 xl:mt-32 mt-0">
       <div className="flex flex-col justify-center px-20 py-10">
         <h2 className="text-center font-roboto font-medium lg:text-[30px] text-[20px] uppercase">
           WHAT IS SCOLARITÉ ?
