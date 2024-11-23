@@ -132,7 +132,7 @@ export default function Page(props){
     return <div className={style.main}>
         <Cg2wrapper className={style.wrapper}>
             <Flip Type={EventList.multiFormMove().type} className={style.side1}  Name={"frame1"}>
-            <ToolTip message={"message success"} />
+            {/* <ToolTip message={"message success"} /> */}
 
                 {ImageList.map((image,i)=>
                     <div key={i} className={style.imagewrap}>
@@ -256,7 +256,7 @@ const before = document.createElement("div")
 const after = document.createElement("div")
 parentKey.append(before)
 before.style.display = "block"
-before.style.minWidth = "60%"
+before.style.minWidth = "50%"
 
 var keys = []
 
@@ -268,7 +268,7 @@ for (var i= 0; i<401;i++){
 }
 parentKey.append(after)
 after.style.display = "block"
-after.style.minWidth = "60%"
+after.style.minWidth = "50%"
 
 parentKey.onscroll = ()=>{
     keys.forEach(key=>{
@@ -292,8 +292,18 @@ parentKey.onscroll = ()=>{
         }
     })
 }
-    },[])
+var inc = 0
+function INC(){
+    setTimeout(()=>{
+        inc++
+        parentKey.scrollBy(keys[inc> 9?inc-9:inc].getPosToParent().left ,0)
+            if (inc < 200){
+                INC()
+            }
+    },1)}
+INC()
 
+        },[])
     return   <Center>
         <div style={{
             width:"100%",
@@ -303,7 +313,7 @@ parentKey.onscroll = ()=>{
             position:"relative",
             }}>
             <div className="text" id="value-slider" style={{width: "100%", textAlign:"center", fontSize: "50px",fontWeight:"bold",}}>0</div>
-            <div id="parentKey"style ={{
+            <div className={style.slider} id="parentKey"style ={{
                 width:"100%",
                 height:"150px",
                 display:"flex",

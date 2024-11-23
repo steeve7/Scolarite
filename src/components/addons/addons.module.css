@@ -49,29 +49,34 @@
 .btnani:hover{
     translate: 0px -5px;
 }
-
+/* .tooltipcontainer{ */
+    /* position: absolute; */
+/* } */
 .tooltip{
     position: absolute;
     background-color: white;
     color: black;
-    font-size: 15px;
+    font-size: 12px;
     padding: 10px;
     border-radius: 10px;
     filter: drop-shadow(3px 4.7px 4.7px rgba(23, 15, 73, 0.45)) drop-shadow(0px 1px 1px rgba(23, 15, 73, 0.04)) drop-shadow(0px 5px 14px rgba(8, 15, 52, 0.04));
     display: none;
+    transition: left 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    top 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 /* .tooltipcontainer{ */
     /* background-color: blue; */
 /* } */
 .tooltip.show{
-    background-color: blue;
-    color: white;
+
     display: block;
 }
 .tooltipimg{
     max-width: 20%;
-    height: 20px;
-    translate: 0 120%;
+    height: 15px;
+    position: absolute;
+    translate: 0 100%;
 }
 
 
@@ -91,7 +96,7 @@
     height: 100%;
     overflow-x: visible;
     min-width: 100%;
-    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform 1s ease-in-out;
 }
 
 .cg2w{
@@ -101,7 +106,7 @@
     gap: 20px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
     .cg2w{
         display: flex;
         flex-direction: column;

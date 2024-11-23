@@ -145,9 +145,20 @@
     border: 1.60562px solid #000000;
 
 }
+.slider::-webkit-scrollbar-thumb{
+    background-color:rgba(47, 54, 75, 0.938);
+    border-radius: 3px;
+    border: 3px solid rgb(194, 194, 194) ;
+  }
+  
+.slider::-webkit-scrollbar{
+    width: 12px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.096);
+  }
 
-
-@media (max-width:720px){
+@media (max-width:1200px){
     .fillassign{
         font-size: 10px;
     }
@@ -156,5 +167,8 @@
     }
     .frame2section{
         overflow-x: visible;
+    }
+    .frame2section1title{
+        margin-top: 0;
     }
 }

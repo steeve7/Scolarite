@@ -99,10 +99,7 @@ export function ToolTip({message}){
          el.classList.add(style.show)
          var x = e.pageX
          var y = e.pageY
-         console.log(x,y)
-          x = x-el.offsetWidth/2
-          y = y-el.offsetHeight
-         el.style.translate = `${x}px ${y}px`
+        
          setEnter(true)
     }
     function Leave(){
@@ -111,7 +108,7 @@ export function ToolTip({message}){
          setEnter(false)
     }
     useEffect(()=>{
-        var PARENTNAME = `tooltipcontainer-${Math.ceil(Math.random()*1000)}`
+        var PARENTNAME = `tooltipparent-${Math.ceil(Math.random()*1000)}`
         var el = tipRef.current
         el.parentElement.classList.add(PARENTNAME) 
         const parent = document.querySelector(`.${PARENTNAME}`)
@@ -119,23 +116,25 @@ export function ToolTip({message}){
         parent.addEventListener("mouseleave",Leave)
         parent.addEventListener("click",Leave)
         // Attach a mousemove event listener to the window
-        window.addEventListener('mousemove', (e) => {
+        parent.addEventListener('mousemove', (e) => {
             var el = tipRef.current
             var x = e.pageX
             var y = e.pageY
-            console.log(x,y)
-            x = x-el.offsetWidth/2
-                y = y-el.offsetHeight
-                el.style.translate = `${x}px ${y}px`
+            console.log(x,y,enter)
+           x = x-el.offsetWidth/2
+                y = (y-el.offsetHeight)-20
+                el.style.left = `${x}px `
+                el.style.top = `${y}px `
         });
             
     },[])
-    return <div  className={style.tooltip}  ref={tipRef} >
-        <div className={style.tooltiptext}>{message} </div>
-        <Center>
-            <Image src={tooltiptri} alt="arrow" className={style.tooltipimg}></Image>
-        </Center>
+    return <div  className={style.tooltip} ref={tipRef}  >
+            <div className={style.tooltiptext}>{message} </div>
+            <Center>
+                <Image src={tooltiptri} alt="arrow" className={style.tooltipimg}></Image>
+            </Center>
     </div>
+    // </div>
 }
 
 
