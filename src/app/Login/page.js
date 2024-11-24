@@ -357,6 +357,356 @@
 
 
 
+// "use client";
+// import { useRef, useEffect, useState } from "react";
+// import Image from "next/image";
+// import styles from "./LoginPage.module.css";
+// import { HEADHIDE } from "@/components/HomeLayouts/navbar";
+
+// export default function LoginPage() {
+//   const videoRef = useRef(null);
+//   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+//   const [view, setView] = useState("login"); // Tracks the current view ('login' or 'forgotPassword')
+
+//   const videos = ["/images/backvid.mp4", "/images/backvid2.mp4", "/images/backvid3.mp4"];
+//   HEADHIDE();
+
+//   useEffect(() => {
+//     const videoElement = videoRef.current;
+
+//     const handleVideoEnd = () => {
+//       setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
+//     };
+
+//     videoElement.addEventListener("ended", handleVideoEnd);
+//     return () => {
+//       videoElement.removeEventListener("ended", handleVideoEnd);
+//     };
+//   }, [videos.length]);
+
+//   useEffect(() => {
+//     const videoElement = videoRef.current;
+//     videoElement.src = videos[currentVideoIndex];
+//     videoElement.load();
+//     videoElement.play();
+//   }, [currentVideoIndex, videos]);
+
+//   return (
+//     <div className={styles.loginPage}>
+//       {/* Video Background */}
+//       <video
+//         ref={videoRef}
+//         autoPlay
+//         loop={false}
+//         muted
+//         className={styles.backgroundVideo}
+//       >
+//         <source src={videos[0]} type="video/mp4" />
+//         Your browser does not support the video tag.
+//       </video>
+
+//       {/* Dark Overlay */}
+//       <div className={styles.overlay}></div>
+
+//       {/* Login Card */}
+//       <div className={styles.loginCard}>
+//         <div className={styles.logoContainer}>
+//           <Image
+//             src="/images/logo.png"
+//             alt="Scolarité logo"
+//             width={45}
+//             height={40}
+//             className={styles.logo}
+//           />
+//           <span className={styles.logoText}>SCOLARITÉ</span>
+//         </div>
+
+//         {view === "login" ? (
+//           <>
+//             {/* Login View */}
+//             <h2 className={styles.welcomeText}>Welcome Back</h2>
+//             <p className={styles.subtitle}>
+//               Enter your email and password to access your account
+//             </p>
+
+//             <form>
+//               <div className={styles.inputGroup}>
+//                 <label htmlFor="email">Email</label>
+//                 <input id="email" type="email" placeholder="Enter your email" />
+//               </div>
+
+//               <div className={styles.inputGroup}>
+//                 <label htmlFor="password">Password</label>
+//                 <input id="password" type="password" placeholder="Enter your password" />
+//               </div>
+
+//               <div className={styles.options}>
+//                 <label>
+//                   <input type="checkbox" /> Remember me
+//                 </label>
+//                 <a
+//                   href="#"
+//                   className={styles.forgotPassword}
+//                   onClick={(e) => {
+//                     e.preventDefault();
+//                     setView("forgotPassword"); // Switch to Forgot Password view
+//                   }}
+//                 >
+//                   Forgot Password?
+//                 </a>
+//               </div>
+
+//               <button type="submit" className={styles.signinBtn}>
+//                 Sign In
+//               </button>
+//             </form>
+//           </>
+//         ) : (
+//           <>
+//             {/* Forgot Password View */}
+//             <h2 className={styles.welcomeText}>Reset Your Password</h2>
+//             <p className={styles.subtitle}>
+//               Enter your email below. We'll send a link to reset your password.
+//             </p>
+
+//             <form>
+//               <div className={styles.inputGroup}>
+//                 <label htmlFor="email">Email</label>
+//                 <input id="email" type="email" placeholder="Enter your email" />
+//               </div>
+
+//               <button type="submit" className={styles.signinBtn}>
+//                 Submit
+//               </button>
+//             </form>
+
+//             <a
+//               href="#"
+//               className={styles.forgotPassword}
+//               onClick={(e) => {
+//                 e.preventDefault();
+//                 setView("login"); // Switch back to Login view
+//               }}
+//             >
+//               Back to Login
+//             </a>
+//           </>
+//         )}
+//       </div>
+//     </div>
+//   );
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// "use client";
+// import { useRef, useEffect, useState } from "react";
+// import Image from "next/image";
+// import styles from "./LoginPage.module.css";
+// import { HEADHIDE } from "@/components/HomeLayouts/navbar";
+
+// export default function LoginPage() {
+//   const videoRef = useRef(null);
+//   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+//   const [view, setView] = useState("login"); // Tracks the current view ('login', 'forgotPassword', or 'createNewPassword')
+
+//   const videos = ["/images/backvid.mp4", "/images/backvid2.mp4", "/images/backvid3.mp4"];
+//   HEADHIDE();
+
+//   useEffect(() => {
+//     const videoElement = videoRef.current;
+
+//     const handleVideoEnd = () => {
+//       setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
+//     };
+
+//     videoElement.addEventListener("ended", handleVideoEnd);
+//     return () => {
+//       videoElement.removeEventListener("ended", handleVideoEnd);
+//     };
+//   }, [videos.length]);
+
+//   useEffect(() => {
+//     const videoElement = videoRef.current;
+//     videoElement.src = videos[currentVideoIndex];
+//     videoElement.load();
+//     videoElement.play();
+//   }, [currentVideoIndex, videos]);
+
+//   return (
+//     <div className={styles.loginPage}>
+//       {/* Video Background */}
+//       <video
+//         ref={videoRef}
+//         autoPlay
+//         loop={false}
+//         muted
+//         className={styles.backgroundVideo}
+//       >
+//         <source src={videos[0]} type="video/mp4" />
+//         Your browser does not support the video tag.
+//       </video>
+
+//       {/* Dark Overlay */}
+//       <div className={styles.overlay}></div>
+
+//       {/* Login Card */}
+//       <div className={styles.loginCard}>
+//         <div className={styles.logoContainer}>
+//           <Image
+//             src="/images/logo.png"
+//             alt="Scolarité logo"
+//             width={45}
+//             height={40}
+//             className={styles.logo}
+//           />
+//           <span className={styles.logoText}>SCOLARITÉ</span>
+//         </div>
+
+//         {view === "login" ? (
+//           <>
+//             {/* Login View */}
+//             <h2 className={styles.welcomeText}>Welcome Back</h2>
+//             <p className={styles.subtitle}>
+//               Enter your email and password to access your account
+//             </p>
+
+//             <form>
+//               <div className={styles.inputGroup}>
+//                 <label htmlFor="email">Email</label>
+//                 <input id="email" type="email" placeholder="Enter your email" />
+//               </div>
+
+//               <div className={styles.inputGroup}>
+//                 <label htmlFor="password">Password</label>
+//                 <input id="password" type="password" placeholder="Enter your password" />
+//               </div>
+
+//               <div className={styles.options}>
+//                 <label>
+//                   <input type="checkbox" /> Remember me
+//                 </label>
+//                 <a
+//                   href="#"
+//                   className={styles.forgotPassword}
+//                   onClick={(e) => {
+//                     e.preventDefault();
+//                     setView("forgotPassword"); // Switch to Forgot Password view
+//                   }}
+//                 >
+//                   Forgot Password?
+//                 </a>
+//               </div>
+
+//               <button type="submit" className={styles.signinBtn}>
+//                 Sign In
+//               </button>
+//             </form>
+//           </>
+//         ) : view === "forgotPassword" ? (
+//           <>
+//             {/* Forgot Password View */}
+//             <h2 className={styles.welcomeText}>Reset Your Password</h2>
+//             <p className={styles.subtitle}>
+//               Enter your email below. We'll send a link to reset your password.
+//             </p>
+
+//             <form
+//               onSubmit={(e) => {
+//                 e.preventDefault();
+//                 setView("createNewPassword"); // Switch to Create New Password view
+//               }}
+//             >
+//               <div className={styles.inputGroup}>
+//                 <label htmlFor="email">Email</label>
+//                 <input id="email" type="email" placeholder="Enter your email" />
+//               </div>
+
+//               <button type="submit" className={styles.signinBtn}>
+//                 Submit
+//               </button>
+//             </form>
+
+//             <a
+//               href="#"
+//               className={styles.forgotPassword}
+//               onClick={(e) => {
+//                 e.preventDefault();
+//                 setView("login"); // Switch back to Login view
+//               }}
+//             >
+//               Back to Login
+//             </a>
+//           </>
+//         ) : (
+//           <>
+//             {/* Create New Password View */}
+//             <h2 className={styles.welcomeText}>Create New Password</h2>
+//             <p className={styles.subtitle}>
+//               Enter a new password below to secure your account.
+//             </p>
+
+//             <form>
+//               <div className={styles.inputGroup}>
+//                 <label htmlFor="newPassword">Enter New Password</label>
+//                 <input id="newPassword" type="password" placeholder="Enter Password" />
+//               </div>
+
+//               <div className={styles.inputGroup}>
+//                 <label htmlFor="confirmPassword">Confirm New Password</label>
+//                 <input id="confirmPassword" type="password" placeholder="Enter Password" />
+//               </div>
+
+//               <button type="submit" className={styles.signinBtn}>
+//                 Submit
+//               </button>
+//             </form>
+//           </>
+//         )}
+//       </div>
+//     </div>
+//   );
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 "use client";
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
@@ -366,7 +716,7 @@ import { HEADHIDE } from "@/components/HomeLayouts/navbar";
 export default function LoginPage() {
   const videoRef = useRef(null);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const [view, setView] = useState("login"); // Tracks the current view ('login' or 'forgotPassword')
+  const [view, setView] = useState("login"); // Tracks the current view ('login', 'forgotPassword', 'createNewPassword', or 'passwordUpdated')
 
   const videos = ["/images/backvid.mp4", "/images/backvid2.mp4", "/images/backvid3.mp4"];
   HEADHIDE();
@@ -461,7 +811,7 @@ export default function LoginPage() {
               </button>
             </form>
           </>
-        ) : (
+        ) : view === "forgotPassword" ? (
           <>
             {/* Forgot Password View */}
             <h2 className={styles.welcomeText}>Reset Your Password</h2>
@@ -469,7 +819,12 @@ export default function LoginPage() {
               Enter your email below. We'll send a link to reset your password.
             </p>
 
-            <form>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                setView("createNewPassword"); // Switch to Create New Password view
+              }}
+            >
               <div className={styles.inputGroup}>
                 <label htmlFor="email">Email</label>
                 <input id="email" type="email" placeholder="Enter your email" />
@@ -490,6 +845,54 @@ export default function LoginPage() {
             >
               Back to Login
             </a>
+          </>
+        ) : view === "createNewPassword" ? (
+          <>
+            {/* Create New Password View */}
+            <h2 className={styles.welcomeText}>Create New Password</h2>
+            <p className={styles.subtitle}>
+              Enter a new password below to secure your account.
+            </p>
+
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                setView("passwordUpdated"); // Switch to Password Updated Successfully view
+              }}
+            >
+              <div className={styles.inputGroup}>
+                <label htmlFor="newPassword">Enter New Password</label>
+                <input id="newPassword" type="password" placeholder="Enter Password" />
+              </div>
+
+              <div className={styles.inputGroup}>
+                <label htmlFor="confirmPassword">Confirm New Password</label>
+                <input id="confirmPassword" type="password" placeholder="Enter Password" />
+              </div>
+
+              <button type="submit" className={styles.signinBtn}>
+                Submit
+              </button>
+            </form>
+          </>
+        ) : (
+          <>
+            {/* Password Updated Successfully View */}
+            <h2 className={styles.welcomeText}>Password Updated Successfully</h2>
+            <p className={styles.subtitle}>
+              Your password has been changed. You can now log in with your new password.
+            </p>
+
+            <button
+              className={styles.signinBtn}
+              onClick={() => setView("login")} // Redirect back to login
+            >
+              Continue
+            </button>
+
+            <p className={styles.redirectText}>
+              Redirecting in 5 seconds, or click the 'Continue' button to proceed now.
+            </p>
           </>
         )}
       </div>
