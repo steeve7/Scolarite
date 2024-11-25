@@ -809,7 +809,23 @@ export default function LoginPage() {
               <button type="submit" className={styles.signinBtn}>
                 Sign In
               </button>
+              <button type="button" className={`${styles.googleBtn}`}>
+                <img
+                  src="/images/google-logo.png"
+                  alt="Google Logo"
+                  className={styles.googleLogo}
+                />
+                Sign in with Google
+              </button>
             </form>
+
+            <p className={styles.signupText}>
+              Don’t have an account?{" "}
+              <a href="/SignUp" className={styles.signupLink}>
+                Sign Up
+              </a>
+            </p>
+
           </>
         ) : view === "forgotPassword" ? (
           <>
