@@ -22,6 +22,25 @@ export function G2Wrapper(props){
     </section>
 }
 
+export class State{
+    states
+    constructor(state = {index:0}){
+        this.states = state
+    }
+    set(value){
+        try{
+            this.states = value(this.states)
+        }catch(e){
+            this.states = value
+        }
+        
+    }
+    get(){
+        return this.states
+    }
+}
+
+
 export function  INDEX ({name, value = 0}){
     const IndexName = `INDEX-${name}`
     return <span className="NONE" id={IndexName}>{value}</span>
@@ -93,19 +112,19 @@ export function CEventH({Name , Type, onEvent = function(){}}){
 
 export function ToolTip({message}){
     const tipRef = React.useRef()
-    const [enter, setEnter] = useState(false)
+    var enter = false
     function Enter(e){
          var el = tipRef.current
-         el.classList.add(style.show)
+         el.classList.add(style.showtooltip)
          var x = e.pageX
          var y = e.pageY
+         enter = true
         
-         setEnter(true)
     }
     function Leave(){
         var el = tipRef.current
-         el.classList.remove(style.show)
-         setEnter(false)
+         el.classList.remove(style.showtooltip)
+         enter = false
     }
     useEffect(()=>{
         var PARENTNAME = `tooltipparent-${Math.ceil(Math.random()*1000)}`
@@ -117,14 +136,14 @@ export function ToolTip({message}){
         parent.addEventListener("click",Leave)
         // Attach a mousemove event listener to the window
         parent.addEventListener('mousemove', (e) => {
-            var el = tipRef.current
+            if(enter){var el = tipRef.current
             var x = e.pageX
             var y = e.pageY
             console.log(x,y,enter)
-           x = x-el.offsetWidth/2
-                y = (y-el.offsetHeight)-20
-                el.style.left = `${x}px `
-                el.style.top = `${y}px `
+            x = x-el.offsetWidth/2
+            y = (y-el.offsetHeight)-20
+            el.style.left = `${x}px `
+            el.style.top = `${y}px `}
         });
             
     },[])
@@ -230,8 +249,11 @@ export function CInput({className,placeholder,type="input",...props}){
 }
 
 
-export function CButton({className,onClick,id,children,ani = true}){
-    return <div id={id} className={mergeText(className,style.button,ani?style.btnani:"")} onClick={onClick}>{children}</div>
+export function CButton({className,onClick,id,children,ani = true , tooltip = undefined}){
+    return <div id={id} className={mergeText(className,style.button,ani?style.btnani:"")} onClick={onClick}>
+        {children}
+        {tooltip && <ToolTip message={tooltip}/>}
+    </div>
 }
 
 

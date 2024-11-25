@@ -53,6 +53,7 @@
     /* position: absolute; */
 /* } */
 .tooltip{
+    z-index: 1000;
     position: absolute;
     background-color: white;
     color: black;
@@ -68,7 +69,7 @@
 /* .tooltipcontainer{ */
     /* background-color: blue; */
 /* } */
-.tooltip.show{
+.tooltip.showtooltip{
 
     display: block;
 }

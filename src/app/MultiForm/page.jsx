@@ -1,5 +1,5 @@
 "use client"
-import { CButton, CEDispatch, Center, CEventH, Cg2wrapper, clickHidden, FADispatch, Flip, ToolTip } from "@/components/addons/addons"
+import { CButton, CEDispatch, Center, CEventH, Cg2wrapper, clickHidden, FADispatch, Flip, State, ToolTip } from "@/components/addons/addons"
 import style from "./style.module.css"
 import frame1i1 from "./assets/frame1i1.png"
 import frame2i1 from "./assets/frame2i1.png"
@@ -26,6 +26,7 @@ function Fill({className, Name,purpose={start: 0, end: 10} , need = true}){
     const EventName = `FILL-${Name}`
     const barName = `FILL-${Name}`
     const ref = useRef(null)
+    
     const [done,setdone] = useState(false)
     function FillFunc(e){
         const index = Number(e.detail.index)
@@ -57,27 +58,29 @@ function Fill({className, Name,purpose={start: 0, end: 10} , need = true}){
             {!done && purpose.end}
         </div>
         <CEventH Name={EventName} Type={EventList.multiFormMove().type} onEvent={FillFunc}   />
+        
     </>
 }
 
 function Innerframe1({state,ehandle}){
-    const [index, setIndex] = state
+    const index = state
     const Name = "IF1"
 
     return <Flip  Type={EventList.multiFormMove().type}   Name={Name}>
+        {/* <ToolTip message={"message success"} /> */}
         <div className={style.if1}>
             <div  className={style.if1title}>
             What's your target jamb score? 
             </div>
             <Slider/>
             <div className={style.if1button1w}>
-                <CButton className={style.if1button1} onClick={()=>{setIndex(1);ehandle()}}>Next step</CButton>
+                <CButton className={style.if1button1} tooltip={"double click"} onClick={()=>{index.set(e=>e+1);ehandle()}}>Next step</CButton>
             </div>
         </div>
 
         <div className={style.if1}>
         <div  className={style.if1title}>
-            What's your target School? 
+            What's your target School?  
             </div>
             <Center><input type="text" className={style.ifts} placeholder="Enter school name" /></Center>
            <br />
@@ -85,8 +88,8 @@ function Innerframe1({state,ehandle}){
            <br />
            <br />
             <div className={style.if1button2w}>
-                <CButton className={mergeText(style.if1button1,style.if1button2)} onClick={()=>{setIndex(0);ehandle()}}>Previous step</CButton>
-                <CButton className={style.if1button1} onClick={()=>{setIndex(2);ehandle()}}>Next step</CButton>
+                <CButton className={mergeText(style.if1button1,style.if1button2)} onClick={()=>{index.set(e=>e-1);ehandle()}}>Previous step</CButton>
+                <CButton className={style.if1button1} onClick={()=>{index.set(e=>e+1);ehandle()}}>Next step</CButton>
             </div>
         </div> 
 
@@ -100,8 +103,8 @@ function Innerframe1({state,ehandle}){
            <br />
            <br />
             <div className={style.if1button2w}>
-                <CButton className={mergeText(style.if1button1,style.if1button2)} onClick={()=>{setIndex(2);ehandle()}}>Previous step</CButton>
-                <CButton className={style.if1button1} onClick={()=>{setIndex(3);ehandle()}}>Next step</CButton>
+                <CButton className={mergeText(style.if1button1,style.if1button2)} onClick={()=>{index.set(e=>e-1);ehandle()}}>Previous step</CButton>
+                <CButton className={style.if1button1} tooltip={"double click"} onClick={()=>{index.set(e=>e+1);ehandle()}}>Next step</CButton>
             </div>
         </div>
         
@@ -110,7 +113,7 @@ function Innerframe1({state,ehandle}){
 }
 
 export default function Page(props){
-    const [Index, setIndex] = useState(0)
+    const Index = new State(0)
     const FilllistAssign = ["Academic Goals", "Current Academic Status", "Study Preference", "Customization", "Congratulations"]
     var section1fills = CRange(0,4).map((value,index)=> {return{Name:`fill${value}`, Index:value+1,purpose:{start:value,end:value+1}}})
     const ImageList = [frame1i1,frame2i1,frame3i1,frame4i1,frame5i1,frame6i1,frame7i1,frame8i1]
@@ -121,12 +124,13 @@ export default function Page(props){
     },[])
     function ehandle(){
         // console.log(`- ${Math.floor(Math.random()*1000)} - `,Index)
-        var Event = EventList.multiFormMove({index:Index})
+        var Event = EventList.multiFormMove({index:Index.get()})
         /* section1fills.map((i)=>{
             CEDispatch(`FILL-${i.Name}`,Event)
         })
         CEDispatch("FLIP-frame1",Event)
          */
+        console.log(Event)
         FADispatch(Event)
     }
     return <div className={style.main}>
@@ -164,7 +168,7 @@ export default function Page(props){
                         Please ensure you fill in the correct information to help us tailor your JAMB preparation effectively.
                     </div>
                     <br />
-                <Innerframe1 state = {[Index,setIndex]} ehandle = {ehandle} />
+                <Innerframe1 state = {Index} ehandle = {ehandle} />
         {/* <CButton onClick={()=>{ehandle()}}> button next</CButton> */}
 
                 </div>
@@ -271,26 +275,30 @@ after.style.display = "block"
 after.style.minWidth = "50%"
 
 parentKey.onscroll = ()=>{
-    keys.forEach(key=>{
-        if (key.getPosToParent().leftPercent <= 51 && key.getPosToParent().leftPercent >= 49){
-            value.innerText = String(key.index)
-        /*     snap.currentTime = 0
-            snap.volume = 0.34
-            snap.play() */
-            parentKey.scrollLeft += 50 - key.getPosToParent().leftPercent
+    var key = keys.filter(k => k.getPosToParent().leftPercent <= 50 && k.getPosToParent().leftPercent >= 0).reverse()[0]
+    if (key){
+        value.innerText = String(key.index)
+    }else{
+        value.innerText = String(keys[0].index)
+        return
+    }
+    value.innerText = String(key.index)
+/*     snap.currentTime = 0
+    snap.volume = 0.34
+    snap.play() */
+    parentKey.scrollLeft += 50 - key.getPosToParent().leftPercent
 
+    
+    if (key.index == 400){
+        if (key.getPosToParent().leftPercent <= 52 ){
+            value.innerText = String(key.index) 
         }
-        if (key.index == 400){
-            if (key.getPosToParent().leftPercent <= 52 ){
-                value.innerText = String(key.index) 
-            }
+    }
+    if (key.index == 0){
+        if (key.getPosToParent().leftPercent >= 52 ){
+            value.innerText = String(key.index) 
         }
-        if (key.index == 0){
-            if (key.getPosToParent().leftPercent >= 52 ){
-                value.innerText = String(key.index) 
-            }
-        }
-    })
+    }
 }
 var inc = 0
 function INC(){
