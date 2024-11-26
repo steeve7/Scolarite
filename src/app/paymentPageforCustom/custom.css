@@ -449,7 +449,7 @@ form{
 }
 .tt-amnt{
     backdrop-filter: blur(207.74888610839844px);
-    background-color: #DDEBF5B2;
+    background-color: #eaf4fbb2;
     color: #253058;
     font-size: 15px;
     
@@ -458,12 +458,12 @@ form{
     font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
     color: #1c2a5a;
-    background: #DDEBF5B2;
+    background: #eaf4fbb2;
     backdrop-filter: blur(207.74888610839844px);
     font-weight: bold;
 }
 .message{
-    background: #DDEBF5B2;
+    background: #eaf4fbb2;
     
 }
 .nav-link{
