@@ -23,6 +23,7 @@ export function G2Wrapper(props){
 }
 
 export class State{
+    
     states
     constructor(state = {index:0}){
         this.states = state
