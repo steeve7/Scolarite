@@ -49,7 +49,7 @@ export default function About() {
         <h2 className="text-center font-roboto font-medium lg:text-[30px] text-[20px] uppercase">
           WHAT IS SCOLARITÉ ?
         </h2>
-        <div className="xl:w-[15%] md:w-[30%] w-full flex flex-row justify-center items-center gap-2 mt-4 border py-4 m-auto uppercase font-roboto font-bold rounded-lg border-black border-b-4 border-b-black shadow-xl">
+        <div className="bounce-hover cursor-pointer xl:w-[15%] md:w-[30%] w-full flex flex-row justify-center items-center gap-2 mt-4 border py-4 m-auto uppercase font-roboto font-bold rounded-lg border-black border-b-4 border-b-black shadow-xl">
           <BsPlayCircle size={30} />
           <button className=" xl:text-[12px] lg:text-[15px] text-[17px]">
             watch video
