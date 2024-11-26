@@ -265,7 +265,23 @@ export default function paymentPageforCustomPlan() {
                     </div>
                 </div>
           
-          <div className='Amount-check'></div>
+                <div className='Amount-check'>
+                        {/* <div></div> */}
+                              <div className='inner-amount'>
+                                <span className='tt-amnt'>Total Amount</span>
+                                <br/>
+                                {/* <br/> */}
+                                <span className='naira'>₦ 10,100</span>
+                                </div>   
+                              <div>
+                              <Image src="/Images/vector.png"
+                                      alt="logo"
+                                      width={50}
+                                      height={5}
+                                      className="message"
+                                      />
+                                </div>   
+                           </div>
             
             </div>
 

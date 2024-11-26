@@ -372,14 +372,41 @@ form{
     border: 2px solid #DDEBF5B2 ;
     width: 80%;
     padding: 1rem;
-    /* height: 50%; */
     background: #DDEBF5B2;
     backdrop-filter: blur(207.74888610839844px);
-    position: relative;
-    /* border: 2px solid rebeccapurple; */
-   /* top: -0.2rem; */
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   gap: 30px;
    animation: slideMe2 2s ease-in;
+   border-radius: 10px;
    /* border-bottom: 2px  dotted #253058; */
+   
+}
+.inner-amount{
+    backdrop-filter: blur(207.74888610839844px);
+    background-color: #DDEBF5B2;
+    opacity: 2px;
+
+}
+.tt-amnt{
+    backdrop-filter: blur(207.74888610839844px);
+    background-color: #DDEBF5B2;
+    color: #253058;
+    font-size: 15px;
+    
+}
+.naira{
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #1c2a5a;
+    background: #DDEBF5B2;
+    backdrop-filter: blur(207.74888610839844px);
+    font-weight: bold;
+}
+.message{
+    background: #DDEBF5B2;
+    
 }
 
 .nav-link{
