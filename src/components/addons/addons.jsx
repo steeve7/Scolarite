@@ -2,7 +2,19 @@
 import style from "./addons.module.css"
 import { mergeFunc, mergeText } from "../../app/add"
 import { useEffect } from "react"
+import { usePathname } from "next/navigation"
 
+export var isPageExempt = ()=>{
+    var Exempt = false
+    const PageExemptList = []
+    var pathName = usePathname()
+    PageExemptList.forEach(pageName=>{
+      if (pathName.toLowerCase().includes(pageName.toLowerCase())){
+        Exempt = true
+      }
+    })
+    return Exempt
+  }
 export function G2Wrapper(props){
     var styleg2 =props.repel ? {
         // color: "white",

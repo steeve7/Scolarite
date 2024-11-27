@@ -4,11 +4,17 @@ import style from "./navbar.module.css";
 import NavBar from "@/components/HomeLayouts/navbar";
 import { useEffect } from "react";
 import { mergeText } from "@/app/add";
+import { isPageExempt } from "../addons/addons";
+import { usePathname } from "next/navigation";
 // import React, { useEffect } from 'react'
 
 function Header() {
   var classes = [style.header];
+  var exempt = isPageExempt()
   useEffect(function () {
+    if(exempt){
+      document.getElementById("HEADER_SECTION").style.display = "none";
+    }
     document.querySelectorAll("NONE").forEach((el) => {
       el.style.display = "none";
     });
