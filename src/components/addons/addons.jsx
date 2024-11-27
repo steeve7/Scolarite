@@ -6,6 +6,7 @@ import { frame } from "framer-motion"
 import tooltiptri from "./assets/tooltiptri.png"
 import Image from "next/image"
 const indexId = genId("b")
+
 export function G2Wrapper(props){
     var styleg2 =props.repel ? {
         // color: "white",
