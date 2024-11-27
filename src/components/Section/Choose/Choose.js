@@ -39,7 +39,7 @@ export default function Choose() {
             </p>
             <button
               type="button"
-              className="text-white font_roboto uppercase flex items-center gap-2 font-bold xl:text-[15px] text-[10px] py-[1.5rem] px-[2rem] bg-black rounded-[212.76px] border-0 outline-none"
+              className="bounce-hover text-white font_roboto uppercase flex items-center gap-2 font-bold xl:text-[15px] text-[10px] py-[1.5rem] px-[2rem] bg-black rounded-[212.76px] border-0 outline-none"
             >
               Register
               <FaRegArrowAltCircleRight />
@@ -158,7 +158,6 @@ export default function Choose() {
               </h2>
               {/*lines */}
               <div
-                
                 className={`border-b-2 border-custom-border-color w-full ${lines} h-[2px] -mt-2`}
               />
               <p
@@ -168,7 +167,7 @@ export default function Choose() {
               </p>
               <button
                 type="button"
-                className="text-white font_roboto uppercase flex items-center gap-2 font-bold xl:text-[15px] text-[10px] py-[1.5rem] px-[2rem] bg-black rounded-[212.76px] border-0 outline-none"
+                className="bounce-hover text-white font_roboto uppercase flex items-center gap-2 font-bold xl:text-[15px] text-[10px] py-[1.5rem] px-[2rem] bg-black rounded-[212.76px] border-0 outline-none"
               >
                 Register
                 <FaRegArrowAltCircleRight />
