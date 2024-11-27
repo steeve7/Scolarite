@@ -1,7 +1,7 @@
 "use client"
 import style from "./addons.module.css"
 import { CRange, genId, LastIndex, mergeFunc, mergeText } from "../../app/add"
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { frame } from "framer-motion"
 import tooltiptri from "./assets/tooltiptri.png"
 import Image from "next/image"
@@ -25,7 +25,7 @@ export function G2Wrapper(props){
 export class State{
     
     states
-    constructor(state = {index:0}){
+    constructor(state = {}){
         this.states = state
     }
     set(value){
@@ -36,8 +36,18 @@ export class State{
         }
         
     }
+    update(kv){
+        /* Works only if "states" is a json Object */
+        this.states = {
+            ...this.states,
+            ...kv
+        }
+    }
     get(){
         return this.states
+    }
+    toString(){
+        return JSON.stringify(this.states)
     }
 }
 
@@ -91,20 +101,51 @@ export function FADispatch(Event,excludedId=[""],excludedClass=[""]){
 }
 }
 
+export function Pd({pad=10}){
+    return <span style={{width:`${pad}px`,display:"inline-block",backgroundColor:"transparent",color:"transparent"}} />
+}
+
+export function Radio({className,value,channel,valueListener,isdefault,onEvent,children,onClick,ref,...others}){
+    const EventName = `RADIO-CHANNEL-EVENT-${channel}`
+    const radioRef = useRef(null)
+    function click(){
+        FADispatch(new CustomEvent(EventName,{detail:{value:value}})) 
+    }
+    function listener(e){
+        onEvent(radioRef.current)
+        if (e.detail.value == value){
+            valueListener(value,radioRef.current)
+        }
+        
+    }
+    useEffect(()=>{
+        if (isdefault){
+            click()
+        }
+    })
+    return <div ref={radioRef} onClick={click} className={mergeText(className)} {...others}>
+        {children}
+        <CEventH Type={EventName} onEvent={listener} ></CEventH>
+    </div>
+}
+
+
 export function CEventH({Name , Type, onEvent = function(){}}){
     const CEventName = `CEVENT-${Name}`
+    const ref = useRef(null)
     useEffect(
         ()=>{
             const func = onEvent
             const type = Type
-            const el = document.getElementById(CEventName)
+            const el = ref.current
+            el.id = Name?CEventName:`CEVENT-${genId()}`
             el.addEventListener(type,(e)=>{
                 func(e)
             })
 
-        }
+        },[]
     )
-    return <div id={CEventName} style={{display:"none"}} ></div>
+    return <div ref={ref} style={{display:"none"}} ></div>
 
 }
 
@@ -140,7 +181,7 @@ export function ToolTip({message}){
             if(enter){var el = tipRef.current
             var x = e.pageX
             var y = e.pageY
-            console.log(x,y,enter)
+            // console.log(x,y,enter)
             x = x-el.offsetWidth/2
             y = (y-el.offsetHeight)-20
             el.style.left = `${x}px `

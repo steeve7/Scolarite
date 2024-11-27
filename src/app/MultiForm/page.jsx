@@ -1,5 +1,5 @@
 "use client"
-import { CButton, CEDispatch, Center, CEventH, Cg2wrapper, clickHidden, FADispatch, Flip, State, ToolTip } from "@/components/addons/addons"
+import { CButton, CEDispatch, Center, CEventH, Cg2wrapper, clickHidden, FADispatch, Flip, Pd, Radio, State, ToolTip } from "@/components/addons/addons"
 import style from "./style.module.css"
 import frame1i1 from "./assets/frame1i1.png"
 import frame2i1 from "./assets/frame2i1.png"
@@ -9,17 +9,23 @@ import frame5i1 from "./assets/frame5i1.png"
 import frame6i1 from "./assets/frame6i1.png"
 import frame7i1 from "./assets/frame7i1.png"
 import frame8i1 from "./assets/frame8i1.png"
+import engimg from "./assets/department/eng.png"
+import medimg from "./assets/department/med.png"
+import artimg from "./assets/department/art.png"
+import comimg from "./assets/department/com.png"
 import sliderthumbimg from "./assets/sliderthumb.png"
 import doneimg from "./assets/done.png"
 import Image from "next/image"
 
 import { useEffect, useRef, useState } from "react"
-import { CRange, mergeText, Range } from "../add"
+import { CRange, genId, mergeText, Range } from "../add"
 
 
 const EventList = {
     multiFormMove:(detail = {index:0})=>new CustomEvent("MULTIFORM-MOVE",{detail:detail}),
-    multiFormReload:(detail = {index:0})=>new CustomEvent("MULTIFORM-RELOAD",{detail:detail})
+    multiFormReload:(detail = {index:0})=>new CustomEvent("MULTIFORM-RELOAD",{detail:detail}),
+    departmentCall:(detail = {name:""})=>new CustomEvent("DEPARTMENT-CALL",{detail:detail})
+
 }
 
 function Fill({className, Name,purpose={start: 0, end: 10} , need = true}){
@@ -62,9 +68,12 @@ function Fill({className, Name,purpose={start: 0, end: 10} , need = true}){
     </>
 }
 
-function Innerframe1({state,ehandle}){
+function Innerframe1({state,ehandle,form}){
     const index = state
     const Name = "IF1"
+    const Form = form
+
+    
 
     return <Flip  Type={EventList.multiFormMove().type}   Name={Name}>
         {/* <ToolTip message={"message success"} /> */}
@@ -72,7 +81,7 @@ function Innerframe1({state,ehandle}){
             <div  className={style.if1title}>
             What's your target jamb score? 
             </div>
-            <Slider/>
+            <Slider onEvent={(value)=>{Form.update({JambScore:value})}} />
             <div className={style.if1button1w}>
                 <CButton className={style.if1button1} tooltip={"double click"} onClick={()=>{index.set(e=>e+1);ehandle()}}>Next step</CButton>
             </div>
@@ -82,7 +91,7 @@ function Innerframe1({state,ehandle}){
         <div  className={style.if1title}>
             What's your target School?  
             </div>
-            <Center><input type="text" className={style.ifts} placeholder="Enter school name" /></Center>
+            <Center><input type="text" onChange={el=>Form.update({School:el.target.value})} className={style.ifts} placeholder="Enter school name" /></Center>
            <br />
            <br />
            <br />
@@ -94,10 +103,43 @@ function Innerframe1({state,ehandle}){
         </div> 
 
         <div className={style.if1}>
-        <div  className={style.if1title}>
-        Choose your target Department
+         <div  className={style.if1title}>
+            Choose your target Department
             </div>
-            <Center><input type="text" className={style.ifts} placeholder="Enter school name" /></Center>
+            <Center>
+                <div className={style.depwrapper}>
+                    <DepartmentCard icon={engimg} form = {Form} name={"Engineering"}/>
+                    <DepartmentCard icon={medimg} form = {Form} name={"Medicine"}/>
+                    <DepartmentCard icon={artimg} form = {Form} name={"Arts"}/>
+                    <DepartmentCard icon={comimg} form = {Form} name={"Commerce"}/>
+                </div>
+            </Center>
+            <div className={mergeText(style.notetext)} style={{textAlign:"left"}}>
+                <Pd pad={30}></Pd> Search for your ideal  course now.
+            </div>
+           <br />
+           <br />
+           <br />
+           <br />
+            <div className={style.if1button2w}>
+                <CButton className={mergeText(style.if1button1,style.if1button2)} onClick={()=>{index.set(e=>e-1);ehandle()}}>Previous step</CButton>
+                <CButton className={style.if1button1} tooltip={"double click"} onClick={()=>{index.set(e=>e+1);ehandle()}}>Next step</CButton>
+            </div>
+        </div>
+        <div className={style.if1}>
+         <div  className={style.if1title}>
+                Have you written Jamb before?
+            </div>
+            <Center>
+                <div className={style.depwrapper}>
+                    <Yesno3 form={Form} value={"Yes"} ></Yesno3>
+                    <Yesno3 form={Form} value={"No"} isdefault={true} ></Yesno3>
+                </div>
+            </Center>
+            <div id="preScore-input-l" className={mergeText(style.notetext)} style={{textAlign:"left"}}>
+                <Pd pad={30}></Pd> If ‘Yes’, Kindly enter your score for a tailored prep plan.
+            </div>
+            <Pd pad={50} /><input type="number" max={400} id="preScore-input" onChange={el=>Form.update({preScore:Number(el.target.value)})} className={style.ifts} style={{width:"60%",marginLeft:"30px"}} placeholder="Enter Score" />
            <br />
            <br />
            <br />
@@ -112,7 +154,57 @@ function Innerframe1({state,ehandle}){
     </Flip>
 }
 
+function DepartmentCard({icon,name,form}){
+    function onevent(el){
+        el.style.border =  "3.21px solid rgba(0, 0, 0, 0)"
+    }
+    function valueListener(value,el){
+        el.style.border =  "3.21px solid rgba(0, 0, 0, 1)"
+        form.update({Department:value})
+    }
+    return <Radio value={name} channel={"department-card"} onEvent={onevent} valueListener={valueListener} className={style.departmentcard}>
+        <div className={style.departmentcardiconw}>
+            <Image className={style.departmenticon} src={icon} alt="alt"></Image>
+        </div>
+        <div className={style.departmenttext}>
+            {name}
+        </div>
+    </Radio>
+}
+function Yesno3({value,isdefault , form = new State()}){
+    function onevent(el){
+        el.style.border = "3.21px solid rgba(0, 0, 0, 0)"
+    }
+    function valueListener(value,el){
+        form.update({HasWrittenBefore:String(value).toLowerCase() ==="yes"})
+        if(String(value).toLowerCase() ==="yes"){
+        document.getElementById("preScore-input").classList.remove("NONE")
+        document.getElementById("preScore-input-l").classList.remove("NONE")
+        }else{
+            document.getElementById("preScore-input").classList.add("NONE")
+            document.getElementById("preScore-input-l").classList.add("NONE")  
+        }
+        el.style.border = "3.21px solid rgba(0, 0, 0, 1)"
+    }
+    return <Radio value={value} isdefault={isdefault} className={style.yesnoframe4} onEvent={onevent} valueListener={valueListener} channel={"yesno-frame4"} >
+        {value}
+    </Radio>
+}
+
 export default function Page(props){
+    const Form  = new State(
+        {
+            JambScore:0,
+            School:"",
+            Department:"",
+            HasWrittenBefore:false,
+            Subject:["","","",""],
+            FollowStudyPlan:false,
+            ScheduleFormat:0,
+            preScore:0
+
+        }
+    )
     const Index = new State(0)
     const FilllistAssign = ["Academic Goals", "Current Academic Status", "Study Preference", "Customization", "Congratulations"]
     var section1fills = CRange(0,4).map((value,index)=> {return{Name:`fill${value}`, Index:value+1,purpose:{start:value,end:value+1}}})
@@ -130,7 +222,8 @@ export default function Page(props){
         })
         CEDispatch("FLIP-frame1",Event)
          */
-        console.log(Event)
+        // console.log(Event)
+        console.log(Form.toString())
         FADispatch(Event)
     }
     return <div className={style.main}>
@@ -168,7 +261,7 @@ export default function Page(props){
                         Please ensure you fill in the correct information to help us tailor your JAMB preparation effectively.
                     </div>
                     <br />
-                <Innerframe1 state = {Index} ehandle = {ehandle} />
+                <Innerframe1 state = {Index} ehandle = {ehandle} form={Form} />
         {/* <CButton onClick={()=>{ehandle()}}> button next</CButton> */}
 
                 </div>
@@ -182,7 +275,7 @@ export default function Page(props){
 
 
 
-function Slider(prop){
+function Slider({onEvent = null}){
     useEffect(()=>{
         
 const parentKey = document.getElementById("parentKey")
@@ -275,14 +368,15 @@ after.style.display = "block"
 after.style.minWidth = "50%"
 
 parentKey.onscroll = ()=>{
+    var result
     var key = keys.filter(k => k.getPosToParent().leftPercent <= 50 && k.getPosToParent().leftPercent >= 0).reverse()[0]
     if (key){
-        value.innerText = String(key.index)
+        result = key.index
     }else{
-        value.innerText = String(keys[0].index)
+        result = keys[0].index
         return
     }
-    value.innerText = String(key.index)
+    result = key.index
 /*     snap.currentTime = 0
     snap.volume = 0.34
     snap.play() */
@@ -291,13 +385,17 @@ parentKey.onscroll = ()=>{
     
     if (key.index == 400){
         if (key.getPosToParent().leftPercent <= 52 ){
-            value.innerText = String(key.index) 
+            result = key.index
         }
     }
     if (key.index == 0){
         if (key.getPosToParent().leftPercent >= 52 ){
-            value.innerText = String(key.index) 
+            result = key.index 
         }
+    }
+    value.innerText = String(result)
+    if (onEvent){
+        onEvent(result)
     }
 }
 var inc = 0

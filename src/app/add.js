@@ -36,7 +36,7 @@ export function CRange(start= 0,stop = 0,step=1){
 }
 
 
-export function genId(p = "",length = 8){
+export function genId(p = "b",length = 8){
     const letters = "abcdefghijklmnopqrstuvwxyz"
     const numbers = "0123456789"
     const rand = (arr,len)=>{

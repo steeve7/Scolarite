@@ -157,7 +157,38 @@
     border-radius: 5px;
     background-color: rgba(0, 0, 0, 0.096);
   }
+.depwrapper{
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+}
+.departmentcard{
+    display:grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+    place-items: center;;
+    padding: 10px;
+    padding-inline: 15px;
+    border: 1.60562px solid #EFF0F7;
+    box-sizing: border-box;
+    box-shadow: 0px 3.21123px 10.6618px rgba(69, 65, 164, 0.06), 0px 6.42247px 10.0562px rgba(31, 37, 89, 0.07);
+    border-radius: 15px;
+}
+.yesnoframe4{
+    padding: 15px;
+    font-size: 20px;
+    padding-inline: 15px;
+    border: 1.60562px solid #EFF0F7;
+    box-sizing: border-box;
+    box-shadow: 0px 3.21123px 10.6618px rgba(69, 65, 164, 0.06), 0px 6.42247px 10.0562px rgba(31, 37, 89, 0.07);
+    border-radius: 15px;
+}
 
+
+.departmentcardiconw{
+    width: 50px;
+}
 @media (max-width:1200px){
     .fillassign{
         font-size: 10px;
