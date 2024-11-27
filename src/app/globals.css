@@ -145,3 +145,7 @@ body {
   background-color:rgba(47, 54, 75, 1);
   border-radius: 2px;
 }
+
+.NONE{
+  display: none;
+}
