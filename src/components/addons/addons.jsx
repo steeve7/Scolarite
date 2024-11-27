@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation"
 
 export var isPageExempt = ()=>{
     var Exempt = false
-    const PageExemptList = ["signup"]
+    const PageExemptList = ["signup","login"]
     var pathName = usePathname()
     PageExemptList.forEach(pageName=>{
       if (pathName.toLowerCase().includes(pageName.toLowerCase())){
