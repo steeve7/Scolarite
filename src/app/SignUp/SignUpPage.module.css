@@ -1,0 +1,695 @@
+/* @import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+.container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .left {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    color: white;
+  }
+  
+  .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+  
+  .quote {
+    text-align: center;
+  }
+  
+  .quote h2 {
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  
+  .quote h1 {
+    font-size: 36px;
+    margin: 10px 0;
+  }
+  
+  .quote p {
+    font-size: 16px;
+  }
+  
+  .right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: #f9f9f9;
+  }
+  
+  .formContainer {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .formContainer h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .formContainer p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin: 10px 0;
+  }
+  
+  .checkbox input {
+    margin-right: 5px;
+  }
+  
+  .button {
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .googleButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+  }
+  
+  .googleButton img {
+    margin-right: 5px;
+  }
+  
+  .signInLink {
+    font-size: 14px;
+    margin-top: 20px;
+  }
+   */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .container {
+    display: flex;
+    height: 100vh;
+}
+
+.left {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    color: white;
+}
+
+.carousel {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100vh;
+    height: auto; 
+    z-index: -1; 
+    overflow: hidden; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.carouselImage {
+    width: 100px;
+    height: auto;
+    object-fit: cover; 
+    object-position: center;
+}
+
+
+.quote {
+    position: relative; 
+    text-align: center;
+    z-index: 1;
+}
+
+.quote h2 {
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.quote h1 {
+    font-size: 36px;
+    margin: 10px 0;
+}
+
+.quote p {
+    font-size: 16px;
+}
+
+.right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: #f9f9f9;
+}
+
+.formContainer {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.formContainer h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.formContainer p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin: 10px 0;
+}
+
+.checkbox input {
+    margin-right: 5px;
+}
+
+.button {
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.googleButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.googleButton img {
+    margin-right: 5px;
+}
+
+.signInLink {
+    font-size: 14px;
+    margin-top: 20px;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container {
+    display: flex;
+    height: 120vh;
+    overflow: hidden;
+}
+
+.left {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    color: white;
+    overflow: hidden;
+    /* Ensures no content spills out */
+}
+
+.carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Ensures it spans the entire height of the parent */
+    z-index: -1;
+}
+
+.slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* Ensures slides fill the height of the carousel */
+}
+
+.carouselImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensures images scale to cover the container */
+    object-position: center;
+    /* transform: scale(0.955); */
+
+}
+
+.quote {
+    position: absolute;
+    /* Position it on top of the carousel */
+    top: 75%;
+    /* Vertically center the text */
+    left: 7%;
+    /* Align text to the left side */
+    transform: translateY(-50%);
+    /* Adjust vertical centering */
+    z-index: 1;
+    padding: 10px;
+    color: white;
+    /* Ensure text is readable on the background */
+    max-width: 40%;
+    /* Limit the width of the text */
+    text-align: left;
+    /* Align the text to the left */
+}
+
+.quote h2 {
+    font-size: 17px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #fff;
+}
+
+.quote h1 {
+    font-size: 50px;
+    margin: 5px 0;
+    line-height: 1.2;
+}
+
+.quote p {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+
+.right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* Stack the logo and form vertically */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: #f9f9f9;
+}
+
+.logoContainer {
+    display: flex;
+    /* Align items horizontally */
+    justify-items: center;
+    align-items: center;
+    /* Center vertically */
+    margin-bottom: 25px;
+    text-align: left;
+    /* Align text to the left */
+}
+
+.logo {
+    margin-right: 8px;
+    /* Add spacing between logo and text */
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    /* Stack heading and subheading */
+}
+
+.textContainer h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.05rem;
+    margin: 0;
+}
+
+.formContainer {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.formContainer h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.formContainer p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin: 10px 0;
+}
+
+.checkbox input {
+    margin-right: 5px;
+}
+
+.button {
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.googleButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.googleButton img {
+    margin-right: 5px;
+}
+
+.signInLink {
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.signInLink:hover {
+    color: gray;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+
+.verificationContainer {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.verificationContainer h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.verificationContainer p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.codeInputContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.codeInput {
+    width: 40px;
+    height: 50px;
+    font-size: 1.5rem;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.resend {
+    font-size: 0.9rem;
+    margin-top: 10px;
+    color: #555;
+}
+
+
+
+
+.confirmedContainer {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.confirmedContainer h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.confirmedContainer p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.confirmedContainer .button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+
+
+/* Hide carousel on small screens */
+@media screen and (max-width: 1024px) {
+    .carousel,
+    .carouselImage {
+        display: none; /* Hide carousel and images */
+    }
+
+    /* .container {
+        flex-direction: column;
+        height: auto;
+    } */
+
+    .right {
+        flex: none;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .formContainer {
+        max-width: 80%;
+    }
+
+    .logoContainer {
+        margin-bottom: 20px;
+    }
+
+    .textContainer h2 {
+        font-size: 1.3rem;
+    }
+}
+
+/* For 480px (mobile landscape) */
+@media screen and (max-width: 480px) {
+    .carousel,
+    .carouselImage {
+        display: none; /* Hide carousel and images */
+    }
+
+    .right {
+        padding: 10px;
+    }
+
+    .logoContainer {
+        margin-bottom: 15px;
+    }
+
+    .textContainer h2 {
+        font-size: 1.1rem;
+    }
+
+    .formContainer {
+        max-width: 90%;
+    }
+
+    .formContainer h1 {
+        font-size: 1.5rem;
+    }
+
+    .formContainer p {
+        font-size: 0.9rem;
+    }
+
+    .input {
+        font-size: 0.85rem;
+    }
+
+    .button {
+        font-size: 14px;
+    }
+
+    .googleButton {
+        font-size: 14px;
+    }
+
+    .signInLink {
+        font-size: 12px;
+    }
+}
+
+/* For 360px (smaller mobile screens) */
+@media screen and (max-width: 360px) {
+    .carousel,
+    .carouselImage {
+        display: none; /* Hide carousel and images */
+    }
+
+    .right {
+        padding: 10px;
+    }
+
+    .formContainer {
+        max-width: 90%;
+    }
+
+    .formContainer h1 {
+        font-size: 1.4rem;
+    }
+
+    .formContainer p {
+        font-size: 0.85rem;
+    }
+
+    .input {
+        font-size: 0.8rem;
+    }
+
+    .button {
+        font-size: 14px;
+    }
+
+    .googleButton {
+        font-size: 14px;
+    }
+
+    .signInLink {
+        font-size: 12px;
+    }
+}
