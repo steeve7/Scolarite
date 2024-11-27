@@ -711,7 +711,6 @@
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./LoginPage.module.css";
-import { HEADHIDE } from "@/components/HomeLayouts/navbar";
 
 export default function LoginPage() {
   const videoRef = useRef(null);
@@ -719,7 +718,6 @@ export default function LoginPage() {
   const [view, setView] = useState("login"); // Tracks the current view ('login', 'forgotPassword', 'createNewPassword', or 'passwordUpdated')
 
   const videos = ["/images/backvid.mp4", "/images/backvid2.mp4", "/images/backvid3.mp4"];
-  HEADHIDE();
 
   useEffect(() => {
     const videoElement = videoRef.current;
