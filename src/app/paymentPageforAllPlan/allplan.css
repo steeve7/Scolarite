@@ -406,9 +406,38 @@ form{
 }
 .message{
     background: #eaf4fbb2;
-    height: auto;
+    height: 50px;
+    /* height: auto; */
     width: auto;
     
+}
+.circle{
+    display: flex;
+    width: 80%;
+    /* height: 50%; */
+    position: relative;
+    justify-content: space-between;
+    /* border: 3px solid red; */
+}
+.circle-1{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    position: relative;
+    bottom: 6.99rem;
+    right: 1rem;
+    background-color: white;
+    /* border: 2px solid black; */
+    
+}
+.circle-2{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    position: relative;
+    bottom: 6.99rem;
+    right: -1rem;
+    background-color: white;
 }
 
 .nav-link{

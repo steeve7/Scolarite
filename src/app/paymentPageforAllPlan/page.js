@@ -280,9 +280,13 @@ export default function paymentPageforCustomPlan() {
                                       height={5}
                                       className="message"
                                       />
-                                </div>   
+                                </div>  
+                            
                            </div>
-            
+                             <div className='circle'>
+                           <div className='circle-1'></div> 
+                           <div className='circle-2'></div> 
+                             </div>
             </div>
 
 

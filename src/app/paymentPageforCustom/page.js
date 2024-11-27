@@ -177,7 +177,7 @@ export default function paymentPageforCustomPlan() {
                         /> </li>
                     </ul>
                        
-                       <input type="num" id="cardnumber" className="input"   placeholder="    ----          ----             ----           ----" required/>
+                       <input type="number" id="cardnumber" className="input"   placeholder="    ----          ----             ----           ----" required/>
     
                  </div>
 
@@ -211,7 +211,7 @@ export default function paymentPageforCustomPlan() {
                         /> </li>
                     </ul>
                        
-                       <input type="num" id="cvv" className="input-cvv" max-length="12"   placeholder="----  ----  ----  ----" required/>
+                       <input type="number" id="cvv" className="input-cvv" max-length="12"   placeholder="----  ----  ----  ----" required/>
     
                  </div>
 
@@ -337,7 +337,12 @@ export default function paymentPageforCustomPlan() {
                                       className="message"
                                       />
                                 </div>   
+                                
                            </div>
+                           <div className='circle'>
+                           <div className='circle-1'></div> 
+                           <div className='circle-2'></div> 
+                             </div>
                    
             </div>
 
