@@ -388,7 +388,7 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background: #f9f9f9;
+    background: white;
 }
 
 .logoContainer {
@@ -424,27 +424,40 @@
     width: 100%;
     max-width: 400px;
     text-align: center;
+    text-align: left;
 }
 
 .formContainer h1 {
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
     font-weight: 600;
+    text-align: center;
 }
 
 .formContainer p {
     font-size: 0.95rem;
     margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 .input {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 0.9rem;
+    border: 1px solid white;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    background-color: #F5F7FA;
 }
+
+.label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: black;
+    text-align: left; /* Align text to the left */
+}
+
 
 .checkbox {
     display: flex;

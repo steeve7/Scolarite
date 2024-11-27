@@ -676,44 +676,58 @@ export default function SignUpPage() {
                         <h1>Register individual account</h1>
                         <p>Enter your email and password to create your account</p>
                         <form onSubmit={handleSignUpSubmit}>
+                            <label className={styles.label}>First name</label>
                             <input
                                 type="text"
                                 placeholder="Enter your first name"
                                 className={styles.input}
                             />
+
+                            <label className={styles.label}>Last name</label>
                             <input
                                 type="text"
                                 placeholder="Enter your last name"
                                 className={styles.input}
                             />
+
+                            <label className={styles.label}>Email</label>
                             <input
                                 type="email"
                                 placeholder="Enter your email"
                                 className={styles.input}
                             />
+
+                            <label className={styles.label}>Phone No</label>
                             <input
                                 type="tel"
                                 placeholder="Enter your phone no"
                                 className={styles.input}
                             />
+
+                            <label className={styles.label}>Referral code</label>
                             <input
                                 type="text"
                                 placeholder="Enter referral code (if any)"
                                 className={styles.input}
                             />
+
+                            <label className={styles.label}>Password</label>
                             <input
                                 type="password"
                                 placeholder="Enter your password"
                                 className={styles.input}
                             />
+
                             <div className={styles.checkbox}>
                                 <input type="checkbox" id="rememberMe" />
                                 <label htmlFor="rememberMe">Remember me</label>
                             </div>
+
                             <button type="submit" className={styles.button}>
                                 Sign Up
                             </button>
                         </form>
+
                         <button className={styles.googleButton}>
                             <Image
                                 src="/images/google-logo.png"
