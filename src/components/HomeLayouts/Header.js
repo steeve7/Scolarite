@@ -14,6 +14,7 @@ function Header() {
   useEffect(function () {
     if(exempt){
       document.getElementById("HEADER_SECTION").style.display = "none";
+      document.getElementById("HEADER_STICKY_SIMULATOR").style.display = "none";
     }
     document.querySelectorAll("NONE").forEach((el) => {
       el.style.display = "none";
@@ -24,7 +25,7 @@ function Header() {
       <div id="HEADER_SECTION" className={mergeText(...classes)}>
         <NavbarMain />
       </div>
-      <div style={{ marginBottom: "130px" }}></div>
+      <div id="HEADER_STICKY_SIMULATOR" style={{ marginBottom: "130px" }}></div>
     </>
   );
 }
