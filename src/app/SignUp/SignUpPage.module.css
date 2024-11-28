@@ -301,6 +301,8 @@
     display: flex;
     height: 120vh;
     overflow: hidden;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    overflow-y: hidden;
 }
 
 .left {
