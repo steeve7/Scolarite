@@ -7,6 +7,7 @@ import { MdOutlineArrowCircleUp } from "react-icons/md";
 import { HiOutlineMail } from "react-icons/hi";
 import { BsTelephone } from "react-icons/bs";
 import { CiLocationOn } from "react-icons/ci";
+import { isPageExempt } from "../addons/addons";
 
 export default function Footer() {
 
