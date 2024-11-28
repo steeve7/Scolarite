@@ -1,15 +1,33 @@
-import NavbarMain from "@/components/HomeLayouts/navbar"
-import style from "./navbar.module.css"
-import NavBar from '@/components/HomeLayouts/navbar'
+"use client";
+import NavbarMain from "@/components/HomeLayouts/navbar";
+import style from "./navbar.module.css";
+import NavBar from "@/components/HomeLayouts/navbar";
+import { useEffect } from "react";
+import { mergeText } from "@/app/add";
+import { isPageExempt } from "../addons/addons";
+import { usePathname } from "next/navigation";
 // import React, { useEffect } from 'react'
 
-
 function Header() {
+  var classes = [style.header];
+  var exempt = isPageExempt()
+  useEffect(function () {
+    if(exempt){
+      document.getElementById("HEADER_SECTION").style.display = "none";
+      document.getElementById("HEADER_STICKY_SIMULATOR").style.display = "none";
+    }
+    document.querySelectorAll("NONE").forEach((el) => {
+      el.style.display = "none";
+    });
+  }, []);
   return (
-    <div id="HEADER" className={style.header}>
-      <NavbarMain/>
-    </div>
-  )
+    <>
+      <div id="HEADER_SECTION" className={mergeText(...classes)}>
+        <NavbarMain />
+      </div>
+      <div id="HEADER_STICKY_SIMULATOR" style={{ marginBottom: "130px" }}></div>
+    </>
+  );
 }
 
-export default Header
+export default Header;
