@@ -28,26 +28,25 @@ const EventList = {
 
 }
 
-function Fill({className, Name,purpose={start: 0, end: 10} , need = true}){
+function Fill({ Name,purpose={start: 0, end: 10},value=0 , need = true}){
     const EventName = `FILL-${Name}`
     const barName = `FILL-${Name}`
     const ref = useRef(null)
     
     const [done,setdone] = useState(false)
     function FillFunc(e){
-        const index = Number(e.detail.index)
+        var index = Number(e.detail.index)
         const End = purpose.end
         const Start = purpose.start
         var el = ref.current
-        const barWidth = Number((index/(End - Start))*100)
-
+        var barWidth = Number(((index-Start)/(End - Start))*100)
        if (index > Start){
             el.style.width = `${barWidth}%`
         }
         else{
             el.style.width = `0%`
         }
-        if (index >= End){
+        if (index > End){
             setdone(()=> true)
         }
         else{
@@ -61,7 +60,7 @@ function Fill({className, Name,purpose={start: 0, end: 10} , need = true}){
         </div>
         <div className={style.fillcircle}> 
             {done && <Image src={doneimg} alt="2" className={style.filldoneimg}/> }
-            {!done && purpose.end}
+            {!done && value}
         </div>
         <CEventH Name={EventName} Type={EventList.multiFormMove().type} onEvent={FillFunc}   />
         
@@ -116,6 +115,18 @@ function Innerframe1({state,ehandle,form}){
             </Center>
             <div className={mergeText(style.notetext)} style={{textAlign:"left"}}>
                 <Pd pad={30}></Pd> Search for your ideal  course now.
+                <Center>
+                    <div className={style.depsearchwrap}>
+                        <div className={style.desearchinw}>
+                            <div className={style.depsearchicon}>
+                                <svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M29.668 27.6889C34.0128 22.1906 33.6469 14.1873 28.5705 9.11085C23.0998 3.64013 14.23 3.64013 8.75928 9.11085C3.28857 14.5816 3.28857 23.4513 8.75928 28.9221C13.8357 33.9985 21.839 34.3644 27.3373 30.0196L33.2319 35.9142C33.8756 36.5579 34.9191 36.5579 35.5627 35.9142C36.2063 35.2706 36.2063 34.2271 35.5627 33.5835L29.668 27.6889ZM26.2398 11.4416C30.4232 15.6251 30.4232 22.4078 26.2398 26.5913C22.0563 30.7748 15.2735 30.7748 11.09 26.5913C6.90653 22.4078 6.90653 15.6251 11.09 11.4416C15.2735 7.25809 22.0563 7.25809 26.2398 11.4416Z" fill="#282828"/>
+                                </svg>
+                            </div>
+                            <input type="text" className={style.depsearch} />
+                        </div>
+                    </div>
+                </Center>
             </div>
            <br />
            <br />
@@ -207,10 +218,10 @@ export default function Page(props){
     )
     const Index = new State(0)
     const FilllistAssign = ["Academic Goals", "Current Academic Status", "Study Preference", "Customization", "Congratulations"]
-    var section1fills = CRange(0,4).map((value,index)=> {return{Name:`fill${value}`, Index:value+1,purpose:{start:value,end:value+1}}})
+    var section1fills = CRange(0,8,2).map((value,index)=> {return{Name:`fill${value}`, Index:(value/2)+1,purpose:{start:value==0?0:value-2,end:value}}})
     const ImageList = [frame1i1,frame2i1,frame3i1,frame4i1,frame5i1,frame6i1,frame7i1,frame8i1]
     useEffect(function(){
-        document.getElementById("HEADER").style.display = "none"
+        // document.getElementById("HEADER").style.display = "none"
         // document.querySelector("body").style.overflow = "hidden"
         // document.getElementById("FOOTER").style.display = "none"
     },[])
@@ -249,7 +260,7 @@ export default function Page(props){
                     </div>
                     <div className="w-full flex justify-center mb-4">
                         <div className={style.fillcom}>
-                            {section1fills.map((obj,index)=><Fill key={index} need = {index !== 0} {...obj}/>)}
+                            {section1fills.map((obj,index)=><Fill key={index} value={obj.Index} need = {index !== 0} {...obj}/>)}
                         </div>
                     </div>
                     <div className="w-full flex justify-center">

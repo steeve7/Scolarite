@@ -65,7 +65,7 @@
 }
 .fillcom{
     display: grid;
-    gap: 10px;
+    gap: 3px;
     width: 100%;
     max-width: 500px;
     place-items: center;
@@ -160,7 +160,7 @@
 .depwrapper{
     width: 80%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
 }
 .departmentcard{
@@ -201,5 +201,8 @@
     }
     .frame2section1title{
         margin-top: 0;
+    }
+    .side1{
+        display: none;
     }
 }

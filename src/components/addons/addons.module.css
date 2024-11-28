@@ -42,13 +42,20 @@
     font-weight: bolder;
 
 }
-.btnani{
+.button{
     transition: translate 0.5s ease-in-out;
     cursor: pointer;
 }
-.btnani:hover{
+.btnanitop:hover{
     translate: 0px -5px;
 }
+.btnanibottom:hover{
+    translate: 0px 5px;
+}
+.btnaniscale:hover{
+    translate: 0px -5px;
+}
+
 /* .tooltipcontainer{ */
     /* position: absolute; */
 /* } */

@@ -10,7 +10,7 @@ import { usePathname } from "next/navigation"
 
 export var isPageExempt = ()=>{
     var Exempt = false
-    const PageExemptList = ["signup","login"]
+    const PageExemptList = ["signup","login","multiform"]
     var pathName = usePathname()
     PageExemptList.forEach(pageName=>{
       if (pathName.toLowerCase().includes(pageName.toLowerCase())){
@@ -305,17 +305,25 @@ export function CInput({className,placeholder,type="input",...props}){
 }
 
 
-export function CButton({className,onClick,id,children,ani = true , tooltip = undefined}){
-    return <div id={id} className={mergeText(className,style.button,ani?style.btnani:"")} onClick={onClick}>
+export function CButton({className,onClick,id,children,ani = "top" , tooltip = undefined}){
+
+    const ButtonAnimations = {
+        "scale":style.btnaniscale,
+        "top":style.btnanitop,
+        "bottom":style.btnanibottom,
+        true:style.btnanitop,
+        false:"",
+    }
+    return <div id={id} className={mergeText(className,style.button,ButtonAnimations[String(ani)])} onClick={onClick}>
         {children}
         {tooltip && <ToolTip message={tooltip}/>}
     </div>
 }
 
 
-export function CLink({className,href,onClick,id,children,target,ani = true}){
+export function CLink({className,href,onClick,id,children,target,ani = "top"}){
     const linkFunc = ()=>{window.open(href,String(target).toLowerCase()).focus()}
-    return <div id={id} className={mergeText(className,style.button,ani?style.btnani:"")}  onClick={mergeFunc(onClick,linkFunc)}>{children}</div>
+    return <CButton id={id} className={mergeText(className)} ani={ani} onClick={mergeFunc(onClick,linkFunc)}>{children}</CButton>
 }
 
 export function AInput({label, placeholder , className = "", inClassName = "",type="input"}){
