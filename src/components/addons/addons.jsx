@@ -16,7 +16,7 @@ export function G2Wrapper(props){
     styleg2 = {
         ...styleg2
     }
-    return <section   className={mergeText(style.g2wrapper,props.className)} style={
+    return <section className = {mergeText(style.g2wrapper,props.className)} style = {
         styleg2
     } >
         {props.children}
@@ -99,7 +99,7 @@ export function FADispatch(Event,excludedId=[""],excludedClass=[""]){
             }
             
         })
-}
+    }
 }
 
 export function Pd({pad=10}){
