@@ -10,13 +10,16 @@ import { CiLocationOn } from "react-icons/ci";
 
 export default function Footer() {
 
-   const [isClient, setIsClient] = useState(false);
-
+  const [isClient, setIsClient] = useState(false);
+  var exempt = isPageExempt()
    useEffect(() => {
      setIsClient(true);
+    if(exempt){
+      document.getElementById("FOOTER_SECTION").style.display = "none";
+    }
    }, []);
 
-   if (!isClient) return null;
+  //  if (!isClient) return null;
 
   return (
     <div  className="flex md:flex-row flex-col items-center justify-between gap-6 mt-[7rem] bg-custom-dark w-full lg:px-20 md:px-10 px-5 md:py-16 rounded-tr-[2rem]">
