@@ -638,8 +638,8 @@ export default function SignUpPage() {
                                 src={src}
                                 alt={`Slide ${index + 1}`}
                                 className={styles.carouselImage}
-                                width={1000}
-                                height={800}
+                                width={500}
+                                height={500}
                                 priority
                             />
                         </div>
