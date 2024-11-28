@@ -684,3 +684,43 @@
         font-size: 12px;
     }
 } 
+
+@media screen and (max-width: 375px) {
+
+    .carousel,
+    .carouselImage {
+        display: none;
+    }
+
+    .right {
+        padding: 12px; /* Slightly more padding for 375px screens */
+    }
+
+    .formContainer {
+        max-width: 92%; /* Slightly larger form container */
+    }
+
+    .formContainer h1 {
+        font-size: 1.5rem; /* Slightly larger heading */
+    }
+
+    .formContainer p {
+        font-size: 0.9rem; /* Slightly larger paragraph text */
+    }
+
+    .input {
+        font-size: 0.85rem; /* Slightly larger input font */
+    }
+
+    .button {
+        font-size: 14px;
+    }
+
+    .googleButton {
+        font-size: 14px;
+    }
+
+    .signInLink {
+        font-size: 13px; /* Slightly larger sign-in link text */
+    }
+}
