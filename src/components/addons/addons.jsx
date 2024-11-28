@@ -6,6 +6,19 @@ import { frame } from "framer-motion"
 import tooltiptri from "./assets/tooltiptri.png"
 import Image from "next/image"
 const indexId = genId("b")
+import { usePathname } from "next/navigation"
+
+export var isPageExempt = ()=>{
+    var Exempt = false
+    const PageExemptList = ["signup","login"]
+    var pathName = usePathname()
+    PageExemptList.forEach(pageName=>{
+      if (pathName.toLowerCase().includes(pageName.toLowerCase())){
+        Exempt = true
+      }
+    })
+    return Exempt
+  }
 
 export function G2Wrapper(props){
     var styleg2 =props.repel ? {
