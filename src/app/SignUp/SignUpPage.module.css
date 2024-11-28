@@ -301,6 +301,8 @@
     display: flex;
     height: 120vh;
     overflow: hidden;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    overflow-y: hidden;
 }
 
 .left {
@@ -339,7 +341,6 @@
     /* Ensures images scale to cover the container */
     object-position: center;
     /* transform: scale(0.955); */
-
 }
 
 .quote {
@@ -455,7 +456,8 @@
     font-weight: bold;
     margin-bottom: 5px;
     color: black;
-    text-align: left; /* Align text to the left */
+    text-align: left;
+    /* Align text to the left */
 }
 
 
@@ -590,9 +592,11 @@
 
 /* Hide carousel on small screens */
 @media screen and (max-width: 1024px) {
+
     .carousel,
     .carouselImage {
-        display: none; /* Hide carousel and images */
+        display: none;
+        /* Hide carousel and images */
     }
 
     /* .container {
@@ -621,9 +625,11 @@
 
 /* For 480px (mobile landscape) */
 @media screen and (max-width: 480px) {
+
     .carousel,
     .carouselImage {
-        display: none; /* Hide carousel and images */
+        display: none;
+        /* Hide carousel and images */
     }
 
     .right {
@@ -669,9 +675,11 @@
 
 /* For 360px (smaller mobile screens) */
 @media screen and (max-width: 360px) {
+
     .carousel,
     .carouselImage {
-        display: none; /* Hide carousel and images */
+        display: none;
+        /* Hide carousel and images */
     }
 
     .right {
