@@ -115,8 +115,8 @@ export function FADispatch(Event,excludedId=[""],excludedClass=[""]){
     }
 }
 
-export function Pd({pad=10}){
-    return <span style={{width:`${pad}px`,display:"inline-block",backgroundColor:"transparent",color:"transparent"}} />
+export function Pd({pad=10,pady=0,display="inline-block"}){
+    return <span style={{width:`${pad}px`,height:`${pady}px`,display:display,backgroundColor:"transparent",color:"transparent"}} />
 }
 
 export function Radio({className,value,channel,valueListener,isdefault,onEvent,children,onClick,ref,...others}){
@@ -183,10 +183,13 @@ export function ToolTip({message}){
          enter = false
     }
     useEffect(()=>{
-        var PARENTNAME = `tooltipparent-${Math.ceil(Math.random()*1000)}`
+        var PARENTNAME = `tooltipparent-${genId()}`
         var el = tipRef.current
         el.parentElement.classList.add(PARENTNAME) 
         const parent = document.querySelector(`.${PARENTNAME}`)
+        const body = document.querySelector("html")
+        parent.removeChild(el)
+        body.appendChild(el)
         parent.addEventListener("mouseenter",Enter)
         parent.addEventListener("mouseleave",Leave)
         parent.addEventListener("click",Leave)
@@ -284,8 +287,8 @@ export function Cg2wrapper({className,id,children,paddingInline = "10px", paddin
     </div>
 }
 
-export function Center(props){
-    return <div className={mergeText(style.center,props.className)}>{props.children}</div>
+export function Center({children,className,...others}){
+    return <div className={mergeText(style.center,className)} { ...others}  >{children}</div>
 }
 
 export function CInput({className,placeholder,type="input",...props}){

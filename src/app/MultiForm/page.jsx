@@ -9,6 +9,7 @@ import frame5i1 from "./assets/frame5i1.png"
 import frame6i1 from "./assets/frame6i1.png"
 import frame7i1 from "./assets/frame7i1.png"
 import frame8i1 from "./assets/frame8i1.png"
+import depin from "./assets/depin.png"
 import engimg from "./assets/department/eng.png"
 import medimg from "./assets/department/med.png"
 import artimg from "./assets/department/art.png"
@@ -16,9 +17,10 @@ import comimg from "./assets/department/com.png"
 import sliderthumbimg from "./assets/sliderthumb.png"
 import doneimg from "./assets/done.png"
 import Image from "next/image"
-
+import db from "./MFormDatabase"
 import { useEffect, useRef, useState } from "react"
 import { CRange, genId, mergeText, Range } from "../add"
+import MFormDatabase from "./MFormDatabase"
 
 
 const EventList = {
@@ -82,7 +84,7 @@ function Innerframe1({state,ehandle,form}){
             </div>
             <Slider onEvent={(value)=>{Form.update({JambScore:value})}} />
             <div className={style.if1button1w}>
-                <CButton className={style.if1button1} tooltip={"double click"} onClick={()=>{index.set(e=>e+1);ehandle()}}>Next step</CButton>
+                <CButton className={style.if1button1}  onClick={()=>{index.set(e=>e+1);ehandle()}}>Next step</CButton>
             </div>
         </div>
 
@@ -107,7 +109,8 @@ function Innerframe1({state,ehandle,form}){
             </div>
             <Center>
                 <div className={style.depwrapper}>
-                    <DepartmentCard icon={engimg} form = {Form} name={"Engineering"}/>
+
+                    <DepartmentCard icon={engimg} form = {Form} isdefault = {true} name={"Engineering"}/>
                     <DepartmentCard icon={medimg} form = {Form} name={"Medicine"}/>
                     <DepartmentCard icon={artimg} form = {Form} name={"Arts"}/>
                     <DepartmentCard icon={comimg} form = {Form} name={"Commerce"}/>
@@ -115,26 +118,20 @@ function Innerframe1({state,ehandle,form}){
             </Center>
             <div className={mergeText(style.notetext)} style={{textAlign:"left"}}>
                 <Pd pad={30}></Pd> Search for your ideal  course now.
-                <Center>
-                    <div className={style.depsearchwrap}>
-                        <div className={style.desearchinw}>
-                            <div className={style.depsearchicon}>
-                                <svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M29.668 27.6889C34.0128 22.1906 33.6469 14.1873 28.5705 9.11085C23.0998 3.64013 14.23 3.64013 8.75928 9.11085C3.28857 14.5816 3.28857 23.4513 8.75928 28.9221C13.8357 33.9985 21.839 34.3644 27.3373 30.0196L33.2319 35.9142C33.8756 36.5579 34.9191 36.5579 35.5627 35.9142C36.2063 35.2706 36.2063 34.2271 35.5627 33.5835L29.668 27.6889ZM26.2398 11.4416C30.4232 15.6251 30.4232 22.4078 26.2398 26.5913C22.0563 30.7748 15.2735 30.7748 11.09 26.5913C6.90653 22.4078 6.90653 15.6251 11.09 11.4416C15.2735 7.25809 22.0563 7.25809 26.2398 11.4416Z" fill="#282828"/>
-                                </svg>
-                            </div>
-                            <input type="text" className={style.depsearch} />
-                        </div>
-                    </div>
-                </Center>
+                <Pd display="block" pady={30} ></Pd>
             </div>
-           <br />
+            <DepInput form={Form}></DepInput>
+            <div className={mergeText(style.notetext)} style={{textAlign:"left"}}>
+                <Pd pad={30}></Pd>Can't find your course? Enter the course you're looking for, and we'll assist you in finding it.
+            </div>
+            <br />
+            <Center> <input type="text" placeholder="Enter course name" onChange={el=>Form.update({Course:el.target.value})} className={style.cfc} /></Center>
            <br />
            <br />
            <br />
             <div className={style.if1button2w}>
                 <CButton className={mergeText(style.if1button1,style.if1button2)} onClick={()=>{index.set(e=>e-1);ehandle()}}>Previous step</CButton>
-                <CButton className={style.if1button1} tooltip={"double click"} onClick={()=>{index.set(e=>e+1);ehandle()}}>Next step</CButton>
+                <CButton className={style.if1button1}  onClick={()=>{index.set(e=>e+1);ehandle()}}>Next step</CButton>
             </div>
         </div>
         <div className={style.if1}>
@@ -157,7 +154,7 @@ function Innerframe1({state,ehandle,form}){
            <br />
             <div className={style.if1button2w}>
                 <CButton className={mergeText(style.if1button1,style.if1button2)} onClick={()=>{index.set(e=>e-1);ehandle()}}>Previous step</CButton>
-                <CButton className={style.if1button1} tooltip={"double click"} onClick={()=>{index.set(e=>e+1);ehandle()}}>Next step</CButton>
+                <CButton className={style.if1button1}  onClick={()=>{index.set(e=>e+1);ehandle()}}>Next step</CButton>
             </div>
         </div>
         
@@ -165,15 +162,64 @@ function Innerframe1({state,ehandle,form}){
     </Flip>
 }
 
-function DepartmentCard({icon,name,form}){
+function DepInput({form}){
+
+    function InputChange(e){
+
+        var cardellist = document.querySelectorAll(`.${style.depincard}`)
+        cardellist.forEach(el=>{
+            el.classList.remove(style.active)
+            if (el.innerText.toLowerCase().includes(e.target.value.toLowerCase())){
+                el.classList.add(style.active)
+            }
+        })
+    }
+    function cardClick(name){
+        var input = document.getElementById(style.depsearch)
+        input.value = name
+        console.log("click success")
+        form.update({Course:name})
+        document.getElementById(style.depsearch).blur()
+        // InputChange({target:{value:name}})
+        var cardellist = document.querySelectorAll(`.${style.depincard}`)
+        cardellist.forEach(el=>{
+            el.classList.remove(style.active)
+            
+        })
+    }
+    return <Center   >
+    <ToolTip message={"Input a valid department name"}/>
+        <div  className={style.depsearchwrap}>
+            <div onClick ={()=>{document.getElementById(style.depsearch).focus()}}  className={style.depsearchinw}>
+                <div className={style.depsearchiconw}>
+                    <svg className={style.depsearchicon} viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fillRule="evenodd" clipRule="evenodd" d="M29.668 27.6889C34.0128 22.1906 33.6469 14.1873 28.5705 9.11085C23.0998 3.64013 14.23 3.64013 8.75928 9.11085C3.28857 14.5816 3.28857 23.4513 8.75928 28.9221C13.8357 33.9985 21.839 34.3644 27.3373 30.0196L33.2319 35.9142C33.8756 36.5579 34.9191 36.5579 35.5627 35.9142C36.2063 35.2706 36.2063 34.2271 35.5627 33.5835L29.668 27.6889ZM26.2398 11.4416C30.4232 15.6251 30.4232 22.4078 26.2398 26.5913C22.0563 30.7748 15.2735 30.7748 11.09 26.5913C6.90653 22.4078 6.90653 15.6251 11.09 11.4416C15.2735 7.25809 22.0563 7.25809 26.2398 11.4416Z" fill="#282828"/>
+                    </svg>
+                </div>
+                <input onChange={InputChange} 
+                  type="text" id={style.depsearch}  className={style.depsearch} />
+            </div>
+            <div id={style.searchcardwrap} className={style.searchcardwrap}>
+                {db.Course.map((obj,index)=>{
+                    return <div key={index} onClick={()=>cardClick(obj.name)} className={mergeText(style.depincard)}>
+                    <div style={{textAlign:"left"}}>{obj.name}</div> <Image width={20}  src={depin} alt="222"></Image>
+                </div>
+                })}
+            </div>
+        </div>
+    </Center>
+}
+
+
+function DepartmentCard({icon,name,form,isdefault = false}){
     function onevent(el){
-        el.style.border =  "3.21px solid rgba(0, 0, 0, 0)"
+        el.style.border =  "1.21px solid rgba(0, 0, 0, 0)"
     }
     function valueListener(value,el){
-        el.style.border =  "3.21px solid rgba(0, 0, 0, 1)"
+        el.style.border =  "1.21px solid rgba(0, 0, 0, 1)"
         form.update({Department:value})
     }
-    return <Radio value={name} channel={"department-card"} onEvent={onevent} valueListener={valueListener} className={style.departmentcard}>
+    return <Radio value={name} channel={"department-card"} isdefault={isdefault} onEvent={onevent} valueListener={valueListener} className={style.departmentcard}>
         <div className={style.departmentcardiconw}>
             <Image className={style.departmenticon} src={icon} alt="alt"></Image>
         </div>
@@ -184,7 +230,7 @@ function DepartmentCard({icon,name,form}){
 }
 function Yesno3({value,isdefault , form = new State()}){
     function onevent(el){
-        el.style.border = "3.21px solid rgba(0, 0, 0, 0)"
+        el.style.border = "1.21px solid rgba(0, 0, 0, 0)"
     }
     function valueListener(value,el){
         form.update({HasWrittenBefore:String(value).toLowerCase() ==="yes"})
@@ -195,7 +241,7 @@ function Yesno3({value,isdefault , form = new State()}){
             document.getElementById("preScore-input").classList.add("NONE")
             document.getElementById("preScore-input-l").classList.add("NONE")  
         }
-        el.style.border = "3.21px solid rgba(0, 0, 0, 1)"
+        el.style.border = "1.21px solid rgba(0, 0, 0, 1)"
     }
     return <Radio value={value} isdefault={isdefault} className={style.yesnoframe4} onEvent={onevent} valueListener={valueListener} channel={"yesno-frame4"} >
         {value}
@@ -212,7 +258,8 @@ export default function Page(props){
             Subject:["","","",""],
             FollowStudyPlan:false,
             ScheduleFormat:0,
-            preScore:0
+            preScore:0,
+            Course:""
 
         }
     )

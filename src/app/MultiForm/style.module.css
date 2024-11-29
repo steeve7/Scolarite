@@ -174,6 +174,7 @@
     box-sizing: border-box;
     box-shadow: 0px 3.21123px 10.6618px rgba(69, 65, 164, 0.06), 0px 6.42247px 10.0562px rgba(31, 37, 89, 0.07);
     border-radius: 15px;
+    transition: border 0.3s ease-in-out;
 }
 .yesnoframe4{
     padding: 15px;
@@ -188,6 +189,76 @@
 
 .departmentcardiconw{
     width: 50px;
+}
+.depsearchinw{
+    display: grid;
+    gap: 0px;
+    grid-template-columns: auto 1fr;
+    border-radius: 20px;
+    border: 1.65px solid rgba(34, 128, 239, 1);
+    overflow: hidden;
+    padding: 6px;
+    padding-inline: 0;
+}
+.depsearchwrap{
+    width: 90%;
+    max-width: 400px;
+    border-radius: 20px;
+}
+.depsearchiconw{
+    width: 40px;
+    display: grid;
+    place-items: center;
+}
+.depsearchicon{
+    width: 50%;
+}
+.depsearch{
+    text-align: left;
+    outline: none;
+    font-weight: normal;
+    padding-block: 5px;
+}
+.searchcardwrap{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1.02px solid rgba(170, 170, 170, 1);
+    border-top: transparent;
+    border-bottom-left-radius: 32.96px;
+    border-bottom-right-radius: 32.96px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+.searchcardwrap.active{
+    
+}
+.depincard{
+    padding-inline: 25px;
+    padding-block: 18px;
+    display: none;
+    font-weight: normal;
+    font-size: 15px;
+    border-bottom: 1.1px solid rgba(170, 170, 170, 1);
+    border-radius: 16.48px;
+}
+.depincard.active{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-template-columns: 1fr auto;
+    text-align: left;
+}
+.cfc{
+    outline: none;
+    border: 2.58px solid rgba(0, 0, 0, 1);
+    width: 80%;
+    max-width: 450px;
+    padding-block: 15px;
+    box-sizing: border-box;
+    border-radius: 16.48px;
+    text-align: left;
+    padding-inline: 20px;
 }
 @media (max-width:1200px){
     .fillassign{

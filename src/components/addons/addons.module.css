@@ -66,7 +66,7 @@
     color: black;
     font-size: 12px;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
     filter: drop-shadow(3px 4.7px 4.7px rgba(23, 15, 73, 0.45)) drop-shadow(0px 1px 1px rgba(23, 15, 73, 0.04)) drop-shadow(0px 5px 14px rgba(8, 15, 52, 0.04));
     display: none;
     transition: left 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
@@ -77,14 +77,15 @@
     /* background-color: blue; */
 /* } */
 .tooltip.showtooltip{
-
     display: block;
 }
 .tooltipimg{
-    max-width: 20%;
+    max-width: 15%;
     height: 15px;
     position: absolute;
     translate: 0 100%;
+    max-width: 20px;
+    min-width: 10px;
 }
 
 
