@@ -72,6 +72,7 @@
     transition: left 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
     top 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
     opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    max-width: 200px;
 }
 /* .tooltipcontainer{ */
     /* background-color: blue; */
@@ -105,9 +106,12 @@
     height: 100%;
     overflow-x: visible;
     min-width: 100%;
-    transition: transform 1s ease-in-out;
-}
 
+}
+.filpchildfill{
+    min-width: 100%;
+    min-height: 100%;
+}
 .cg2w{
     display: grid;
     width: 100%;

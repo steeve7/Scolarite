@@ -1,6 +1,5 @@
 "use client"
 import style from "./addons.module.css"
-import { CRange, genId, LastIndex, mergeFunc, mergeText } from "../../app/add"
 import React, { useEffect, useRef, useState } from "react"
 import { frame } from "framer-motion"
 import tooltiptri from "./assets/tooltiptri.png"
@@ -19,6 +18,67 @@ export var isPageExempt = ()=>{
     })
     return Exempt
   }
+
+
+  export function mergeText(...texts){
+    return texts.join(" ")
+}
+
+export function mergeFunc(...func){
+    return (param)=>{
+        func.forEach(e=>{if (e instanceof Function){e(param)}})
+    }
+}
+
+
+export function LastIndex(list){
+  var running = true
+  var count = 0
+  while (running){
+    try{
+      const indexretrive = list[count]
+      count ++
+    }catch(error){
+      running = false
+    }
+  }
+  return count
+}
+
+export function CRange(start= 0,stop = 0,step=1){
+  const list = []
+  for(let i = start;i<stop+step;i+=step){
+    if (i >= stop){
+      list.push(stop)
+      break
+    }else{list.push(i)}
+  }
+  return list
+}
+
+
+export function genId(p = "b",length = 8){
+    const letters = "abcdefghijklmnopqrstuvwxyz"
+    const numbers = "0123456789"
+    const rand = (arr,len)=>{
+      const singleGen = ()=> arr[Math.floor(Math.random()*arr.length)]
+      let str = ""
+      for(let i = 0;i<len;i++){
+        str+=singleGen()
+      }
+      return str
+    }
+    if (p == "l"){
+      return rand(letters,length)
+    }else if(p == "b"){
+      return rand([...numbers,...letters],length)
+    }else if(p == "n"){
+      return rand(numbers,length)
+    }else{
+      return rand([...numbers,...letters],length)
+    }
+  }
+
 
 export function G2Wrapper(props){
     var styleg2 =props.repel ? {
@@ -159,14 +219,48 @@ export function CEventH({Name , Type, onEvent = function(){}}){
 
         },[]
     )
-    return <div ref={ref} style={{display:"none"}} ></div>
+    return <div ref={ref} style={{display:"none"}} />
+}
+
+export class ClickControl{
+    elementId 
+    element
+    onClick = ()=>{}
+    preOnClick = undefined
+    onLock = (el)=>{}
+    onRelease = (el)=>{}
+    constructor(elid,element = undefined){
+        this.elementId = elid
+        this.element = element
+    }
+    LockClick(){
+        if (window){
+            this.element = this.element?this.element:document.getElementById(this.elementId)
+            this.preOnClick = this.element.onclick
+            this.element.onclick = this.onClick
+            this.onLock(this.element)
+        }
+    }
+    ReleaseClick(){
+        if(this.preOnClick){if (window){
+            this.element = this.element?this.element:document.getElementById(this.elementId)
+            this.element.onclick = this.preOnClick
+            this.onRelease(this.element)
+        }}
+    }
+}
+
+
+export function ListChildren(children,CloneWithProps = {}){
+    const childrenWithProps = React.Children.map(children, (child,index) =>
+        React.cloneElement(child, { key: index, ...CloneWithProps })
+      );
+    return childrenWithProps
 
 }
 
 
-
-
-export function ToolTip({message}){
+export function ToolTip({message,id}){
     const tipRef = React.useRef()
     var enter = false
     function Enter(e){
@@ -206,7 +300,7 @@ export function ToolTip({message}){
         });
             
     },[])
-    return <div  className={style.tooltip} ref={tipRef}  >
+    return <div id={id}  className={style.tooltip} ref={tipRef}  >
             <div className={style.tooltiptext}>{message} </div>
             <Center>
                 <Image src={tooltiptri} alt="arrow" className={style.tooltipimg}></Image>
@@ -218,21 +312,22 @@ export function ToolTip({message}){
 
 
 
-export function Flip({id,Name, className, children,Type}){
-    const [totalIndex, setTotalIndex] = useState(0) 
+export function Flip({id,Name, className, children,speed=0.5,Type}){
+    const istate = new State({index:0,total:0})
+     
     const forwardBName = `FB-${Name}-FORWARD`
     const backwardBName = `FB-${Name}-BACKWARD`
-    const [index,setIndex] = useState(0)
     const frameID = `FB-${Name}`
+    const childrenList = ListChildren(children)
 
     function ForwardButtonFunc(){
         
-        indexTo(index+1)
+        indexTo(istate.get().total > istate.get().index? istate.get().index+1:0)
 
     }
     function BackwardButtonFunc(){
         
-        indexTo(index-1)
+        indexTo(istate.get().index > 0? istate.get().index-1:istate.get().total)
 
     }
     function indexTo(index){
@@ -255,8 +350,15 @@ export function Flip({id,Name, className, children,Type}){
             scroll = IndexPosX[inputIndex]
             scroll = (scroll/parentWidth)*100
             frame.style.transform = `translateX(-${scroll}%)`
+        }else{
+            if (inputIndex > assumeIndex){
+                scroll = IndexPosX.reverse()[0]
+                console.log(scroll)
+                scroll = (scroll/parentWidth)*100
+                frame.style.transform = `translateX(-${scroll}%)`
+            }
         }
-        setIndex(()=>inputIndex)
+        istate.update({index:inputIndex,total:assumeIndex})
         // console.log("name:",Name,"index:",inputIndex,"IndexPosX:",IndexPosX,"frame:",frameID,"frameWidth:",frameWidth,"parentWidth:",parentWidth,"assumeIndex",assumeIndex)
     }
     function DispatchFunc(e){
@@ -265,8 +367,13 @@ export function Flip({id,Name, className, children,Type}){
     }
     return (
         <div className={mergeText(style.Flip,className)} id = {id} >
-            <div id={frameID}  className={style.FlipInnerFrame}>
-                {children}
+            <div id={frameID} style={{transition:`transform ${String(speed)}s ease-in-out`}} className={style.FlipInnerFrame}>
+                {/* {children} */}
+                {childrenList.map((child,index)=>{
+                    return <div key={index} className={style.filpchildfill}>
+                        {child}
+                    </div>
+                })}
             </div>
         <HiddenButton id={forwardBName} onClick={ForwardButtonFunc}/>
         <HiddenButton id={backwardBName} onClick={BackwardButtonFunc}/>
@@ -308,7 +415,7 @@ export function CInput({className,placeholder,type="input",...props}){
 }
 
 
-export function CButton({className,onClick,id,children,ani = "top" , tooltip = undefined}){
+export function CButton({className,onClick,id,style = {},children,ani = "top" , tooltip = undefined}){
 
     const ButtonAnimations = {
         "scale":style.btnaniscale,
@@ -317,7 +424,7 @@ export function CButton({className,onClick,id,children,ani = "top" , tooltip = u
         true:style.btnanitop,
         false:"",
     }
-    return <div id={id} className={mergeText(className,style.button,ButtonAnimations[String(ani)])} onClick={onClick}>
+    return <div id={id} style={style} className={mergeText(className,style.button,ButtonAnimations[String(ani)])} onClick={onClick}>
         {children}
         {tooltip && <ToolTip message={tooltip}/>}
     </div>

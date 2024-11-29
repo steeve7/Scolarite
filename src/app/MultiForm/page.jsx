@@ -10,6 +10,8 @@ import frame6i1 from "./assets/frame6i1.png"
 import frame7i1 from "./assets/frame7i1.png"
 import frame8i1 from "./assets/frame8i1.png"
 import depin from "./assets/depin.png"
+import listimg from "./assets/list.png"
+import calimg from "./assets/cal.png"
 import engimg from "./assets/department/eng.png"
 import medimg from "./assets/department/med.png"
 import artimg from "./assets/department/art.png"
@@ -60,7 +62,7 @@ function Fill({ Name,purpose={start: 0, end: 10},value=0 , need = true}){
      <div style={{display:need?"initial": "none"}} className={mergeText(style.fillbar,"")}>
             <div  ref={ref} id={barName} className={mergeText(style.fillbarthumb)}/>
         </div>
-        <div className={style.fillcircle}> 
+        <div className={style.fillcircle} style={{border:done?"":`3px solid rgba(161, 174, 190, 1)`}}> 
             {done && <Image src={doneimg} alt="2" className={style.filldoneimg}/> }
             {!done && value}
         </div>
@@ -69,12 +71,18 @@ function Fill({ Name,purpose={start: 0, end: 10},value=0 , need = true}){
     </>
 }
 
-function Innerframe1({state,ehandle,form}){
+function InnerSections({state,ehandle,form}){
     const index = state
     const Name = "IF1"
     const Form = form
 
-    
+    function FormInsertValidate(key,UnlessCallFunc,IfNotFunc){
+        if(Form.get()[key]){
+            UnlessCallFunc()
+        }else{
+            IfNotFunc()
+        }
+    }
 
     return <Flip  Type={EventList.multiFormMove().type}   Name={Name}>
         {/* <ToolTip message={"message success"} /> */}
@@ -157,10 +165,96 @@ function Innerframe1({state,ehandle,form}){
                 <CButton className={style.if1button1}  onClick={()=>{index.set(e=>e+1);ehandle()}}>Next step</CButton>
             </div>
         </div>
-        
+       
+        <div className={style.if1}>
+         <div  className={style.if1title}>
+             Select target subjects
+            </div>
+            <Center>
+                <li style={{listStyleType:"disc",display:"flex",fontSize:"14px",fontWeight:"bold"}}>Please note that you selected your department to be <Pd pad={5}></Pd> <CButton id={"ydep"} style={{textDecoration:"underline"}} onClick={()=>{index.set(e=>e-2);ehandle()}} >{form.get().Department}</CButton> </li>
+            </Center>
+            <Center>
+                
+                <div className={style.depwrapper}>
+                    <input type="text" max={400} id="preScore-input" onChange={el=>{Form.states.Subjects[0]=el.target.value}} className={style.ifts} style={{width:"100%"}} placeholder="Enter first subject" />
+                    <input type="text" max={400} id="preScore-input" onChange={el=>{Form.states.Subjects[1]=el.target.value}} className={style.ifts} style={{width:"100%"}} placeholder="Enter second subject" />
+                    <input type="text" max={400} id="preScore-input" onChange={el=>{Form.states.Subjects[2]=el.target.value}} className={style.ifts} style={{width:"100%"}} placeholder="Enter third Subject" />
+                    <input type="text" max={400} id="preScore-input" onChange={el=>{Form.states.Subjects[3]=el.target.value}} className={style.ifts} style={{width:"100%"}} placeholder="Enter forth Subjects" />
+
+                </div>
+            </Center>
+            
+           <br />
+           <br />
+            <div className={style.if1button2w}>
+                <CButton className={mergeText(style.if1button1,style.if1button2)} onClick={()=>{index.set(e=>e-1);ehandle()}}>Previous step</CButton>
+                <CButton className={style.if1button1}  onClick={()=>{index.set(e=>e+1);ehandle()}}>Next step</CButton>
+            </div>
+        </div>
+        <div className={style.if1}>
+         <div  className={style.if1title2}>
+         Based on our expertise, we recommend dedicating a specific number of hours to study each week. How many hours do you plan to study each day or week? You can follow our recommendation or customize your own schedule.
+            <Pd display="block" pady={20} ></Pd>
+            Would you like to follow our recommended study plan ?
+            </div>
+            
+            <Center>
+                
+                <div className={style.depwrapper}>
+                <YesnoA form={Form} value={"Yes"} ></YesnoA>
+                <YesnoA form={Form} value={"No"} isdefault={true} ></YesnoA>
+                </div>
+            </Center>
+            <div id="calf-input-l"  className={style.if1title}>
+            Which calendar format would you prefer for organizing your study schedule?
+            </div>
+            <div id="calf-input" style={{width:"100%"}}>
+            <Center >
+                
+                    <div className={style.depwrapper}>
+                    <YesnoC  icon={calimg} form={Form} value={"Calendar Format"} tooltip={`**Calendar Format:**
+- Displays events or tasks in a grid organized by date, offering a visual overview of scheduled activities.
+- Ideal for planning and quickly seeing commitments over days, weeks, or months.
+`} ></YesnoC>
+                    <YesnoC  icon={listimg} form={Form} value={"List Format"} isdefault={true} tooltip={`**List Format:**
+- Presents items in a sequential, linear order, 
+perfect for outlining tasks or steps.
+- Simplifies viewing and managing information
+ in a straightforward, chronological manner.`} ></YesnoC>
+                    </div>
+            </Center>
+            </div>
+
+           <br />
+           <br />
+            <div className={style.if1button2w}>
+                <CButton className={mergeText(style.if1button1,style.if1button2)} onClick={()=>{index.set(e=>e-1);ehandle()}}>Previous step</CButton>
+                <CButton className={style.if1button1}  onClick={()=>{index.set(e=>10);ehandle()}}>Next step</CButton>
+            </div>
+        </div>
+        <div className={mergeText(style.if1,style.rcs)}>
+            <Center>
+                <Image src={doneimg} alt="2" className={style.rcsi} ></Image>
+            </Center>
+            <div className={style.rcstitle}>
+            Review and Confirm Your Selections
+            </div>
+            <Center>
+                <div className={style.rcstext}>
+                Please take a moment to review all the information below to ensure it's correct. Confirm your details to finalize your preferences and start your personalized JAMB preparation journey. If you need to make any changes, you can do so now.
+                </div>
+            </Center>
+            <CButton className={style.rcsbutton}>
+            Submit
+            </CButton>
+            <div className={style.if1button2w}>
+                <CButton className={mergeText(style.if1button1,style.if1button2)} onClick={()=>{index.set(e=>5);ehandle()}}>Previous step</CButton>
+            </div>
+        </div>
         
     </Flip>
 }
+
 
 function DepInput({form}){
 
@@ -188,7 +282,7 @@ function DepInput({form}){
         })
     }
     return <Center   >
-    <ToolTip message={"Input a valid department name"}/>
+    <ToolTip message={"Input a valid course name"}/>
         <div  className={style.depsearchwrap}>
             <div onClick ={()=>{document.getElementById(style.depsearch).focus()}}  className={style.depsearchinw}>
                 <div className={style.depsearchiconw}>
@@ -214,10 +308,19 @@ function DepInput({form}){
 function DepartmentCard({icon,name,form,isdefault = false}){
     function onevent(el){
         el.style.border =  "1.21px solid rgba(0, 0, 0, 0)"
+        
     }
     function valueListener(value,el){
         el.style.border =  "1.21px solid rgba(0, 0, 0, 1)"
+        /* document.getElementById(style.depsearch).value = ""
+        var cardellist = document.querySelectorAll(`.${style.depincard}`)
+        cardellist.forEach(el=>{
+            el.classList.remove(style.active)
+            
+        }) */
+
         form.update({Department:value})
+        document.getElementById("ydep").innerText = value
     }
     return <Radio value={name} channel={"department-card"} isdefault={isdefault} onEvent={onevent} valueListener={valueListener} className={style.departmentcard}>
         <div className={style.departmentcardiconw}>
@@ -228,12 +331,12 @@ function DepartmentCard({icon,name,form,isdefault = false}){
         </div>
     </Radio>
 }
-function Yesno3({value,isdefault , form = new State()}){
+function Yesno3({value,isdefault , form = new State(),toChange = "HasWrittenBefore"}){
     function onevent(el){
         el.style.border = "1.21px solid rgba(0, 0, 0, 0)"
     }
     function valueListener(value,el){
-        form.update({HasWrittenBefore:String(value).toLowerCase() ==="yes"})
+        form.states[toChange] = String(value).toLowerCase() ==="yes"
         if(String(value).toLowerCase() ==="yes"){
         document.getElementById("preScore-input").classList.remove("NONE")
         document.getElementById("preScore-input-l").classList.remove("NONE")
@@ -247,15 +350,52 @@ function Yesno3({value,isdefault , form = new State()}){
         {value}
     </Radio>
 }
+function YesnoA({value,isdefault , form = new State(),toChange = "FollowStudyPlan"}){
+    function onevent(el){
+        el.style.border = "1.21px solid rgba(0, 0, 0, 0)"
+    }
+    function valueListener(value,el){
+        form.states[toChange] = String(value).toLowerCase() ==="yes"
+        if(String(value).toLowerCase() ==="yes"){
+        document.getElementById("calf-input").classList.remove("NONE")
+        document.getElementById("calf-input-l").classList.remove("NONE")
+        }else{
+            document.getElementById("calf-input").classList.add("NONE")
+            document.getElementById("calf-input-l").classList.add("NONE")  
+        }
+        el.style.border = "1.21px solid rgba(0, 0, 0, 1)"
+    }
+    return <Radio value={value} isdefault={isdefault} className={style.yesnoframe4} onEvent={onevent} valueListener={valueListener} channel={"yesnoA-frame4"} >
+        {value}
+    </Radio>
+}
+function YesnoC({value,isdefault,icon,tooltip ,id , form = new State(),toChange = "ScheduleFormat"}){
+    function onevent(el){
+        el.style.border = "1.21px solid rgba(0, 0, 0, 0)"
+    }
+    function valueListener(value,el){
+        form.states[toChange] = String(value).toLowerCase()
+        el.style.border = "1.21px solid rgba(0, 0, 0, 1)"
+    }
+    return <Radio id = {id} value={value} isdefault={isdefault} className={mergeText(style.departmentcard,style.yesnoccard)} onEvent={onevent} valueListener={valueListener} channel={"yesnoC-frame4"} >
+        <ToolTip message={tooltip}></ToolTip>
+        <div className={style.departmentcardiconw}>
+            <Image className={style.departmenticon} src={icon} alt="alt"></Image>
+        </div>
+        <div className={style.departmenttext}>
+            {value}
+        </div>
+    </Radio>
+}
 
 export default function Page(props){
     const Form  = new State(
         {
             JambScore:0,
             School:"",
-            Department:"",
+            Department:"Enginnering",
             HasWrittenBefore:false,
-            Subject:["","","",""],
+            Subjects:["","","",""],
             FollowStudyPlan:false,
             ScheduleFormat:0,
             preScore:0,
@@ -286,7 +426,7 @@ export default function Page(props){
     }
     return <div className={style.main}>
         <Cg2wrapper className={style.wrapper}>
-            <Flip Type={EventList.multiFormMove().type} className={style.side1}  Name={"frame1"}>
+            <Flip Type={EventList.multiFormMove().type} speed={0.8} className={style.side1}  Name={"frame1"}>
             {/* <ToolTip message={"message success"} /> */}
 
                 {ImageList.map((image,i)=>
@@ -319,7 +459,7 @@ export default function Page(props){
                         Please ensure you fill in the correct information to help us tailor your JAMB preparation effectively.
                     </div>
                     <br />
-                <Innerframe1 state = {Index} ehandle = {ehandle} form={Form} />
+                <InnerSections state = {Index} ehandle = {ehandle} form={Form} />
         {/* <CButton onClick={()=>{ehandle()}}> button next</CButton> */}
 
                 </div>
@@ -427,7 +567,7 @@ after.style.minWidth = "50%"
 
 parentKey.onscroll = ()=>{
     var result
-    var key = keys.filter(k => k.getPosToParent().leftPercent <= 50 && k.getPosToParent().leftPercent >= 0).reverse()[0]
+    var key = keys.filter(k => k.getPosToParent().leftPercent <= 53 && k.getPosToParent().leftPercent >= 0).reverse()[0]
     if (key){
         result = key.index
     }else{
