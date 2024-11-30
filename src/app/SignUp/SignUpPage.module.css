@@ -299,7 +299,8 @@
 
 .container {
     display: flex;
-    height: 120vh;
+    height: 100%;
+    width: 100%;
     overflow-y: hidden;
 }
 
@@ -392,7 +393,6 @@
     height: auto;
     /* Ensure height adjusts to content */
     box-sizing: border-box;
-    /* Include padding in dimensions */
 }
 
 .logoContainer {
