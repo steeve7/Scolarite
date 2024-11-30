@@ -312,7 +312,7 @@ export function ToolTip({message,id}){
 
 
 
-export function Flip({id,Name, className, children,speed=0.5,Type}){
+export function Flip({id,Name, className,indexClassName, children,speed=0.5,Type}){
     const istate = new State({index:0,total:0})
      
     const forwardBName = `FB-${Name}-FORWARD`
@@ -370,7 +370,7 @@ export function Flip({id,Name, className, children,speed=0.5,Type}){
             <div id={frameID} style={{transition:`transform ${String(speed)}s ease-in-out`}} className={style.FlipInnerFrame}>
                 {/* {children} */}
                 {childrenList.map((child,index)=>{
-                    return <div key={index} className={style.filpchildfill}>
+                    return <div key={index} className={mergeText(style.filpchildfill,indexClassName)}>
                         {child}
                     </div>
                 })}

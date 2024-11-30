@@ -102,9 +102,11 @@
 }
 .if1{
     min-width: 100%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    justify-content: center;
 }
 .if1button1w{
     width: 100%;
@@ -160,7 +162,8 @@
 .depwrapper{
     width: 80%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    max-width: 550px;
+    grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
     gap: 10px;
 }
 .departmentcard{
@@ -296,6 +299,9 @@
     background-color: black;
     color: white;
     border-radius: 5px;
+}
+.innersection{
+    height: fit-content;
 }
 @media (max-width:1200px){
     .fillassign{

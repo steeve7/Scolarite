@@ -84,7 +84,7 @@ function InnerSections({state,ehandle,form}){
         }
     }
 
-    return <Flip  Type={EventList.multiFormMove().type}   Name={Name}>
+    return <Flip  Type={EventList.multiFormMove().type} indexClassName={style.innersection}   Name={Name}>
         {/* <ToolTip message={"message success"} /> */}
         <div className={style.if1}>
             <div  className={style.if1title}>
