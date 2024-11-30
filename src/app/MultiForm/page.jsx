@@ -1,5 +1,5 @@
 "use client"
-import { CButton, CEDispatch, Center, CEventH, Cg2wrapper, clickHidden, FADispatch, Flip, Pd, Radio, State, ToolTip } from "@/components/addons/addons"
+import { CButton, CEDispatch, Center, CEventH, Cg2wrapper, clickHidden, CLink, FADispatch, Flip, Pd, Radio, State, ToolTip } from "@/components/addons/addons"
 import style from "./style.module.css"
 import frame1i1 from "./assets/frame1i1.png"
 import frame2i1 from "./assets/frame2i1.png"
@@ -244,9 +244,9 @@ perfect for outlining tasks or steps.
                 Please take a moment to review all the information below to ensure it's correct. Confirm your details to finalize your preferences and start your personalized JAMB preparation journey. If you need to make any changes, you can do so now.
                 </div>
             </Center>
-            <CButton className={style.rcsbutton}>
+            <CLink href={"/"} className={style.rcsbutton}>
             Submit
-            </CButton>
+            </CLink>
             <div className={style.if1button2w}>
                 <CButton className={mergeText(style.if1button1,style.if1button2)} onClick={()=>{index.set(e=>5);ehandle()}}>Previous step</CButton>
             </div>
@@ -271,7 +271,6 @@ function DepInput({form}){
     function cardClick(name){
         var input = document.getElementById(style.depsearch)
         input.value = name
-        console.log("click success")
         form.update({Course:name})
         document.getElementById(style.depsearch).blur()
         // InputChange({target:{value:name}})

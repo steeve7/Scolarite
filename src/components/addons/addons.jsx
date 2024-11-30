@@ -431,7 +431,7 @@ export function CButton({className,onClick,id,style = {},children,ani = "top" , 
 }
 
 
-export function CLink({className,href,onClick,id,children,target,ani = "top"}){
+export function CLink({className,href,onClick,id,children,target= "_self",ani = "top"}){
     const linkFunc = ()=>{window.open(href,String(target).toLowerCase()).focus()}
     return <CButton id={id} className={mergeText(className)} ani={ani} onClick={mergeFunc(onClick,linkFunc)}>{children}</CButton>
 }
