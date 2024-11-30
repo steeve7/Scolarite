@@ -297,7 +297,7 @@
 
 
 
- .container {
+.container {
     display: flex;
     height: 120vh;
     overflow-y: hidden;
@@ -368,7 +368,7 @@
 }
 
 
-.right {
+/* .right {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -377,6 +377,22 @@
     padding: 20px;
     background: white;
     overflow-y: hidden;
+} */
+
+.right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: white;
+    overflow-y: auto;
+    /* Allow vertical scrolling if content overflows */
+    height: auto;
+    /* Ensure height adjusts to content */
+    box-sizing: border-box;
+    /* Include padding in dimensions */
 }
 
 .logoContainer {
@@ -571,7 +587,7 @@
 
 
 
-@media screen and (max-width: 1024px) {
+/* @media screen and (max-width: 1024px) {
 
     .carousel,
     .carouselImage {
@@ -582,7 +598,19 @@
         flex: none;
         width: 100%;
         padding: 20px;
+    } */
+
+@media screen and (max-width: 1024px) {
+    .right {
+        flex: none;
+        /* Maintain flexibility */
+        width: 100%;
+        height: auto;
+        /* Adjust height based on content */
+        padding: 20px;
+        /* Ensure content is scrollable on smaller screens */
     }
+
 
     .formContainer {
         max-width: 80%;
@@ -590,12 +618,110 @@
 
     .logoContainer {
         margin-bottom: 20px;
+        margin-top: 200px;
     }
 
     .textContainer h2 {
         font-size: 1.3rem;
     }
 }
+
+
+@media screen and (max-width: 768px) {
+
+    /* Hide carousel and images */
+    .carousel,
+    .carouselImage {
+        display: none;
+    }
+
+    /* Adjust the right section */
+    .right {
+        flex: none;
+        width: 100%;
+        height: auto;
+        /* Allow content to define height */
+        padding: 15px;
+        /* Adjust padding for smaller screens */
+        /* Allow scrolling for long content */
+        box-sizing: border-box;
+        /* Include padding in dimensions */
+    }
+
+    /* Center content for better readability */
+    .formContainer {
+        max-width: 85%;
+        /* Reduce width for better fit */
+        margin: 0 auto;
+        /* Center the form */
+    }
+
+    /* Adjust logo container */
+    .logoContainer {
+        margin-bottom: 20px;
+    
+    }
+
+    /* Resize text for smaller screens */
+    .textContainer h2 {
+        font-size: 1.2rem;
+        /* Adjust header size */
+    }
+
+    /* Adjust form header and paragraph */
+    .formContainer h1 {
+        font-size: 1.6rem;
+    }
+
+    .formContainer p {
+        font-size: 0.9rem;
+    }
+
+    /* Resize inputs and buttons */
+    .input {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .button {
+        font-size: 15px;
+    }
+
+    .googleButton {
+        font-size: 14px;
+    }
+
+    /* Adjust sign-in link */
+    .signInLink {
+        font-size: 13px;
+    }
+
+    /* Ensure the quote adjusts properly */
+    .quote {
+        top: 80%;
+        left: 5%;
+        /* Slightly reduce margin */
+        max-width: 90%;
+        /* Expand for smaller screens */
+        text-align: center;
+        /* Center align for smaller devices */
+    }
+
+    .quote h1 {
+        font-size: 35px;
+        /* Adjust heading size */
+    }
+
+    .quote h2 {
+        font-size: 14px;
+    }
+
+    .quote p {
+        font-size: 14px;
+    }
+}
+
+
 
 @media screen and (max-width: 480px) {
 
@@ -683,7 +809,7 @@
     .signInLink {
         font-size: 12px;
     }
-} 
+}
 
 @media screen and (max-width: 375px) {
 
@@ -693,23 +819,28 @@
     }
 
     .right {
-        padding: 12px; /* Slightly more padding for 375px screens */
+        padding: 12px;
+        /* Slightly more padding for 375px screens */
     }
 
     .formContainer {
-        max-width: 92%; /* Slightly larger form container */
+        max-width: 92%;
+        /* Slightly larger form container */
     }
 
     .formContainer h1 {
-        font-size: 1.5rem; /* Slightly larger heading */
+        font-size: 1.5rem;
+        /* Slightly larger heading */
     }
 
     .formContainer p {
-        font-size: 0.9rem; /* Slightly larger paragraph text */
+        font-size: 0.9rem;
+        /* Slightly larger paragraph text */
     }
 
     .input {
-        font-size: 0.85rem; /* Slightly larger input font */
+        font-size: 0.85rem;
+        /* Slightly larger input font */
     }
 
     .button {
@@ -721,6 +852,7 @@
     }
 
     .signInLink {
-        font-size: 13px; /* Slightly larger sign-in link text */
+        font-size: 13px;
+        /* Slightly larger sign-in link text */
     }
 }
