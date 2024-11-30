@@ -594,7 +594,7 @@ import Slider from "react-slick"; // Import react-slick
 import styles from "./SignUpPage.module.css";
 import "slick-carousel/slick/slick.css"; // Import slick carousel CSS
 import "slick-carousel/slick/slick-theme.css"; // Import slick theme CSS
-
+import "./config.css"
 export default function SignUpPage() {
     const [stage, setStage] = useState("signup"); // Stages: signup, verification, confirmed
 
