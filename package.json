@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@babel/preset-env": "^7.26.0",
     "aos": "^2.3.4",
     "framer-motion": "^11.11.10",
     "next": "^15.0.3",
