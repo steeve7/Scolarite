@@ -37,31 +37,6 @@ function Notification({ message, link }) {
 }
 export default function NavbarMain() {
   const pathname = usePathname();
-  
-  /* const [navbar, setNavbar] = useState(false);
-  const [isNavOpened, setIsNavOpened] = useState(false);
-  const handleScroll = () => {
-    if (pathname === "/") {
-      // Only apply scroll effect on the home page
-      if (isNavOpened) {
-        setNavbar(true);
-      } else {setNavbar(window.scrollY > 50);}
-    }
-  };
-  useEffect(() => {
-    
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-
-  }, [pathname]);
-  const navbarBackgroundClass =
-  pathname === "/"
-    ? navbar
-      ? "bg-gradient-to-b from-[#2F364B] to-[#262B3D] shadow-md w-full"
-      : "bg-transparent"
-    : "bg-gradient-to-b from-[#2F364B] to-[#262B3D] shadow-md w-full";
- */
-
   return (
     <div className={mergeText(style.nb, "navbarBackgroundClass")}>
       <Notification
@@ -199,12 +174,12 @@ function NavBar(props) {
             
           </div>
           <div className={style.navitem}>
-            <CLink href={"/Login"} target={"_blank"} className={mergeText("", style.navauth)}>
+            <CLink href={"/MultiForm"} target={"_blank"} className={mergeText("", style.navauth)}>
               <span className={mergeText(style.navatextlogin, style.navatext)}>
                 LOGIN
               </span>
             </CLink>
-            <CLink href={"/SignUp"} target={"_blank"}  className={mergeText("", style.navauth, style.navauth1)}>
+            <CLink className={mergeText("/MultiForm", style.navauth, style.navauth1)}>
               <span className={style.navatext}>SIGN UP</span>
             </CLink>
           </div>
