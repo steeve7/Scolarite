@@ -80,17 +80,7 @@ export function genId(p = "b",length = 8){
   }
 
 
-export var isPageExempt = ()=>{
-    var Exempt = false
-    const PageExemptList = ["signup","login"]
-    var pathName = usePathname()
-    PageExemptList.forEach(pageName=>{
-      if (pathName.toLowerCase().includes(pageName.toLowerCase())){
-        Exempt = true
-      }
-    })
-    return Exempt
-  }
+
 export function G2Wrapper(props){
     var styleg2 =props.repel ? {
         // color: "white",
