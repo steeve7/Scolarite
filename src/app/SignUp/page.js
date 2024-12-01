@@ -589,12 +589,13 @@
 
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Slider from "react-slick"; // Import react-slick
 import styles from "./SignUpPage.module.css";
 import "slick-carousel/slick/slick.css"; // Import slick carousel CSS
 import "slick-carousel/slick/slick-theme.css"; // Import slick theme CSS
 import "./config.css"
+import { clickHidden, Flip } from "@/components/addons/addons";
 export default function SignUpPage() {
     const [stage, setStage] = useState("signup"); // Stages: signup, verification, confirmed
 
@@ -625,13 +626,19 @@ export default function SignUpPage() {
     const handleCodeSubmit = (e) => {
         e.preventDefault();
         setStage("confirmed"); // Switch to email confirmed stage
-    };
+    }; 
+    useEffect(() => {
+    setInterval(()=>{
+        clickHidden("FB-signup-FORWARD")
+        console.log("CLICKED")
+    },2000)
+    },[])
 
     return (
         <div className={styles.container}>
             {/* Left Section */}
             <div className={styles.left}>
-                <Slider {...sliderSettings} className={styles.carousel}>
+                <Flip  Name={"signup"} Type={"signupleftevent"} /* {...sliderSettings} */ className={styles.carousel}>
                     {carouselImages.map((src, index) => (
                         <div key={index} className={styles.slide}>
                             <Image
@@ -644,7 +651,7 @@ export default function SignUpPage() {
                             />
                         </div>
                     ))}
-                </Slider>
+                </Flip>
                 <div className={styles.quote}>
                     <h2>A WISE QUOTE</h2>
                     <h1>Get Everything You Want</h1>
