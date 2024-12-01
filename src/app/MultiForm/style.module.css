@@ -80,6 +80,10 @@
 .notetext{
     margin-top: 2rem;
     font-weight: 550;
+    width: 90%;
+}
+.mhr{
+    width: 90%;
 }
 .wrapper{
     width: 100%;

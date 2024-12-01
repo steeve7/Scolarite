@@ -23,7 +23,7 @@ import db from "./MFormDatabase"
 import { useEffect, useRef, useState } from "react"
 import { CRange, genId, mergeText, Range } from "../add"
 import MFormDatabase from "./MFormDatabase"
-
+import "./config.css"
 
 const EventList = {
     multiFormMove:(detail = {index:0})=>new CustomEvent("MULTIFORM-MOVE",{detail:detail}),
@@ -454,9 +454,15 @@ export default function Page(props){
                             {FilllistAssign.map((obj,index)=> <div key={`index-${index}`} className={style.fillassign}>{obj}</div>)}
                         </div>
                     </div>
-                    <div className={style.notetext}>
-                        Please ensure you fill in the correct information to help us tailor your JAMB preparation effectively.
-                    </div>
+                    <Pd pady={30}></Pd>
+                    <Center>
+                        <hr className={style.mhr} />
+                    </Center>
+                    <Center>
+                        <div className={style.notetext}>
+                            Please ensure you fill in the correct information to help us tailor your JAMB preparation effectively.
+                        </div>
+                    </Center>
                     <br />
                 <InnerSections state = {Index} ehandle = {ehandle} form={Form} />
         {/* <CButton onClick={()=>{ehandle()}}> button next</CButton> */}
@@ -577,7 +583,7 @@ parentKey.onscroll = ()=>{
 /*     snap.currentTime = 0
     snap.volume = 0.34
     snap.play() */
-    parentKey.scrollLeft += 50 - key.getPosToParent().leftPercent
+    // parentKey.scrollLeft += 50 - key.getPosToParent().leftPercent
 
     
     if (key.index == 400){
