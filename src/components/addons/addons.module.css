@@ -1,4 +1,8 @@
-
+.center{
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
 .g2wrapper{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -38,12 +42,51 @@
     font-weight: bolder;
 
 }
-.btnani{
+.button{
     transition: translate 0.5s ease-in-out;
     cursor: pointer;
 }
-.btnani:hover{
+.btnanitop:hover{
     translate: 0px -5px;
+}
+.btnanibottom:hover{
+    translate: 0px 5px;
+}
+.btnaniscale:hover{
+    translate: 0px -5px;
+}
+
+/* .tooltipcontainer{ */
+    /* position: absolute; */
+/* } */
+.tooltip{
+    z-index: 1000;
+    position: absolute;
+    background-color: white;
+    color: black;
+    font-size: 12px;
+    padding: 10px;
+    border-radius: 5px;
+    filter: drop-shadow(3px 4.7px 4.7px rgba(23, 15, 73, 0.45)) drop-shadow(0px 1px 1px rgba(23, 15, 73, 0.04)) drop-shadow(0px 5px 14px rgba(8, 15, 52, 0.04));
+    display: none;
+    transition: left 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    top 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    max-width: 200px;
+}
+/* .tooltipcontainer{ */
+    /* background-color: blue; */
+/* } */
+.tooltip.showtooltip{
+    display: block;
+}
+.tooltipimg{
+    max-width: 15%;
+    height: 15px;
+    position: absolute;
+    translate: 0 100%;
+    max-width: 20px;
+    min-width: 10px;
 }
 
 
@@ -53,8 +96,35 @@
     text-align: center;
     width:fit-content;
 }
+.Flip{
+    width: 100%;
+    overflow: hidden;
+}
+.FlipInnerFrame{
+    display: flex;
+    width:100%;
+    height: 100%;
+    overflow-x: visible;
+    min-width: 100%;
 
-@media screen and (max-width: 768px) {
+}
+.filpchildfill{
+    min-width: 100%;
+    min-height: 100%;
+}
+.cg2w{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+    .cg2w{
+        display: flex;
+        flex-direction: column;
+        
+    }
     .g2wrapper{
         display: flex;
         flex-direction: column-reverse;

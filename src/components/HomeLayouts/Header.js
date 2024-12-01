@@ -12,20 +12,24 @@ function Header() {
   var classes = [style.header];
   var exempt = isPageExempt()
   useEffect(function () {
-    if(exempt){
-      document.getElementById("HEADER_SECTION").style.display = "none";
-      document.getElementById("HEADER_STICKY_SIMULATOR").style.display = "none";
-    }
     document.querySelectorAll("NONE").forEach((el) => {
       el.style.display = "none";
     });
+    if (!exempt){const header = document.getElementById("HEADER_SECTION");
+    const sticky = document.getElementById("HEADER_STICKY_SIMULATOR");
+    setInterval(()=>{
+      sticky.style.height = `${header.offsetHeight}px`;
+    },1)}
+    
   }, []);
   return (
     <>
-      <div id="HEADER_SECTION" className={mergeText(...classes)}>
-        <NavbarMain />
-      </div>
-      <div id="HEADER_STICKY_SIMULATOR" style={{ marginBottom: "130px" }}></div>
+      {!exempt &&<>
+        <div id="HEADER_SECTION" className={mergeText(...classes)}>
+          <NavbarMain />
+        </div>
+        <div id="HEADER_STICKY_SIMULATOR" style={{ height: "140px" }}></div>
+      </>}
     </>
   );
 }
