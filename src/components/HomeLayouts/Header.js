@@ -15,11 +15,11 @@ function Header() {
     document.querySelectorAll("NONE").forEach((el) => {
       el.style.display = "none";
     });
-    const header = document.getElementById("HEADER_SECTION");
+    if (!exempt){const header = document.getElementById("HEADER_SECTION");
     const sticky = document.getElementById("HEADER_STICKY_SIMULATOR");
     setInterval(()=>{
       sticky.style.height = `${header.offsetHeight}px`;
-    },1)
+    },1)}
     
   }, []);
   return (
