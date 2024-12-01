@@ -340,36 +340,58 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+    position: relative;
 }
 
 .quote {
     position: absolute;
-    top: 75%;
-    left: 7%;
-    transform: translateY(-50%);
+    top: 0;
+    left: 0;
     z-index: 1;
     padding: 10px;
     color: white;
-    max-width: 40%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     text-align: left;
+    box-sizing: border-box;
+    padding-bottom: 50px;
+    padding-top: 30px;
+    padding-left: 30px;
 }
 
 .quote h2 {
     font-size: 17px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    border-bottom: 2px solid #fff;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    opacity: 0.7;
+    font-weight: lighter;
+}
+
+.quote h2::after{
+    content: "";
+    display: block;
+    width: 100px;
+    height: 1px;
+    background-color: white;
 }
 
 .quote h1 {
     font-size: 50px;
     margin: 5px 0;
+    width: 300px;
     line-height: 1.2;
 }
 
 .quote p {
     font-size: 16px;
     margin-top: 10px;
+    width: 400px;
 }
 
 

@@ -631,7 +631,7 @@ export default function SignUpPage() {
     setInterval(()=>{
         clickHidden("FB-signup-FORWARD")
         console.log("CLICKED")
-    },2000)
+    },3000)
     },[])
 
     return (
@@ -654,11 +654,13 @@ export default function SignUpPage() {
                 </Flip>
                 <div className={styles.quote}>
                     <h2>A WISE QUOTE</h2>
-                    <h1>Get Everything You Want</h1>
-                    <p>
-                        You can get everything you want if you work hard, trust the process,
-                        and stick to the plan.
-                    </p>
+                    <div>
+                        <h1>Get Everything You Want</h1>
+                        <p>
+                            You can get everything you want if you work hard, trust the process,
+                            and stick to the plan.
+                        </p>
+                    </div>
                 </div>
             </div>
 
