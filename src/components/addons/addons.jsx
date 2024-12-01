@@ -314,7 +314,7 @@ export function ToolTip({message,id}){
 
 
 export function Flip({id,Name, className,indexClassName, children,speed=0.5,Type}){
-    const istate = new State({index:0,total:0})
+    const istate = new State({index:0,total:2})
      
     const forwardBName = `FB-${Name}-FORWARD`
     const backwardBName = `FB-${Name}-BACKWARD`
@@ -323,7 +323,7 @@ export function Flip({id,Name, className,indexClassName, children,speed=0.5,Type
 
     function ForwardButtonFunc(){
         
-        indexTo(istate.get().total > istate.get().index? istate.get().index+1:0)
+        indexTo(istate.get().total-1 > istate.get().index? istate.get().index+1:0)
 
     }
     function BackwardButtonFunc(){
