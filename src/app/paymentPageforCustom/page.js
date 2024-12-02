@@ -159,7 +159,7 @@ export default function paymentPageforCustomPlan() {
                         /> </li>
                     </ul>
                        
-                       <input type="text" id="holder'sname" className="input" placeholder="Enter name on Card"required/>
+                       <input type="text" id="holdersname" className="input" placeholder="Enter name on Card"required/>
     
                  </div>
 
@@ -254,7 +254,7 @@ export default function paymentPageforCustomPlan() {
 
                         />
                     </li>
-                    <li className="credit-info"> Credit Card Information</li>
+                    <li className="credit-info"> Credit Payment Information</li>
 
                 </ul>
                 </div>
@@ -279,7 +279,7 @@ export default function paymentPageforCustomPlan() {
                         <ul className='list'>
                             <li>Number of User(s)</li>
                             <li className='list-1'>
-                               <div className='number'>
+                               <div className='number-increment'>
                                 <div className='box' id='timer' >30</div>
                                 <div className='button'>
                                 <button id="Add1" onClick={() =>add1()} >

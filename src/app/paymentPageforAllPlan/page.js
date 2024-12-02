@@ -8,7 +8,7 @@ import { useState } from 'react'
 
 
 
-export default function paymentPageforCustomPlan() {
+export default function paymentPageforAllplan() {
 
     useEffect(()=>{
         let emailEl = document.getElementById("email")
@@ -74,7 +74,7 @@ export default function paymentPageforCustomPlan() {
 
                         />
                     </li>
-                    <li className="credit-info"> Credit Card Information</li>
+                    <li className="credit-info"> Credit Payment Information</li>
 
                 </ul>
 
@@ -123,7 +123,7 @@ export default function paymentPageforCustomPlan() {
 
                 <div className="input-headings">
                     <ul>
-                    <li className="text"> Cardholder's Name</li>
+                    <li className="text" > Cardholder's Name</li>
                         <li> <Image src="/Images/info.png"
                         alt="logo"
                         width={50}
@@ -133,7 +133,7 @@ export default function paymentPageforCustomPlan() {
                         /> </li>
                     </ul>
                        
-                       <input type="text" id="holder'sname" className="input" placeholder="Enter name on Card"required/>
+                       <input type="text" id="holdersname" className="input" placeholder="Enter name on Card"required/>
     
                  </div>
 
@@ -202,6 +202,9 @@ export default function paymentPageforCustomPlan() {
 
  {/* SECOND HALF */}
             <div className="Payment-summary">
+
+                {/* INVISIBLE IN LAPTOP SCREEN (DISPLAY NONE) BEGINING */}
+
                 <div className='nav-link'>
             <ul className="nav">
                     <li>
@@ -226,10 +229,11 @@ export default function paymentPageforCustomPlan() {
 
                         />
                     </li>
-                    <li className="credit-info"> Credit Card Information</li>
+                    <li className="credit-info"> Credit Payment Information</li>
 
                 </ul>
                 </div>
+                {/* INVISIBLE IN LAPTOP SCREEN (DISPLAY NONE) ENDING */}
             <li className='black-line'></li>
                 <div className="payment-inner">
                     <p className='p'>
