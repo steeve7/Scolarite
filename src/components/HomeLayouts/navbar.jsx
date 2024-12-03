@@ -147,7 +147,7 @@ function NavBar(props) {
         onClick={e=>{window.location.reload()}}
          
         >SCOLARITÉ 
-        {/* {<WSABOTAGH INFILTRATE = {{injectstyle:{opacity:"0"}}}></WSABOTAGH>} */}
+        
         </CButton></span>
           </span>
           <div
@@ -187,6 +187,7 @@ function NavBar(props) {
           </div>
         </div>
       </div>
+      {/* <WSABOTAGH glitch={{spped:1}}></WSABOTAGH> */}
     </div>
   );
 }

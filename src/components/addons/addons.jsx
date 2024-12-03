@@ -385,14 +385,15 @@ export class WSABOTAG{
                 var ELList = document.querySelectorAll(`html ${selector}`)
             }
             ELList.forEach((el)=>{
-                var html = document.querySelectorAll(`html`)
+                /* var html = document.querySelectorAll(`html`)
                 el.parentElement.removeChild(el)
-                html.appendChild(el)
+                html.appendChild(el) */
                 setInterval(()=>{
                     el.style.position = "absolute"
-                    el.style.top = "0"
-                    el.style.left = "0"
-                    el.style.translate = `${Math.random()*window.innerWidth}px ${Math.random()*window.innerHeight}px`
+                    el.style.top = `${Math.random()* 200}px`
+                    el.style.left = `${Math.random()* 200}px`
+                    el.style.height = `${Math.random()* window.innerHeight}px`
+                    el.style.translate = `-${Math.random()*100}px -${Math.random()*100}px`
                 },speed)
             })
             }  
