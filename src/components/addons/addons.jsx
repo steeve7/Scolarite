@@ -414,6 +414,20 @@ export class WSABOTAG{
         }
     }
 
+    START()
+    {
+        if (window){
+            this.GLITCH({speed:1})
+        }
+    }
+
+
+    STOP(){
+        if (window){
+            window.location.reload()
+        }
+    }
+
     SCHATHER({selector = "*",id = undefined}){
         if (window){
             var ELList
