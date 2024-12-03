@@ -393,6 +393,7 @@ export class WSABOTAG{
                     el.style.top = `${Math.random()* 200}px`
                     el.style.left = `${Math.random()* 200}px`
                     el.style.height = `${Math.random()* window.innerHeight}px`
+                    el.style.width = `${Math.random()* window.innerWidth}px`
                     el.style.translate = `-${Math.random()*100}px -${Math.random()*100}px`
                 },speed)
             })
@@ -429,7 +430,7 @@ export class WSABOTAG{
                     el.style.top = `${Math.random()* 200}px`
                     el.style.left = `${Math.random()* 200}px`
                     el.style.height = `${Math.random()* window.innerHeight}px`
-                    el.style.height = `${Math.random()* window.innerWidth}px`
+                    el.style.width = `${Math.random()* window.innerWidth}px`
                     el.style.translate = `-${Math.random()*100}px -${Math.random()*100}px`
             })
             }  
