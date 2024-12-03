@@ -4,7 +4,7 @@ import style from "./navbar.module.css";
 import NavBar from "@/components/HomeLayouts/navbar";
 import { useEffect } from "react";
 import { mergeText } from "@/app/add";
-import { isPageExempt } from "../addons/addons";
+import { isPageExempt, WSABOTAGH } from "../addons/addons";
 import { usePathname } from "next/navigation";
 // import React, { useEffect } from 'react'
 
@@ -30,6 +30,7 @@ function Header() {
         </div>
         <div id="HEADER_STICKY_SIMULATOR" style={{ height: "140px" }}></div>
       </>}
+      {/* {<WSABOTAGH glitch={{speed:1}}></WSABOTAGH>} */}
     </>
   );
 }
