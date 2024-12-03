@@ -519,6 +519,19 @@ export function ToolTip({message,id}){
     // </div>
 }
 
+export function BITIFY(text) {
+    return text
+    .split("")
+    .map(char => char.charCodeAt(0).toString(2).padStart(8, "0"))
+    .join(" ");
+}
+
+export function TEXTIFY(bits) {
+    return bits
+    .split(" ")
+    .map(bit => String.fromCharCode(parseInt(bit, 2)))
+    .join("");
+}
 
 
 
