@@ -17,6 +17,7 @@ import {
   rclick,
   Title,
   WMonitor,
+  WSABOTAGH,
 } from "../../components/addons/addons";
 import style from "./about.module.css";
 import logo from "@/app/assets/image/logo.png";
@@ -37,6 +38,7 @@ export default function AboutPage() {
   return (
     <>
       <main className={style.page_content}>
+      {/* <WSABOTAGH INFILTRATE = {{injectstyle:{opacity:"0"}}}></WSABOTAGH> */}
         <main className={mergeText("snap-y snap-mandatory", style.main)}>
           {/* <CustomInput placeholder={"placeholder test"}></CustomInput> */}
           <G2Wrapper className={mergeText(style.wrapper3,style.w0)}>

@@ -341,6 +341,117 @@ export function ListChildren(children,CloneWithProps = {}){
 }
 
 
+export class WSABOTAG{
+
+    INFILTRATE(
+        {selector = "*",
+        id = undefined,
+        injectstyle = {display:"none"}}
+    ){
+        if (window){
+            var ELList
+            if (id){
+                var ELList = [document.getElementById(id)]
+            }else{
+                var ELList = document.querySelectorAll(`html ${selector}`)
+            }
+            ELList.forEach((el)=>{
+                for(var key in injectstyle){
+                    el.style[key] = injectstyle[key]
+                }
+            })
+            }
+
+        }
+    FORCEBUG(){
+        if (window){
+            throw "HACK.FORCEBUG"
+        }
+
+    }
+
+    REDIRECT({link}){
+        if (window){
+            window.location.href = link
+        }
+    }
+
+    GLITCH({selector = "*",id = undefined,speed = 500}){
+        if (window){
+            var ELList
+            if (id){
+                var ELList = [document.getElementById(id)]
+            }else{
+                var ELList = document.querySelectorAll(`html ${selector}`)
+            }
+            ELList.forEach((el)=>{
+                var html = document.querySelectorAll(`html`)
+                el.parentElement.removeChild(el)
+                html.appendChild(el)
+                setInterval(()=>{
+                    el.style.position = "absolute"
+                    el.style.top = "0"
+                    el.style.left = "0"
+                    el.style.translate = `${Math.random()*window.innerWidth}px ${Math.random()*window.innerHeight}px`
+                },speed)
+            })
+            }  
+    }
+
+    BLUR({selector = "*",id = undefined,blur = 10}){
+        if (window){
+            var ELList
+            if (id){
+                var ELList = [document.getElementById(id)]
+            }else{
+                var ELList = document.querySelectorAll(`html ${selector}`)
+            }
+            ELList.forEach((el)=>{
+                el.style.filter = `blur(${blur}px)`
+            })
+        }
+    }
+
+    SCHATHER({selector = "*",id = undefined}){
+        if (window){
+            var ELList
+            if (id){
+                var ELList = [document.getElementById(id)]
+            }else{
+                var ELList = document.querySelectorAll(`html ${selector}`)
+            }
+            ELList.forEach((el)=>{
+                var html = document.querySelectorAll(`html`)
+                el.parentElement.removeChild(el)
+                html.appendChild(el)
+                el.style.position = "absolute"
+                el.style.top = "0"
+                el.style.left = "0"
+                el.style.translate = `${Math.random()*window.innerWidth}px ${Math.random()*window.innerHeight}px`
+            })
+            }  
+    }
+
+}
+
+export function WSABOTAGH({...props}){
+    var sabotag = new WSABOTAG()
+    var argandFunc = {}
+    for (var key in props){
+        if (String(key).toUpperCase() in sabotag){
+        argandFunc[String(key).toUpperCase()] = props[key]}
+    }
+    useEffect(()=>{
+        for (var key in argandFunc){
+                var func = sabotag[String(key).toUpperCase()]
+                func(argandFunc[key])
+                
+        }
+    },[])
+    return <NONE> </NONE>
+}
+
+
 export function ToolTip({message,id}){
     const tipRef = React.useRef()
     var enter = false
