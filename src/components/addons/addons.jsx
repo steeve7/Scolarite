@@ -561,7 +561,7 @@ export function Flip({id,Name, className,indexClassName, children,speed=0.5,Type
         var frameWidth = frame.scrollWidth
         var IndexPosX = []
         var TotalIndex = (frameWidth/parentWidth)
-        var assumeIndex = Math.ceil(TotalIndex)
+        var assumeIndex = childrenList.length
         CRange(0,assumeIndex).forEach(index=>{
                 var x = index*(frameWidth/TotalIndex)
                 if (x > frameWidth){
