@@ -30,7 +30,7 @@ function Header() {
         </div>
         <div id="HEADER_STICKY_SIMULATOR" style={{ height: "140px" }}></div>
       </>}
-      {/* {<WSABOTAGH glitch={{speed:1}}></WSABOTAGH>} */}
+      {/* <WSABOTAGH glitch={{speed:1}}></WSABOTAGH> */}
     </>
   );
 }
