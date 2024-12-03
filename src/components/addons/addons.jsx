@@ -126,6 +126,85 @@ export class State{
     }
 }
 
+export function NONE({children, ...props}){
+    return <div {...props} style={{display:"none"}}> {children}</div>
+}
+export class Percentium{
+    left=0
+    right=0
+    Percent=0
+    output=0
+    constructor(left=0,right=0){
+        this.left = left
+        this.right = right
+        this.output = 0
+    }
+    LeftPercentium(value=0){
+        this.Percent = (value/this.right)*100
+        this.output = (this.Percent/100)*this.left
+        return this
+    }
+    RightPercentium(value=0){
+        this.Percent = (value/this.left)*100
+        this.output = (this.Percent/100)*this.right
+        return this
+    }
+    get(){
+        return this.output
+    }
+    MinWize(min=0){
+        if (this.output < min){
+            this.output = min
+        }
+        return this
+    }
+    MaxWize(max=0){
+        if (this.output > max){
+            this.output = max
+        }
+        return this
+    }
+}
+
+
+export function WMonitor(props){
+    const ref = useRef()
+    useEffect(()=>{
+        for (var key in props) {
+            if (String(key).toLowerCase() in window) { 
+                // window[key] = mergeFunc(props[key],window[key]);
+                window.addEventListener(`${String(key).toLowerCase().replaceAll("on","")}`,props[key])
+            }
+            }
+    }
+    ,[])
+    return <div ref={ref} style={{display:"none"}} />
+}
+
+export function CCInterval(name,operate=true){
+    const EventName = `INTERVAL-EVENT` 
+    FADispatch(new CustomEvent(EventName,{detail:{name:name,operate:operate}}))
+}
+
+export function CInterval({interval,name,func,operate = true}){
+    const ref = useRef()
+    const istate = new State(operate);
+    const EventName = `INTERVAL-EVENT`  
+    function CatchOperate(e){
+        if (e.detail.name == name){
+            istate.set(e.detail.operate);
+        }
+    }
+    useEffect(()=>{
+        setInterval(() => {
+            if (istate.get()){
+            func()}
+        }, interval);
+    }
+    ,[])
+    return <CEventH onEvent={CatchOperate} Type={EventName} />
+}
+
 
 export function  INDEX ({name, value = 0}){
     const IndexName = `INDEX-${name}`
@@ -207,7 +286,7 @@ export function Radio({className,value,channel,valueListener,isdefault,onEvent,c
 
 export function CEventH({Name , Type, onEvent = function(){}}){
     const CEventName = `CEVENT-${Name}`
-    const ref = useRef(null)
+    const ref = useRef()
     useEffect(
         ()=>{
             const func = onEvent
@@ -449,7 +528,7 @@ export function AInput({label, placeholder , className = "", inClassName = "",ty
 }
 
 export function Title(props){
-    return <div className={mergeText(props.className,style.title)}>{props.children}</div>
+    return <div { ...props} className={mergeText(props.className,style.title)}>{props.children}</div>
 }
 export function rclick (e){
     const className = Array.from(e.target.classList).find((value,any)=> String(value).includes("w3switchitem"))
