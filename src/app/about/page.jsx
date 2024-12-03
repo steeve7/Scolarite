@@ -137,7 +137,7 @@ export default function AboutPage() {
                   excellence.
                 </div>
                 <br />
-                <CLink href={"/about"} className={mergeText(style.joinbtn)}>
+                <CLink href={"/SignUp"} className={mergeText(style.joinbtn)}>
                   Join Us
                 </CLink>
               </div>
@@ -319,7 +319,7 @@ export default function AboutPage() {
                 been searching for. Dont just take our words for it. Try the
                 Scolarite’ JAMB course and see for yourself why we are the best.
               </div>
-              <CButton className={style.w4btn}>Join Us</CButton>
+              <CLink href={"/SignUp"} className={style.w4btn}>Join Us</CLink >
             </div>
           </div>
           <br />
