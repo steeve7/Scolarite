@@ -187,7 +187,7 @@ function NavBar(props) {
           </div>
         </div>
       </div>
-      {/* <WSABOTAGH glitch={{spped:1}}></WSABOTAGH> */}
+      
     </div>
   );
 }
