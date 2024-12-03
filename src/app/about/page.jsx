@@ -38,7 +38,7 @@ export default function AboutPage() {
   return (
     <>
       <main className={style.page_content}>
-      {/* <WSABOTAGH INFILTRATE = {{injectstyle:{opacity:"0"}}}></WSABOTAGH> */}
+      
         <main className={mergeText("snap-y snap-mandatory", style.main)}>
           {/* <CustomInput placeholder={"placeholder test"}></CustomInput> */}
           <G2Wrapper className={mergeText(style.wrapper3,style.w0)}>
