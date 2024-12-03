@@ -129,6 +129,7 @@ export class State{
 export function NONE({children, ...props}){
     return <div {...props} style={{display:"none"}}> {children}</div>
 }
+
 export class Percentium{
     left=0
     right=0
