@@ -12,20 +12,25 @@
 }
 .background-text{
     position: relative;
-
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .text{
     position: absolute;
     /* top: 8rem; */
     margin-top: 12rem;
-    width: 65%;
+    width: 75%;
     height: 40vh;
     display: block;
+    justify-content: center;
+    align-items: center;
     /* border: 2px solid red; */
     background: none;
     font-size: 40px;
     color: white;
-    margin-left: 5rem;
+    /* margin-left: 5rem; */
 }
 .text span{
     background: none;
@@ -34,10 +39,18 @@
     /* width: 100%; */
     /* border: 2px solid blue; */
 }
+.get-started{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
 button{
     position: absolute;
     /* top: 50%; */
     margin-top: 3rem;
+    width: 50%;
     display: flex;
     padding: 2rem;
     cursor: pointer;
@@ -168,19 +181,23 @@ button:hover{
     
     .background-text{
         width: 100%;
+        /* padding-top: 3rem; */
        
     }
     .text{
-        width: 100%;
+        /* width: 100%; */
         margin-top: 3rem;
         font-size: 15px;
-        padding-right: 0.5px;
+        padding-top: 3rem;
+        /* padding-right: 0.5px; */
     }
     
-
+      .get-started{
+        width: 100%;
+      }
     button{
-        width: 40%;
-        padding: 0rem;
+        width: 50%;
+        padding-left: 1rem;
         font-size: 10px;
     }
 
@@ -281,10 +298,11 @@ button:hover{
     }
     
     .text{
-        width: 98%;
-        margin: 1rem;
+        /* width: 98%; */
+        margin: 1.5rem;
         font-size: 20px;
-        padding-left: 2px;
+        /* padding-left: 2px; */
+        padding-top: 3rem;
         margin-top: 3rem;
     
     }
@@ -292,10 +310,14 @@ button:hover{
     .image{
         height: 34vh;
     }
+    .get-started{
+        width: 100%;
+    }
     button{
         /* width: 60%; */
         font-size: 15px;
-        padding: 1rem;
+        width: 40%;
+        padding: 0rem;
     }
     .Firstbody-div{
         margin-left: -2rem;
@@ -339,12 +361,13 @@ button:hover{
         justify-content: center;
         flex-direction: column;
         align-items: center;
+        animation: slideMe2 3s ease-in;
     }
     .child-div{
         width: 100%;
     }
     .header{
-        /* width: 60%; */
+       
         align-items: center;
         justify-content: center;
     }
@@ -359,6 +382,77 @@ button:hover{
         width: 100%;
     }
    
+
+    .access{
+        
+        animation: slideMe 6s ease-in-out;
+        
+    }
+    
+    @keyframes slideMe {
+    
+        0%{
+            transform: skewX(53deg) translateX(-1000px);
+        opacity: 20%;
+    
+        }
+        60%{
+            transform: translateX(0px);
+        opacity: 10%;
+    
+        }
+        62%{
+            transform: skewX(0deg) translateX(30px);
+        }
+        70%{
+            transform: skew(0deg);
+            opacity: 20%;
+    
+        }
+        80%{
+            transform: skew(0deg) translate(0) ;
+        }
+        100%{
+            transform: skew(0deg);
+        }
+    
+    }
+
+    .signup{
+        animation: slideMe2 5s ease-in-out ;
+    }
+    @keyframes slideMe2 {
+    
+        0%{
+            transform: skewX(53deg) translateX(-1000px);
+        opacity: 20%;
+    
+        }
+        60%{
+            transform: translateX(0px);
+        opacity: 10%;
+    
+        }
+        62%{
+            transform: skewX(0deg) translateX(30px);
+        }
+        70%{
+            transform: skew(0deg);
+            opacity: 20%;
+    
+        }
+        80%{
+            transform: skew(0deg) translate(0) ;
+        }
+        100%{
+            transform: skew(0deg);
+        }
+    
+    }
+
+
+
+
     .sign-text{
             margin-left: -2rem;
     }
