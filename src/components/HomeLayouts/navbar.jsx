@@ -7,7 +7,7 @@ import { Roboto } from "next/font/google";
 import Image from "next/image";
 import { usePathname } from "next/navigation"; 
 import { useEffect, useState } from "react";
-import { CButton, CLink } from "../addons/addons";
+import { CButton, CLink, WSABOTAGH } from "../addons/addons";
 
 const noteid = `noteification`;
 
@@ -146,7 +146,9 @@ function NavBar(props) {
         ani = {false}
         onClick={e=>{window.location.reload()}}
          
-        >SCOLARITÉ </CButton></span>
+        >SCOLARITÉ 
+        
+        </CButton></span>
           </span>
           <div
             className={mergeText(style.navmenuicon)}
@@ -185,6 +187,7 @@ function NavBar(props) {
           </div>
         </div>
       </div>
+      
     </div>
   );
 }

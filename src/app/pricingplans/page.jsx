@@ -102,7 +102,6 @@ export default function PricingPage(props){
 
     return <main className={style.page_content}>
         <div className={style.main}>
-        {<div className={style.w1bg}/>}
 
                 <div className={mergeText(style.w1wrapper,"pdt")}>
                         <G2Wrapper>

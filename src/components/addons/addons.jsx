@@ -126,6 +126,86 @@ export class State{
     }
 }
 
+export function NONE({children, ...props}){
+    return <div {...props} style={{display:"none"}}> {children}</div>
+}
+
+export class Percentium{
+    left=0
+    right=0
+    Percent=0
+    output=0
+    constructor(left=0,right=0){
+        this.left = left
+        this.right = right
+        this.output = 0
+    }
+    LeftPercentium(value=0){
+        this.Percent = (value/this.right)*100
+        this.output = (this.Percent/100)*this.left
+        return this
+    }
+    RightPercentium(value=0){
+        this.Percent = (value/this.left)*100
+        this.output = (this.Percent/100)*this.right
+        return this
+    }
+    get(){
+        return this.output
+    }
+    MinWize(min=0){
+        if (this.output < min){
+            this.output = min
+        }
+        return this
+    }
+    MaxWize(max=0){
+        if (this.output > max){
+            this.output = max
+        }
+        return this
+    }
+}
+
+
+export function WMonitor(props){
+    const ref = useRef()
+    useEffect(()=>{
+        for (var key in props) {
+            if (String(key).toLowerCase() in window) { 
+                // window[key] = mergeFunc(props[key],window[key]);
+                window.addEventListener(`${String(key).toLowerCase().replaceAll("on","")}`,props[key])
+            }
+            }
+    }
+    ,[])
+    return <div ref={ref} style={{display:"none"}} />
+}
+
+export function CCInterval(name,operate=true){
+    const EventName = `INTERVAL-EVENT` 
+    FADispatch(new CustomEvent(EventName,{detail:{name:name,operate:operate}}))
+}
+
+export function CInterval({interval,name,func,operate = true}){
+    const ref = useRef()
+    const istate = new State(operate);
+    const EventName = `INTERVAL-EVENT`  
+    function CatchOperate(e){
+        if (e.detail.name == name){
+            istate.set(e.detail.operate);
+        }
+    }
+    useEffect(()=>{
+        setInterval(() => {
+            if (istate.get()){
+            func()}
+        }, interval);
+    }
+    ,[])
+    return <CEventH onEvent={CatchOperate} Type={EventName} />
+}
+
 
 export function  INDEX ({name, value = 0}){
     const IndexName = `INDEX-${name}`
@@ -207,7 +287,7 @@ export function Radio({className,value,channel,valueListener,isdefault,onEvent,c
 
 export function CEventH({Name , Type, onEvent = function(){}}){
     const CEventName = `CEVENT-${Name}`
-    const ref = useRef(null)
+    const ref = useRef()
     useEffect(
         ()=>{
             const func = onEvent
@@ -261,6 +341,135 @@ export function ListChildren(children,CloneWithProps = {}){
 }
 
 
+export class WSABOTAG{
+
+    INFILTRATE(
+        {selector = "*",
+        id = undefined,
+        injectstyle = {display:"none"}}
+    ){
+        if (window){
+            var ELList
+            if (id){
+                var ELList = [document.getElementById(id)]
+            }else{
+                var ELList = document.querySelectorAll(`html ${selector}`)
+            }
+            ELList.forEach((el)=>{
+                for(var key in injectstyle){
+                    el.style[key] = injectstyle[key]
+                }
+            })
+            }
+
+        }
+    FORCEBUG(){
+        if (window){
+            throw "HACK.FORCEBUG"
+        }
+
+    }
+
+    REDIRECT({link}){
+        if (window){
+            window.location.href = link
+        }
+    }
+
+    GLITCH({selector = "*",id = undefined,speed = 500}){
+        if (window){
+            var ELList
+            if (id){
+                var ELList = [document.getElementById(id)]
+            }else{
+                var ELList = document.querySelectorAll(`html ${selector}`)
+            }
+            ELList.forEach((el)=>{
+                /* var html = document.querySelectorAll(`html`)
+                el.parentElement.removeChild(el)
+                html.appendChild(el) */
+                setInterval(()=>{
+                    el.style.position = "absolute"
+                    el.style.top = `${Math.random()* 200}px`
+                    el.style.left = `${Math.random()* 200}px`
+                    el.style.height = `${Math.random()* window.innerHeight}px`
+                    el.style.width = `${Math.random()* window.innerWidth}px`
+                    el.style.translate = `-${Math.random()*100}px -${Math.random()*100}px`
+                },speed)
+            })
+            }  
+    }
+
+    BLUR({selector = "*",id = undefined,blur = 10}){
+        if (window){
+            var ELList
+            if (id){
+                var ELList = [document.getElementById(id)]
+            }else{
+                var ELList = document.querySelectorAll(`html ${selector}`)
+            }
+            ELList.forEach((el)=>{
+                el.style.filter = `blur(${blur}px)`
+            })
+        }
+    }
+
+    START()
+    {
+        if (window){
+            this.GLITCH({speed:1})
+        }
+    }
+
+
+    STOP(){
+        if (window){
+            window.location.reload()
+        }
+    }
+
+    SCHATHER({selector = "*",id = undefined}){
+        if (window){
+            var ELList
+            if (id){
+                var ELList = [document.getElementById(id)]
+            }else{
+                var ELList = document.querySelectorAll(`html ${selector}`)
+            }
+            ELList.forEach((el)=>{
+                /* var html = document.querySelectorAll(`html`)
+                el.parentElement.removeChild(el)
+                html.appendChild(el) */
+                el.style.position = "absolute"
+                    el.style.top = `${Math.random()* 200}px`
+                    el.style.left = `${Math.random()* 200}px`
+                    el.style.height = `${Math.random()* window.innerHeight}px`
+                    el.style.width = `${Math.random()* window.innerWidth}px`
+                    el.style.translate = `-${Math.random()*100}px -${Math.random()*100}px`
+            })
+            }  
+    }
+
+}
+
+export function WSABOTAGH({...props}){
+    var sabotag = new WSABOTAG()
+    var argandFunc = {}
+    for (var key in props){
+        if (String(key).toUpperCase() in sabotag){
+        argandFunc[String(key).toUpperCase()] = props[key]}
+    }
+    useEffect(()=>{
+        for (var key in argandFunc){
+                var func = sabotag[String(key).toUpperCase()]
+                func(argandFunc[key])
+                
+        }
+    },[])
+    return <NONE> </NONE>
+}
+
+
 export function ToolTip({message,id}){
     const tipRef = React.useRef()
     var enter = false
@@ -310,6 +519,19 @@ export function ToolTip({message,id}){
     // </div>
 }
 
+export function BITIFY(text) {
+    return text
+    .split("")
+    .map(char => char.charCodeAt(0).toString(2).padStart(8, "0"))
+    .join(" ");
+}
+
+export function TEXTIFY(bits) {
+    return bits
+    .split(" ")
+    .map(bit => String.fromCharCode(parseInt(bit, 2)))
+    .join("");
+}
 
 
 
@@ -339,7 +561,7 @@ export function Flip({id,Name, className,indexClassName, children,speed=0.5,Type
         var frameWidth = frame.scrollWidth
         var IndexPosX = []
         var TotalIndex = (frameWidth/parentWidth)
-        var assumeIndex = Math.ceil(TotalIndex)
+        var assumeIndex = childrenList.length
         CRange(0,assumeIndex).forEach(index=>{
                 var x = index*(frameWidth/TotalIndex)
                 if (x > frameWidth){
@@ -449,7 +671,7 @@ export function AInput({label, placeholder , className = "", inClassName = "",ty
 }
 
 export function Title(props){
-    return <div className={mergeText(props.className,style.title)}>{props.children}</div>
+    return <div { ...props} className={mergeText(props.className,style.title)}>{props.children}</div>
 }
 export function rclick (e){
     const className = Array.from(e.target.classList).find((value,any)=> String(value).includes("w3switchitem"))
