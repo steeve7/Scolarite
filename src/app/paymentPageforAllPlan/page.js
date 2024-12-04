@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect } from 'react'
+import React, { useEffect,useRef } from 'react'
 import './allplan.css'
 import Image from 'next/image'
 import { color } from 'framer-motion'
@@ -8,7 +8,18 @@ import { useState } from 'react'
 
 
 
+
 export default function paymentPageforAllplan() {
+
+// const dateInputRef = useRef(null)
+    const [cardNmuber,setCardNumber] = useState("")
+    const [cvv,setCvv] = useState("")
+
+
+
+    // useEffect(()=>{
+    //         if(cardNmuber.length > 16) return
+    // },[])
 
     useEffect(()=>{
         let emailEl = document.getElementById("email")
@@ -20,7 +31,7 @@ export default function paymentPageforAllplan() {
             }
         })
         
-    })
+    },[])
     
     // function for the Sub Button
     
@@ -103,14 +114,14 @@ export default function paymentPageforAllplan() {
                    <div className="payment-method">
                          Payment Method(s)
                       <ul>
-                          <li> <Image src="/Images/logo1.png"
+                          <li> <Image src="/Images/visa.png"
                         alt="logo"
                         width={50}
                         height={10}
                         className="visa"
 
                         /> </li>
-                           <li> <Image src="/Images/Logo2.png"
+                           <li> <Image src="/Images/mastercard.png"
                         alt="logo"
                         width={50}
                         height={10}
@@ -151,7 +162,14 @@ export default function paymentPageforAllplan() {
                         /> </li>
                     </ul>
                        
-                       <input type="num" id="cardnumber" className="input"   placeholder="    ----          ----             ----           ----" required/>
+                       <input  id="cardnumber" value={cardNmuber} onChange={(e)=>{
+
+                           if(e.target.value.length <= 16){
+                            setCardNumber(e.target.value)
+                        }
+                        }
+                        } 
+                        className="input" type="number"   placeholder="               -  -  -  -          -  -  -  -             -  -  -  -           -  -  -  -" required/>
     
                  </div>
 
@@ -168,7 +186,30 @@ export default function paymentPageforAllplan() {
 
                         /> </li>
                     </ul>
-                       
+                       {/* <div  
+                       onClick={()=>{
+                        console.log("clicked")
+                        dateInputRef.current.showPicker()}}
+                        style={{
+                            display:"flex",
+                            alignItems:"center",
+                            justifyContent:"center",
+                            width:"100%",
+                        }}
+                        
+                        className="input-expiry"
+
+                        >
+                            MM/YY
+                        <input type="date" style={{
+                            visibility:"hidden"
+                            background:"#F8F9FB"
+
+
+                        }} ref={dateInputRef}
+                        placeholder="MM/YY"
+                        />
+                       </div> */}
                        <input type="date" id="cardexpiry" className="input-expiry"   placeholder="" required/>
     
                  </div>
@@ -185,7 +226,11 @@ export default function paymentPageforAllplan() {
                         /> </li>
                     </ul>
                        
-                       <input type="num" id="cvv" className="input-cvv" max-length="12"   placeholder="----  ----  ----  ----" required/>
+                       <input type="number" id="cvv" className="input-cvv" value={cvv} onChange={(e)=>{
+                        if(e.target.value.length <=3){
+                            setCvv(e.target.value)
+                        }
+                       }}    placeholder="       ----      ----     ----  " required/>
     
                  </div>
 

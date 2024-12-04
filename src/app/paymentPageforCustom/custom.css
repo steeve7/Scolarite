@@ -24,7 +24,7 @@
     margin-bottom: 3rem;
     height: 85%;
     border-radius: 20px;
-    box-shadow: 10px 20px 15px 20px #e8f0ff;
+    box-shadow: 10px 70px 15px 20px #e8f0ff;
     
 }
 
@@ -134,6 +134,7 @@ form{
     border: 1px solid #c8cacd;
     padding-left: 0.5rem;
     border-radius: 10px;
+    outline: none;
     color: #253058;
     
 }
@@ -167,7 +168,7 @@ form{
     gap: 1px;
     cursor: pointer;
     font-size: 7px;
-    height: 25px;
+    height: 35px;
     width: 35px;
     background: #F8F9FB;
 
@@ -176,7 +177,7 @@ form{
 }
 .visa-2{
     cursor: pointer;
-    height: 25px;
+    height: 35px;
     width: 35px;
     margin-right: 1rem;
     background: #F8F9FB;
@@ -188,17 +189,21 @@ form{
     display: flex;
     width: 80%;  
     margin-top: 1rem;
+    outline: none;
     justify-content: space-between;
 }
 
 .input-expiry{
     width: 100%;
     height: 3rem;
+    display: flex;
+    justify-content: center;
     align-items: center;
      background: #F8F9FB;
-    border: 2px solid #c8cacd;
+    border: 1px solid #c8cacd;
     padding-left: 2rem;
     border-radius: 10px;
+    outline: none;
     color: #253058;
 
 }
@@ -206,8 +211,9 @@ form{
     width: 100%;
     height: 3rem;
      background: #F8F9FB;
-    border: 2px solid #c8cacd;
+    border: 1px solid #c8cacd;
     padding-left: 0.5rem;
+    outline: none;
     border-radius: 10px;
     color: #253058;
 
@@ -506,7 +512,9 @@ form{
     }
     form{
         width: 100%;
-        margin-left: -1rem;
+        margin-left: -1.5rem;
+        position: relative;
+        left: -3rem;
     }
     .input{
         width: 100%;
@@ -569,7 +577,9 @@ form{
         /* margin-top: 5rem; */
        /* margin-left: -30px; */
        width: 100%;
+       position: relative;
        padding-right: 2rem;
+       left: -1.5rem;
     }
     .p-summary{
         font-size: 15px;
@@ -689,8 +699,12 @@ form{
      
     }
     .Payment-summary{
-       margin-left:4.5rem;
+       margin-left: 7rem;
        padding-top: 2rem;
+    }
+    form{
+        width: 110%;
+        margin-left: 1.5rem;
     }
    
 }

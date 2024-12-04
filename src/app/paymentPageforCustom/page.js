@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect } from 'react'
+import React, { useEffect,useRef } from 'react'
 import './custom.css'
 import Image from 'next/image'
 import { color } from 'framer-motion'
@@ -9,6 +9,16 @@ import { useState } from 'react'
 
 
 export default function paymentPageforCustomPlan() {
+
+    const dateInputRef = useRef(null)
+    const [cardNmuber,setCardNumber] = useState("")
+    const [cvv,setCvv] = useState("")
+
+
+
+    // useEffect(()=>{
+    //         if(cardNmuber.length > 16) return
+    // },[])
 
     useEffect(()=>{
         let emailEl = document.getElementById("email")
@@ -20,7 +30,7 @@ export default function paymentPageforCustomPlan() {
             }
         })
         
-    })
+    },[])
     
     // function for the Sub Button
     
@@ -32,7 +42,6 @@ export default function paymentPageforCustomPlan() {
              
     })
     }
-
 
     //  function subscribe(){
     //     document.querySelectorAll("input").forEach(el=>el.dispatchEvent(Event))
@@ -46,31 +55,6 @@ export default function paymentPageforCustomPlan() {
      const Event = new
      CustomEvent(EventName,{detail:{event:EventName}})
 
-
-
-   
-     let count = 30
-
-     function add1() {
-        const resultElement = document.getElementById('timer');
-        if (resultElement) {
-            count = count + 1
-            resultElement.innerText = count;
-        } else {
-            console.error('Element with ID "result" not found.');
-        }
-    }
-    
-    function add2() {
-        const resultElement = document.getElementById('timer');
-        if (resultElement) {
-            count = count - 1
-            resultElement.innerText = count;
-        } else {
-            console.error('Element with ID "result" not found.');
-        }
-    }
- 
 
   return (
     <div className="body">
@@ -104,7 +88,7 @@ export default function paymentPageforCustomPlan() {
 
                 </ul>
 
-             <div className='form-input'>
+
                {/* FORMM */}
                 <form method="post">
 
@@ -129,14 +113,14 @@ export default function paymentPageforCustomPlan() {
                    <div className="payment-method">
                          Payment Method(s)
                       <ul>
-                          <li> <Image src="/Images/logo1.png"
+                          <li> <Image src="/Images/visa.png"
                         alt="logo"
                         width={50}
                         height={10}
                         className="visa"
 
                         /> </li>
-                           <li> <Image src="/Images/Logo2.png"
+                           <li> <Image src="/Images/mastercard.png"
                         alt="logo"
                         width={50}
                         height={10}
@@ -149,7 +133,7 @@ export default function paymentPageforCustomPlan() {
 
                 <div className="input-headings">
                     <ul>
-                    <li className="text"> Cardholder's Name</li>
+                    <li className="text" > Cardholder's Name</li>
                         <li> <Image src="/Images/info.png"
                         alt="logo"
                         width={50}
@@ -177,7 +161,15 @@ export default function paymentPageforCustomPlan() {
                         /> </li>
                     </ul>
                        
-                       <input type="number" id="cardnumber" className="input"   placeholder="    ----          ----             ----           ----" required/>
+                       <input  id="cardnumber" value={cardNmuber} onChange={(e)=>{
+
+                           if(e.target.value.length <= 16){
+                            setCardNumber(e.target.value)
+                        }
+                        }
+                        } 
+                        className="input" type="number"   placeholder="               -  -  -  -          -  -  -  -      
+                               -  -  -  -           -  -  -  -" required/>
     
                  </div>
 
@@ -194,8 +186,30 @@ export default function paymentPageforCustomPlan() {
 
                         /> </li>
                     </ul>
-                       
-                       <input type="date" id="cardexpiry" className="input-expiry"   placeholder="" required/>
+                       {/* <div  
+                       onClick={()=>{
+                        console.log("clicked")
+                        dateInputRef.current.showPicker()}}
+                        style={{
+                            display:"flex",
+                            alignItems:"center",
+                            justifyContent:"center",
+                            width:"100%",
+                        }}
+                        
+                        className="input-expiry"
+
+                        >
+                            MM/YY
+                        <input type="date" style={{
+                            visibility:"hidden"
+
+
+                        }} ref={dateInputRef}
+                        placeholder="MM/YY"
+                        />
+                       </div> */}
+                       <input type="date" id="cardexpiry" className="input-expiry"   placeholder="MM/YY" required/>
     
                  </div>
 
@@ -211,7 +225,11 @@ export default function paymentPageforCustomPlan() {
                         /> </li>
                     </ul>
                        
-                       <input type="number" id="cvv" className="input-cvv" max-length="12"   placeholder="----  ----  ----  ----" required/>
+                       <input type="number" id="cvv" className="input-cvv" value={cvv} onChange={(e)=>{
+                        if(e.target.value.length <=3){
+                            setCvv(e.target.value)
+                        }
+                       }}   placeholder="       ----      ----     ----  " required/>
     
                  </div>
 
@@ -223,7 +241,6 @@ export default function paymentPageforCustomPlan() {
      
 
                 </form>
-                </div>
 
             </div>
 
