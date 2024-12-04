@@ -638,7 +638,7 @@ export function CInput({className,placeholder,type="input",...props}){
 }
 
 
-export function CButton({className,onClick,id,style = {},children,ani = "top" , tooltip = undefined}){
+export function CButton({className,onClick,id,style2 = {},children,ani = "top" , tooltip = undefined}){
 
     const ButtonAnimations = {
         "scale":style.btnaniscale,
@@ -647,7 +647,7 @@ export function CButton({className,onClick,id,style = {},children,ani = "top" , 
         true:style.btnanitop,
         false:"",
     }
-    return <div id={id} style={style} className={mergeText(className,style.button,ButtonAnimations[String(ani)])} onClick={onClick}>
+    return <div id={id} style={style2} className={mergeText(className,style.button,ButtonAnimations[String(ani)])} onClick={onClick}>
         {children}
         {tooltip && <ToolTip message={tooltip}/>}
     </div>
