@@ -46,6 +46,9 @@
     transition: translate 0.5s ease-in-out;
     cursor: pointer;
 }
+.button *{
+    cursor: pointer;
+}
 .btnanitop:hover{
     translate: 0px -5px;
 }
