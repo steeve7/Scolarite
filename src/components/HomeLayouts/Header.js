@@ -1,13 +1,9 @@
 "use client";
 import NavbarMain from "@/components/HomeLayouts/navbar";
 import style from "./navbar.module.css";
-import NavBar from "@/components/HomeLayouts/navbar";
 import { useEffect } from "react";
 import { mergeText } from "@/app/add";
-import { BITIFY, INFILTRATOR, isPageExempt, LTEXTIFY, STEXTIFY, TEXTIFY, WSABOTAG } from "../addons/addons";
-import { usePathname } from "next/navigation";
-import { func } from "prop-types";
-// import React, { useEffect } from 'react'
+import {  INFILTRATOR, isPageExempt } from "../addons/addons";
 
 function Header() {
   var classes = [style.header];
