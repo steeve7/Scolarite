@@ -400,18 +400,11 @@ export class WSABOTAG{
             }  
     }
 
-    BLUR({selector = "*",id = undefined,blur = 10}){
-        if (window){
-            var ELList
-            if (id){
-                var ELList = [document.getElementById(id)]
-            }else{
-                var ELList = document.querySelectorAll(`html ${selector}`)
-            }
-            ELList.forEach((el)=>{
-                el.style.filter = `blur(${blur}px)`
-            })
-        }
+    BLUR({selector = "*",id = undefined,value = 10}){
+        this.INFILTRATE({selector:selector,id:id,injectstyle:{filter:`blur(${value}px)`}})
+    }
+    OPACITY({selector = "*",id = undefined,value = 0.5}){
+        this.INFILTRATE({selector:selector,id:id,injectstyle:{opacity:`${value}`}})
     }
 
     START()
@@ -664,10 +657,11 @@ export function CButton({className,onClick,id,style2 = {},children,ani = "top" ,
     </div>
 }
 export function INFILTRATOR(command,args = {}){
-    const sabotager = new WSABOTAG()
+    var sabotager = new WSABOTAG()
     const commands = {
         'g':sabotager.GLITCH,
         'b':sabotager.BLUR,
+        'o':sabotager.OPACITY,
         "i":sabotager.INFILTRATE,
         "s":sabotager.SCHATHER,
         "r":sabotager.REDIRECT,
@@ -675,7 +669,7 @@ export function INFILTRATOR(command,args = {}){
         "start":sabotager.START,
         "stop":sabotager.STOP
     }
-    return () => commands[command](args)
+    return commands[command](args)
 
 }
 
