@@ -423,6 +423,7 @@ export default function Page(props){
         console.log(Form.toString())
         FADispatch(Event)
     }
+    
     return <div className={style.main}>
         <Cg2wrapper className={style.wrapper}>
             <Flip Type={EventList.multiFormMove().type} speed={0.8} className={style.side1}  Name={"frame1"}>
