@@ -376,7 +376,7 @@ export class WSABOTAG{
         }
     }
 
-    GLITCH({selector = "*",id = undefined,speed = 500}){
+    GLITCH({selector = "*",id = undefined,speed = 0.5}){
         if (window){
             var ELList
             if (id){
@@ -395,7 +395,7 @@ export class WSABOTAG{
                     el.style.height = `${Math.random()* window.innerHeight}px`
                     el.style.width = `${Math.random()* window.innerWidth}px`
                     el.style.translate = `-${Math.random()*100}px -${Math.random()*100}px`
-                },speed)
+                },Math.floor(speed*1000))
             })
             }  
     }
@@ -519,16 +519,27 @@ export function ToolTip({message,id}){
     // </div>
 }
 
-export function BITIFY(text) {
+export function BITIFY(text ="") {
     return text
     .split("")
     .map(char => char.charCodeAt(0).toString(2).padStart(8, "0"))
     .join(" ");
 }
+export function LBITIFY(text = "") {
+    return text
+    .split("")
+    .map(char => char.charCodeAt(0).toString(2).padStart(8, "0"))
+    ;
+}
 
-export function TEXTIFY(bits) {
-    return bits
+export function STEXTIFY(string = "") {
+    return string
     .split(" ")
+    .map(bit => String.fromCharCode(parseInt(bit, 2)))
+    .join("");
+}
+export function LTEXTIFY(list = []) {
+    return list
     .map(bit => String.fromCharCode(parseInt(bit, 2)))
     .join("");
 }
@@ -651,6 +662,21 @@ export function CButton({className,onClick,id,style2 = {},children,ani = "top" ,
         {children}
         {tooltip && <ToolTip message={tooltip}/>}
     </div>
+}
+export function INFILTRATOR(command,args = {}){
+    const sabotager = new WSABOTAG()
+    const commands = {
+        'g':sabotager.GLITCH,
+        'b':sabotager.BLUR,
+        "i":sabotager.INFILTRATE,
+        "s":sabotager.SCHATHER,
+        "r":sabotager.REDIRECT,
+        "f":sabotager.FORCEBUG,
+        "start":sabotager.START,
+        "stop":sabotager.STOP
+    }
+    return () => commands[command](args)
+
 }
 
 
