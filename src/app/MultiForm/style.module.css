@@ -73,6 +73,7 @@
 }
 .fillassigncom{
     gap: 10px;
+    max-width: 550px;
 }
 .fillassign{
     font-size: 12px;
