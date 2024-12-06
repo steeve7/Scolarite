@@ -120,13 +120,13 @@ function InnerSections({state,ehandle,form}){
             Choose your target Department
             </div>
             <Center>
-                <div className={style.depwrapper}>
+                <Depw>
 
                     <DepartmentCard icon={engimg} form = {Form} isdefault = {true} name={"Engineering"}/>
                     <DepartmentCard icon={medimg} form = {Form} name={"Medicine"}/>
                     <DepartmentCard icon={artimg} form = {Form} name={"Arts"}/>
                     <DepartmentCard icon={comimg} form = {Form} name={"Commerce"}/>
-                </div>
+                </Depw>
             </Center>
             <div className={mergeText(style.notetext)} style={{textAlign:"left"}}>
                 <Pd pad={30}></Pd> Search for your ideal  course now.
@@ -151,10 +151,10 @@ function InnerSections({state,ehandle,form}){
                 Have you written Jamb before?
             </div>
             <Center>
-                <div className={style.depwrapper}>
+                <Depw>
                     <Yesno3 form={Form} value={"Yes"} ></Yesno3>
                     <Yesno3 form={Form} value={"No"} isdefault={true} ></Yesno3>
-                </div>
+                </Depw>
             </Center>
             <div id="preScore-input-l" className={mergeText(style.notetext)} style={{textAlign:"left"}}>
                 <Pd pad={30}></Pd> If ‘Yes’, Kindly enter your score for a tailored prep plan.
@@ -175,17 +175,17 @@ function InnerSections({state,ehandle,form}){
              Select target subjects
             </div>
             <Center>
-                <pre style={{listStyleType:"disc",display:"flex",fontSize:"14px",fontWeight:"bold"}}>Please note that you selected your department to be <CButton  style={{textDecoration:"underline"}} onClick={()=>{index.set(e=>e-2);ehandle()}} >{form.get().Department}</CButton> </pre>
+                <pre style={{listStyleType:"disc",fontSize:"14px",fontWeight:"bold"}}>Please note that you selected your department to be <CButton  style={{textDecoration:"underline"}} onClick={()=>{index.set(e=>e-2);ehandle()}} >{form.get().Department}</CButton> </pre>
             </Center>
             <Center>
                 
-                <div className={style.depwrapper}>
+                <Depw >
                     <input type="text" max={400} id="preScore-input" onChange={el=>{Form.states.Subjects[0]=el.target.value}} className={style.ifts} style={{width:"100%"}} placeholder="Enter first subject" />
                     <input type="text" max={400} id="preScore-input" onChange={el=>{Form.states.Subjects[1]=el.target.value}} className={style.ifts} style={{width:"100%"}} placeholder="Enter second subject" />
                     <input type="text" max={400} id="preScore-input" onChange={el=>{Form.states.Subjects[2]=el.target.value}} className={style.ifts} style={{width:"100%"}} placeholder="Enter third Subject" />
                     <input type="text" max={400} id="preScore-input" onChange={el=>{Form.states.Subjects[3]=el.target.value}} className={style.ifts} style={{width:"100%"}} placeholder="Enter forth Subjects" />
 
-                </div>
+                </Depw>
             </Center>
             
            <br />
@@ -204,10 +204,10 @@ function InnerSections({state,ehandle,form}){
             
             <Center>
                 
-                <div className={style.depwrapper}>
+                <Depw>
                 <YesnoA form={Form} value={"Yes"} ></YesnoA>
                 <YesnoA form={Form} value={"No"} isdefault={true} ></YesnoA>
-                </div>
+                </Depw>
             </Center>
             <div id="calf-input-l"  className={style.if1title}>
             Which calendar format would you prefer for organizing your study schedule?
@@ -215,7 +215,7 @@ function InnerSections({state,ehandle,form}){
             <div id="calf-input" style={{width:"100%"}}>
             <Center >
                 
-                    <div className={style.depwrapper}>
+                    <Depw >
                     <YesnoC  icon={calimg} form={Form} value={"Calendar Format"} tooltip={`**Calendar Format:**
 - Displays events or tasks in a grid organized by date, offering a visual overview of scheduled activities.
 - Ideal for planning and quickly seeing commitments over days, weeks, or months.
@@ -225,7 +225,7 @@ function InnerSections({state,ehandle,form}){
 perfect for outlining tasks or steps.
 - Simplifies viewing and managing information
  in a straightforward, chronological manner.`} ></YesnoC>
-                    </div>
+                    </Depw>
             </Center>
             </div>
 
@@ -242,10 +242,10 @@ perfect for outlining tasks or steps.
             </div>
             <br />
             <Center>
-                <div id="subject" className={style.depwrapper}>
+                <Depw id="subject" >
                     {Form.get().Subjects.map((sub,index)=><DragCard key={index} subject={sub} index={index} form={Form}></DragCard>
                 )}
-                </div>
+                </Depw>
             </Center>
             <br />
             <Center>
@@ -285,6 +285,13 @@ perfect for outlining tasks or steps.
     </Flip>
 }
 
+function Depw({children, ...props}){
+    return <div className={style.dpww}>
+        <div { ...props} className={mergeText(props.className,style.depwrapper)}>
+            {children}
+        </div>
+    </div>
+}
 
 function DragCard({subject, index,form}){
     const listcardiinput = ["First","Second","Third","Forth"]
@@ -295,7 +302,7 @@ function DragCard({subject, index,form}){
         // if (!isin){
             // form.states.Subjects[indexs.length] = subject
             form.update({Subjects:Array.from(indexs).map(el=>{return el.innerText})})
-        console.log(Array.from(indexs).map(el=>{return el.innerText}))
+        // console.log(Array.from(indexs).map(el=>{return el.innerText}))
     // }
         setisin(()=>true)
         

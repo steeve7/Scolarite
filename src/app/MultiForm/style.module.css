@@ -166,11 +166,15 @@
     background-color: rgba(0, 0, 0, 0.096);
   }
 .depwrapper{
-    width: 80%;
     display: grid;
-    max-width: 550px;
+    /* max-width: 550px; */
     grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
+}
+.dpww{
+    max-width: 550px;
+    width: 80%;
+
 }
 .departmentcard{
     display:grid;
