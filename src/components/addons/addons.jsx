@@ -126,6 +126,32 @@ export class State{
     }
 }
 
+export function Clientable(func){
+    var interval
+    var isClientable = false
+    var speed = new State(0)
+    var loop = new State(0)
+    var interval = setInterval(() => {
+        speed.set(speed.get()+1)
+        loop.set(loop.get()+1)
+        try{if (window){
+            clearInterval(interval)
+            isClientable = true
+        }}catch(e){}
+        if (isClientable){
+            func()
+        }
+        
+    }, 1);
+}
+
+export function RClientable(func){
+    useEffect(()=>{
+        Clientable(func)
+    },[])
+}
+
+
 export function NONE({children, ...props}){
     return <div {...props} style={{display:"none"}}> {children}</div>
 }
@@ -340,6 +366,93 @@ export function ListChildren(children,CloneWithProps = {}){
 
 }
 
+export function Draggable({
+    className,
+    children,
+    id, 
+    channel = "all",
+    dragStart = ()=>{},
+    drop = ()=>{},
+    currentListener = ()=>{},
+    ...props
+}){
+    const ref = useRef()
+    var uniid = null
+    const DropEventName = `DROP-${channel}`
+    RClientable(()=>{
+        var draggable = ref.current
+        uniid = uniid || genId("b")
+        var classname = `draggable-${channel}-${uniid}`
+        draggable.classList.add(classname)
+        draggable.addEventListener("dragstart", (event) => {
+            event.target.classList.add(classname)
+            event.dataTransfer.setData("text/plain", uniid);
+            dragStart(draggable)
+          });
+          draggable.addEventListener(DropEventName,(event)=>{
+            if (event.detail.hasDropped && event.detail.uniid == uniid){
+                currentListener(draggable)
+            }
+          })
+          
+          draggable.addEventListener("dragend", (event) => {
+            // event.target.classList.remove(classname)
+            drop(draggable,event.target)
+          });
+          
+          
+    })
+    return <div ref={ref} id={id} { ...props} draggable="true" className={mergeText(style.draggable,className)} >{children}</div>
+}
+export function DropZone({
+    className,
+    children,
+    channel = "all",
+    id, dragOver = ()=>{},
+    dragLeave = ()=>{},
+    drop = ()=>{},
+    error = ()=>{},
+    ...props
+}){
+    const ref = useRef()
+    const DropEventName = `DROP-${channel}`
+    const FEvent = (bool,id = undefined)=>new CustomEvent(DropEventName,{detail:{hasDropped:bool,uniid:id}})
+    RClientable(()=>{
+        // Drag over
+        var dropzone = ref.current
+        dropzone.addEventListener("dragover", (event) => {
+            event.preventDefault();
+            dragOver(dropzone)
+        });
+        
+        // Drag leave
+        dropzone.addEventListener("dragleave", () => {
+            dragLeave(dropzone)
+        });
+        // Drop
+        dropzone.addEventListener("drop", (event) => {
+            event.preventDefault();
+            try{
+            const uniid = event.dataTransfer.getData("text/plain");
+            var classname = `draggable-${channel}-${uniid}`
+            const draggableElement = document.querySelector(`.${classname}`);
+            dropzone.appendChild(draggableElement);
+            draggableElement.dispatchEvent(FEvent(true,uniid))
+            drop(dropzone,draggableElement)}
+            catch(e){
+                error(dropzone)
+                FADispatch(FEvent(false))
+            }
+        });
+          
+          
+    })
+    return <div ref={ref} id={id} { ...props} className={mergeText(style.dragzone,className)} >{children}</div>
+}
+
+export function BImage({src,alt="image",className,objectFit = "contain"}){
+    return <Image src={src} alt={alt} className={mergeText(style.bimage,className)} style={{position:"absolute",top:0,left:0,width:"100%",height:"100%",objectFit:objectFit}}></Image>
+}
 
 export class WSABOTAG{
 
@@ -495,7 +608,6 @@ export function ToolTip({message,id}){
             if(enter){var el = tipRef.current
             var x = e.pageX
             var y = e.pageY
-            // console.log(x,y,enter)
             x = x-el.offsetWidth/2
             y = (y-el.offsetHeight)-20
             el.style.left = `${x}px `
@@ -565,7 +677,7 @@ export function Flip({id,Name, className,indexClassName, children,speed=0.5,Type
         var frameWidth = frame.scrollWidth
         var IndexPosX = []
         var TotalIndex = (frameWidth/parentWidth)
-        var assumeIndex = childrenList.length
+        var assumeIndex = childrenList.length-1
         CRange(0,assumeIndex).forEach(index=>{
                 var x = index*(frameWidth/TotalIndex)
                 if (x > frameWidth){
@@ -580,13 +692,11 @@ export function Flip({id,Name, className,indexClassName, children,speed=0.5,Type
         }else{
             if (inputIndex > assumeIndex){
                 scroll = IndexPosX.reverse()[0]
-                console.log(scroll)
                 scroll = (scroll/parentWidth)*100
                 frame.style.transform = `translateX(-${scroll}%)`
             }
         }
         istate.update({index:inputIndex,total:assumeIndex})
-        // console.log("name:",Name,"index:",inputIndex,"IndexPosX:",IndexPosX,"frame:",frameID,"frameWidth:",frameWidth,"parentWidth:",parentWidth,"assumeIndex",assumeIndex)
     }
     function DispatchFunc(e){
         indexTo(e.detail.index)

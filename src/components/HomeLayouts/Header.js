@@ -3,11 +3,15 @@ import NavbarMain from "@/components/HomeLayouts/navbar";
 import style from "./navbar.module.css";
 import { useEffect } from "react";
 import { mergeText } from "@/app/add";
-import {  INFILTRATOR, isPageExempt, WSABOTAG } from "../addons/addons";
+import {  Clientable, INFILTRATOR, isPageExempt, State, WSABOTAG } from "../addons/addons";
 
 function Header() {
   var classes = [style.header];
   var exempt = isPageExempt()
+  var inc = 0
+  Clientable(()=>{
+    console.log(Math.random())
+  })
   useEffect(function () {
     document.querySelectorAll("NONE").forEach((el) => {
       el.style.display = "none";

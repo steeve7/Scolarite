@@ -1,7 +1,9 @@
 "use client"
-import { CButton, CEDispatch, Center, CEventH, Cg2wrapper, clickHidden, CLink, FADispatch, Flip, Pd, Radio, State, ToolTip } from "@/components/addons/addons"
+import { CButton, CEDispatch, Center, CEventH, Cg2wrapper, clickHidden, CLink, Draggable, DropZone, FADispatch, Flip, Pd, Radio, State, ToolTip } from "@/components/addons/addons"
 import style from "./style.module.css"
 import frame1i1 from "./assets/frame1i1.png"
+import dragimg from "./assets/drag.png"
+import cancelimg from "./assets/cancel.png"
 import frame2i1 from "./assets/frame2i1.png"
 import frame3i1 from "./assets/frame3i1.png"
 import frame4i1 from "./assets/frame4i1.png"
@@ -229,12 +231,38 @@ perfect for outlining tasks or steps.
            <br />
             <div className={style.if1button2w}>
                 <CButton className={mergeText(style.if1button1,style.if1button2)} onClick={()=>{index.set(e=>e-1);ehandle()}}>Previous step</CButton>
+                <CButton className={style.if1button1}  onClick={()=>{index.set(e=>e+1);ehandle()}}>Next step</CButton>
+            </div>
+        </div>
+        <div className={style.if1}>
+         <div  className={style.if1title}>
+         Please arrange your subjects in the order of priority for your studies
+            </div>
+            <br />
+            <Center>
+                <div id="subject" className={style.depwrapper}>
+                    {Form.get().Subjects.map((sub,index)=><DragCard key={index} subject={sub} index={index} form={Form}></DragCard>
+                )}
+                </div>
+            </Center>
+            <br />
+            <Center>
+                <DropZone className={style.studcarddropzone} id={"subject-zone"} channel="subject-card">
+                    
+                </DropZone>
+            </Center>
+            <br />
+           <br />
+            <div className={style.if1button2w}>
+                <CButton className={mergeText(style.if1button1,style.if1button2)} onClick={()=>{index.set(e=>e-1);ehandle()}}>Previous step</CButton>
                 <CButton className={style.if1button1}  onClick={()=>{index.set(e=>10);ehandle()}}>Next step</CButton>
             </div>
         </div>
         <div className={mergeText(style.if1,style.rcs)}>
             <Center>
-                <Image src={doneimg} alt="2" className={style.rcsi} ></Image>
+                
+                    <Image src={doneimg} alt="2" className={style.rcsi} ></Image>
+                
             </Center>
             <div className={style.rcstitle}>
             Review and Confirm Your Selections
@@ -248,11 +276,49 @@ perfect for outlining tasks or steps.
             Submit
             </CLink>
             <div className={style.if1button2w}>
-                <CButton className={mergeText(style.if1button1,style.if1button2)} onClick={()=>{index.set(e=>5);ehandle()}}>Previous step</CButton>
+                <CButton className={mergeText(style.if1button1,style.if1button2)} onClick={()=>{index.set(e=>6);ehandle()}}>Previous step</CButton>
             </div>
         </div>
         
     </Flip>
+}
+
+
+function DragCard({subject, index,form}){
+    const listcardiinput = ["First","Second","Third","Forth"]
+    const [isin, setisin]  = useState(false)
+    var id
+    function currentListener(e){
+        var indexs = document.querySelectorAll(`.${style.studcarddropzone} .${style.dragecardsub} `)
+        // if (!isin){
+            // form.states.Subjects[indexs.length] = subject
+            form.update({Subjects:Array.from(indexs).map(el=>{return el.innerText})})
+        console.log(Array.from(indexs).map(el=>{return el.innerText}))
+    // }
+        setisin(()=>true)
+        
+        
+    }
+    function drop(e,t){
+
+    }
+    var out  = ()=>{
+        var ref = document.getElementById(`subject-card${index}`);
+        ref.parentElement.removeChild(ref)
+        document.getElementById("subject").appendChild(ref)
+        setisin(()=>false)
+        
+    }
+        return <Draggable channel = {"subject-card"} drop={drop} id={`subject-card${index}`}   currentListener={currentListener} className={style.dragcard} >
+                <Center className={style.dragcardico}>
+                    {!isin && <Image src={dragimg} alt="2" className={style.dragimg}></Image>}
+                    {isin &&<Image src={cancelimg} alt="2" onClick={out}  className={style.dragimg}></Image>}
+                </Center>
+                <div className={style.dragccontent}>
+                    <div className={mergeText(style.tl,style.dragecardsub)}>{subject}</div>
+                    <div className={mergeText(style.tl,style.draginputi)}>{listcardiinput[index]} input</div>
+                </div>
+        </Draggable>
 }
 
 
@@ -394,7 +460,8 @@ export default function Page(props){
             School:"",
             Department:"Enginnering",
             HasWrittenBefore:false,
-            Subjects:["","","",""],
+            Subjects:["Mathematics","English","Physics","Further Mathematics"],
+            SubjectsByPir:{s0:"",s1:"",s2:"",s3:""},
             FollowStudyPlan:false,
             ScheduleFormat:0,
             preScore:0,
