@@ -450,8 +450,10 @@ export function DropZone({
     return <div ref={ref} id={id} { ...props} className={mergeText(style.dragzone,className)} >{children}</div>
 }
 
-export function BImage({src,alt="image",className,objectFit = "contain"}){
-    return <Image src={src} alt={alt} className={mergeText(style.bimage,className)} style={{position:"absolute",top:0,left:0,width:"100%",height:"100%",objectFit:objectFit}}></Image>
+export function BImage({src,alt="image",className,objectFit = "contain" ,Style}){
+    return <Center style={{position:"absolute",top:0,left:0,zIndex:"-100"}}>
+        <Image src={src} alt={alt} className={mergeText(style.bimage,className)} style={{width:"100%",height:"100%",objectFit:objectFit,...Style}}></Image>
+    </Center>
 }
 
 export class WSABOTAG{

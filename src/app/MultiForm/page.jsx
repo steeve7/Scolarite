@@ -1,10 +1,11 @@
 "use client"
-import { CButton, CEDispatch, Center, CEventH, Cg2wrapper, clickHidden, CLink, Draggable, DropZone, FADispatch, Flip, Pd, Radio, State, ToolTip } from "@/components/addons/addons"
+import { BImage, CButton, CEDispatch, Center, CEventH, Cg2wrapper, clickHidden, CLink, Draggable, DropZone, FADispatch, Flip, Pd, Radio, State, ToolTip } from "@/components/addons/addons"
 import style from "./style.module.css"
 import frame1i1 from "./assets/frame1i1.png"
 import dragimg from "./assets/drag.png"
 import cancelimg from "./assets/cancel.png"
 import frame2i1 from "./assets/frame2i1.png"
+import dropzonebg from "./assets/dropzonebg.png"
 import frame3i1 from "./assets/frame3i1.png"
 import frame4i1 from "./assets/frame4i1.png"
 import frame5i1 from "./assets/frame5i1.png"
@@ -247,8 +248,8 @@ perfect for outlining tasks or steps.
             </Center>
             <br />
             <Center>
-                <DropZone className={style.studcarddropzone} id={"subject-zone"} channel="subject-card">
-                    
+                <DropZone style={{position:"relative"}} className={style.studcarddropzone} id={"subject-zone"} channel="subject-card">
+                    <BImage Style={{width:"110%",height:"110%"}} objectFit="cover" src={dropzonebg}></BImage>
                 </DropZone>
             </Center>
             <br />
