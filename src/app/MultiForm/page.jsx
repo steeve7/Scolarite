@@ -521,7 +521,7 @@ export default function Page(props){
                         Help us create a focused study plan tailored just for you.
                         </div>
                     </div>
-                    <div className="w-full flex justify-center mb-4">
+                    <div className="w-full flex justify-center ">
                         <div className={style.fillcom}>
                             {section1fills.map((obj,index)=><Fill key={index} value={obj.Index} need = {index !== 0} {...obj}/>)}
                         </div>
