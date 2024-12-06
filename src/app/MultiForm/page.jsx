@@ -1,5 +1,5 @@
 "use client"
-import { BImage, CButton, CEDispatch, Center, CEventH, Cg2wrapper, clickHidden, CLink, Draggable, DropZone, FADispatch, Flip, Pd, Radio, State, ToolTip } from "@/components/addons/addons"
+import { BImage, CButton, CEDispatch, Center, CEventH, Cg2wrapper, clickHidden, CLink, Draggable, DropZone, FADispatch, Flip, Pd, Radio, State, ToolTip, useUpdate } from "@/components/addons/addons"
 import style from "./style.module.css"
 import frame1i1 from "./assets/frame1i1.png"
 import dragimg from "./assets/drag.png"
@@ -78,7 +78,8 @@ function InnerSections({state,ehandle,form}){
     const index = state
     const Name = "IF1"
     const Form = form
-
+    const update = useUpdate()
+    index.onChange = update
     function FormInsertValidate(key,UnlessCallFunc,IfNotFunc){
         if(Form.get()[key]){
             UnlessCallFunc()
@@ -174,7 +175,7 @@ function InnerSections({state,ehandle,form}){
              Select target subjects
             </div>
             <Center>
-                <pre style={{listStyleType:"disc",display:"flex",fontSize:"14px",fontWeight:"bold"}}>Please note that you selected your department to be <CButton id={"ydep"} style={{textDecoration:"underline"}} onClick={()=>{index.set(e=>e-2);ehandle()}} >{form.get().Department}</CButton> </pre>
+                <pre style={{listStyleType:"disc",display:"flex",fontSize:"14px",fontWeight:"bold"}}>Please note that you selected your department to be <CButton  style={{textDecoration:"underline"}} onClick={()=>{index.set(e=>e-2);ehandle()}} >{form.get().Department}</CButton> </pre>
             </Center>
             <Center>
                 
@@ -386,7 +387,7 @@ function DepartmentCard({icon,name,form,isdefault = false}){
         }) */
 
         form.update({Department:value})
-        document.getElementById("ydep").innerText = value
+        // document.getElementById("ydep").innerText = value
     }
     return <Radio value={name} channel={"department-card"} isdefault={isdefault} onEvent={onevent} valueListener={valueListener} className={style.departmentcard}>
         <div className={style.departmentcardiconw}>
@@ -461,7 +462,7 @@ export default function Page(props){
             School:"",
             Department:"Enginnering",
             HasWrittenBefore:false,
-            Subjects:["Mathematics","English","Physics","Further Mathematics"],
+            Subjects:["","","",""],
             SubjectsByPir:{s0:"",s1:"",s2:"",s3:""},
             FollowStudyPlan:false,
             ScheduleFormat:0,

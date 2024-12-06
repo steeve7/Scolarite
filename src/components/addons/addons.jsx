@@ -1,6 +1,6 @@
 "use client"
 import style from "./addons.module.css"
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useReducer, useRef, useState } from "react"
 import { frame } from "framer-motion"
 import tooltiptri from "./assets/tooltiptri.png"
 import Image from "next/image"
@@ -100,6 +100,8 @@ export function G2Wrapper(props){
 export class State{
     
     states
+    onChange =  ()=>{}
+    onGet = ()=>{}
     constructor(state = {}){
         this.states = state
     }
@@ -109,7 +111,8 @@ export class State{
         }catch(e){
             this.states = value
         }
-        
+        this.onChange()
+        return this
     }
     update(kv){
         /* Works only if "states" is a json Object */
@@ -117,8 +120,11 @@ export class State{
             ...this.states,
             ...kv
         }
+        this.onChange()
+        return this
     }
     get(){
+        this.onGet()
         return this.states
     }
     toString(){
@@ -289,6 +295,7 @@ export function Pd({pad=10,pady=0,display="inline-block"}){
 export function Radio({className,value,channel,valueListener,isdefault,onEvent,children,onClick,ref,...others}){
     const EventName = `RADIO-CHANNEL-EVENT-${channel}`
     const radioRef = useRef(null)
+    const [hasdef,setDef] = useState(isdefault)
     function click(){
         FADispatch(new CustomEvent(EventName,{detail:{value:value}})) 
     }
@@ -300,8 +307,9 @@ export function Radio({className,value,channel,valueListener,isdefault,onEvent,c
         
     }
     useEffect(()=>{
-        if (isdefault){
+        if (hasdef){
             click()
+            setDef(false)
         }
     })
     return <div ref={radioRef} onClick={click} className={mergeText(className)} {...others}>
@@ -456,6 +464,12 @@ export function BImage({src,alt="image",className,objectFit = "contain" ,Style})
     </Center>
 }
 
+
+export function useUpdate(){
+    const [, forceUpdate] = useReducer(x => x + 1, 0);
+        return forceUpdate;
+}
+
 export class WSABOTAG{
 
     INFILTRATE(
@@ -578,7 +592,7 @@ export function WSABOTAGH({...props}){
 }
 
 
-export function ToolTip({message,id}){
+export function ToolTip({message,id,children}){
     const tipRef = React.useRef()
     var enter = false
     function Enter(e){
@@ -618,7 +632,7 @@ export function ToolTip({message,id}){
             
     },[])
     return <div id={id}  className={style.tooltip} ref={tipRef}  >
-            <div className={style.tooltiptext}>{message} </div>
+            <div className={style.tooltiptext}>{message} {children} </div>
             <Center>
                 <Image src={tooltiptri} alt="arrow" className={style.tooltipimg}></Image>
             </Center>
