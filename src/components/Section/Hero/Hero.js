@@ -59,7 +59,7 @@ export default function Hero() {
         <img
           src="/image/book.gif"
           alt="hero_page"
-          className={mergeText(" ", style.heroimage)}
+            
         />
       </div>
     </div>
