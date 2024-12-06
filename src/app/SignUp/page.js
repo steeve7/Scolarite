@@ -791,12 +791,12 @@ export default function SignUpPage() {
                             Your journey to JAMB success starts now. Let’s dive into your
                             personalized learning experience.
                         </p>
-                        <button
+                        <Clink
                             className={styles.button}
-                            onClick={() => window.location.reload()} // Reload the page
+                            href = {"/SignUp"} // Reload the page
                         >
                             Continue
-                        </button>
+                        </Clink>
                         <p>Redirecting in 5 seconds, or click the 'Continue' button to proceed now.</p>
                     </div>
                 )}
