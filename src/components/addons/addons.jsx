@@ -1,6 +1,6 @@
 "use client"
 import style from "./addons.module.css"
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useReducer, useRef, useState } from "react"
 import { frame } from "framer-motion"
 import tooltiptri from "./assets/tooltiptri.png"
 import Image from "next/image"
@@ -100,6 +100,8 @@ export function G2Wrapper(props){
 export class State{
     
     states
+    onChange =  ()=>{}
+    onGet = ()=>{}
     constructor(state = {}){
         this.states = state
     }
@@ -109,7 +111,8 @@ export class State{
         }catch(e){
             this.states = value
         }
-        
+        this.onChange()
+        return this
     }
     update(kv){
         /* Works only if "states" is a json Object */
@@ -117,14 +120,43 @@ export class State{
             ...this.states,
             ...kv
         }
+        this.onChange()
+        return this
     }
     get(){
+        this.onGet()
         return this.states
     }
     toString(){
         return JSON.stringify(this.states)
     }
 }
+
+export function Clientable(func){
+    var interval
+    var isClientable = false
+    var speed = new State(0)
+    var loop = new State(0)
+    var interval = setInterval(() => {
+        speed.set(speed.get()+1)
+        loop.set(loop.get()+1)
+        try{if (window){
+            clearInterval(interval)
+            isClientable = true
+        }}catch(e){}
+        if (isClientable){
+            func()
+        }
+        
+    }, 1);
+}
+
+export function RClientable(func){
+    useEffect(()=>{
+        Clientable(func)
+    },[])
+}
+
 
 export function NONE({children, ...props}){
     return <div {...props} style={{display:"none"}}> {children}</div>
@@ -263,6 +295,7 @@ export function Pd({pad=10,pady=0,display="inline-block"}){
 export function Radio({className,value,channel,valueListener,isdefault,onEvent,children,onClick,ref,...others}){
     const EventName = `RADIO-CHANNEL-EVENT-${channel}`
     const radioRef = useRef(null)
+    const [hasdef,setDef] = useState(isdefault)
     function click(){
         FADispatch(new CustomEvent(EventName,{detail:{value:value}})) 
     }
@@ -274,8 +307,9 @@ export function Radio({className,value,channel,valueListener,isdefault,onEvent,c
         
     }
     useEffect(()=>{
-        if (isdefault){
+        if (hasdef){
             click()
+            setDef(false)
         }
     })
     return <div ref={radioRef} onClick={click} className={mergeText(className)} {...others}>
@@ -340,6 +374,101 @@ export function ListChildren(children,CloneWithProps = {}){
 
 }
 
+export function Draggable({
+    className,
+    children,
+    id, 
+    channel = "all",
+    dragStart = ()=>{},
+    drop = ()=>{},
+    currentListener = ()=>{},
+    ...props
+}){
+    const ref = useRef()
+    var uniid = null
+    const DropEventName = `DROP-${channel}`
+    RClientable(()=>{
+        var draggable = ref.current
+        uniid = uniid || genId("b")
+        var classname = `draggable-${channel}-${uniid}`
+        draggable.classList.add(classname)
+        draggable.addEventListener("dragstart", (event) => {
+            event.target.classList.add(classname)
+            event.dataTransfer.setData("text/plain", uniid);
+            dragStart(draggable)
+          });
+          draggable.addEventListener(DropEventName,(event)=>{
+            if (event.detail.hasDropped && event.detail.uniid == uniid){
+                currentListener(draggable)
+            }
+          })
+          
+          draggable.addEventListener("dragend", (event) => {
+            // event.target.classList.remove(classname)
+            drop(draggable,event.target)
+          });
+          
+          
+    })
+    return <div ref={ref} id={id} { ...props} draggable="true" className={mergeText(style.draggable,className)} >{children}</div>
+}
+export function DropZone({
+    className,
+    children,
+    channel = "all",
+    id, dragOver = ()=>{},
+    dragLeave = ()=>{},
+    drop = ()=>{},
+    error = ()=>{},
+    ...props
+}){
+    const ref = useRef()
+    const DropEventName = `DROP-${channel}`
+    const FEvent = (bool,id = undefined)=>new CustomEvent(DropEventName,{detail:{hasDropped:bool,uniid:id}})
+    RClientable(()=>{
+        // Drag over
+        var dropzone = ref.current
+        dropzone.addEventListener("dragover", (event) => {
+            event.preventDefault();
+            dragOver(dropzone)
+        });
+        
+        // Drag leave
+        dropzone.addEventListener("dragleave", () => {
+            dragLeave(dropzone)
+        });
+        // Drop
+        dropzone.addEventListener("drop", (event) => {
+            event.preventDefault();
+            try{
+            const uniid = event.dataTransfer.getData("text/plain");
+            var classname = `draggable-${channel}-${uniid}`
+            const draggableElement = document.querySelector(`.${classname}`);
+            dropzone.appendChild(draggableElement);
+            draggableElement.dispatchEvent(FEvent(true,uniid))
+            drop(dropzone,draggableElement)}
+            catch(e){
+                error(dropzone)
+                FADispatch(FEvent(false))
+            }
+        });
+          
+          
+    })
+    return <div ref={ref} id={id} { ...props} className={mergeText(style.dragzone,className)} >{children}</div>
+}
+
+export function BImage({src,alt="image",className,objectFit = "contain" ,Style}){
+    return <Center style={{position:"absolute",top:0,left:0,zIndex:"-100"}}>
+        <Image src={src} alt={alt} className={mergeText(style.bimage,className)} style={{width:"100%",height:"100%",objectFit:objectFit,...Style}}></Image>
+    </Center>
+}
+
+
+export function useUpdate(){
+    const [, forceUpdate] = useReducer(x => x + 1, 0);
+        return forceUpdate;
+}
 
 export class WSABOTAG{
 
@@ -463,7 +592,7 @@ export function WSABOTAGH({...props}){
 }
 
 
-export function ToolTip({message,id}){
+export function ToolTip({message,id,children}){
     const tipRef = React.useRef()
     var enter = false
     function Enter(e){
@@ -495,7 +624,6 @@ export function ToolTip({message,id}){
             if(enter){var el = tipRef.current
             var x = e.pageX
             var y = e.pageY
-            // console.log(x,y,enter)
             x = x-el.offsetWidth/2
             y = (y-el.offsetHeight)-20
             el.style.left = `${x}px `
@@ -504,7 +632,7 @@ export function ToolTip({message,id}){
             
     },[])
     return <div id={id}  className={style.tooltip} ref={tipRef}  >
-            <div className={style.tooltiptext}>{message} </div>
+            <div className={style.tooltiptext}>{message} {children} </div>
             <Center>
                 <Image src={tooltiptri} alt="arrow" className={style.tooltipimg}></Image>
             </Center>
@@ -565,7 +693,7 @@ export function Flip({id,Name, className,indexClassName, children,speed=0.5,Type
         var frameWidth = frame.scrollWidth
         var IndexPosX = []
         var TotalIndex = (frameWidth/parentWidth)
-        var assumeIndex = childrenList.length
+        var assumeIndex = childrenList.length-1
         CRange(0,assumeIndex).forEach(index=>{
                 var x = index*(frameWidth/TotalIndex)
                 if (x > frameWidth){
@@ -580,13 +708,11 @@ export function Flip({id,Name, className,indexClassName, children,speed=0.5,Type
         }else{
             if (inputIndex > assumeIndex){
                 scroll = IndexPosX.reverse()[0]
-                console.log(scroll)
                 scroll = (scroll/parentWidth)*100
                 frame.style.transform = `translateX(-${scroll}%)`
             }
         }
         istate.update({index:inputIndex,total:assumeIndex})
-        // console.log("name:",Name,"index:",inputIndex,"IndexPosX:",IndexPosX,"frame:",frameID,"frameWidth:",frameWidth,"parentWidth:",parentWidth,"assumeIndex",assumeIndex)
     }
     function DispatchFunc(e){
         indexTo(e.detail.index)
@@ -642,7 +768,7 @@ export function CInput({className,placeholder,type="input",...props}){
 }
 
 
-export function CButton({className,onClick,id,style2 = {},children,ani = "top" , tooltip = undefined}){
+export function CButton({className,onClick,id,Style = {},children,ani = "top" , tooltip = undefined}){
 
     const ButtonAnimations = {
         "scale":style.btnaniscale,
@@ -651,7 +777,7 @@ export function CButton({className,onClick,id,style2 = {},children,ani = "top" ,
         true:style.btnanitop,
         false:"",
     }
-    return <div id={id} style={style2} className={mergeText(className,style.button,ButtonAnimations[String(ani)])} onClick={onClick}>
+    return <div id={id} style={Style} className={mergeText(className,style.button,ButtonAnimations[String(ani)])} onClick={onClick}>
         {children}
         {tooltip && <ToolTip message={tooltip}/>}
     </div>

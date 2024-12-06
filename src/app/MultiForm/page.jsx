@@ -1,8 +1,11 @@
 "use client"
-import { CButton, CEDispatch, Center, CEventH, Cg2wrapper, clickHidden, CLink, FADispatch, Flip, Pd, Radio, State, ToolTip } from "@/components/addons/addons"
+import { BImage, CButton, CEDispatch, Center, CEventH, Cg2wrapper, clickHidden, CLink, Draggable, DropZone, FADispatch, Flip, Pd, Radio, State, ToolTip, useUpdate } from "@/components/addons/addons"
 import style from "./style.module.css"
 import frame1i1 from "./assets/frame1i1.png"
+import dragimg from "./assets/drag.png"
+import cancelimg from "./assets/cancel.png"
 import frame2i1 from "./assets/frame2i1.png"
+import dropzonebg from "./assets/dropzonebg.png"
 import frame3i1 from "./assets/frame3i1.png"
 import frame4i1 from "./assets/frame4i1.png"
 import frame5i1 from "./assets/frame5i1.png"
@@ -75,7 +78,8 @@ function InnerSections({state,ehandle,form}){
     const index = state
     const Name = "IF1"
     const Form = form
-
+    const update = useUpdate()
+    index.onChange = update
     function FormInsertValidate(key,UnlessCallFunc,IfNotFunc){
         if(Form.get()[key]){
             UnlessCallFunc()
@@ -116,13 +120,13 @@ function InnerSections({state,ehandle,form}){
             Choose your target Department
             </div>
             <Center>
-                <div className={style.depwrapper}>
+                <Depw>
 
                     <DepartmentCard icon={engimg} form = {Form} isdefault = {true} name={"Engineering"}/>
                     <DepartmentCard icon={medimg} form = {Form} name={"Medicine"}/>
                     <DepartmentCard icon={artimg} form = {Form} name={"Arts"}/>
                     <DepartmentCard icon={comimg} form = {Form} name={"Commerce"}/>
-                </div>
+                </Depw>
             </Center>
             <div className={mergeText(style.notetext)} style={{textAlign:"left"}}>
                 <Pd pad={30}></Pd> Search for your ideal  course now.
@@ -147,10 +151,10 @@ function InnerSections({state,ehandle,form}){
                 Have you written Jamb before?
             </div>
             <Center>
-                <div className={style.depwrapper}>
+                <Depw>
                     <Yesno3 form={Form} value={"Yes"} ></Yesno3>
                     <Yesno3 form={Form} value={"No"} isdefault={true} ></Yesno3>
-                </div>
+                </Depw>
             </Center>
             <div id="preScore-input-l" className={mergeText(style.notetext)} style={{textAlign:"left"}}>
                 <Pd pad={30}></Pd> If ‘Yes’, Kindly enter your score for a tailored prep plan.
@@ -171,17 +175,17 @@ function InnerSections({state,ehandle,form}){
              Select target subjects
             </div>
             <Center>
-                <pre style={{listStyleType:"disc",display:"flex",fontSize:"14px",fontWeight:"bold"}}>Please note that you selected your department to be <CButton id={"ydep"} style={{textDecoration:"underline"}} onClick={()=>{index.set(e=>e-2);ehandle()}} >{form.get().Department}</CButton> </pre>
+                <div style={{listStyleType:"disc",fontSize:"14px",fontWeight:"bold",width:"90%"}}>Please note that you selected your department to be <CButton  Style={{textDecoration:"underline",display:"inline"}} onClick={()=>{index.set(e=>e-2);ehandle()}} >{form.get().Department}</CButton> </div>
             </Center>
             <Center>
                 
-                <div className={style.depwrapper}>
+                <Depw >
                     <input type="text" max={400} id="preScore-input" onChange={el=>{Form.states.Subjects[0]=el.target.value}} className={style.ifts} style={{width:"100%"}} placeholder="Enter first subject" />
                     <input type="text" max={400} id="preScore-input" onChange={el=>{Form.states.Subjects[1]=el.target.value}} className={style.ifts} style={{width:"100%"}} placeholder="Enter second subject" />
                     <input type="text" max={400} id="preScore-input" onChange={el=>{Form.states.Subjects[2]=el.target.value}} className={style.ifts} style={{width:"100%"}} placeholder="Enter third Subject" />
                     <input type="text" max={400} id="preScore-input" onChange={el=>{Form.states.Subjects[3]=el.target.value}} className={style.ifts} style={{width:"100%"}} placeholder="Enter forth Subjects" />
 
-                </div>
+                </Depw>
             </Center>
             
            <br />
@@ -200,10 +204,10 @@ function InnerSections({state,ehandle,form}){
             
             <Center>
                 
-                <div className={style.depwrapper}>
+                <Depw>
                 <YesnoA form={Form} value={"Yes"} ></YesnoA>
                 <YesnoA form={Form} value={"No"} isdefault={true} ></YesnoA>
-                </div>
+                </Depw>
             </Center>
             <div id="calf-input-l"  className={style.if1title}>
             Which calendar format would you prefer for organizing your study schedule?
@@ -211,7 +215,7 @@ function InnerSections({state,ehandle,form}){
             <div id="calf-input" style={{width:"100%"}}>
             <Center >
                 
-                    <div className={style.depwrapper}>
+                    <Depw >
                     <YesnoC  icon={calimg} form={Form} value={"Calendar Format"} tooltip={`**Calendar Format:**
 - Displays events or tasks in a grid organized by date, offering a visual overview of scheduled activities.
 - Ideal for planning and quickly seeing commitments over days, weeks, or months.
@@ -221,11 +225,35 @@ function InnerSections({state,ehandle,form}){
 perfect for outlining tasks or steps.
 - Simplifies viewing and managing information
  in a straightforward, chronological manner.`} ></YesnoC>
-                    </div>
+                    </Depw>
             </Center>
             </div>
 
            <br />
+           <br />
+            <div className={style.if1button2w}>
+                <CButton className={mergeText(style.if1button1,style.if1button2)} onClick={()=>{index.set(e=>e-1);ehandle()}}>Previous step</CButton>
+                <CButton className={style.if1button1}  onClick={()=>{index.set(e=>e+1);ehandle()}}>Next step</CButton>
+            </div>
+        </div>
+        <div className={style.if1}>
+         <div  className={style.if1title}>
+         Please arrange your subjects in the order of priority for your studies
+            </div>
+            <br />
+            <Center>
+                <Depw id="subject" >
+                    {Form.get().Subjects.map((sub,index)=><DragCard key={index} subject={sub} index={index} form={Form}></DragCard>
+                )}
+                </Depw>
+            </Center>
+            <br />
+            <Center>
+                <DropZone style={{position:"relative"}} className={style.studcarddropzone} id={"subject-zone"} channel="subject-card">
+                    <BImage Style={{width:"110%",height:"110%"}} objectFit="cover" src={dropzonebg}></BImage>
+                </DropZone>
+            </Center>
+            <br />
            <br />
             <div className={style.if1button2w}>
                 <CButton className={mergeText(style.if1button1,style.if1button2)} onClick={()=>{index.set(e=>e-1);ehandle()}}>Previous step</CButton>
@@ -234,7 +262,9 @@ perfect for outlining tasks or steps.
         </div>
         <div className={mergeText(style.if1,style.rcs)}>
             <Center>
-                <Image src={doneimg} alt="2" className={style.rcsi} ></Image>
+                
+                    <Image src={doneimg} alt="2" className={style.rcsi} ></Image>
+                
             </Center>
             <div className={style.rcstitle}>
             Review and Confirm Your Selections
@@ -248,11 +278,56 @@ perfect for outlining tasks or steps.
             Submit
             </CLink>
             <div className={style.if1button2w}>
-                <CButton className={mergeText(style.if1button1,style.if1button2)} onClick={()=>{index.set(e=>5);ehandle()}}>Previous step</CButton>
+                <CButton className={mergeText(style.if1button1,style.if1button2)} onClick={()=>{index.set(e=>6);ehandle()}}>Previous step</CButton>
             </div>
         </div>
         
     </Flip>
+}
+
+function Depw({children, ...props}){
+    return <div className={style.dpww}>
+        <div { ...props} className={mergeText(props.className,style.depwrapper)}>
+            {children}
+        </div>
+    </div>
+}
+
+function DragCard({subject, index,form}){
+    const listcardiinput = ["First","Second","Third","Forth"]
+    const [isin, setisin]  = useState(false)
+    var id
+    function currentListener(e){
+        var indexs = document.querySelectorAll(`.${style.studcarddropzone} .${style.dragecardsub} `)
+        // if (!isin){
+            // form.states.Subjects[indexs.length] = subject
+            form.update({Subjects:Array.from(indexs).map(el=>{return el.innerText})})
+        // console.log(Array.from(indexs).map(el=>{return el.innerText}))
+    // }
+        setisin(()=>true)
+        
+        
+    }
+    function drop(e,t){
+
+    }
+    var out  = ()=>{
+        var ref = document.getElementById(`subject-card${index}`);
+        ref.parentElement.removeChild(ref)
+        document.getElementById("subject").appendChild(ref)
+        setisin(()=>false)
+        
+    }
+        return <Draggable channel = {"subject-card"} drop={drop} id={`subject-card${index}`}   currentListener={currentListener} className={style.dragcard} >
+                <Center className={style.dragcardico}>
+                    {!isin && <Image src={dragimg} alt="2" className={style.dragimg}></Image>}
+                    {isin &&<Image src={cancelimg} alt="2" onClick={out}  className={style.dragimg}></Image>}
+                </Center>
+                <div className={style.dragccontent}>
+                    <div className={mergeText(style.tl,style.dragecardsub)}>{subject}</div>
+                    <div className={mergeText(style.tl,style.draginputi)}>{listcardiinput[index]} input</div>
+                </div>
+        </Draggable>
 }
 
 
@@ -319,7 +394,7 @@ function DepartmentCard({icon,name,form,isdefault = false}){
         }) */
 
         form.update({Department:value})
-        document.getElementById("ydep").innerText = value
+        // document.getElementById("ydep").innerText = value
     }
     return <Radio value={name} channel={"department-card"} isdefault={isdefault} onEvent={onevent} valueListener={valueListener} className={style.departmentcard}>
         <div className={style.departmentcardiconw}>
@@ -395,6 +470,7 @@ export default function Page(props){
             Department:"Enginnering",
             HasWrittenBefore:false,
             Subjects:["","","",""],
+            SubjectsByPir:{s0:"",s1:"",s2:"",s3:""},
             FollowStudyPlan:false,
             ScheduleFormat:0,
             preScore:0,

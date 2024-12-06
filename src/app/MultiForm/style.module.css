@@ -166,11 +166,15 @@
     background-color: rgba(0, 0, 0, 0.096);
   }
 .depwrapper{
-    width: 80%;
     display: grid;
-    max-width: 550px;
-    grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+    /* max-width: 550px; */
+    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
+}
+.dpww{
+    max-width: 550px;
+    width: 80%;
+
 }
 .departmentcard{
     display:grid;
@@ -308,6 +312,49 @@
 }
 .innersection{
     height: fit-content;
+}
+.dragcard{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+    border: 1px solid rgba(228, 228, 228, 1);
+    padding-inline: 10px;
+    padding-block: 10px;
+    border-radius: 10px;
+    height: 60px;
+    background-color: white;
+    
+}
+.dragimg{
+    width: 100%;
+    scale: 0.5;
+    max-width: 40px;
+}
+.tl{
+    text-align: left;
+}
+.draginputi{
+    font-size: 12px;
+    color: rgba(128, 128, 128, 1);
+}
+.dragecardsub{
+    font-size: 16px;
+    font-weight: bold;
+}
+.studcarddropzone{
+    max-width: 550px;
+    width: 80%;
+    display: grid;
+    max-width: 550px;
+    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    border: 2px dashed rgba(0, 0, 0, 0.25);
+    min-height: 200px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 10px;
+    overflow: hidden;
+    
 }
 @media (max-width:1200px){
     .fillassign{
