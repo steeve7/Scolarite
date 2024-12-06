@@ -2,6 +2,7 @@
 import React from "react";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Choose() {
   return (
@@ -37,13 +38,13 @@ export default function Choose() {
               experts. Therefore, we have what it takes to impart academic
               excellence.
             </p>
-            <button
-              type="button"
-              className="bounce-hover text-white font_roboto uppercase flex items-center gap-2 font-bold xl:text-[15px] text-[10px] py-[1.5rem] px-[2rem] bg-black rounded-[212.76px] border-0 outline-none"
+            <Link
+              href={"/SignUp"}
+              className="smooth-hover text-white font_roboto uppercase flex items-center gap-2 font-bold xl:text-[15px] text-[10px] py-[1.5rem] px-[2rem] bg-black rounded-[212.76px] border-0 outline-none"
             >
               Register
               <FaRegArrowAltCircleRight />
-            </button>
+            </Link>
           </motion.div>
           <motion.div
             className="md:order-1 order-2"
@@ -165,13 +166,13 @@ export default function Choose() {
               >
                 {description}
               </p>
-              <button
-                type="button"
-                className="bounce-hover text-white font_roboto uppercase flex items-center gap-2 font-bold xl:text-[15px] text-[10px] py-[1.5rem] px-[2rem] bg-black rounded-[212.76px] border-0 outline-none"
+              <Link
+                href={"/SignUp"}
+                className="smooth-hover text-white font_roboto uppercase flex items-center gap-2 font-bold xl:text-[15px] text-[10px] py-[1.5rem] px-[2rem] bg-black rounded-[212.76px] border-0 outline-none"
               >
                 Register
                 <FaRegArrowAltCircleRight />
-              </button>
+              </Link>
             </motion.div>
             <motion.div
               className="md:order-1 order-2"
