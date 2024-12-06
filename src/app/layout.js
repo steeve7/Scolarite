@@ -66,8 +66,9 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <Header />
-        <main className={mergeText(inter.className)}>{children}</main>
+        <main className={mergeText(inter.className,"MAIN-CONTAINER")}>{children}
         <FooterWrapper />
+        </main>
       </body>
     </html>
   );

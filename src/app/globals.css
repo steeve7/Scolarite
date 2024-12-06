@@ -132,8 +132,15 @@ body {
     rgb(var(--background-start-rgb));
     background: white;
     color: black;
-  overflow-x: hidden;
+  overflow: hidden;
   font-family: Montserrat Alternates;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100vh
+}
+.MAIN-CONTAINER{
+  overflow-x:hidden;
+  overflow-y:auto ;
 }
 *::selection{
   background-color: rgba(0, 255, 255, 0.164);

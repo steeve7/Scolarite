@@ -1,12 +1,9 @@
 "use client";
 import NavbarMain from "@/components/HomeLayouts/navbar";
 import style from "./navbar.module.css";
-import NavBar from "@/components/HomeLayouts/navbar";
 import { useEffect } from "react";
 import { mergeText } from "@/app/add";
-import { isPageExempt } from "../addons/addons";
-import { usePathname } from "next/navigation";
-// import React, { useEffect } from 'react'
+import {  INFILTRATOR, isPageExempt, WSABOTAG } from "../addons/addons";
 
 function Header() {
   var classes = [style.header];
@@ -15,12 +12,9 @@ function Header() {
     document.querySelectorAll("NONE").forEach((el) => {
       el.style.display = "none";
     });
-    if (!exempt){const header = document.getElementById("HEADER_SECTION");
-    const sticky = document.getElementById("HEADER_STICKY_SIMULATOR");
-    setInterval(()=>{
-      sticky.style.height = `${header.offsetHeight}px`;
-    },1)}
-    
+    // INFILTRATOR("b",{blur:3})
+    // new WSABOTAG().BLUR({value:2})
+
   }, []);
   return (
     <>
@@ -28,7 +22,6 @@ function Header() {
         <div id="HEADER_SECTION" className={mergeText(...classes)}>
           <NavbarMain />
         </div>
-        <div id="HEADER_STICKY_SIMULATOR" style={{ height: "140px" }}></div>
       </>}
     </>
   );
