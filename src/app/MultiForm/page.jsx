@@ -175,7 +175,7 @@ function InnerSections({state,ehandle,form}){
              Select target subjects
             </div>
             <Center>
-                <pre style={{listStyleType:"disc",fontSize:"14px",fontWeight:"bold",width:"90%"}}>Please note that you selected your department to be <CButton  Style={{textDecoration:"underline",display:"inline"}} onClick={()=>{index.set(e=>e-2);ehandle()}} >{form.get().Department}</CButton> </pre>
+                <div style={{listStyleType:"disc",fontSize:"14px",fontWeight:"bold",width:"90%"}}>Please note that you selected your department to be <CButton  Style={{textDecoration:"underline",display:"inline"}} onClick={()=>{index.set(e=>e-2);ehandle()}} >{form.get().Department}</CButton> </div>
             </Center>
             <Center>
                 
