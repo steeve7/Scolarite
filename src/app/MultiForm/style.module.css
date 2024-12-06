@@ -72,6 +72,11 @@
     grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
 }
 .fillassigncom{
+    display: flex;
+    justify-content: center;
+    align-items:start;
+    max-width: 500px;
+    width: 100%;
     gap: 10px;
 }
 .fillassign{

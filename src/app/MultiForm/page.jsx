@@ -527,7 +527,7 @@ export default function Page(props){
                         </div>
                     </div>
                     <div className="w-full flex justify-center">
-                        <div className={mergeText(style.fillcom,style.fillassigncom)}>
+                        <div className={mergeText(style.fillassigncom)}>
                             {FilllistAssign.map((obj,index)=> <div key={`index-${index}`} className={style.fillassign}>{obj}</div>)}
                         </div>
                     </div>
