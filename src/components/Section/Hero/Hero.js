@@ -33,14 +33,14 @@ export default function Hero() {
         <div className="flex flex-row justify-start items-center gap-5 md:gap-10 mt-6 md:mt-0">
           <button
             type="button"
-            className="bounce-hover text-white font_roboto uppercase lg:w-[50%] w-full flex items-center justify-center gap-2 font-bold lg:text-[15px] md:text-[13px] text-[9px] py-[1.5rem] px-[1.5rem] bg-black rounded-[212.76px] border-0 outline-none"
+            className="smooth-hover text-white font_roboto uppercase lg:w-[50%] w-full flex items-center justify-center gap-2 font-bold lg:text-[15px] md:text-[13px] text-[9px] py-[1.5rem] px-[1.5rem] bg-black rounded-[212.76px] border-0 outline-none"
           >
             Free trial
             <FaRegArrowAltCircleRight />
           </button>
           <button
             type="button"
-            className="bounce-hover text-black font_roboto uppercase lg:w-[50%] w-full flex items-center justify-center gap-2 font-bold lg:text-[15px] md:text-[13px] text-[9px] py-[1.5rem] px-[1.5rem] bg-button-color rounded-[212.76px] border-0 outline-none"
+            className="smooth-hover text-black font_roboto uppercase lg:w-[50%] w-full flex items-center justify-center gap-2 font-bold lg:text-[15px] md:text-[13px] text-[9px] py-[1.5rem] px-[1.5rem] bg-button-color rounded-[212.76px] border-0 outline-none"
           >
             View Pricing
             <FaRegArrowAltCircleRight />

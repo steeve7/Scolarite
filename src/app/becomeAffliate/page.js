@@ -1,7 +1,9 @@
+'use client'
 import React from "react";
 import "./becomeAfliate.css";
 import Image from "next/image";
 import Faq from "@/components/Section/FAQ/Faq";
+import { motion } from "framer-motion";
 
 export default function becomeAfliate() {
   return (
@@ -70,7 +72,17 @@ export default function becomeAfliate() {
 
         <div className="parent-div">
           {/* signUpstarts Here */}
-          <div className="child-div">
+          <motion.div
+            className="child-div"
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{
+              delay: 1.0,
+              type: "spring",
+              stiffness: 60,
+              duration: 1,
+            }}
+          >
             <li>
               <Image
                 src="/Images/signup 2.png"
@@ -95,11 +107,19 @@ export default function becomeAfliate() {
                 dashboard.
               </li>
             </ul>
-          </div>
+          </motion.div>
           {/* signUp Stops Here */}
 
           {/* SEPERATE IMAGE */}
-          <li>
+          <motion.li  
+          initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{
+              delay: 0.6,
+              type: "spring",
+              stiffness: 60,
+              duration: 1,
+            }}>
             <Image
               src="/Images/image 10.png"
               width={100}
@@ -107,11 +127,21 @@ export default function becomeAfliate() {
               alt="Sign Up"
               className="sep-image"
             />
-          </li>
+          </motion.li>
           {/* SEPERATE IMAGE STOPS HERE */}
 
           {/* AccessResources Starts Here */}
-          <div className="child-div access">
+          <motion.div
+            className="child-div access"
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{
+              delay: 0.6,
+              type: "spring",
+              stiffness: 60,
+              duration: 1,
+            }}
+          >
             <li>
               <Image
                 src="/Images/monitor 1.png"
@@ -131,11 +161,19 @@ export default function becomeAfliate() {
                 effectively to your audience.
               </li>
             </ul>
-          </div>
+          </motion.div>
           {/* AccessResources STOPS here */}
 
           {/* SEPERATE IMAGE TAKE NOTE */}
-          <li>
+          <motion.li
+           initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{
+              delay: 0.2,
+              type: "spring",
+              stiffness: 60,
+              duration: 1,
+            }}>
             <Image
               src="/Images/image 10.png"
               width={100}
@@ -143,11 +181,21 @@ export default function becomeAfliate() {
               alt="Sign Up"
               className="sep-image"
             />
-          </li>
+          </motion.li>
           {/* STOPS HERE */}
 
           {/* THE PROMOTE AND EARN  */}
-          <div className="child-div promote">
+          <motion.div
+            className="child-div promote"
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{
+              delay: 0.2,
+              type: "spring",
+              stiffness: 60,
+              duration: 1,
+            }}
+          >
             <li>
               <Image
                 src="/Images/promotion 1.png"
@@ -166,7 +214,7 @@ export default function becomeAfliate() {
                 Get paid by month end based on number of referrals achieved.
               </li>
             </ul>
-          </div>
+          </motion.div>
           {/* PROMOTE AND EARN STOPS */}
         </div>
         {/* HOW CAN I JOIN SCHOLARITÉ STOPS HERE */}

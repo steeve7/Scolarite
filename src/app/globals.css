@@ -163,3 +163,12 @@ body {
 .NONE{
   display: none;
 }
+
+.smooth-hover {
+  transition: transform 0.5s ease-in-out; /* Smooth transition */
+}
+
+.smooth-hover:hover {
+  transform: translateY(-5px); /* Move up slightly */
+}
+
