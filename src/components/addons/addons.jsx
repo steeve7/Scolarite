@@ -412,7 +412,7 @@ export const addonsComplex = {
             })
         }
     }
-    ,Dispatch(Event,selector = "*"){
+    ,FIDispatch(Event,selector = "*"){
         if (window){
             
             const ListAll = document.querySelectorAll(`.${selector}`)
@@ -424,7 +424,7 @@ export const addonsComplex = {
     }
     ,CEventXType:"CEventX"
     ,CEventX:(channel,data = {})=>{return new CustomEvent(addonsComplex.CEventXType,{detail:{channel:channel,data:data}})}
-    ,XADispatch:function(channel,data = {}){addonsComplex.Dispatch(addonsComplex.CEventX(channel,data),addonsComplex.CEventXType)}
+    ,XADispatch:function(channel,data = {}){addonsComplex.FIDispatch(addonsComplex.CEventX(channel,data),addonsComplex.CEventXType)}
     ,CEventXH:function({channel , onEvent = function(){}}){
         const ref = useRef()
         useEffect(
@@ -443,8 +443,53 @@ export const addonsComplex = {
             },[]
         )
         return <div ref={ref} className={mergeText(addonsComplex.CEventXType)} style={{display:"none"}} />
-    }
+    },
+
+    CEXModel:class{
+        uniType
+        CEventX
+        CEXDispatch
+        CEventXH
+        constructor(uniType){
+            this.uniType = uniType
+
+        }
+        CEventX(channel,data = {}){return new CustomEvent(this.uniType,{detail:{channel:channel,data:data}})}
+        FIDispatch(Event,selector = "*"){
+            if (window){
+                
+                const ListAll = document.querySelectorAll(`.${selector}`)
+                ListAll.forEach((el)=>{
+                    el.dispatchEvent(Event)
+                })
+                // console.log(ListAll)
+            }
+        }
+
+        XADispatch(channel,data = {}){this.FIDispatch(this.CEventX(channel,data),this.uniType)}
+
+        CEventXH({channel , onEvent = function(){}}){
+            const ref = useRef()
+            useEffect(
+                ()=>{
+                    const func = onEvent
+                    const type = this.uniType
+                    const el = ref.current
+                    el.id = `CEVENTX-${genId()}`
+                    el.addEventListener(type,(e)=>{
+                        if (e.detail.channel == channel){
+                            func(e)
     
+                        }
+                    })
+        
+                },[]
+            )
+            return <div ref={ref} className={mergeText(this.uniType)} style={{display:"none"}} />
+        }
+    }
+
+    //# INCOMPLETE
     ,Mic:function({listenerId,channel}){
         const ref = useRef()
 
@@ -468,12 +513,12 @@ export function WMonitor(props){
     return <div ref={ref} style={{display:"none"}} />
 }
 
-export function CCInterval(name,operate=true){
+export function CCInterval(channel,operate=true){
     const EventName = `INTERVAL-EVENT` 
-    FADispatch(new CustomEvent(EventName,{detail:{name:name,operate:operate}}))
+    addonsComplex.XADispatch(channel,{operate:operate})
 }
 
-export function CInterval({interval,name,func,operate = true}){
+export function CInterval({interval,channel,func,operate = true}){
     const ref = useRef()
     const istate = new State(operate);
     const EventName = `INTERVAL-EVENT`  
@@ -489,7 +534,7 @@ export function CInterval({interval,name,func,operate = true}){
         }, interval);
     }
     ,[])
-    return <CEventH onEvent={CatchOperate} Type={EventName} />
+    return <CEventXH onEvent={CatchOperate} channel={channel} />
 }
 
 
