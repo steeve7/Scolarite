@@ -209,7 +209,7 @@ export const addonsComplex = {
         toString(){
             return JSON.stringify(this.states)
         }
-    }
+    },
     
     
     WSABOTAG:class {
