@@ -1,5 +1,5 @@
 "use client"
-import { BImage, CButton, CEDispatch, Center, CEventH, Cg2wrapper, clickHidden, CLink, Draggable, DropZone, FADispatch, Flip, Pd, Radio, State, ToolTip, useUpdate } from "@/components/addons/addons"
+import { addonsComplex, BImage, CButton, CEDispatch, Center, CEventH, Cg2wrapper, clickHidden, CLink, Draggable, DropZone, FADispatch, Flip, FlipX, Pd, Radio, State, ToolTip, useUpdate } from "@/components/addons/addons"
 import style from "./style.module.css"
 import frame1i1 from "./assets/frame1i1.png"
 import dragimg from "./assets/drag.png"
@@ -28,6 +28,12 @@ import { CRange, genId, mergeText, Range } from "../add"
 import MFormDatabase from "./MFormDatabase"
 import "./config.css"
 
+const EventNameList = {
+    multiFormMove:"MULTIFORM-MOVE",
+    multiFormReload:"MULTIFORM-RELOAD",
+    departmentCall:"DEPARTMENT-CALL"
+
+}
 const EventList = {
     multiFormMove:(detail = {index:0})=>new CustomEvent("MULTIFORM-MOVE",{detail:detail}),
     multiFormReload:(detail = {index:0})=>new CustomEvent("MULTIFORM-RELOAD",{detail:detail}),
@@ -42,7 +48,7 @@ function Fill({ Name,purpose={start: 0, end: 10},value=0 , need = true}){
     
     const [done,setdone] = useState(false)
     function FillFunc(e){
-        var index = Number(e.detail.index)
+        var index = Number(e.detail.data.index)
         const End = purpose.end
         const Start = purpose.start
         var el = ref.current
@@ -69,7 +75,7 @@ function Fill({ Name,purpose={start: 0, end: 10},value=0 , need = true}){
             {done && <Image src={doneimg} alt="2" className={style.filldoneimg}/> }
             {!done && value}
         </div>
-        <CEventH Name={EventName} Type={EventList.multiFormMove().type} onEvent={FillFunc}   />
+        <addonsComplex.CEventXH channel={EventNameList.multiFormMove} onEvent={FillFunc}   />
         
     </>
 }
@@ -88,7 +94,7 @@ function InnerSections({state,ehandle,form}){
         }
     }
 
-    return <Flip  Type={EventList.multiFormMove().type} indexClassName={style.innersection}   Name={Name}>
+    return <FlipX id={"frame3"} channel={EventNameList.multiFormMove} indexClassName={style.innersection}  >
         {/* <ToolTip message={"message success"} /> */}
         <div className={style.if1}>
             <div  className={style.if1title}>
@@ -282,7 +288,7 @@ perfect for outlining tasks or steps.
             </div>
         </div>
         
-    </Flip>
+    </FlipX>
 }
 
 function Depw({children, ...props}){
@@ -497,12 +503,14 @@ export default function Page(props){
          */
         // console.log(Event)
         console.log(Form.toString())
-        FADispatch(Event)
+        // FADispatch(Event)
+        addonsComplex.XADispatch(EventNameList.multiFormMove,{index:Index.get()})
     }
     
     return <div className={style.main}>
         <Cg2wrapper className={style.wrapper}>
-            <Flip Type={EventList.multiFormMove().type} speed={0.8} className={style.side1}  Name={"frame1"}>
+            <addonsComplex.CEventXH channel={EventNameList.multiFormMove} onEvent={()=>{console.log("eventX")}}></addonsComplex.CEventXH>
+            <FlipX channel={EventNameList.multiFormMove} speed={0.8} className={style.side1}  >
             {/* <ToolTip message={"message success"} /> */}
 
                 {ImageList.map((image,i)=>
@@ -510,7 +518,7 @@ export default function Page(props){
                         <Image src={image} alt="alt" style={{width:"100%"}}></Image>
                     </div>
                 )}
-            </Flip>
+            </FlipX>
             <Flip className={style.side2}  Name={"frame2"}>
                 <div className={mergeText(style.frame2section,style.frame2section1)}>
                     <div className={mergeText(style.frame2section1titlewrapper)}>

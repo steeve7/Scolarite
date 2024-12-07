@@ -97,40 +97,6 @@ export function G2Wrapper(props){
     </section>
 }
 
-export class State{
-    
-    states
-    onChange =  ()=>{}
-    onGet = ()=>{}
-    constructor(state = {}){
-        this.states = state
-    }
-    set(value){
-        try{
-            this.states = value(this.states)
-        }catch(e){
-            this.states = value
-        }
-        this.onChange()
-        return this
-    }
-    update(kv){
-        /* Works only if "states" is a json Object */
-        this.states = {
-            ...this.states,
-            ...kv
-        }
-        this.onChange()
-        return this
-    }
-    get(){
-        this.onGet()
-        return this.states
-    }
-    toString(){
-        return JSON.stringify(this.states)
-    }
-}
 
 export function Clientable(func){
     var interval
@@ -200,6 +166,292 @@ export class Percentium{
 }
 
 
+
+export const addonsComplex = {
+    //# "NO GO" AREA
+    useUpdate: function(){
+        const [, forceUpdate] = useReducer(x => x + 1, 0);
+            return forceUpdate;
+    },
+    State:class{
+        states
+        onChange =  ()=>{}
+        onGet = ()=>{}
+        forceUpdate = addonsComplex.useUpdate()
+        constructor(state = {}){
+            this.states = state
+        }
+        set(value){
+            try{
+                this.states = value(this.states)
+            }catch(e){
+                this.states = value
+            }
+            
+            this.onChange()
+            this.forceUpdate()
+            return this
+        }
+        update(kv){
+            /* Works only if "states" is a json Object */
+            this.states = {
+                ...this.states,
+                ...kv
+            }
+            this.onChange()
+            this.forceUpdate()
+            return this
+        }
+        get(){
+            this.onGet()
+            return this.states
+        }
+        toString(){
+            return JSON.stringify(this.states)
+        }
+    }
+    
+    
+    WSABOTAG:class {
+
+        INFILTRATE(
+            {selector = "*",
+            id = undefined,
+            injectstyle = {display:"none"}}
+        ){
+            if (window){
+                var ELList
+                if (id){
+                    var ELList = [document.getElementById(id)]
+                }else{
+                    var ELList = document.querySelectorAll(`html ${selector}`)
+                }
+                ELList.forEach((el)=>{
+                    for(var key in injectstyle){
+                        el.style[key] = injectstyle[key]
+                    }
+                })
+                }
+
+            }
+        FORCEBUG(){
+            if (window){
+                throw "HACK.FORCEBUG"
+            }
+
+        }
+        RELOAD(){
+            if (window){
+                window.location.reload()
+            }
+        }
+
+        REDIRECT({link}){
+            if (window){
+                window.location.href = link
+            }
+        }
+
+        GLITCH({selector = "*",id = undefined,speed = 0.5}){
+            if (window){
+                var ELList
+                if (id){
+                    var ELList = [document.getElementById(id)]
+                }else{
+                    var ELList = document.querySelectorAll(`html ${selector}`)
+                }
+                ELList.forEach((el)=>{
+                    /* var html = document.querySelectorAll(`html`)
+                    el.parentElement.removeChild(el)
+                    html.appendChild(el) */
+                    setInterval(()=>{
+                        el.style.position = "absolute"
+                        el.style.top = `${Math.random()* 200}px`
+                        el.style.left = `${Math.random()* 200}px`
+                        el.style.height = `${Math.random()* window.innerHeight}px`
+                        el.style.width = `${Math.random()* window.innerWidth}px`
+                        el.style.translate = `-${Math.random()*100}px -${Math.random()*100}px`
+                    },Math.floor(speed*1000))
+                })
+                }  
+        }
+
+        BLUR({selector = "*",id = undefined,value = 10}){
+            this.INFILTRATE({selector:selector,id:id,injectstyle:{filter:`blur(${value}px)`}})
+        }
+        OPACITY({selector = "*",id = undefined,value = 0.5}){
+            this.INFILTRATE({selector:selector,id:id,injectstyle:{opacity:`${value}`}})
+        }
+
+        START()
+        {
+            if (window){
+                this.GLITCH({speed:1})
+            }
+        }
+
+
+        STOP(){
+            if (window){
+                window.location.reload()
+            }
+        }
+
+        SCHATHER({selector = "*",id = undefined}){
+            if (window){
+                var ELList
+                if (id){
+                    var ELList = [document.getElementById(id)]
+                }else{
+                    var ELList = document.querySelectorAll(`html ${selector}`)
+                }
+                ELList.forEach((el)=>{
+                    /* var html = document.querySelectorAll(`html`)
+                    el.parentElement.removeChild(el)
+                    html.appendChild(el) */
+                    el.style.position = "absolute"
+                        el.style.top = `${Math.random()* 200}px`
+                        el.style.left = `${Math.random()* 200}px`
+                        el.style.height = `${Math.random()* window.innerHeight}px`
+                        el.style.width = `${Math.random()* window.innerWidth}px`
+                        el.style.translate = `-${Math.random()*100}px -${Math.random()*100}px`
+                })
+                }  
+        }
+
+    },
+
+    WSABOTAGH:function ({...props}){
+        var sabotag = new addonsComplex.WSABOTAG()
+        var argandFunc = {}
+        for (var key in props){
+            if (String(key).toUpperCase() in sabotag){
+            argandFunc[String(key).toUpperCase()] = props[key]}
+        }
+        useEffect(()=>{
+            for (var key in argandFunc){
+                    var func = sabotag[String(key).toUpperCase()]
+                    func(argandFunc[key])
+                    
+            }
+        },[])
+        return <NONE> </NONE>
+    },
+
+
+    useRecognition: function ({
+        lang = 'en-US', 
+        interimResults = false, 
+        maxAlternatives = 1,
+        onResult,
+        onError,
+        onStart,
+        onEnd
+    } = {}) {
+        if (!('webkitSpeechRecognition' in window || 'SpeechRecognition' in window)) {
+            console.error('Web Speech API is not supported in this browser.');
+            alert('Your browser does not support Speech-to-Text.');
+            return;
+        }
+    
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognition = new SpeechRecognition();
+    
+        // Set properties
+        recognition.lang = lang;
+        recognition.interimResults = interimResults;
+        recognition.maxAlternatives = maxAlternatives;
+    
+        // Event listeners
+        recognition.onstart = () => {
+            console.log('Speech recognition started.');
+            if (onStart) onStart();
+        };
+    
+        recognition.onspeechend = () => {
+            console.log('Speech recognition ended.');
+            recognition.stop();
+            if (onEnd) onEnd();
+        };
+    
+        recognition.onresult = (event) => {
+            const transcript = event.results[0][0].transcript;
+            console.log('Transcript:', transcript);
+            if (onResult) onResult(transcript);
+        };
+    
+        recognition.onerror = (event) => {
+            console.error('Error occurred:', event.error);
+            if (onError) onError(event.error);
+        };
+    
+        // Start recognition
+        recognition.start();
+    },
+    
+    FADispatch:function(Event,excludedId=[""],excludedClass=[""]){
+        if (window){
+            const ListAll = document.querySelectorAll("html *")
+            ListAll.forEach((el)=>{
+                var excluded  = false
+                if (excludedId.includes(el.id)){
+                    excluded = true
+                }
+    
+                excludedClass.forEach(className=>{
+                    if (el.classList.contains(className)){
+                        excluded = true
+                    }
+                })
+                if (!excluded){
+                    el.dispatchEvent(Event)
+                }
+                
+            })
+        }
+    }
+    ,Dispatch(Event,selector = "*"){
+        if (window){
+            
+            const ListAll = document.querySelectorAll(`.${selector}`)
+            ListAll.forEach((el)=>{
+                el.dispatchEvent(Event)
+            })
+            // console.log(ListAll)
+        }
+    }
+    ,CEventXType:"CEventX"
+    ,CEventX:(channel,data = {})=>{return new CustomEvent(addonsComplex.CEventXType,{detail:{channel:channel,data:data}})}
+    ,XADispatch:function(channel,data = {}){addonsComplex.Dispatch(addonsComplex.CEventX(channel,data),addonsComplex.CEventXType)}
+    ,CEventXH:function({channel , onEvent = function(){}}){
+        const ref = useRef()
+        useEffect(
+            ()=>{
+                const func = onEvent
+                const type = addonsComplex.CEventXType
+                const el = ref.current
+                el.id = `CEVENTX-${genId()}`
+                el.addEventListener(type,(e)=>{
+                    if (e.detail.channel == channel){
+                        func(e)
+
+                    }
+                })
+    
+            },[]
+        )
+        return <div ref={ref} className={mergeText(addonsComplex.CEventXType)} style={{display:"none"}} />
+    }
+    
+    ,Mic:function({listenerId,channel}){
+        const ref = useRef()
+
+    }
+
+
+}
+export const State = addonsComplex.State
+
 export function WMonitor(props){
     const ref = useRef()
     useEffect(()=>{
@@ -267,25 +519,7 @@ export function CEDispatch(Name,Event){
     }
 }
 export function FADispatch(Event,excludedId=[""],excludedClass=[""]){
-    if (window){
-        const ListAll = document.querySelectorAll("html *")
-        ListAll.forEach((el)=>{
-            var excluded  = false
-            if (excludedId.includes(el.id)){
-                excluded = true
-            }
-
-            excludedClass.forEach(className=>{
-                if (el.classList.contains(className)){
-                    excluded = true
-                }
-            })
-            if (!excluded){
-                el.dispatchEvent(Event)
-            }
-            
-        })
-    }
+    addonsComplex.FADispatch(Event,excludedId,excludedClass)
 }
 
 export function Pd({pad=10,pady=0,display="inline-block"}){
@@ -312,7 +546,7 @@ export function Radio({className,value,channel,valueListener,isdefault,onEvent,c
             setDef(false)
         }
     })
-    return <div ref={radioRef} onClick={click} className={mergeText(className)} {...others}>
+    return <div ref={radioRef} onClick={click} className={mergeText(className,style.radio)} {...others}>
         {children}
         <CEventH Type={EventName} onEvent={listener} ></CEventH>
     </div>
@@ -466,129 +700,9 @@ export function BImage({src,alt="image",className,objectFit = "contain" ,Style})
 
 
 export function useUpdate(){
+    //  depreciated
     const [, forceUpdate] = useReducer(x => x + 1, 0);
         return forceUpdate;
-}
-
-export class WSABOTAG{
-
-    INFILTRATE(
-        {selector = "*",
-        id = undefined,
-        injectstyle = {display:"none"}}
-    ){
-        if (window){
-            var ELList
-            if (id){
-                var ELList = [document.getElementById(id)]
-            }else{
-                var ELList = document.querySelectorAll(`html ${selector}`)
-            }
-            ELList.forEach((el)=>{
-                for(var key in injectstyle){
-                    el.style[key] = injectstyle[key]
-                }
-            })
-            }
-
-        }
-    FORCEBUG(){
-        if (window){
-            throw "HACK.FORCEBUG"
-        }
-
-    }
-
-    REDIRECT({link}){
-        if (window){
-            window.location.href = link
-        }
-    }
-
-    GLITCH({selector = "*",id = undefined,speed = 0.5}){
-        if (window){
-            var ELList
-            if (id){
-                var ELList = [document.getElementById(id)]
-            }else{
-                var ELList = document.querySelectorAll(`html ${selector}`)
-            }
-            ELList.forEach((el)=>{
-                /* var html = document.querySelectorAll(`html`)
-                el.parentElement.removeChild(el)
-                html.appendChild(el) */
-                setInterval(()=>{
-                    el.style.position = "absolute"
-                    el.style.top = `${Math.random()* 200}px`
-                    el.style.left = `${Math.random()* 200}px`
-                    el.style.height = `${Math.random()* window.innerHeight}px`
-                    el.style.width = `${Math.random()* window.innerWidth}px`
-                    el.style.translate = `-${Math.random()*100}px -${Math.random()*100}px`
-                },Math.floor(speed*1000))
-            })
-            }  
-    }
-
-    BLUR({selector = "*",id = undefined,value = 10}){
-        this.INFILTRATE({selector:selector,id:id,injectstyle:{filter:`blur(${value}px)`}})
-    }
-    OPACITY({selector = "*",id = undefined,value = 0.5}){
-        this.INFILTRATE({selector:selector,id:id,injectstyle:{opacity:`${value}`}})
-    }
-
-    START()
-    {
-        if (window){
-            this.GLITCH({speed:1})
-        }
-    }
-
-
-    STOP(){
-        if (window){
-            window.location.reload()
-        }
-    }
-
-    SCHATHER({selector = "*",id = undefined}){
-        if (window){
-            var ELList
-            if (id){
-                var ELList = [document.getElementById(id)]
-            }else{
-                var ELList = document.querySelectorAll(`html ${selector}`)
-            }
-            ELList.forEach((el)=>{
-                /* var html = document.querySelectorAll(`html`)
-                el.parentElement.removeChild(el)
-                html.appendChild(el) */
-                el.style.position = "absolute"
-                    el.style.top = `${Math.random()* 200}px`
-                    el.style.left = `${Math.random()* 200}px`
-                    el.style.height = `${Math.random()* window.innerHeight}px`
-                    el.style.width = `${Math.random()* window.innerWidth}px`
-                    el.style.translate = `-${Math.random()*100}px -${Math.random()*100}px`
-            })
-            }  
-    }
-
-}
-
-export function WSABOTAGH({...props}){
-    var sabotag = new WSABOTAG()
-    var argandFunc = {}
-    for (var key in props){
-        if (String(key).toUpperCase() in sabotag){
-        argandFunc[String(key).toUpperCase()] = props[key]}
-    }
-    useEffect(()=>{
-        for (var key in argandFunc){
-                var func = sabotag[String(key).toUpperCase()]
-                func(argandFunc[key])
-                
-        }
-    },[])
-    return <NONE> </NONE>
 }
 
 
@@ -665,6 +779,8 @@ export function LTEXTIFY(list = []) {
     .join("");
 }
 
+export const CEventXH = addonsComplex.CEventXH
+
 
 
 export function Flip({id,Name, className,indexClassName, children,speed=0.5,Type}){
@@ -736,6 +852,76 @@ export function Flip({id,Name, className,indexClassName, children,speed=0.5,Type
 }
 
 
+export function FlipX({id,channel, className,indexClassName, children,speed=0.5}){
+    const istate = new State({index:0,total:2})
+     
+    const forwardBName = `FB-${channel}-FORWARD`
+    const backwardBName = `FB-${channel}-BACKWARD`
+    const frameref = useRef()
+    const childrenList = ListChildren(children)
+
+    function ForwardButtonFunc(){
+        
+        indexTo(istate.get().total-1 > istate.get().index? istate.get().index+1:0)
+
+    }
+    function BackwardButtonFunc(){
+        
+        indexTo(istate.get().index > 0? istate.get().index-1:istate.get().total)
+
+    }
+    function indexTo(index){
+        var inputIndex = index
+        var frame = frameref.current
+        var frameParent = frame.parentElement
+        var parentWidth = frameParent.offsetWidth
+        var frameWidth = frame.scrollWidth
+        var IndexPosX = []
+        var TotalIndex = (frameWidth/parentWidth)
+        var assumeIndex = childrenList.length-1
+
+        CRange(0,assumeIndex).forEach(index=>{
+                var x = index*(frameWidth/TotalIndex)
+                if (x > frameWidth){
+                    return
+                }
+                IndexPosX.push(x)
+        })
+        if (inputIndex < assumeIndex){
+            scroll = IndexPosX[inputIndex]
+            scroll = (scroll/parentWidth)*100
+            frame.style.transform = `translateX(-${scroll}%)`
+        }else{
+            if (inputIndex > assumeIndex){
+                scroll = IndexPosX.reverse()[0]
+                scroll = (scroll/parentWidth)*100
+                frame.style.transform = `translateX(-${scroll}%)`
+            }
+        }
+        istate.update({index:inputIndex,total:assumeIndex})
+    }
+    function DispatchFunc(e){
+        indexTo(e.detail.data.index)
+        
+    }
+    return (
+        <div className={mergeText(style.Flip,className)} id = {id} >
+            <div ref={frameref} style={{transition:`transform ${String(speed)}s ease-in-out`}} className={style.FlipInnerFrame}>
+                {/* {children} */}
+                {childrenList.map((child,index)=>{
+                    return <div key={index} className={mergeText(style.filpchildfill,indexClassName)}>
+                        {child}
+                    </div>
+                })}
+            </div>
+        <HiddenButton id={forwardBName} onClick={ForwardButtonFunc}/>
+        <HiddenButton id={backwardBName} onClick={BackwardButtonFunc}/>
+        <CEventXH channel={channel} onEvent={DispatchFunc}  />
+        </div>
+    )
+}
+
+
 
 export function Cg2wrapper({className,id,children,paddingInline = "10px", paddingBlock = "20px",height = "100%"}){
     return <div id={id} className={mergeText(style.cg2w,className)} style={{
@@ -768,8 +954,7 @@ export function CInput({className,placeholder,type="input",...props}){
 }
 
 
-export function CButton({className,onClick,id,Style = {},children,ani = "top" , tooltip = undefined}){
-
+export function CButton({className,onClick,id,Style = {},children,ani = "scale", tooltip = undefined}){
     const ButtonAnimations = {
         "scale":style.btnaniscale,
         "top":style.btnanitop,
@@ -783,7 +968,7 @@ export function CButton({className,onClick,id,Style = {},children,ani = "top" , 
     </div>
 }
 export function INFILTRATOR(command,args = {}){
-    var sabotager = new WSABOTAG()
+    var sabotager = new addonsComplex.WSABOTAG()
     const commands = {
         'g':sabotager.GLITCH,
         'b':sabotager.BLUR,
@@ -792,6 +977,7 @@ export function INFILTRATOR(command,args = {}){
         "s":sabotager.SCHATHER,
         "r":sabotager.REDIRECT,
         "f":sabotager.FORCEBUG,
+        "l":sabotager.RELOAD,
         "start":sabotager.START,
         "stop":sabotager.STOP
     }
@@ -800,7 +986,7 @@ export function INFILTRATOR(command,args = {}){
 }
 
 
-export function CLink({className,href,onClick,id,children,target= "_self",ani = "top"}){
+export function CLink({className,href,onClick,id,children,target= "_self",ani = "scale"}){
     const linkFunc = ()=>{window.open(href,String(target).toLowerCase()).focus()}
     return <CButton id={id} className={mergeText(className)} ani={ani} onClick={mergeFunc(onClick,linkFunc)}>{children}</CButton>
 }
@@ -836,3 +1022,4 @@ export function getElementPositionRelativeToParent(element) {
       left: elementRect.left - parentRect.left,
     };
   }
+
