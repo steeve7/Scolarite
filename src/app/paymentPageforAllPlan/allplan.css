@@ -1,0 +1,685 @@
+*{
+    /* background-color: white; */
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+.background{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* border: 2px solid black; */
+    /* height: 100vh; */
+}
+
+
+
+.inner-body{
+    border: 2px solid #E8EBF1;
+    /* border: 2px solid rebeccapurple; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    height: 85%;
+    border-radius: 20px;
+    box-shadow: 10px 70px 15px 20px #e8f0ff;
+
+}
+
+
+.Card-payment-info{
+    width: 100%;
+    background-color: white;
+    height: 100%;
+    margin-left: 2rem;
+    animation: slideMe 2.5s ease-in;
+    
+}
+
+@keyframes slideMe {
+
+    0%{
+        transform: skewX(53deg) translateX(-1000px);
+    opacity: 20%;
+
+    }
+    60%{
+        transform: translateX(0px);
+    opacity: 10%;
+
+    }
+    62%{
+        transform: skewX(0deg) translateX(30px);
+    }
+    70%{
+        transform: skew(0deg);
+        opacity: 20%;
+
+    }
+    80%{
+        transform: skew(0deg) translate(0) ;
+    }
+    100%{
+        transform: skew(0deg);
+    }
+
+}
+
+
+.nav{
+    display: flex;
+    align-items: center;
+    padding-top: 2rem;
+    list-style-type: none;
+}
+.logo{
+    width: 30px;
+}
+.scolar{
+    padding-left: 1rem;
+    font-size: 30px;
+}
+.card{
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+    list-style-type: none;
+}
+.credit-cd{
+    width: 35px;
+}
+.credit-info{
+    padding-left: 1rem;
+    font-size: 20px;
+}
+.visa{
+    height: auto;
+    width: auto;
+}
+
+
+
+
+
+
+/* FORM */
+
+
+
+
+form{
+    padding-bottom: 2rem;
+    margin-top: 1rem;
+}
+.input-headings ul{
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    padding-bottom: 0.5rem;
+    margin-bottom: 5px;
+
+}
+.text{
+    padding-right: 1rem;
+    color: #253058;
+    font-weight: 600;
+}
+#holdersname{
+    margin-bottom: 1rem;
+}
+.info{
+    width: 20px;
+    
+}
+
+.input{
+    width: 80%;
+    height: 3rem;
+     background: #F8F9FB;
+    border: 2px solid #c8cacd;
+    padding-left: 0.5rem;
+    border-radius: 10px;
+    color: #253058;
+    outline: none;
+  
+}
+
+
+
+.payment-method{
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    width: 80%;
+    padding-left: 0.5rem;
+    align-items: center;
+    height: 3rem;
+    background: #F8F9FB;
+    border: 2px solid #c8cacd;
+    border-radius: 10px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: #253058;
+
+
+}
+.payment-method ul{
+    display: flex;
+    align-items: center;
+    line-height: 1rem;
+}
+.visa{
+    /* border-radius: 50%; */
+    margin-right: 1rem;
+    /* border: 1px solid black; */
+    line-height: 1px;
+    gap: 1px;
+    cursor: pointer;
+    font-size: 7px;
+    height: 35px;
+    width: 35px;
+    background: #F8F9FB;
+
+    /* background-color: #c8cacd; */
+
+}
+.visa-2{
+    cursor: pointer;
+    height: 35px;
+    width: 35px;
+    margin-right: 1rem;
+    background: #F8F9FB;
+    
+}
+.date-cvv{
+    display: flex;
+    width: 80%;  
+    margin-top: 1rem;
+    justify-content: space-between;
+    outline: none;
+
+}
+
+.input-expiry{
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     background: #F8F9FB;
+    border: 1px solid #c8cacd;
+    padding-left: 2rem;
+    border-radius: 10px;
+    outline: none;
+    color: #253058;
+
+}
+.input-cvv{
+    width: 100%;
+    height: 3rem;
+     background: #F8F9FB;
+    border: 1px solid #c8cacd;
+    padding-left: 0.5rem;
+    border-radius: 10px;
+    outline: none;
+    color: #253058;
+
+}
+.subscribe{
+    width: 80%;
+    height: 3rem;
+    /* border: 3px solid #c8cacd; */
+    padding-left: 0.5rem;
+    border-radius: 10px;
+    background: black;
+    margin-top: 1.5rem;
+    color: white;
+}
+
+.subscribe:hover{
+    border: 2px solid  #a0a2ab;
+    /* background-color: #1d1e1e; */
+}
+
+
+
+/* SECOND DIV */
+.Payment-summary{
+    width: 100%;
+    padding-top: 3rem;
+    /* padding-left: 3rem; */
+   
+}
+.Payment-summary:hover{
+    transition: height 0.5s ease-in-out,
+    translate 0.5s ease-in-out,
+    opacity 0.5s ease-in-out;
+    translate: 0px -15px;
+}
+
+@keyframes slideMe2 {
+
+    0%{
+    /* backdrop-filter: blur(207.74888610839844px); */
+        transform: skewX(53deg) translateX(1000px);
+    opacity: 20%;
+
+        
+    }
+    60%{
+        transform: translateX(0px);
+    opacity: 10%;
+
+    }
+    62%{
+        transform: skewX(0deg) translateX(30px);
+    }
+    70%{
+    opacity: 20%;
+    transform: skew(0deg);
+    }
+    80%{
+        transform: skew(0deg) translate(0) ;
+    }
+    100%{
+        transform: skew(0deg);
+    }
+
+}
+
+.black-line{
+    list-style-type: none;
+    width: 18%;
+    margin-left: 10.5rem;
+    border-radius: 10px;
+    border: 5px solid black;
+   animation: slideMe2 2.5s ease-in;
+   
+    
+}
+/* .black-line:hover{
+    transition: height 0.5s ease-in-out,
+    translate 0.5s ease-in,
+    opacity 0.5s ease-in-out;
+    translate: 0px -15px;
+} */
+.payment-inner{
+    width: 80%;
+    padding: 1rem;
+    height: 50%;
+    background: #DDEBF5B2;
+    border-radius: 10px;    
+    /* backdrop-filter: blur(207.74888610839844px); */
+    /* background-color: transparent; */
+    position: relative;
+    /* border: 2px solid rebeccapurple; */
+   top: -0.2rem;
+   opacity: 20% 0.5s ease-in-out;
+   animation: slideMe2 2s ease-in;
+   border-bottom: 2px  dotted #253058;
+   
+
+   
+}
+
+.p{
+    background-color: #e7f0f7b2;
+    /* backdrop-filter: blur(207.74888610839844px); */
+    color:#253058;
+    /* width: 90%; */
+    /* margin-left: 1rem; */
+    margin-bottom: 1rem;
+}
+.p span{
+    background-color: #e7f0f7b2;
+        /* backdrop-filter: blur(207.74888610839844px); */
+}
+.p-summary{
+    font-size: 20px;
+}
+.p-text{
+    font-size: 15px;
+}
+
+.elements{
+    /* border: 1px solid black; */
+    height: fit-content;
+    width: 90%;
+    margin-left: 1rem;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-items: center; */
+    color: #253058;
+    background-color: #dff0fcb2;
+    padding:1rem;
+    margin-bottom: 3rem;
+    border-radius: 10px;
+}
+.list{
+    display: flex;
+    background-color: #dff0fcb2;
+    justify-content: space-around;
+    align-items: center;
+    /* width: 50%; */
+    gap: 29px;
+
+}
+.list li{
+    background-color:#dff0fcb2;
+    display: flex;
+    width: 100%;
+    /* border: 2px solid darkblue; */
+    justify-content: space-between;
+    display: flex;
+    /* gap: 29px; */
+}
+.list-1{
+    display: flex;
+    color: #1c2a5a;
+    font-weight: bold;
+    /* justify-content: flex-start; */
+}
+.Amount-check{
+    border: 2px solid #DDEBF5B2 ;
+    width: 80%;
+    padding: 1rem;
+    background-color: #DDEBF5B2;
+    /* backdrop-filter: blur(207.74888610839844px); */
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   gap: 30px;
+   animation: slideMe2 2s ease-in;
+   border-radius: 10px;
+   padding: 2rem;
+   /* border-bottom: 2px  dotted #253058; */
+   
+}
+.inner-amount{
+    /* backdrop-filter: blur(207.74888610839844px); */
+    background-color: #DDEBF5B2;
+    /* opacity: 2px; */
+
+}
+.tt-amnt{
+    /* backdrop-filter: blur(207.74888610839844px); */
+    background-color: #DDEBF5B2;
+    color: #253058;
+    font-size: 15px;
+    
+}
+.naira{
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #1c2a5a;
+    background-color: #DDEBF5B2;
+    /* backdrop-filter: blur(207.74888610839844px); */
+    font-weight: bold;
+}
+.message{
+    background: #DDEBF5B2;
+    height: 50px;
+    /* height: auto; */
+    width: auto;
+    
+}
+.circle{
+    display: flex;
+    width: 80%;
+    /* height: 50%; */
+    position: relative;
+    justify-content: space-between;
+    /* border: 3px solid red; */
+}
+.circle-1{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    position: relative;
+    bottom: 9rem;
+    right: 1rem;
+    background-color: white;
+    /* border: 2px solid black; */
+    
+}
+.circle-2{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    position: relative;
+    bottom: 9rem;
+    right: -1rem;
+    background-color: white;
+}
+
+.nav-link{
+    display: none;
+    margin-left: -3.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:450px) {
+    .inner-body{
+        display: flex;
+        flex-direction: column-reverse;
+        width: 80%;
+    }
+    .scolar{
+        font-size: 25px;
+    }
+    .Card-payment-info{
+        width: 80%;
+        
+    }
+    .Card-payment-info > ul{
+        display: none;
+    }
+    .credit-info{
+        font-size: 15px;
+        font-weight: 600;
+        width: 100%;
+        margin-right: 2rem;
+    }
+    form{
+        width: 100%;
+        margin-left: -1.5rem;
+        position: relative;
+        left: -3rem;
+    }
+    .input{
+        width: 100%;
+        height: 2.5rem ;
+    }
+    .payment-method{
+        font-size: 10px;
+        width: 100%;
+        height: 2.5rem;
+    }
+    .visa{
+        width: 20px;
+        height: 15px;
+    }
+    .visa-2{
+        width: 15px;
+        height: 15px;
+    }
+    .date-cvv{
+        /* width: 0%; */
+        /* display: block; */
+        /* overflow: hidden; */
+        gap: 20px;
+        width: 100%;
+       
+    }
+    .info{
+        height: 15px;
+    }
+    .input-expiry{
+        width:100%;
+        height: 2.5rem;
+    }
+    .input-headings{
+        width: 100%;
+        font-size: 10px;
+        
+    }
+    .input-headings ul{
+        padding: 2px;
+    }
+    .text{
+        font-size: 10px;
+        /* margin-bottom: 1rem; */
+        /* width: 50%; */
+    }
+    .input-cvv{
+        width: 100%;
+        height: 2.5rem;
+    }
+    .subscribe{
+        width: 100%;
+    }
+    .black-line{
+        margin-left: 6rem;
+    }
+    .nav-link{
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+    .Payment-summary{
+        /* margin-top: 5rem; */
+        width: 100%;
+        position: relative;
+        padding-right: 2rem;
+        left: -1.5rem;
+    }
+    .p-summary{
+        font-size: 15px;
+    }
+    
+    .payment-inner{
+        width: 80%;
+        padding-bottom: 2rem;
+    }
+    .elements{
+        width: 100%;
+        margin: 0;
+        height: fit-content;
+        font-size: 12px;
+
+    }
+    
+    .list{
+        font-size: 10px;
+        width: 100%;
+    }
+    .Amount-check{
+        padding: 0.5rem;
+    }
+    .circle-1{
+        bottom: 5.7rem;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+    }
+    .circle-2{
+        bottom: 5.7rem;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+    }
+    .inner-amount{
+        padding-left: 0.5rem;
+    }
+    .tt-amnt{
+        font-size: 12px;
+    }
+    .message{
+        height: 40px;
+        padding-right: 0.5rem;
+    }
+    .naira{
+        font-size: 12px;
+    }
+
+}
+@media screen and (max-width:540px) {
+    .Payment-summary{
+        padding: 0;
+       width: 100%;
+      margin-left: 2rem;
+    }
+    .elements{
+        width: 100%;
+        /* margin-bottom: 2rem; */
+        font-size: 12px;
+        height: fit-content;
+    }
+}
+
+@media screen  and (max-width: 768px){
+    .inner-body{
+        display: flex;
+        flex-direction: column-reverse;
+        overflow: hidden;
+
+        width: 80%;
+    }
+   
+    .Card-payment-info > ul{
+        display: none;
+    }
+    .Payment-summary{
+       margin-left:2.5rem;
+
+    }
+    .nav-link{
+        display: block;
+    }
+    .elements{
+        padding: 1rem;
+        margin: 0;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .inner-body{
+        display: flex;
+        flex-direction: column-reverse;
+        overflow: hidden;
+    }
+    .Card-payment-info > ul{
+        display: none;
+    }
+    .nav-link{
+        display: block;
+        padding-bottom: 1.5rem;
+        margin-left: 0.0001rem;
+    }
+    .Payment-summary{
+        margin-left: 7rem;
+        padding-top: 2rem;
+     }
+     form{
+         width: 110%;
+         margin-left: 1.5rem;
+     }
+}
