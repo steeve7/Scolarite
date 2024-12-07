@@ -42,6 +42,7 @@ import Header from "@/components/HomeLayouts/Header";
 import FooterWrapper from "@/components/HomeLayouts/FooterWrapper";
 import { Roboto } from 'next/font/google';
 import { mergeText } from './add';
+import { ListChildren } from "@/components/addons/addonsServer";
 
 const inter = Roboto({
   weight: ['300', '400', '500', '700', '900'],
@@ -66,7 +67,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <Header />
-        <main className={mergeText(inter.className,"MAIN-CONTAINER")}>{children}
+        <main className={mergeText(inter.className,"MAIN-CONTAINER")}>{ListChildren(children,{fdprocessedid:"vtmqgv"})}
         <FooterWrapper />
         </main>
       </body>

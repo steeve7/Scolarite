@@ -482,7 +482,9 @@ export default function Page(props){
             preScore:0,
             Course:""
 
-        }
+        },
+        true
+
     )
     const Index = new State(0)
     const FilllistAssign = ["Academic Goals", "Current Academic Status", "Study Preference", "Customization", "Congratulations"]

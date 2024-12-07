@@ -6,6 +6,7 @@ import tooltiptri from "./assets/tooltiptri.png"
 import Image from "next/image"
 const indexId = genId("b")
 import { usePathname } from "next/navigation"
+import { ListChildren } from "./addonsServer"
 
 export var isPageExempt = ()=>{
     var Exempt = false
@@ -177,9 +178,10 @@ export const addonsComplex = {
         states
         onChange =  ()=>{}
         onGet = ()=>{}
-        forceUpdate = addonsComplex.useUpdate()
-        constructor(state = {}){
+        forceUpdate 
+        constructor(state = {},forceChange=false){
             this.states = state
+            this.forceUpdate =  forceChange?addonsComplex.useUpdate():()=>{};
         }
         set(value){
             try{
@@ -600,13 +602,6 @@ export class ClickControl{
 }
 
 
-export function ListChildren(children,CloneWithProps = {}){
-    const childrenWithProps = React.Children.map(children, (child,index) =>
-        React.cloneElement(child, { key: index, ...CloneWithProps })
-      );
-    return childrenWithProps
-
-}
 
 export function Draggable({
     className,
@@ -1023,3 +1018,4 @@ export function getElementPositionRelativeToParent(element) {
     };
   }
 
+export {ListChildren}
