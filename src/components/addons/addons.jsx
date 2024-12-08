@@ -171,7 +171,7 @@ export class Percentium{
 export const addonsComplex = {
     //# "NO GO" AREA
     useUpdate: function(){
-        const [, forceUpdate] = useReducer(x => x + 1, 0);
+        const [, forceUpdate] = useReducer(x => x + 1, 1);
             return forceUpdate;
     },
     State:class{
@@ -179,10 +179,17 @@ export const addonsComplex = {
         onChange =  ()=>{}
         onGet = ()=>{}
         forceUpdate 
+
         constructor(state = {},forceChange=false){
             this.states = state
             this.forceUpdate =  forceChange?addonsComplex.useUpdate():()=>{};
         }
+
+        forceUpdateInit(){
+            this.forceUpdate =  addonsComplex.useUpdate();
+
+        }
+
         set(value){
             try{
                 this.states = value(this.states)
@@ -447,9 +454,6 @@ export const addonsComplex = {
 
     CEXModel:class{
         uniType
-        CEventX
-        CEXDispatch
-        CEventXH
         constructor(uniType){
             this.uniType = uniType
 
@@ -466,14 +470,15 @@ export const addonsComplex = {
             }
         }
 
-        XADispatch(channel,data = {}){this.FIDispatch(this.CEventX(channel,data),this.uniType)}
+        CEXDispatch(channel,data = {}){this.FIDispatch(this.CEventX(channel,data),this.uniType)}
 
-        CEventXH({channel , onEvent = function(){}}){
+        CEventXH({channel,self , onEvent = function(){}}){
+            self = this?this:self
             const ref = useRef()
             useEffect(
                 ()=>{
                     const func = onEvent
-                    const type = this.uniType
+                    const type = self.uniType
                     const el = ref.current
                     el.id = `CEVENTX-${genId()}`
                     el.addEventListener(type,(e)=>{
@@ -485,7 +490,7 @@ export const addonsComplex = {
         
                 },[]
             )
-            return <div ref={ref} className={mergeText(this.uniType)} style={{display:"none"}} />
+            return <div ref={ref} className={mergeText(self.uniType)} style={{display:"none"}} />
         }
     }
 
@@ -497,6 +502,7 @@ export const addonsComplex = {
 
 
 }
+export const CEXModel = addonsComplex.CEXModel
 export const State = addonsComplex.State
 
 export function WMonitor(props){
@@ -739,12 +745,7 @@ export function BImage({src,alt="image",className,objectFit = "contain" ,Style})
 }
 
 
-export function useUpdate(){
-    //  depreciated
-    const [, forceUpdate] = useReducer(x => x + 1, 0);
-        return forceUpdate;
-}
-
+export const useUpdate = addonsComplex.useUpdate
 
 export function ToolTip({message,id,children}){
     const tipRef = React.useRef()
@@ -759,8 +760,8 @@ export function ToolTip({message,id,children}){
     }
     function Leave(){
         var el = tipRef.current
-         el.classList.remove(style.showtooltip)
-         enter = false
+        el.classList.remove(style.showtooltip)
+        enter = false
     }
     useEffect(()=>{
         var PARENTNAME = `tooltipparent-${genId()}`

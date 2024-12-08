@@ -1,5 +1,5 @@
 "use client"
-import { addonsComplex, BImage, CButton, CEDispatch, Center, CEventH, Cg2wrapper, clickHidden, CLink, Draggable, DropZone, FADispatch, Flip, FlipX, Pd, Radio, State, ToolTip, useUpdate } from "@/components/addons/addons"
+import { addonsComplex, BImage, CButton, CEDispatch, Center, CEventH, CEXModel, Cg2wrapper, clickHidden, CLink, Draggable, DropZone, FADispatch, Flip, FlipX, Pd, Radio, State, ToolTip, useUpdate } from "@/components/addons/addons"
 import style from "./style.module.css"
 import frame1i1 from "./assets/frame1i1.png"
 import dragimg from "./assets/drag.png"
@@ -27,6 +27,7 @@ import { useEffect, useRef, useState } from "react"
 import { CRange, genId, mergeText, Range } from "../add"
 import MFormDatabase from "./MFormDatabase"
 import "./config.css"
+import { data } from "autoprefixer"
 
 const EventNameList = {
     multiFormMove:"MULTIFORM-MOVE",
@@ -84,8 +85,7 @@ function InnerSections({state,ehandle,form}){
     const index = state
     const Name = "IF1"
     const Form = form
-    const update = useUpdate()
-    index.onChange = update
+    index.forceUpdateInit()
     function FormInsertValidate(key,UnlessCallFunc,IfNotFunc){
         if(Form.get()[key]){
             UnlessCallFunc()
@@ -110,7 +110,7 @@ function InnerSections({state,ehandle,form}){
         <div  className={style.if1title}>
             What's your target School?  
             </div>
-            <Center><input type="text" onChange={el=>Form.update({School:el.target.value})} className={style.ifts} placeholder="Enter school name" /></Center>
+            <Center><Finput change={el=>Form.update({School:el})} dl={db.School} channel={"school"}  placeholder="Enter school name" /></Center>
            <br />
            <br />
            <br />
@@ -186,11 +186,11 @@ function InnerSections({state,ehandle,form}){
             <Center>
                 
                 <Depw >
-                    <input type="text" max={400} id="preScore-input" onChange={el=>{Form.states.Subjects[0]=el.target.value}} className={style.ifts} style={{width:"100%"}} placeholder="Enter first subject" />
-                    <input type="text" max={400} id="preScore-input" onChange={el=>{Form.states.Subjects[1]=el.target.value}} className={style.ifts} style={{width:"100%"}} placeholder="Enter second subject" />
-                    <input type="text" max={400} id="preScore-input" onChange={el=>{Form.states.Subjects[2]=el.target.value}} className={style.ifts} style={{width:"100%"}} placeholder="Enter third Subject" />
-                    <input type="text" max={400} id="preScore-input" onChange={el=>{Form.states.Subjects[3]=el.target.value}} className={style.ifts} style={{width:"100%"}} placeholder="Enter forth Subjects" />
-
+                    <Finput change={(v)=>{form.states.Subjects[0]=v}} dl={db.Course} channel={"subi0"} placeholder="Enter first subject" />
+                    <Finput change={(v)=>{form.states.Subjects[1]=v}} dl={db.Course} channel={"subi1"} placeholder="Enter first subject" />
+                    <Finput change={(v)=>{form.states.Subjects[2]=v}} dl={db.Course} channel={"subi2"} placeholder="Enter first subject" />
+                    <Finput change={(v)=>{form.states.Subjects[3]=v}} dl={db.Course} channel={"subi3"} placeholder="Enter first subject" />
+                    
                 </Depw>
             </Center>
             
@@ -291,6 +291,31 @@ perfect for outlining tasks or steps.
     </FlipX>
 }
 
+
+function Finput({channel,change,dl,...props}){
+    const dropEmodel = new CEXModel("DROPDOWN")
+    const inref = useRef(null)
+    function InputChange(e){
+        change(e.target.value)
+        dropEmodel.CEXDispatch(channel,data={drop:true,filter:e.target.value,target:e.target})
+    }
+    function cardClick(name){
+        var input = inref.current
+        input.value = name
+        change(name)
+    }
+    return <div style={{width:"100%"}}>
+        <input ref={inref} type="text" max={400}
+         onChange={InputChange}
+         onClick={InputChange}
+         fdprocessedid="pbf2tq" 
+        onBlur={()=>dropEmodel.CEXDispatch(channel,{drop:false,filter:""})}
+         className={style.ifts} style={{width:"100%"}} 
+         {...props} />
+         <Dropdown channel={channel} onCClick={cardClick} dataList={dl} ></Dropdown>
+    </div>
+}
+
 function Depw({children, ...props}){
     return <div className={style.dpww}>
         <div { ...props} className={mergeText(props.className,style.depwrapper)}>
@@ -337,29 +362,67 @@ function DragCard({subject, index,form}){
 }
 
 
-function DepInput({form}){
-
-    function InputChange(e){
-
-        var cardellist = document.querySelectorAll(`.${style.depincard}`)
+function Dropdown({channel,onCClick,dataList}){
+    const ref = useRef(null)
+    const Emodel = new CEXModel("DROPDOWN")
+    const ListElRefs =  CRange(0,dataList.length-1).map(()=>useRef(null))
+    function Filter(e){
+        const filter = e.detail.data.filter
+        var cardellist = ListElRefs.map(ELref=>ELref.current)
         cardellist.forEach(el=>{
             el.classList.remove(style.active)
-            if (el.innerText.toLowerCase().includes(e.target.value.toLowerCase())){
+            if (el.innerText.toLowerCase().includes(filter)){
                 el.classList.add(style.active)
             }
         })
+    }
+    function onEvent(e){
+        ref.current.parentElement.style.position = "relative"
+        const data = e.detail.data
+        if (e.detail.target){
+            e.detail.target.addEventListener('keydown', (event) => {
+                console.log(event.key)
+                if (event.key === 'Escape' || event.keyCode === 27) {
+                        Emodel.CEXDispatch(channel,{drop:false,filter:""})
+                    }
+            })
+        }
+        if (data.drop){
+            ref.current.classList.add(style.active)
+        }
+        else{
+            ref.current.classList.remove(style.active)
+        }
+        if (e.detail.data.filter){
+            Filter(e)
+        }
+
+    }
+    function cardClick(name){
+        onCClick(name)
+        Emodel.CEXDispatch(channel,{drop:false,filter:""})
+    }
+    return <div className={style.dropdown}>
+        <div id={style.searchcardwrap} ref={ref} className={style.searchcardwrap}>
+        {dataList.map((obj,index)=>{
+            return <div key={index} ref={ListElRefs[index]} onClick={()=>cardClick(obj.name)} className={mergeText(style.depincard)}>
+            <div style={{textAlign:"left"}}>{obj.name}</div> <Image width={20}  src={depin} alt="222"></Image>
+        </div>
+        })}
+        </div>
+        {<Emodel.CEventXH channel={channel} self={Emodel}  onEvent={onEvent}></Emodel.CEventXH>}
+    </div>
+}
+
+function DepInput({form}){
+    const dropEmodel = new CEXModel("DROPDOWN")
+    function InputChange(e){
+        dropEmodel.CEXDispatch("depinput",data={drop:true,filter:e.target.value,target:e.target})
     }
     function cardClick(name){
         var input = document.getElementById(style.depsearch)
         input.value = name
         form.update({Course:name})
-        document.getElementById(style.depsearch).blur()
-        // InputChange({target:{value:name}})
-        var cardellist = document.querySelectorAll(`.${style.depincard}`)
-        cardellist.forEach(el=>{
-            el.classList.remove(style.active)
-            
-        })
     }
     return <Center   >
     <ToolTip message={"Input a valid course name"}/>
@@ -370,16 +433,11 @@ function DepInput({form}){
                         <path fillRule="evenodd" clipRule="evenodd" d="M29.668 27.6889C34.0128 22.1906 33.6469 14.1873 28.5705 9.11085C23.0998 3.64013 14.23 3.64013 8.75928 9.11085C3.28857 14.5816 3.28857 23.4513 8.75928 28.9221C13.8357 33.9985 21.839 34.3644 27.3373 30.0196L33.2319 35.9142C33.8756 36.5579 34.9191 36.5579 35.5627 35.9142C36.2063 35.2706 36.2063 34.2271 35.5627 33.5835L29.668 27.6889ZM26.2398 11.4416C30.4232 15.6251 30.4232 22.4078 26.2398 26.5913C22.0563 30.7748 15.2735 30.7748 11.09 26.5913C6.90653 22.4078 6.90653 15.6251 11.09 11.4416C15.2735 7.25809 22.0563 7.25809 26.2398 11.4416Z" fill="#282828"/>
                     </svg>
                 </div>
-                <input onChange={InputChange} 
+                <input onChange={InputChange} onClick={InputChange} 
+                onBlur={()=>dropEmodel.CEXDispatch("depinput",{drop:false,filter:""})}
                   type="text" id={style.depsearch}  className={style.depsearch} />
             </div>
-            <div id={style.searchcardwrap} className={style.searchcardwrap}>
-                {db.Course.map((obj,index)=>{
-                    return <div key={index} onClick={()=>cardClick(obj.name)} className={mergeText(style.depincard)}>
-                    <div style={{textAlign:"left"}}>{obj.name}</div> <Image width={20}  src={depin} alt="222"></Image>
-                </div>
-                })}
-            </div>
+            <Dropdown channel={"depinput"} dataList={db.Course} onCClick={cardClick}></Dropdown>
         </div>
     </Center>
 }
@@ -483,7 +541,7 @@ export default function Page(props){
             Course:""
 
         },
-        true
+        // true
 
     )
     const Index = new State(0)
@@ -503,8 +561,9 @@ export default function Page(props){
         })
         CEDispatch("FLIP-frame1",Event)
          */
+        /* console.log(Index.get())
         // console.log(Event)
-        console.log(Form.toString())
+        console.log(Form.toString()) */
         // FADispatch(Event)
         addonsComplex.XADispatch(EventNameList.multiFormMove,{index:Index.get()})
     }
