@@ -308,7 +308,7 @@ form{
 }
 
 .p{
-    background-color: #e7f0f7b2;
+    background-color: #DDEBF5B2;
     color:#253058;
     width: 100%;
     /* margin-left: 1rem; */
@@ -317,7 +317,7 @@ form{
     /* height: 30px; */
 }
 .p span{
-    background-color: #e7f0f7b2;
+    background-color: #DDEBF5B2;
        
 }
 .p-summary{
@@ -332,7 +332,7 @@ form{
     text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
-    background-color: #e7f0f7b2;
+    background-color: #DDEBF5B2;
 }
 
 
@@ -347,14 +347,14 @@ form{
     justify-content: space-between;
     /* align-items: center; */
     color: #253058;
-    background-color: #dff0fcb2;
+    background-color: #DFECF6;
     padding:1rem;
     margin-bottom: 3rem;
     border-radius: 10px;
 }
 .list{
     display: flex;
-    background-color: #dff0fcb2;
+    background-color: #DFECF6;
     justify-content: space-around;
     align-items: center;
     /* width: 50%; */
@@ -362,7 +362,7 @@ form{
 
 }
 .list li{
-    background-color:#dff0fcb2;
+    background-color:#DFECF6;
     display: flex;
     width: 100%;
     /* border: 2px solid darkblue; */
@@ -380,12 +380,12 @@ form{
     /* justify-content: flex-start; */
 }
 .number-increment{
-    background-color:#dff0fcb2;
+    background-color:#DFECF6;
     display: flex;
     justify-content: center;
     gap: 3px;
 } .number-increment > div{
-    background-color:#dff0fcb2;
+    background-color:#DFECF6;
  
 }
 .button{
@@ -717,7 +717,7 @@ font-weight: 500;
     /* .nav-link{
         display: block;
     } */
-     .credit-info{
+    .credit-info{
         width: 120%;
         font-size: 15px;
         font-weight: bold;
@@ -729,6 +729,9 @@ font-weight: 500;
     }
     form{
         width: 110%;
+    }
+    .naira{
+        font-size: 25px;
     }
 }
 
