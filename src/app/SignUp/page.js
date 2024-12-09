@@ -666,140 +666,131 @@ export default function SignUpPage() {
 
             {/* Right Section */}
             <div className={styles.right}>
-                <div className={styles.logoContainer}>
-                    <Image
-                        src="/images/logo.png"
-                        alt="Logo"
-                        className={styles.logo}
-                        width={45}
-                        height={40}
-                    />
-                    <div className={styles.textContainer}>
-                        <h2>SCOLARITÉ</h2>
+                <div className={styles.rightinner}>
+                    <div className={styles.logoContainer}>
+                        <Image
+                            src="/images/logo.png"
+                            alt="Logo"
+                            className={styles.logo}
+                            width={45}
+                            height={40}
+                        />
+                        <div className={styles.textContainer}>
+                            <h2>SCOLARITÉ</h2>
+                        </div>
                     </div>
+                    {stage === "signup" && (
+                        // Signup Form Section
+                        <div className={styles.formContainer}>
+                            <h1>Register individual account</h1>
+                            <p>Enter your email and password to create your account</p>
+                            <form onSubmit={handleSignUpSubmit}>
+                                <label className={styles.label}>First name</label>
+                                <input
+                                    type="text"
+                                    placeholder="Enter your first name"
+                                    className={styles.input}
+                                />
+                                <label className={styles.label}>Last name</label>
+                                <input
+                                    type="text"
+                                    placeholder="Enter your last name"
+                                    className={styles.input}
+                                />
+                                <label className={styles.label}>Email</label>
+                                <input
+                                    type="email"
+                                    placeholder="Enter your email"
+                                    className={styles.input}
+                                />
+                                <label className={styles.label}>Phone No</label>
+                                <input
+                                    type="tel"
+                                    placeholder="Enter your phone no"
+                                    className={styles.input}
+                                />
+                                <label className={styles.label}>Referral code</label>
+                                <input
+                                    type="text"
+                                    placeholder="Enter referral code (if any)"
+                                    className={styles.input}
+                                />
+                                <label className={styles.label}>Password</label>
+                                <input
+                                    type="password"
+                                    placeholder="Enter your password"
+                                    className={styles.input}
+                                />
+                                <div className={styles.checkbox}>
+                                    <input type="checkbox" id="rememberMe" />
+                                    <label htmlFor="rememberMe">Remember me</label>
+                                </div>
+                                <button type="submit" className={styles.button}>
+                                    Sign Up
+                                </button>
+                            </form>
+                            <button className={styles.googleButton}>
+                                <Image
+                                    src="/images/google-logo.png"
+                                    alt="Google Icon"
+                                    width={22}
+                                    height={22}
+                                />
+                                Sign Up with Google
+                            </button>
+                            <p className={styles.signInLink}>
+                                Do you have an account? <a href="/Login">Sign In</a>
+                            </p>
+                        </div>
+                    )}
+                    {stage === "verification" && (
+                        // Email Verification Section
+                        <div className={styles.verificationContainer}>
+                            <h1>We've emailed you a code</h1>
+                            <p>
+                                To continue account setup, enter the code we've sent to:
+                                <strong> student@gmail.com</strong>
+                            </p>
+                            <form onSubmit={handleCodeSubmit}>
+                                <div className={styles.codeInputContainer}>
+                                    {Array(6)
+                                        .fill("")
+                                        .map((_, i) => (
+                                            <input
+                                                key={i}
+                                                type="text"
+                                                maxLength="1"
+                                                className={styles.codeInput}
+                                            />
+                                        ))}
+                                </div>
+                                <button type="submit" className={styles.button}>
+                                    Submit
+                                </button>
+                            </form>
+                            <p className={styles.resend}>
+                                Resend: <span>60s</span>
+                            </p>
+                        </div>
+                    )}
+                    {stage === "confirmed" && (
+                        // Email Confirmed Section
+                        <div className={styles.confirmedContainer}>
+                            <h1>Congratulations on Taking the First Step!</h1>
+                            <p>
+                                Your journey to JAMB success starts now. Let’s dive into your
+                                personalized learning experience.
+                            </p>
+                            <button
+                                className={styles.button}
+                                onClick={() => window.location.reload()} // Reload the page
+                            >
+                                Continue
+                            </button>
+                            <p>Redirecting in 5 seconds, or click the 'Continue' button to proceed now.</p>
+                        </div>
+                    )}
                 </div>
-
-                {stage === "signup" && (
-                    // Signup Form Section
-                    <div className={styles.formContainer}>
-                        <h1>Register individual account</h1>
-                        <p>Enter your email and password to create your account</p>
-                        <form onSubmit={handleSignUpSubmit}>
-                            <label className={styles.label}>First name</label>
-                            <input
-                                type="text"
-                                placeholder="Enter your first name"
-                                className={styles.input}
-                            />
-
-                            <label className={styles.label}>Last name</label>
-                            <input
-                                type="text"
-                                placeholder="Enter your last name"
-                                className={styles.input}
-                            />
-
-                            <label className={styles.label}>Email</label>
-                            <input
-                                type="email"
-                                placeholder="Enter your email"
-                                className={styles.input}
-                            />
-
-                            <label className={styles.label}>Phone No</label>
-                            <input
-                                type="tel"
-                                placeholder="Enter your phone no"
-                                className={styles.input}
-                            />
-
-                            <label className={styles.label}>Referral code</label>
-                            <input
-                                type="text"
-                                placeholder="Enter referral code (if any)"
-                                className={styles.input}
-                            />
-
-                            <label className={styles.label}>Password</label>
-                            <input
-                                type="password"
-                                placeholder="Enter your password"
-                                className={styles.input}
-                            />
-
-                            <div className={styles.checkbox}>
-                                <input type="checkbox" id="rememberMe" />
-                                <label htmlFor="rememberMe">Remember me</label>
-                            </div>
-
-                            <button type="submit" className={styles.button}>
-                                Sign Up
-                            </button>
-                        </form>
-
-                        <button className={styles.googleButton}>
-                            <Image
-                                src="/images/google-logo.png"
-                                alt="Google Icon"
-                                width={22}
-                                height={22}
-                            />
-                            Sign Up with Google
-                        </button>
-                        <p className={styles.signInLink}>
-                            Do you have an account? <a href="/Login">Sign In</a>
-                        </p>
-                    </div>
-                )}
-
-                {stage === "verification" && (
-                    // Email Verification Section
-                    <div className={styles.verificationContainer}>
-                        <h1>We've emailed you a code</h1>
-                        <p>
-                            To continue account setup, enter the code we've sent to:
-                            <strong> student@gmail.com</strong>
-                        </p>
-                        <form onSubmit={handleCodeSubmit}>
-                            <div className={styles.codeInputContainer}>
-                                {Array(6)
-                                    .fill("")
-                                    .map((_, i) => (
-                                        <input
-                                            key={i}
-                                            type="text"
-                                            maxLength="1"
-                                            className={styles.codeInput}
-                                        />
-                                    ))}
-                            </div>
-                            <button type="submit" className={styles.button}>
-                                Submit
-                            </button>
-                        </form>
-                        <p className={styles.resend}>
-                            Resend: <span>60s</span>
-                        </p>
-                    </div>
-                )}
-
-                {stage === "confirmed" && (
-                    // Email Confirmed Section
-                    <div className={styles.confirmedContainer}>
-                        <h1>Congratulations on Taking the First Step!</h1>
-                        <p>
-                            Your journey to JAMB success starts now. Let’s dive into your
-                            personalized learning experience.
-                        </p>
-                        <button
-                            className={styles.button}
-                            onClick={() => window.location.reload()} // Reload the page
-                        >
-                            Continue
-                        </button>
-                        <p>Redirecting in 5 seconds, or click the 'Continue' button to proceed now.</p>
-                    </div>
-                )}
             </div>
         </div>
     );
