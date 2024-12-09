@@ -337,15 +337,7 @@ function DragCard({subject, index,form}){
         // console.log(Array.from(indexs).map(el=>{return el.innerText}))
     // }
         setisin(()=>true)
-        indexs.forEach(ele=>{
-            if (ele == ref ){
-                setisin(()=>true)
-               return
-            }
-            else{
-                setisin(()=>false)
-            }
-        })
+
         
         
     }
