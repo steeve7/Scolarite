@@ -80,7 +80,7 @@ export default function becomeAfliate (){
                 </div>
                 {/* signUp Stops Here */}
 
-                {/* SEPERATE IMAGE */}
+                {/* DIRECTION IMAGE */}
                 <li>
                 <Image src="/Images/image 10.png"
                             width={100}
@@ -88,7 +88,7 @@ export default function becomeAfliate (){
                             alt="Sign Up"
                             className ="sep-image" />
                 </li>
-                 {/* SEPERATE IMAGE STOPS HERE */}
+                 {/* DIRECTION IMAGE STOPS HERE */}
 
                  
                 {/* AccessResources Starts Here */}
@@ -117,7 +117,7 @@ export default function becomeAfliate (){
                 {/* AccessResources STOPS here */}
                   
 
-                  {/* SEPERATE IMAGE TAKE NOTE */}
+                  {/* DIRECTION  IMAGE 2 TAKE NOTE */}
                 <li>
                 <Image src="/Images/image 10.png"
                             width={100}
