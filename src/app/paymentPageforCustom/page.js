@@ -110,7 +110,7 @@ export default function paymentPageforCustomPlan() {
 
                        />
                    </li>
-                   <li className="credit-info"> Credit Payment Information</li>
+                   <li className="credit-info"> Card Payment Information</li>
 
                </ul>
 
@@ -194,7 +194,7 @@ export default function paymentPageforCustomPlan() {
                        }
                        }
                        } 
-                       className="input" type="number"   placeholder="               -  -  -  -          -  -  -  -             -  -  -  -           -  -  -  -" required/>
+                       className="input" type="number"   placeholder="       -  -  -  -         -  -  -  -          -  -  -  -          -  -  -  -" required/>
    
                 </div>
 
@@ -306,10 +306,12 @@ export default function paymentPageforCustomPlan() {
 
                         />
                     </li>
-                    <li className="credit-info"> Credit Payment Information</li>
+                    <li className="credit-info"> Card Payment Information</li>
 
                 </ul>
                 </div>
+
+                
             <li className='black-line'></li>
                 <div className="payment-inner">
                     <div className='p'>
@@ -321,15 +323,15 @@ export default function paymentPageforCustomPlan() {
                         </div>
                     <div className='elements'>
                         <ul className='list'>
-                            <li>Subscription plan</li>
+                            <li className='li-list'>Subscription plan</li>
                             <li className='list-1'>Monthly/Basic Plan</li>
                         </ul>
                         <ul className='list'>
-                            <li >Access Period</li>
+                            <li className='li-list' >Access Period</li>
                             <li className='list-1'>1 Month</li>
                         </ul>
                         <ul className='list'>
-                            <li>Number of User(s)</li>
+                            <li className='li-list'>Number of User(s)</li>
                             <li className='list-1'>
                                <div className='number-increment'>
                                 <div className='box' id='timer' >30</div>
@@ -359,15 +361,15 @@ export default function paymentPageforCustomPlan() {
                             </li>
                         </ul>
                         <ul className='list'>
-                            <li>Discount code</li>
+                            <li className='li-list'>Discount code</li>
                             <li className='list-1'>---------</li>
                         </ul>
                         <ul className='list'>
-                            <li>Discount Amount</li>
+                            <li className='li-list'>Discount Amount</li>
                             <li className='list-1'>₦0.00</li>
                         </ul>
                         <ul className='list'>
-                            <li>Transaction fee</li>
+                            <li className='li-list'>Transaction fee</li>
                             <li className='list-1'>100</li>
                         </ul>
                     </div>

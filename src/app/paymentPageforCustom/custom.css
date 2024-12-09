@@ -23,8 +23,9 @@
     margin-top: 3rem;
     margin-bottom: 3rem;
     height: 85%;
-    border-radius: 20px;
-    box-shadow: 10px 70px 15px 20px #e8f0ff;
+    border-radius: 20px; 
+    box-shadow: 0px 20.87px 311.62px 0px #E3EBFB;
+
     
 }
 
@@ -33,7 +34,8 @@
     width: 100%;
     background-color: white;
     height: 100%;
-    margin-left: 2rem;
+    margin-left: 6rem;
+
     animation: slideMe 2.5s ease-in;
     
 }
@@ -131,7 +133,7 @@ form{
     width: 80%;
     height: 3rem;
      background: #F8F9FB;
-    border: 1px solid #c8cacd;
+    border: 1px solid #DDE0E6;
     padding-left: 0.5rem;
     border-radius: 10px;
     outline: none;
@@ -147,7 +149,7 @@ form{
     align-items: center;
     height: 3rem;
     background: #F8F9FB;
-    border: 2px solid #c8cacd;
+    border: 1px dotted  #DDE0E6 ;
     border-radius: 10px;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -200,7 +202,7 @@ form{
     justify-content: center;
     align-items: center;
      background: #F8F9FB;
-    border: 1px solid #c8cacd;
+    border: 1px solid #DDE0E6;
     padding-left: 2rem;
     border-radius: 10px;
     outline: none;
@@ -211,7 +213,7 @@ form{
     width: 100%;
     height: 3rem;
      background: #F8F9FB;
-    border: 1px solid #c8cacd;
+    border: 1px solid #DDE0E6;
     padding-left: 0.5rem;
     outline: none;
     border-radius: 10px;
@@ -368,6 +370,9 @@ form{
     display: flex;
     /* gap: 29px; */
 }
+.li-list{
+    color: #7C87AA;
+}
 .list-1{
     display: flex;
     color: #1c2a5a;
@@ -417,8 +422,9 @@ form{
 .Amount-check{
     border: 2px solid #DDEBF5B2 ;
     width: 80%;
-    padding: 1rem;
+    /* padding: 1rem; */
     background-color: #DDEBF5B2;
+    /* backdrop-filter: blur(207.74888610839844px); */
    display: flex;
    justify-content: space-between;
    align-items: center;
@@ -430,20 +436,30 @@ form{
    
 }
 .inner-amount{
+    /* backdrop-filter: blur(207.74888610839844px); */
     background-color: #DDEBF5B2;
+    /* opacity: 2px; */
+
 }
 .tt-amnt{
+    /* backdrop-filter: blur(207.74888610839844px); */
     background-color: #DDEBF5B2;
-    color: #253058;
+    color: #7C87AA;
     font-size: 15px;
     
 }
 .naira{
-    font-size: 20px;
-    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    /* font-family: 'Courier New', Courier, monospace; */
     color: #1c2a5a;
     background-color: #DDEBF5B2;
+    /* backdrop-filter: blur(207.74888610839844px); */
     font-weight: bold;
+    font-family: DM Sans;
+/* font-size: 162.3px; */
+font-weight: 500;
+
+
 }
 .message{
     background: #DDEBF5B2;
@@ -465,7 +481,7 @@ form{
     height: 2.5rem;
     border-radius: 50%;
     position: relative;
-    bottom: 9rem;
+    bottom: 10rem;
     right: 1rem;
     background-color: white;
     /* border: 2px solid black; */
@@ -476,11 +492,10 @@ form{
     height: 2.5rem;
     border-radius: 50%;
     position: relative;
-    bottom: 9rem;
+    bottom: 10rem;
     right: -1rem;
     background-color: white;
 }
-
 .nav-link{
     display: none;
     margin-left: 0.1rem;
@@ -512,7 +527,7 @@ form{
     }
     form{
         width: 100%;
-        margin-left: -1.5rem;
+        /* margin-left:0.5rem; */
         position: relative;
         left: -3rem;
     }
@@ -561,9 +576,8 @@ form{
         /* margin-bottom: 1rem; */
         /* width: 50%; */
     }
-   
     .input-cvv{
-        /* width: 150%; */
+        width: 100%;
         height: 2.5rem;
     }
     .subscribe{
@@ -572,14 +586,17 @@ form{
     .black-line{
         margin-left: 6rem;
     }
-    
+    .nav-link{
+        display: block;
+        margin: 0;
+        padding-bottom: 1rem;
+    }
     .Payment-summary{
         /* margin-top: 5rem; */
-       /* margin-left: -30px; */
-       width: 100%;
-       position: relative;
-       padding-right: 2rem;
-       left: -1.5rem;
+        width: 100%;
+        position: relative;
+        padding-right: 2rem;
+        left: 0.1rem;
     }
     .p-summary{
         font-size: 15px;
@@ -590,8 +607,8 @@ form{
         margin-bottom: -1rem;
     }
     .button{
-        width: 50%;
-        height: 50%;
+        width: 80%;
+        height: 70%;
     }
     .payment-inner{
         width: 80%;
@@ -609,17 +626,18 @@ form{
         font-size: 10px;
         width: 100%;
     }
+ 
     .Amount-check{
-        padding: 0.5rem;
+        padding: 1rem;
     }
     .circle-1{
-        bottom: 5.7rem;
+        bottom: 6.8rem;
         width: 2rem;
         height: 2rem;
         border-radius: 50%;
     }
     .circle-2{
-        bottom: 5.7rem;
+        bottom: 6.8rem;
         width: 2rem;
         height: 2rem;
         border-radius: 50%;
@@ -630,13 +648,14 @@ form{
     .tt-amnt{
         font-size: 12px;
     }
+    .naira{
+        font-size: 20px;
+    }
     .message{
         height: 40px;
         padding-right: 0.5rem;
     }
-    .naira{
-        font-size: 12px;
-    }
+   
     .nav-link{
         display: block;
         margin: 0;
@@ -645,66 +664,139 @@ form{
 
 }
 @media screen and (max-width:540px) {
-    .Payment-summary{
-        padding: 0;
-        width: 100%;
-       margin-left: 2rem;
-     }
-     .nav-link{
-        margin: 0;
-     }
-     .p-text{
-        width: 100%;
-        /* line-height: 2px; */
-     }
-}
-
-@media screen  and (max-width: 768px){
     .inner-body{
         display: flex;
         flex-direction: column-reverse;
         overflow: hidden;
 
         width: 80%;
+    
     }
+        .nav-link{
+            display: block;
+            margin: 0;
+            padding-bottom: 1rem;
+        }
+        form{
+           
+            margin-left: 2rem;
+        }
+
     .Card-payment-info > ul{
         display: none;
+    } 
+    .Payment-summary{
+        padding: 0;
+       width: 100%;
+      margin-left: 2rem;
     }
-    
-    .nav-link{
+    .elements{
+        width: 100%;
+        /* margin-bottom: 2rem; */
+        font-size: 12px;
+        height: fit-content;
+    }
+}
+
+@media screen  and (max-width: 768px){
+    /* .inner-body{
+        display: flex;
+        flex-direction: column-reverse;
+        overflow: hidden;
+
+        width: 80%;
+    }
+   
+    .Card-payment-info > ul{
+        display: none;
+    } */
+    .Payment-summary{
+       /* margin-left:2.5rem; */
+
+    }
+    /* .nav-link{
         display: block;
-    }
-    
+    } */
+     .credit-info{
+        width: 120%;
+        font-size: 15px;
+        font-weight: bold;
+     }
     .elements{
         padding: 1rem;
         margin: 0;
         width: 100%;
     }
+    form{
+        width: 110%;
+    }
 }
 
 @media screen and (max-width:1024px) {
-    .inner-body{
+    /* .inner-body{
         display: flex;
         flex-direction: column-reverse;
         overflow: hidden;
-    }
-   
-    .Card-payment-info > ul{
+    } */
+    /* .Card-payment-info > ul{
         display: none;
-    }
-    .nav-link{
+    } */
+    /* .nav-link{
         display: block;
         padding-bottom: 1.5rem;
-        /* margin-left: 0.0001rem; */
-     
-    }
+        margin-left: 0.0001rem;
+    } */
     .Payment-summary{
-       margin-left: 7rem;
-       padding-top: 2rem;
-    }
-    form{
-        width: 110%;
-        margin-left: 1.5rem;
-    }
-   
+       width: 100%;
+     }
+     .payment-inner{
+        width: 90%;
+        height: fit-content;
+        font-size: 10px;
+        gap: 0;
+        
+     }
+     .black-line{
+        margin-left: 6.5rem;
+     }
+     .p-text{
+        width: 100%;
+        font-size: 7px;
+     }
+     .Card-payment-info{
+        margin: 2rem;
+     }
+     .date-cvv{
+        gap: 10px;
+     }
+    
+     .input{
+        font-size: 12px;
+     }
+     .payment-method{
+        font-size: 12px;
+     }
+     .elements{
+        width: 100%;
+        margin-left: -0.5rem;
+       height: 50%;   
+     }
+     .Amount-check{
+        width: 90%;
+     }
+     .circle-2{
+        /* right: -0rem; */
+        left: 3rem;
+     }
+     form{
+         width: 110%;
+         /* margin-left: 1.5rem; */
+     }
+     .number-increment{
+        width: 100%;
+     }
+     #timer{
+        height: 90%;
+        width: 90%;
+     }
 }
