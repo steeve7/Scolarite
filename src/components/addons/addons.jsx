@@ -191,9 +191,9 @@ export const addonsComplex = {
         }
 
         set(value){
-            try{
+            if (value instanceof Function){
                 this.states = value(this.states)
-            }catch(e){
+            }else{
                 this.states = value
             }
             
