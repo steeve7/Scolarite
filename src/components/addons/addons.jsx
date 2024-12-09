@@ -1,5 +1,5 @@
 "use client"
-import style from "./addons.module.css"
+import styles from "./addons.module.css"
 import React, { useEffect, useReducer, useRef, useState } from "react"
 import { frame } from "framer-motion"
 import tooltiptri from "./assets/tooltiptri.png"
@@ -91,7 +91,7 @@ export function G2Wrapper(props){
     styleg2 = {
         ...styleg2
     }
-    return <section className = {mergeText(style.g2wrapper,props.className)} style = {
+    return <section className = {mergeText(styles.g2wrapper,props.className)} style = {
         styleg2
     } >
         {props.children}
@@ -498,8 +498,8 @@ export const addonsComplex = {
     ,Mic({listenerId,channel}){
         const ref = useRef()
 
-    }
-
+    },
+    
 
 }
 export const CEXModel = addonsComplex.CEXModel
@@ -599,7 +599,7 @@ export function Radio({className,value,channel,valueListener,isdefault,onEvent,c
             setDef(false)
         }
     })
-    return <div ref={radioRef} onClick={click} className={mergeText(className,style.radio)} {...others}>
+    return <div ref={radioRef} onClick={click} className={mergeText(className,styles.radio)} {...others}>
         {children}
         <CEventH Type={EventName} onEvent={listener} ></CEventH>
     </div>
@@ -690,7 +690,7 @@ export function Draggable({
           
           
     })
-    return <div ref={ref} id={id} { ...props} draggable="true" className={mergeText(style.draggable,className)} >{children}</div>
+    return <div ref={ref} id={id} { ...props} draggable="true" className={mergeText(styles.draggable,className)} >{children}</div>
 }
 export function DropZone({
     className,
@@ -700,6 +700,7 @@ export function DropZone({
     dragLeave = ()=>{},
     drop = ()=>{},
     error = ()=>{},
+
     ...props
 }){
     const ref = useRef()
@@ -735,12 +736,12 @@ export function DropZone({
           
           
     })
-    return <div ref={ref} id={id} { ...props} className={mergeText(style.dragzone,className)} >{children}</div>
+    return <div ref={ref} id={id} { ...props} className={mergeText(styles.dragzone,className)} >{children}</div>
 }
 
-export function BImage({src,alt="image",className,objectFit = "contain" ,Style}){
-    return <Center style={{position:"absolute",top:0,left:0,zIndex:"-100"}}>
-        <Image src={src} alt={alt} className={mergeText(style.bimage,className)} style={{width:"100%",height:"100%",objectFit:objectFit,...Style}}></Image>
+export function BImage({src,alt="image",className,objectFit = "contain" ,style ,...props}){
+    return <Center {...props} style={{position:"absolute",top:0,left:0,zIndex:"-100"}}>
+        <Image src={src} alt={alt} className={mergeText(styles.bimage,className)} style={{width:"100%",height:"100%",objectFit:objectFit,...style}}></Image>
     </Center>
 }
 
@@ -752,7 +753,7 @@ export function ToolTip({message,id,children}){
     var enter = false
     function Enter(e){
          var el = tipRef.current
-         el.classList.add(style.showtooltip)
+         el.classList.add(styles.showtooltip)
          var x = e.pageX
          var y = e.pageY
          enter = true
@@ -760,7 +761,7 @@ export function ToolTip({message,id,children}){
     }
     function Leave(){
         var el = tipRef.current
-        el.classList.remove(style.showtooltip)
+        el.classList.remove(styles.showtooltip)
         enter = false
     }
     useEffect(()=>{
@@ -786,10 +787,10 @@ export function ToolTip({message,id,children}){
         });
             
     },[])
-    return <div id={id}  className={style.tooltip} ref={tipRef}  >
-            <div className={style.tooltiptext}>{message} {children} </div>
+    return <div id={id}  className={styles.tooltip} ref={tipRef}  >
+            <div className={styles.tooltiptext}>{message} {children} </div>
             <Center>
-                <Image src={tooltiptri} alt="arrow" className={style.tooltipimg}></Image>
+                <Image src={tooltiptri} alt="arrow" className={styles.tooltipimg}></Image>
             </Center>
     </div>
     // </div>
@@ -876,11 +877,11 @@ export function Flip({id,Name, className,indexClassName, children,speed=0.5,Type
         
     }
     return (
-        <div className={mergeText(style.Flip,className)} id = {id} >
-            <div id={frameID} style={{transition:`transform ${String(speed)}s ease-in-out`}} className={style.FlipInnerFrame}>
+        <div className={mergeText(styles.Flip,className)} id = {id} >
+            <div id={frameID} style={{transition:`transform ${String(speed)}s ease-in-out`}} className={styles.FlipInnerFrame}>
                 {/* {children} */}
                 {childrenList.map((child,index)=>{
-                    return <div key={index} className={mergeText(style.filpchildfill,indexClassName)}>
+                    return <div key={index} className={mergeText(styles.filpchildfill,indexClassName)}>
                         {child}
                     </div>
                 })}
@@ -946,11 +947,11 @@ export function FlipX({id,channel, className,indexClassName, children,speed=0.5}
         
     }
     return (
-        <div className={mergeText(style.Flip,className)} id = {id} >
-            <div ref={frameref} style={{transition:`transform ${String(speed)}s ease-in-out`}} className={style.FlipInnerFrame}>
+        <div className={mergeText(styles.Flip,className)} id = {id} >
+            <div ref={frameref} style={{transition:`transform ${String(speed)}s ease-in-out`}} className={styles.FlipInnerFrame}>
                 {/* {children} */}
                 {childrenList.map((child,index)=>{
-                    return <div key={index} className={mergeText(style.filpchildfill,indexClassName)}>
+                    return <div key={index} className={mergeText(styles.filpchildfill,indexClassName)}>
                         {child}
                     </div>
                 })}
@@ -965,7 +966,7 @@ export function FlipX({id,channel, className,indexClassName, children,speed=0.5}
 
 
 export function Cg2wrapper({className,id,children,paddingInline = "10px", paddingBlock = "20px",height = "100%"}){
-    return <div id={id} className={mergeText(style.cg2w,className)} style={{
+    return <div id={id} className={mergeText(styles.cg2w,className)} style={{
         paddingInline:paddingInline
         ,paddingBlock:paddingBlock
         ,height:height
@@ -975,16 +976,16 @@ export function Cg2wrapper({className,id,children,paddingInline = "10px", paddin
 }
 
 export function Center({children,className,...others}){
-    return <div className={mergeText(style.center,className)} { ...others}  >{children}</div>
+    return <div className={mergeText(styles.center,className)} { ...others}  >{children}</div>
 }
 
 export function CInput({className,placeholder,type="input",...props}){
     useEffect(()=>{
-        document.querySelectorAll(`.${style.w3sit}`).forEach(e=>{
+        document.querySelectorAll(`.${styles.w3sit}`).forEach(e=>{
             e.click()
         })
     },[])
-    className = mergeText(className,style.custominput)
+    className = mergeText(className,styles.custominput)
     const attr = {
         placeholder:placeholder,
         className:className,
@@ -997,13 +998,13 @@ export function CInput({className,placeholder,type="input",...props}){
 
 export function CButton({className,onClick,id,Style = {},children,ani = "scale", tooltip = undefined}){
     const ButtonAnimations = {
-        "scale":style.btnaniscale,
-        "top":style.btnanitop,
-        "bottom":style.btnanibottom,
-        true:style.btnanitop,
+        "scale":styles.btnaniscale,
+        "top":styles.btnanitop,
+        "bottom":styles.btnanibottom,
+        true:styles.btnanitop,
         false:"",
     }
-    return <div id={id} style={Style} className={mergeText(className,style.button,ButtonAnimations[String(ani)])} onClick={onClick}>
+    return <div id={id} style={Style} className={mergeText(className,styles.button,ButtonAnimations[String(ani)])} onClick={onClick}>
         {children}
         {tooltip && <ToolTip message={tooltip}/>}
     </div>
@@ -1033,18 +1034,18 @@ export function CLink({className,href,onClick,id,children,target= "_self",ani = 
 }
 
 export function AInput({label, placeholder , className = "", inClassName = "",type="input"}){
-    return <div className={mergeText("flex flex-col gap-2 ",style.ainputwrapper,className)}>
-        <div className={style.ainputlabel}>
+    return <div className={mergeText("flex flex-col gap-2 ",styles.ainputwrapper,className)}>
+        <div className={styles.ainputlabel}>
             {label}
         </div> 
-        <div className={style.ainput}>
-            <CInput placeholder={placeholder} type = {type} className={mergeText(style.custominput,inClassName)} ></CInput>
+        <div className={styles.ainput}>
+            <CInput placeholder={placeholder} type = {type} className={mergeText(styles.custominput,inClassName)} ></CInput>
         </div>
     </div>
 }
 
 export function Title(props){
-    return <div { ...props} className={mergeText(props.className,style.title)}>{props.children}</div>
+    return <div { ...props} className={mergeText(props.className,styles.title)}>{props.children}</div>
 }
 export function rclick (e){
     const className = Array.from(e.target.classList).find((value,any)=> String(value).includes("w3switchitem"))

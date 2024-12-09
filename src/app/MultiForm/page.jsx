@@ -248,15 +248,15 @@ perfect for outlining tasks or steps.
             </div>
             <br />
             <Center>
-                <Depw id="subject" >
+                <DropZone id="subject" channel="subject-card">
                     {Form.get().Subjects.map((sub,index)=><DragCard key={index} subject={sub} index={index} form={Form}></DragCard>
                 )}
-                </Depw>
+                </DropZone>
             </Center>
             <br />
             <Center>
-                <DropZone style={{position:"relative"}} className={style.studcarddropzone} id={"subject-zone"} channel="subject-card">
-                    <BImage Style={{width:"110%",height:"110%"}} objectFit="cover" src={dropzonebg}></BImage>
+                <DropZone drop={e=>document.getElementById("dropzonebg").style.display = "none"} dragOver={e=>document.getElementById("dropzonebg").style.display = "block"} dragLeave={e=>document.getElementById("dropzonebg").style.display = "none"} style={{position:"relative"}} className={style.studcarddropzone} id={"subject-zone"} channel="subject-card">
+                    <BImage id={"dropzonebg"} style={{width:"110%",height:"110%"}} objectFit="cover" src={dropzonebg}></BImage>
                 </DropZone>
             </Center>
             <br />
@@ -304,12 +304,12 @@ function Finput({channel,change,dl,...props}){
         input.value = name
         change(name)
     }
-    return <div style={{width:"100%"}}>
+    return <div onBlur={()=>setTimeout(()=>{dropEmodel.CEXDispatch(channel,{drop:false,filter:""})},500)} style={{width:"100%"}}>
         <input ref={inref} type="text" max={400}
          onChange={InputChange}
          onClick={InputChange}
          fdprocessedid="pbf2tq" 
-        onBlur={()=>dropEmodel.CEXDispatch(channel,{drop:false,filter:""})}
+        
          className={style.ifts} style={{width:"100%"}} 
          {...props} />
          <Dropdown channel={channel} onCClick={cardClick} dataList={dl} ></Dropdown>
@@ -329,6 +329,7 @@ function DragCard({subject, index,form}){
     const [isin, setisin]  = useState(false)
     var id
     function currentListener(e){
+        var ref = document.getElementById(`subject-card${index}`);
         var indexs = document.querySelectorAll(`.${style.studcarddropzone} .${style.dragecardsub} `)
         // if (!isin){
             // form.states.Subjects[indexs.length] = subject
@@ -336,6 +337,15 @@ function DragCard({subject, index,form}){
         // console.log(Array.from(indexs).map(el=>{return el.innerText}))
     // }
         setisin(()=>true)
+        indexs.forEach(ele=>{
+            if (ele == ref ){
+                setisin(()=>true)
+               return
+            }
+            else{
+                setisin(()=>false)
+            }
+        })
         
         
     }
@@ -343,16 +353,16 @@ function DragCard({subject, index,form}){
 
     }
     var out  = ()=>{
-        var ref = document.getElementById(`subject-card${index}`);
-        ref.parentElement.removeChild(ref)
-        document.getElementById("subject").appendChild(ref)
+        
+        /* ref.parentElement.removeChild(ref)
+        document.getElementById("subject").appendChild(ref) */
         setisin(()=>false)
         
     }
         return <Draggable channel = {"subject-card"} drop={drop} id={`subject-card${index}`}   currentListener={currentListener} className={style.dragcard} >
                 <Center className={style.dragcardico}>
                     {!isin && <Image src={dragimg} alt="2" className={style.dragimg}></Image>}
-                    {isin &&<Image src={cancelimg} alt="2" onClick={out}  className={style.dragimg}></Image>}
+                    {isin &&<Image src={cancelimg} alt="2"   className={style.dragimg}></Image>}
                 </Center>
                 <div className={style.dragccontent}>
                     <div className={mergeText(style.tl,style.dragecardsub)}>{subject}</div>
