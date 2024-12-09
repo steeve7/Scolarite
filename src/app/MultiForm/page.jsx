@@ -330,19 +330,33 @@ function DragCard({subject, index,form}){
     var id
     function currentListener(e){
         var ref = document.getElementById(`subject-card${index}`);
+        console.log("ref",ref)
         var indexs = document.querySelectorAll(`.${style.studcarddropzone} .${style.dragecardsub} `)
         // if (!isin){
             // form.states.Subjects[indexs.length] = subject
             form.update({Subjects:Array.from(indexs).map(el=>{return el.innerText})})
         // console.log(Array.from(indexs).map(el=>{return el.innerText}))
     // }
-        setisin(()=>true)
-
+        // setisin(()=>true)
         
         
     }
-    function drop(e,t){
+    function Public(el){
+        var ref = el
+        var indexs = document.querySelectorAll(`.${style.studcarddropzone} .${style.dragcard} `)
+        setisin(()=>false)
 
+        indexs.forEach(ele=>{
+
+            if (ele.id == ref.id ){
+                console.log("inin")
+                setisin(()=>true)
+            }
+            else{
+                setisin(()=>false)
+            }
+        })
+        
     }
     var out  = ()=>{
         
@@ -351,7 +365,7 @@ function DragCard({subject, index,form}){
         setisin(()=>false)
         
     }
-        return <Draggable channel = {"subject-card"} drop={drop} id={`subject-card${index}`}   currentListener={currentListener} className={style.dragcard} >
+        return <Draggable Public={Public} channel = {"subject-card"}  id={`subject-card${index}`}   currentListener={currentListener} className={style.dragcard} >
                 <Center className={style.dragcardico}>
                     {!isin && <Image src={dragimg} alt="2" className={style.dragimg}></Image>}
                     {isin &&<Image src={cancelimg} alt="2"   className={style.dragimg}></Image>}

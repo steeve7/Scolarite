@@ -472,7 +472,7 @@ export const addonsComplex = {
 
         CEXDispatch(channel,data = {}){this.FIDispatch(this.CEventX(channel,data),this.uniType)}
 
-        CEventXH({channel,self , onEvent = function(){}}){
+        CEventXH({channel,self, Public = function(){} , onEvent = function(){}}){
             self = this?this:self
             const ref = useRef()
             useEffect(
@@ -482,6 +482,7 @@ export const addonsComplex = {
                     const el = ref.current
                     el.id = `CEVENTX-${genId()}`
                     el.addEventListener(type,(e)=>{
+                        Public(e)
                         if (e.detail.channel == channel){
                             func(e)
     
@@ -658,6 +659,7 @@ export function Draggable({
     className,
     children,
     id, 
+    Public,
     channel = "all",
     dragStart = ()=>{},
     drop = ()=>{},
@@ -678,6 +680,7 @@ export function Draggable({
             dragStart(draggable)
           });
           draggable.addEventListener(DropEventName,(event)=>{
+            Public(draggable)
             if (event.detail.hasDropped && event.detail.uniid == uniid){
                 currentListener(draggable)
             }
