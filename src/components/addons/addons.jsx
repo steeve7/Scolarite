@@ -330,7 +330,7 @@ export const addonsComplex = {
 
     },
 
-    WSABOTAGH:function ({...props}){
+    WSABOTAGH ({...props}){
         var sabotag = new addonsComplex.WSABOTAG()
         var argandFunc = {}
         for (var key in props){
@@ -348,7 +348,7 @@ export const addonsComplex = {
     },
 
 
-    useRecognition: function ({
+    useRecognition ({
         lang = 'en-US', 
         interimResults = false, 
         maxAlternatives = 1,
@@ -398,7 +398,7 @@ export const addonsComplex = {
         recognition.start();
     },
     
-    FADispatch:function(Event,excludedId=[""],excludedClass=[""]){
+    FADispatch(Event,excludedId=[""],excludedClass=[""]){
         if (window){
             const ListAll = document.querySelectorAll("html *")
             ListAll.forEach((el)=>{
@@ -430,9 +430,9 @@ export const addonsComplex = {
         }
     }
     ,CEventXType:"CEventX"
-    ,CEventX:(channel,data = {})=>{return new CustomEvent(addonsComplex.CEventXType,{detail:{channel:channel,data:data}})}
-    ,XADispatch:function(channel,data = {}){addonsComplex.FIDispatch(addonsComplex.CEventX(channel,data),addonsComplex.CEventXType)}
-    ,CEventXH:function({channel , onEvent = function(){}}){
+    ,CEventX(channel,data = {}){return new CustomEvent(addonsComplex.CEventXType,{detail:{channel:channel,data:data}})}
+    ,XADispatch(channel,data = {}){addonsComplex.FIDispatch(addonsComplex.CEventX(channel,data),addonsComplex.CEventXType)}
+    ,CEventXH({channel , onEvent = function(){}}){
         const ref = useRef()
         useEffect(
             ()=>{
@@ -495,7 +495,7 @@ export const addonsComplex = {
     }
 
     //# INCOMPLETE
-    ,Mic:function({listenerId,channel}){
+    ,Mic({listenerId,channel}){
         const ref = useRef()
 
     }
