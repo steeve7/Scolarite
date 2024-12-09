@@ -8,6 +8,7 @@ import w0i1 from "../../../public/aboutassets/woi1.gif";
 import w4i from "../../../public/aboutassets/w4i.png";
 import Link from "next/link";
 import {
+  addonsComplex,
   AInput,
   CButton,
   CInterval,
@@ -28,6 +29,7 @@ export default function AboutPage() {
     document.querySelectorAll(`.${style.w3sit}`).forEach(e=>{
         e.click()
     })
+    // setTimeout(()=>{addonsComplex.ScrollIntoView({id : "test"})},2000)
   },[])
   function fontSizeAdjust(){
       var toptitle = document.getElementById("wrapper3t")
@@ -316,7 +318,7 @@ export default function AboutPage() {
               <div className={style.w4title}>
                 Take your First Step Towards Academic Excellence with Scolarité
               </div>
-              <div className={style.w4text}>
+              <div id="test" className={style.w4text}>
                 This is the most comprehensive JAMB preparation course you have
                 been searching for. Dont just take our words for it. Try the
                 Scolarite’ JAMB course and see for yourself why we are the best.

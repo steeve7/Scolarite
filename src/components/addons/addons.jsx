@@ -174,6 +174,20 @@ export const addonsComplex = {
         const [, forceUpdate] = useReducer(x => x + 1, 1);
             return forceUpdate;
     },
+    ScrollIntoView({selector = undefined, id = undefined}){
+        var el
+        if (selector){
+            el = document.querySelector(selector)
+        }else{
+            el = document.getElementById(id)
+        }
+        console.log(el)
+        el.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start', 
+          })
+        
+    },
     State:class{
         states
         onChange =  ()=>{}
