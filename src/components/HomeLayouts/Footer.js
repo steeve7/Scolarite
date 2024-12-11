@@ -30,7 +30,7 @@ export default function Footer() {
           >
             {/*web & mobile view*/}
             <div className="flex justify-between items-center w-full md:-mt-20 pt-8 md:w-[50%]">
-              {/* Content Section */}
+              {/* scolarite image */}
               <div className="flex items-center gap-2">
                 <Image
                   src={Logo}

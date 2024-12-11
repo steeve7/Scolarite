@@ -302,6 +302,7 @@ export default function AboutPage() {
             />
             <CButton className={style.w3sendbtn}>SEND MESSAGE</CButton>
           </div>
+          
           <div className={style.w4}>
             <Image src={w4i} alt="" className={style.w4i} />
             <div className={mergeText(style.w4content, "ani-hidden left-hide")}>

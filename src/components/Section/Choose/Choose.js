@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function Choose() {
   return (
     <div className="w-full flex flex-col justify-center items-center overflow-hidden">
-      {/*section Template */}
+      {/* why choose scolarite section tst */}
       <div className="relative w-full bg-gradient-to-b from-[#282E41] to-[#3E4A6F] py-20 flex flex-col justify-center items-center">
         <div className="text-center text-white">
           <h2 className="font-roboto font-medium lg:text-[30px] text-[20px]">
@@ -65,7 +65,7 @@ export default function Choose() {
           </motion.div>
         </div>
       </div>
-      {/* Section Template */}
+      {/* why choose scolarite section */}
       {[
         {
           title: "UNLOCKING STUDENT POTENTIAL",

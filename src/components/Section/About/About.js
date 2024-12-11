@@ -45,6 +45,7 @@ const items = [
 export default function About() {
   return (
     <div className="w-full lg:-mt-60 md:-mt-48 xl:mt-32 mt-0">
+      {/*content section */},
       <div className="flex flex-col justify-center px-20 py-10">
         <h2 className="text-center font-roboto font-medium lg:text-[30px] text-[20px] uppercase">
           WHAT IS SCOLARITÉ ?
@@ -77,6 +78,7 @@ export default function About() {
           </p>
         </div>
       </div>
+      {/*items section */}
       <div className="grid md:grid-cols-3 grid-cols-1 justify-items-center items-center px-10 mt-10">
         {items.map((item, i) => (
           <div
