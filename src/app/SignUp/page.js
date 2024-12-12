@@ -595,7 +595,7 @@ import styles from "./SignUpPage.module.css";
 import "slick-carousel/slick/slick.css"; // Import slick carousel CSS
 import "slick-carousel/slick/slick-theme.css"; // Import slick theme CSS
 import "./config.css"
-import { clickHidden, Flip } from "@/components/addons/addons";
+import { clickHidden, CLink, Flip } from "@/components/addons/addons";
 export default function SignUpPage() {
     const [stage, setStage] = useState("signup"); // Stages: signup, verification, confirmed
 
@@ -791,12 +791,12 @@ export default function SignUpPage() {
                             Your journey to JAMB success starts now. Let’s dive into your
                             personalized learning experience.
                         </p>
-                        <button
+                        <CLink
+                        href = "/MultiForm"
                             className={styles.button}
-                            onClick={() => window.location.reload()} // Reload the page
                         >
                             Continue
-                        </button>
+                        </CLink>
                         <p>Redirecting in 5 seconds, or click the 'Continue' button to proceed now.</p>
                     </div>
                 )}

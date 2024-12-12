@@ -1,5 +1,5 @@
 "use client"
-import { BImage, CButton, CEDispatch, Center, CEventH, Cg2wrapper, clickHidden, CLink, Draggable, DropZone, FADispatch, Flip, Pd, Radio, State, ToolTip, useUpdate } from "@/components/addons/addons"
+import { addonsComplex, BImage, CButton, CEDispatch, Center, CEventH, CEXModel, Cg2wrapper, clickHidden, CLink, Draggable, DropZone, FADispatch, Flip, FlipX, Pd, Radio, State, ToolTip, useUpdate } from "@/components/addons/addons"
 import style from "./style.module.css"
 import frame1i1 from "./assets/frame1i1.png"
 import dragimg from "./assets/drag.png"
@@ -27,7 +27,14 @@ import { useEffect, useRef, useState } from "react"
 import { CRange, genId, mergeText, Range } from "../add"
 import MFormDatabase from "./MFormDatabase"
 import "./config.css"
+import { data } from "autoprefixer"
 
+const EventNameList = {
+    multiFormMove:"MULTIFORM-MOVE",
+    multiFormReload:"MULTIFORM-RELOAD",
+    departmentCall:"DEPARTMENT-CALL"
+
+}
 const EventList = {
     multiFormMove:(detail = {index:0})=>new CustomEvent("MULTIFORM-MOVE",{detail:detail}),
     multiFormReload:(detail = {index:0})=>new CustomEvent("MULTIFORM-RELOAD",{detail:detail}),
@@ -42,7 +49,7 @@ function Fill({ Name,purpose={start: 0, end: 10},value=0 , need = true}){
     
     const [done,setdone] = useState(false)
     function FillFunc(e){
-        var index = Number(e.detail.index)
+        var index = Number(e.detail.data.index)
         const End = purpose.end
         const Start = purpose.start
         var el = ref.current
@@ -69,7 +76,7 @@ function Fill({ Name,purpose={start: 0, end: 10},value=0 , need = true}){
             {done && <Image src={doneimg} alt="2" className={style.filldoneimg}/> }
             {!done && value}
         </div>
-        <CEventH Name={EventName} Type={EventList.multiFormMove().type} onEvent={FillFunc}   />
+        <addonsComplex.CEventXH channel={EventNameList.multiFormMove} onEvent={FillFunc}   />
         
     </>
 }
@@ -78,8 +85,7 @@ function InnerSections({state,ehandle,form}){
     const index = state
     const Name = "IF1"
     const Form = form
-    const update = useUpdate()
-    index.onChange = update
+    index.forceUpdateInit()
     function FormInsertValidate(key,UnlessCallFunc,IfNotFunc){
         if(Form.get()[key]){
             UnlessCallFunc()
@@ -88,7 +94,7 @@ function InnerSections({state,ehandle,form}){
         }
     }
 
-    return <Flip  Type={EventList.multiFormMove().type} indexClassName={style.innersection}   Name={Name}>
+    return <FlipX id={"frame3"} channel={EventNameList.multiFormMove} indexClassName={style.innersection}  >
         {/* <ToolTip message={"message success"} /> */}
         <div className={style.if1}>
             <div  className={style.if1title}>
@@ -104,7 +110,7 @@ function InnerSections({state,ehandle,form}){
         <div  className={style.if1title}>
             What's your target School?  
             </div>
-            <Center><input type="text" onChange={el=>Form.update({School:el.target.value})} className={style.ifts} placeholder="Enter school name" /></Center>
+            <Center><Finput change={el=>Form.update({School:el})} dl={db.School} channel={"school"}  placeholder="Enter school name" /></Center>
            <br />
            <br />
            <br />
@@ -180,11 +186,11 @@ function InnerSections({state,ehandle,form}){
             <Center>
                 
                 <Depw >
-                    <input type="text" max={400} id="preScore-input" onChange={el=>{Form.states.Subjects[0]=el.target.value}} className={style.ifts} style={{width:"100%"}} placeholder="Enter first subject" />
-                    <input type="text" max={400} id="preScore-input" onChange={el=>{Form.states.Subjects[1]=el.target.value}} className={style.ifts} style={{width:"100%"}} placeholder="Enter second subject" />
-                    <input type="text" max={400} id="preScore-input" onChange={el=>{Form.states.Subjects[2]=el.target.value}} className={style.ifts} style={{width:"100%"}} placeholder="Enter third Subject" />
-                    <input type="text" max={400} id="preScore-input" onChange={el=>{Form.states.Subjects[3]=el.target.value}} className={style.ifts} style={{width:"100%"}} placeholder="Enter forth Subjects" />
-
+                    <Finput change={(v)=>{form.states.Subjects[0]=v}} dl={db.Course} channel={"subi0"} placeholder="Enter first subject" />
+                    <Finput change={(v)=>{form.states.Subjects[1]=v}} dl={db.Course} channel={"subi1"} placeholder="Enter first subject" />
+                    <Finput change={(v)=>{form.states.Subjects[2]=v}} dl={db.Course} channel={"subi2"} placeholder="Enter first subject" />
+                    <Finput change={(v)=>{form.states.Subjects[3]=v}} dl={db.Course} channel={"subi3"} placeholder="Enter first subject" />
+                    
                 </Depw>
             </Center>
             
@@ -242,15 +248,15 @@ perfect for outlining tasks or steps.
             </div>
             <br />
             <Center>
-                <Depw id="subject" >
+                <DropZone id="subject" channel="subject-card">
                     {Form.get().Subjects.map((sub,index)=><DragCard key={index} subject={sub} index={index} form={Form}></DragCard>
                 )}
-                </Depw>
+                </DropZone>
             </Center>
             <br />
             <Center>
-                <DropZone style={{position:"relative"}} className={style.studcarddropzone} id={"subject-zone"} channel="subject-card">
-                    <BImage Style={{width:"110%",height:"110%"}} objectFit="cover" src={dropzonebg}></BImage>
+                <DropZone drop={e=>document.getElementById("dropzonebg").style.display = "none"} dragOver={e=>document.getElementById("dropzonebg").style.display = "block"} dragLeave={e=>document.getElementById("dropzonebg").style.display = "none"} style={{position:"relative"}} className={style.studcarddropzone} id={"subject-zone"} channel="subject-card">
+                    <BImage id={"dropzonebg"} style={{width:"110%",height:"110%"}} objectFit="cover" src={dropzonebg}></BImage>
                 </DropZone>
             </Center>
             <br />
@@ -282,7 +288,32 @@ perfect for outlining tasks or steps.
             </div>
         </div>
         
-    </Flip>
+    </FlipX>
+}
+
+
+function Finput({channel,change,dl,...props}){
+    const dropEmodel = new CEXModel("DROPDOWN")
+    const inref = useRef(null)
+    function InputChange(e){
+        change(e.target.value)
+        dropEmodel.CEXDispatch(channel,data={drop:true,filter:e.target.value,target:e.target})
+    }
+    function cardClick(name){
+        var input = inref.current
+        input.value = name
+        change(name)
+    }
+    return <div onBlur={()=>setTimeout(()=>{dropEmodel.CEXDispatch(channel,{drop:false,filter:""})},500)} style={{width:"100%"}}>
+        <input ref={inref} type="text" max={400}
+         onChange={InputChange}
+         onClick={InputChange}
+         fdprocessedid="pbf2tq" 
+        
+         className={style.ifts} style={{width:"100%"}} 
+         {...props} />
+         <Dropdown channel={channel} onCClick={cardClick} dataList={dl} ></Dropdown>
+    </div>
 }
 
 function Depw({children, ...props}){
@@ -298,30 +329,46 @@ function DragCard({subject, index,form}){
     const [isin, setisin]  = useState(false)
     var id
     function currentListener(e){
+        var ref = document.getElementById(`subject-card${index}`);
+        console.log("ref",ref)
         var indexs = document.querySelectorAll(`.${style.studcarddropzone} .${style.dragecardsub} `)
         // if (!isin){
             // form.states.Subjects[indexs.length] = subject
             form.update({Subjects:Array.from(indexs).map(el=>{return el.innerText})})
         // console.log(Array.from(indexs).map(el=>{return el.innerText}))
     // }
-        setisin(()=>true)
+        // setisin(()=>true)
         
         
     }
-    function drop(e,t){
+    function Public(el){
+        var ref = el
+        var indexs = document.querySelectorAll(`.${style.studcarddropzone} .${style.dragcard} `)
+        setisin(()=>false)
 
+        indexs.forEach(ele=>{
+
+            if (ele.id == ref.id ){
+                console.log("inin")
+                setisin(()=>true)
+            }
+            else{
+                setisin(()=>false)
+            }
+        })
+        
     }
     var out  = ()=>{
-        var ref = document.getElementById(`subject-card${index}`);
-        ref.parentElement.removeChild(ref)
-        document.getElementById("subject").appendChild(ref)
+        
+        /* ref.parentElement.removeChild(ref)
+        document.getElementById("subject").appendChild(ref) */
         setisin(()=>false)
         
     }
-        return <Draggable channel = {"subject-card"} drop={drop} id={`subject-card${index}`}   currentListener={currentListener} className={style.dragcard} >
+        return <Draggable Public={Public} channel = {"subject-card"}  id={`subject-card${index}`}   currentListener={currentListener} className={style.dragcard} >
                 <Center className={style.dragcardico}>
                     {!isin && <Image src={dragimg} alt="2" className={style.dragimg}></Image>}
-                    {isin &&<Image src={cancelimg} alt="2" onClick={out}  className={style.dragimg}></Image>}
+                    {isin &&<Image src={cancelimg} alt="2"   className={style.dragimg}></Image>}
                 </Center>
                 <div className={style.dragccontent}>
                     <div className={mergeText(style.tl,style.dragecardsub)}>{subject}</div>
@@ -331,29 +378,67 @@ function DragCard({subject, index,form}){
 }
 
 
-function DepInput({form}){
-
-    function InputChange(e){
-
-        var cardellist = document.querySelectorAll(`.${style.depincard}`)
+function Dropdown({channel,onCClick,dataList}){
+    const ref = useRef(null)
+    const Emodel = new CEXModel("DROPDOWN")
+    const ListElRefs =  CRange(0,dataList.length-1).map(()=>useRef(null))
+    function Filter(e){
+        const filter = e.detail.data.filter
+        var cardellist = ListElRefs.map(ELref=>ELref.current)
         cardellist.forEach(el=>{
             el.classList.remove(style.active)
-            if (el.innerText.toLowerCase().includes(e.target.value.toLowerCase())){
+            if (el.innerText.toLowerCase().includes(filter)){
                 el.classList.add(style.active)
             }
         })
+    }
+    function onEvent(e){
+        ref.current.parentElement.style.position = "relative"
+        const data = e.detail.data
+        if (e.detail.target){
+            e.detail.target.addEventListener('keydown', (event) => {
+                console.log(event.key)
+                if (event.key === 'Escape' || event.keyCode === 27) {
+                        Emodel.CEXDispatch(channel,{drop:false,filter:""})
+                    }
+            })
+        }
+        if (data.drop){
+            ref.current.classList.add(style.active)
+        }
+        else{
+            ref.current.classList.remove(style.active)
+        }
+        if (e.detail.data.filter){
+            Filter(e)
+        }
+
+    }
+    function cardClick(name){
+        onCClick(name)
+        Emodel.CEXDispatch(channel,{drop:false,filter:""})
+    }
+    return <div className={style.dropdown}>
+        <div id={style.searchcardwrap} ref={ref} className={style.searchcardwrap}>
+        {dataList.map((obj,index)=>{
+            return <div key={index} ref={ListElRefs[index]} onClick={()=>cardClick(obj.name)} className={mergeText(style.depincard)}>
+            <div style={{textAlign:"left"}}>{obj.name}</div> <Image width={20}  src={depin} alt="222"></Image>
+        </div>
+        })}
+        </div>
+        {<Emodel.CEventXH channel={channel} self={Emodel}  onEvent={onEvent}></Emodel.CEventXH>}
+    </div>
+}
+
+function DepInput({form}){
+    const dropEmodel = new CEXModel("DROPDOWN")
+    function InputChange(e){
+        dropEmodel.CEXDispatch("depinput",data={drop:true,filter:e.target.value,target:e.target})
     }
     function cardClick(name){
         var input = document.getElementById(style.depsearch)
         input.value = name
         form.update({Course:name})
-        document.getElementById(style.depsearch).blur()
-        // InputChange({target:{value:name}})
-        var cardellist = document.querySelectorAll(`.${style.depincard}`)
-        cardellist.forEach(el=>{
-            el.classList.remove(style.active)
-            
-        })
     }
     return <Center   >
     <ToolTip message={"Input a valid course name"}/>
@@ -364,16 +449,11 @@ function DepInput({form}){
                         <path fillRule="evenodd" clipRule="evenodd" d="M29.668 27.6889C34.0128 22.1906 33.6469 14.1873 28.5705 9.11085C23.0998 3.64013 14.23 3.64013 8.75928 9.11085C3.28857 14.5816 3.28857 23.4513 8.75928 28.9221C13.8357 33.9985 21.839 34.3644 27.3373 30.0196L33.2319 35.9142C33.8756 36.5579 34.9191 36.5579 35.5627 35.9142C36.2063 35.2706 36.2063 34.2271 35.5627 33.5835L29.668 27.6889ZM26.2398 11.4416C30.4232 15.6251 30.4232 22.4078 26.2398 26.5913C22.0563 30.7748 15.2735 30.7748 11.09 26.5913C6.90653 22.4078 6.90653 15.6251 11.09 11.4416C15.2735 7.25809 22.0563 7.25809 26.2398 11.4416Z" fill="#282828"/>
                     </svg>
                 </div>
-                <input onChange={InputChange} 
+                <input onChange={InputChange} onClick={InputChange} 
+                onBlur={()=>dropEmodel.CEXDispatch("depinput",{drop:false,filter:""})}
                   type="text" id={style.depsearch}  className={style.depsearch} />
             </div>
-            <div id={style.searchcardwrap} className={style.searchcardwrap}>
-                {db.Course.map((obj,index)=>{
-                    return <div key={index} onClick={()=>cardClick(obj.name)} className={mergeText(style.depincard)}>
-                    <div style={{textAlign:"left"}}>{obj.name}</div> <Image width={20}  src={depin} alt="222"></Image>
-                </div>
-                })}
-            </div>
+            <Dropdown channel={"depinput"} dataList={db.Course} onCClick={cardClick}></Dropdown>
         </div>
     </Center>
 }
@@ -476,7 +556,9 @@ export default function Page(props){
             preScore:0,
             Course:""
 
-        }
+        },
+        // true
+
     )
     const Index = new State(0)
     const FilllistAssign = ["Academic Goals", "Current Academic Status", "Study Preference", "Customization", "Congratulations"]
@@ -495,14 +577,17 @@ export default function Page(props){
         })
         CEDispatch("FLIP-frame1",Event)
          */
+        /* console.log(Index.get())
         // console.log(Event)
-        console.log(Form.toString())
-        FADispatch(Event)
+        console.log(Form.toString()) */
+        // FADispatch(Event)
+        addonsComplex.XADispatch(EventNameList.multiFormMove,{index:Index.get()})
     }
     
     return <div className={style.main}>
         <Cg2wrapper className={style.wrapper}>
-            <Flip Type={EventList.multiFormMove().type} speed={0.8} className={style.side1}  Name={"frame1"}>
+            <addonsComplex.CEventXH channel={EventNameList.multiFormMove} onEvent={()=>{console.log("eventX")}}></addonsComplex.CEventXH>
+            <FlipX channel={EventNameList.multiFormMove} speed={0.8} className={style.side1}  >
             {/* <ToolTip message={"message success"} /> */}
 
                 {ImageList.map((image,i)=>
@@ -510,7 +595,7 @@ export default function Page(props){
                         <Image src={image} alt="alt" style={{width:"100%"}}></Image>
                     </div>
                 )}
-            </Flip>
+            </FlipX>
             <Flip className={style.side2}  Name={"frame2"}>
                 <div className={mergeText(style.frame2section,style.frame2section1)}>
                     <div className={mergeText(style.frame2section1titlewrapper)}>
@@ -521,14 +606,14 @@ export default function Page(props){
                         Help us create a focused study plan tailored just for you.
                         </div>
                     </div>
-                    <div className="w-full flex justify-center mb-4">
+                    <div className="w-full flex justify-center ">
                         <div className={style.fillcom}>
                             {section1fills.map((obj,index)=><Fill key={index} value={obj.Index} need = {index !== 0} {...obj}/>)}
                         </div>
                     </div>
                     <div className="w-full flex justify-center">
                         <div className={mergeText(style.fillcom,style.fillassigncom)}>
-                            {FilllistAssign.map((obj,index)=> <div key={`index-${index}`} className={style.fillassign}>{obj}</div>)}
+                            {FilllistAssign.map((obj,index)=> <div key={`index-${index}`} className={style.fillassign} style={index==1?{paddingTop:"20%"}:{}}>{obj}</div>)}
                         </div>
                     </div>
                     <Pd pady={30}></Pd>

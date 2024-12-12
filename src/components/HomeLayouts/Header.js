@@ -3,7 +3,7 @@ import NavbarMain from "@/components/HomeLayouts/navbar";
 import style from "./navbar.module.css";
 import { useEffect } from "react";
 import { mergeText } from "@/app/add";
-import {  Clientable, INFILTRATOR, isPageExempt, State, WSABOTAG } from "../addons/addons";
+import {  Clientable, INFILTRATOR, isPageExempt, State, addonsComplex } from "../addons/addons";
 
 function Header() {
   var classes = [style.header];
@@ -17,7 +17,7 @@ function Header() {
       el.style.display = "none";
     });
     // INFILTRATOR("b",{blur:3})
-    // new WSABOTAG().BLUR({value:2})
+    // new addonsComplex.WSABOTAG().BLUR({value:2})
 
   }, []);
   return (

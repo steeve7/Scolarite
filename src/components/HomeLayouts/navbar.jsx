@@ -35,6 +35,7 @@ function Notification({ message, link }) {
     </div>
   );
 }
+
 export default function NavbarMain() {
   const pathname = usePathname();
   return (
@@ -57,20 +58,15 @@ function NavBar(props) {
       {PATH:"/blogs",NAME:"Blog"},
       {PATH:"/becomeAffliate",NAME:"Become an Affiliate"}
     ]
-   /*  const [navbar, setNavbar] = props.navattr
-    const [isNavOpened, setIsNavOpened] = props.isattr */
-
+  
+    // for mobile toogle
     const ToogleNavBar = () => {
       document.getElementById("navbar").classList.toggle(style.navhidden);
-
-      /* setIsNavOpened(e=>!document.getElementById("navbar").classList.contains(style.navhidden));
-      console.log("navopen--",isNavOpened)
-      console.log("navbar--",navbar)
-      props.onscroll() */
       
     };
   useEffect(
     function () {
+      //# slide animation initialiser
       const hides = document.querySelectorAll(".ani-hidden");
       const observer = new IntersectionObserver(
         (e) => {
@@ -92,7 +88,7 @@ function NavBar(props) {
       hides.forEach((e) => {
         observer.observe(e);
       });
-
+      // nav bar link "active" control
       navigationObject.forEach(entry=>{
         var el = document.getElementById(`${entry.PATH}-navbarlink`)
         el.classList.remove(style.active)
@@ -117,6 +113,7 @@ function NavBar(props) {
       )}
       id="navbar"
     >
+      
       <div className={mergeText("grid grid-cols-[auto_1fr]", style.navinner)}>
         <div
         

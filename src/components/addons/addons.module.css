@@ -43,7 +43,8 @@
 
 }
 .button{
-    transition: translate 0.5s ease-in-out;
+    transition: translate 0.5s ease-in-out,
+    scale 0.5s ease-in-out;
     cursor:pointer;
 }
 .button *{
@@ -56,9 +57,11 @@
     translate: 0px 5px;
 }
 .btnaniscale:hover{
-    translate: 0px -5px;
+    scale: 1.05;
 }
-
+.radio{
+    cursor: pointer;
+}
 /* .tooltipcontainer{ */
     /* position: absolute; */
 /* } */
