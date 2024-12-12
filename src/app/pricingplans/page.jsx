@@ -30,6 +30,7 @@ const  test2 = [
     " Early access to new courses and updates.",
 ]
 
+// for a text in one pricing plan
 function PcFe(props){
     const icon = String(props.value).includes("--X--")?pcfex:pcfem
     const value = String(props.value).replace("--X--","")
@@ -39,7 +40,7 @@ function PcFe(props){
         </div>
     
 }
-
+// one plan card
 export function PriceCom({label, value , list , className}){
     return <div className={mergeText(style.priceCom,className)}>
         <div className={style.pclabel}>{label}</div>
@@ -53,7 +54,7 @@ export function PriceCom({label, value , list , className}){
         <CButton className={style.pcbutton}>Get Started</CButton>
     </div>
 }
-
+// faq component
 export function FaqCom({text,title}){
     const id = "faqcom ___ "+title
     return <div className={mergeText("ani-hidden right-hide",style.faqcom)} id= {id}>

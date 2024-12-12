@@ -8,6 +8,7 @@ const indexId = genId("b")
 import { usePathname } from "next/navigation"
 import { ListChildren } from "./addonsServer"
 
+// for controling header and footer
 export var isPageExempt = ()=>{
     var Exempt = false
     const PageExemptList = ["signup","login","multiform"]
@@ -31,7 +32,7 @@ export function mergeFunc(...func){
     }
 }
 
-
+// for get 
 export function LastIndex(list){
   var running = true
   var count = 0
@@ -46,6 +47,7 @@ export function LastIndex(list){
   return count
 }
 
+// for range array generation 
 export function CRange(start= 0,stop = 0,step=1){
   const list = []
   for(let i = start;i<stop+step;i+=step){
@@ -58,6 +60,7 @@ export function CRange(start= 0,stop = 0,step=1){
 }
 
 
+// generates unique id
 export function genId(p = "b",length = 8){
     const letters = "abcdefghijklmnopqrstuvwxyz"
     const numbers = "0123456789"
@@ -98,7 +101,7 @@ export function G2Wrapper(props){
     </section>
 }
 
-
+//  clientable
 export function Clientable(func){
     var interval
     var isClientable = false
@@ -124,11 +127,11 @@ export function RClientable(func){
     },[])
 }
 
-
+// for hiding comps
 export function NONE({children, ...props}){
     return <div {...props} style={{display:"none"}}> {children}</div>
 }
-
+// for generating propotional values between two max
 export class Percentium{
     left=0
     right=0
@@ -170,10 +173,12 @@ export class Percentium{
 
 export const addonsComplex = {
     //# "NO GO" AREA
-    useUpdate: function(){
+    // for updating a comment
+    useUpdate(){
         const [, forceUpdate] = useReducer(x => x + 1, 1);
             return forceUpdate;
     },
+
     ScrollIntoView({selector = undefined, id = undefined}){
         var el
         if (selector){
@@ -188,9 +193,10 @@ export const addonsComplex = {
           })
         
     },
+    // a custom useState that solves, deep nesting
     State:class{
         states
-        onChange =  ()=>{}
+        onChange = ()=>{}
         onGet = ()=>{}
         forceUpdate 
 
@@ -1013,7 +1019,7 @@ export function CInput({className,placeholder,type="input",...props}){
 }
 
 
-export function CButton({className,onClick,id,Style = {},children,ani = "scale", tooltip = undefined}){
+export function CButton({className,onClick,id,Style = {},children,ani = "top", tooltip = undefined}){
     const ButtonAnimations = {
         "scale":styles.btnaniscale,
         "top":styles.btnanitop,

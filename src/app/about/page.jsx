@@ -26,11 +26,14 @@ import { useEffect } from "react";
 
 export default function AboutPage() {
   useEffect(()=>{
+    // initializer for get in touch section button
     document.querySelectorAll(`.${style.w3sit}`).forEach(e=>{
         e.click()
     })
     // setTimeout(()=>{addonsComplex.ScrollIntoView({id : "test"})},2000)
   },[])
+
+
   function fontSizeAdjust(){
       var toptitle = document.getElementById("wrapper3t")
       var topcontent = document.getElementById("wrapper3c")
@@ -315,6 +318,7 @@ export default function AboutPage() {
                   style.w4img
                 )}
               />
+              
               <div className={style.w4title}>
                 Take your First Step Towards Academic Excellence with Scolarité
               </div>
