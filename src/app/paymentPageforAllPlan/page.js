@@ -169,7 +169,7 @@ export default function paymentPageforAllplan() {
                         }
                         }
                         } 
-                        className="input" type="number"   placeholder="               -  -  -  -          -  -  -  -             -  -  -  -           -  -  -  -" required/>
+                        className="input" type="number"   placeholder="             -  -  -  -          -  -  -  -             -  -  -  -           -  -  -  -" required/>
     
                  </div>
 
@@ -177,7 +177,7 @@ export default function paymentPageforAllplan() {
                  <div className="date-cvv" >
                  <div className="input-headings">
                     <ul>
-                    <li className="text"> Card Expiry Date</li>
+                    <li className="text cd-expiry" > Card Expiry Date</li>
                         <li> <Image src="/Images/info.png"
                         alt="logo"
                         width={50}

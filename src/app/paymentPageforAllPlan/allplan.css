@@ -39,7 +39,8 @@
     width: 100%;
     background-color: white;
     height: 100%;
-    margin-left: 6rem;
+    margin-left: 7rem;
+    margin-right: 4rem;
     animation: slideMe 2.5s ease-in;
     
 }
@@ -128,7 +129,7 @@ form{
 
 }
 .text{
-    padding-right: 1rem;
+    padding-right: 0.3rem;
     color: #253058;
     font-weight: 600;
 }
@@ -137,7 +138,7 @@ form{
 }
 .info{
     width: 20px;
-    
+    /* margin-right: 10rem; */
 }
 
 .input{
@@ -220,6 +221,9 @@ form{
     border-radius: 10px;
     outline: none;
     color: #253058;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 
 }
 .input-cvv{
@@ -231,6 +235,9 @@ form{
     border-radius: 10px;
     outline: none;
     color: #253058;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 
 }
 .subscribe{
@@ -302,6 +309,8 @@ form{
     border-radius: 10px;
     border: 5px solid black;
    animation: slideMe2 2.5s ease-in;
+   background-color: black;
+   box-shadow: 0px 20px 17px 0px black;
    
     
 }
@@ -324,29 +333,29 @@ form{
    top: -0.2rem;
    opacity: 20% 0.5s ease-in-out;
    animation: slideMe2 2s ease-in;
-   border-bottom: 2px  dotted #253058;
-   
+   border-bottom: 2px  dashed #253058;
+  
 
    
 }
 
 .p{
-    background-color: #DDEBF5B2;
+    /* background-color: #DDEBF5B2; */
     /* backdrop-filter: blur(207.74888610839844px); */
     color:#253058;
-    /* width: 90%; */
-    margin-left: 1rem;
+    width: 100%;
+    /* margin-left: 1rem; */
     margin-bottom: 1rem;
+    padding-top: 0.7rem;
+    padding-left: 0.9rem;
+    /* height: 30px; */
 
 }
-.p span{
-    background-color: #DDEBF5B2;
-        /* backdrop-filter: blur(207.74888610839844px); */
-}
+
 .p-summary{
     font-size: 20px;
     color: #253058;
-    background-color: #DDEBF5B2;
+    /* background-color: #DDEBF5B2; */
     
 }
 
@@ -363,7 +372,7 @@ form{
     /* align-items: center; */
     color: #253058;
     background-color: #DFECF6;
-    padding:1rem;
+    padding:1.5rem;
     margin-bottom: 3rem;
     border-radius: 10px;
 }
@@ -372,27 +381,32 @@ form{
     background-color: #DFECF6;
     justify-content: space-around;
     align-items: center;
-    /* width: 50%; */
-    gap: 29px;
+    width: 100%;
+    gap: 20px;
 
 }
 .list li{
     background-color:#DFECF6;
     /* color: #7C87AA; */
     display: flex;
+    
     width: 100%;
     /* border: 2px solid darkblue; */
     justify-content: space-between;
-    display: flex;
+    /* display: flex; */
     /* gap: 29px; */
 }
 .li-list{
     color: #7C87AA;
+    width: 100%;
+    font-size: 12px;
 }
 .list-1{
     display: flex;
     color: #253058;
     font-weight: bold;
+    font-size: 13px;
+
     /* justify-content: flex-start; */
 }
 .Amount-check{
@@ -411,15 +425,10 @@ form{
    /* border-bottom: 2px  dotted #253058; */
    
 }
-.inner-amount{
-    /* backdrop-filter: blur(207.74888610839844px); */
-    background-color: #DDEBF5B2;
-    /* opacity: 2px; */
 
-}
 .tt-amnt{
     /* backdrop-filter: blur(207.74888610839844px); */
-    background-color: #DDEBF5B2;
+    /* background-color: #DDEBF5B2; */
     color: #7C87AA;
     font-size: 15px;
     
@@ -428,7 +437,7 @@ form{
     font-size: 30px;
     /* font-family: 'Courier New', Courier, monospace; */
     color: #1c2a5a;
-    background-color: #DDEBF5B2;
+    /* background-color: #DDEBF5B2; */
     /* backdrop-filter: blur(207.74888610839844px); */
     font-weight: bold;
     font-family: DM Sans;
@@ -486,7 +495,17 @@ font-weight: 500;
 
 
 
-
+@media screen and (max-width:344px){
+    .input-expiry{
+        width: 100%;
+    }
+    .cd-expiry{
+        font-size: 10px;
+    }
+    .info{
+        width: 15px;
+    }
+}
 
 
 
@@ -516,12 +535,14 @@ font-weight: 500;
         width: 100%;
         /* margin-left:0.5rem; */
         position: relative;
+        margin-top: -2.5rem;
         left: -3rem;
     }
     .input{
         width: 100%;
         height: 2.5rem ;
     }
+    
     .payment-method{
         font-size: 10px;
         width: 100%;
@@ -544,7 +565,7 @@ font-weight: 500;
        
     }
     .info{
-        height: 15px;
+        width: 15px;
     }
     .input-expiry{
         width:100%;
@@ -568,6 +589,7 @@ font-weight: 500;
         height: 2.5rem;
     }
     .subscribe{
+        font-size: 13px;
         width: 100%;
     }
     .black-line{
@@ -605,18 +627,26 @@ font-weight: 500;
         font-size: 10px;
         width: 100%;
     }
+    .list-1{
+        font-size: 10px;
+    }
+    .li-list{
+        font-size: 10px;
+    }
     .Amount-check{
         padding: 1rem;
     }
     .circle-1{
         bottom: 6.8rem;
-        width: 2rem;
+        width: 2.3rem;
         height: 2rem;
         border-radius: 50%;
+        margin-top: 1.9rem;
     }
     .circle-2{
-        bottom: 6.8rem;
-        width: 2rem;
+        margin-top: 1.9rem;
+        bottom: 6rem;
+        width: 2.3rem;
         height: 2rem;
         border-radius: 50%;
     }
@@ -651,6 +681,7 @@ font-weight: 500;
             padding-bottom: 1rem;
         }
         form{
+        margin-top: -2.5rem;
            
             margin-left: 2rem;
         }
@@ -700,6 +731,30 @@ font-weight: 500;
     form{
         width: 110%;
     }
+    .circle-1{
+        bottom: 9.3rem;
+       
+    }
+    .circle-2{
+        bottom: 9.3rem;
+        
+    }
+    .li-list{
+        font-size: 10px;
+    }
+    .list-1{
+        font-size: 10px;
+    }
+    .tt-amnt{
+        font-size: 12px;
+    }
+    .naira{
+        font-size: 25px;
+    }
+    .message{
+        height: 40px;
+        /* padding-right: 0.5rem; */
+    }
 }
 
 @media screen and (max-width:1024px) {
@@ -734,6 +789,11 @@ font-weight: 500;
      }
      .date-cvv{
         gap: 10px;
+        /* width: 100%; */
+
+     }
+     .text{
+        font-size: 12px;
      }
     
      .input{

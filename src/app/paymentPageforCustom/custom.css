@@ -34,8 +34,8 @@
     width: 100%;
     background-color: white;
     height: 100%;
-    margin-left: 6rem;
-
+    margin-left: 7rem;
+    margin-right: 4rem;
     animation: slideMe 2.5s ease-in;
     
 }
@@ -73,7 +73,7 @@
 .nav{
     display: flex;
     align-items: center;
-    padding-top: 1rem;
+    padding-top: 2rem;
     list-style-type: none;
 }
 .logo{
@@ -242,6 +242,7 @@ form{
 .Payment-summary{
     width: 100%;
     padding-top: 5rem;
+    /* padding-bottom: rem; */
     /* padding-left: 5rem; */
    
 }
@@ -284,11 +285,12 @@ form{
 .black-line{
     list-style-type: none;
     width: 18%;
-    margin-left: 9.5rem;
+    margin-left: 10.5rem;
     border-radius: 10px;
     border: 5px solid black;
    animation: slideMe2 2.5s ease-in;
-   
+   background-color: black;
+   box-shadow: 0px 20px 17px 0px black;
    
     
 }
@@ -304,22 +306,20 @@ form{
    opacity: 20% 0.5s ease-in-out;
    animation: slideMe2 2s ease-in;
    border-radius: 10px;
-   border-bottom: 2px  dotted #253058;
+   border-bottom: 2px  dashed #253058;
 }
 
 .p{
-    background-color: #DDEBF5B2;
+    /* background-color: #DDEBF5B2; */
     color:#253058;
     width: 100%;
     /* margin-left: 1rem; */
-    margin-bottom: 2rem;
-    padding: 0;
+    margin-bottom: 1rem;
+    padding-top: 0.7rem;
+    padding-left: 0.9rem;
     /* height: 30px; */
 }
-.p span{
-    background-color: #DDEBF5B2;
-       
-}
+
 .p-summary{
     font-size: 20px;
 }
@@ -332,7 +332,7 @@ form{
     text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
-    background-color: #DDEBF5B2;
+    /* background-color: #DDEBF5B2; */
 }
 
 
@@ -348,8 +348,8 @@ form{
     /* align-items: center; */
     color: #253058;
     background-color: #DFECF6;
-    padding:1rem;
-    margin-bottom: 3rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
     border-radius: 10px;
 }
 .list{
@@ -358,7 +358,7 @@ form{
     justify-content: space-around;
     align-items: center;
     /* width: 50%; */
-    gap: 29px;
+    gap: 20px;
 
 }
 .list li{
@@ -367,16 +367,19 @@ form{
     width: 100%;
     /* border: 2px solid darkblue; */
     justify-content: space-between;
-    display: flex;
+    /* display: flex; */
     /* gap: 29px; */
 }
 .li-list{
     color: #7C87AA;
+    width: 100%;
+    font-size: 12px;
 }
 .list-1{
     display: flex;
-    color: #1c2a5a;
+    color: #253058;
     font-weight: bold;
+    font-size: 13px;
     /* justify-content: flex-start; */
 }
 .number-increment{
@@ -431,19 +434,14 @@ form{
    gap: 30px;
    animation: slideMe2 2s ease-in;
    border-radius: 10px;
-   padding: 2rem;
+   padding: 1.5rem;
    /* border-bottom: 2px  dotted #253058; */
    
 }
-.inner-amount{
-    /* backdrop-filter: blur(207.74888610839844px); */
-    background-color: #DDEBF5B2;
-    /* opacity: 2px; */
 
-}
 .tt-amnt{
     /* backdrop-filter: blur(207.74888610839844px); */
-    background-color: #DDEBF5B2;
+    /* background-color: #DDEBF5B2; */
     color: #7C87AA;
     font-size: 15px;
     
@@ -452,7 +450,7 @@ form{
     font-size: 30px;
     /* font-family: 'Courier New', Courier, monospace; */
     color: #1c2a5a;
-    background-color: #DDEBF5B2;
+    /* background-color: #DDEBF5B2; */
     /* backdrop-filter: blur(207.74888610839844px); */
     font-weight: bold;
     font-family: DM Sans;
@@ -481,7 +479,7 @@ font-weight: 500;
     height: 2.5rem;
     border-radius: 50%;
     position: relative;
-    bottom: 10rem;
+    bottom: 9rem;
     right: 1rem;
     background-color: white;
     /* border: 2px solid black; */
@@ -492,7 +490,7 @@ font-weight: 500;
     height: 2.5rem;
     border-radius: 50%;
     position: relative;
-    bottom: 10rem;
+    bottom: 9rem;
     right: -1rem;
     background-color: white;
 }
@@ -530,6 +528,7 @@ font-weight: 500;
         /* margin-left:0.5rem; */
         position: relative;
         left: -3rem;
+        margin-top: -3rem;
     }
     .input{
         width: 100%;
@@ -557,7 +556,7 @@ font-weight: 500;
        
     }
     .info{
-        height: 15px;
+        width: 15px;
     }
     .input-expiry{
         width:100%;
@@ -581,6 +580,7 @@ font-weight: 500;
         height: 2.5rem;
     }
     .subscribe{
+        font-size: 13px;
         width: 100%;
     }
     .black-line{
@@ -604,7 +604,7 @@ font-weight: 500;
     .p-text{
         font-size: 7px;
         width: 100%;
-        margin-bottom: -1rem;
+        margin-bottom: 0.5rem;
     }
     .button{
         width: 80%;
@@ -619,6 +619,7 @@ font-weight: 500;
         margin: 0;
         height: fit-content;
         font-size: 12px;
+        /* gap: 0; */
 
     }
     
@@ -626,19 +627,27 @@ font-weight: 500;
         font-size: 10px;
         width: 100%;
     }
+    .list-1{
+        font-size: 10px;
+    }
+    .li-list{
+        font-size: 10px;
+    }
  
     .Amount-check{
         padding: 1rem;
     }
     .circle-1{
         bottom: 6.8rem;
-        width: 2rem;
+        width: 2.3rem;
         height: 2rem;
         border-radius: 50%;
+        margin-top: 1.4rem;
     }
     .circle-2{
-        bottom: 6.8rem;
-        width: 2rem;
+        margin-top: 1.4rem;
+        bottom: 6rem;
+        width: 2.3rem;
         height: 2rem;
         border-radius: 50%;
     }
@@ -663,7 +672,18 @@ font-weight: 500;
     }
 
 }
-@media screen and (max-width:540px) {
+@media screen and (max-width:700px){
+     .Amount-check{
+        font-size: 15px;
+    }
+    .naira{
+        font-size: 10px;
+    }
+    .message{
+        height: 30px;
+    }
+}
+@media screen and (max-width:596px) {
     .inner-body{
         display: flex;
         flex-direction: column-reverse;
@@ -678,8 +698,10 @@ font-weight: 500;
             padding-bottom: 1rem;
         }
         form{
+        margin-top: -2.5rem;
            
             margin-left: 2rem;
+            
         }
 
     .Card-payment-info > ul{
@@ -727,8 +749,28 @@ font-weight: 500;
     form{
         width: 110%;
     }
+    .circle-1{
+        bottom: 8.7rem;
+       
+    }
+    .circle-2{
+        bottom: 8.7rem;
+    }
+    .tt-amnt{
+        font-size: 12px;
+    }
     .naira{
         font-size: 25px;
+    }
+    .li-list{
+        font-size: 10px;
+    }
+    .list-1{
+        font-size: 10px;
+    }
+    .message{
+        height: 40px;
+        /* padding-right: 0.5rem; */
     }
 }
 
@@ -769,6 +811,10 @@ font-weight: 500;
      .date-cvv{
         gap: 10px;
      }
+     .text{
+        font-size: 12px;
+     }
+    
     
      .input{
         font-size: 12px;
@@ -778,8 +824,9 @@ font-weight: 500;
      }
      .elements{
         width: 100%;
-        margin-left: -0.5rem;
+        margin-left: 0.1rem;
        height: 50%;   
+       /* gap: 0; */
      }
      .Amount-check{
         width: 90%;

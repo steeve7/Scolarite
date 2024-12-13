@@ -49,9 +49,9 @@ input[type="number"] {
 
 
 
-/* input[type="date"]::-webkit-calendar-picker-indicator{
+input[type="date"]::-webkit-calendar-picker-indicator{
   display:none;
-} */
+}
 
 
 

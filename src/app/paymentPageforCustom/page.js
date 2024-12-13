@@ -169,9 +169,9 @@ export default function paymentPageforCustomPlan() {
                        /> </li>
                    </ul>
                       
-                      <input type="text" id="holdersname" className="input" placeholder="Enter name on Card"required/>
-   
-                </div>
+                      <input type="text" id="holdersname" className="input"  placeholder="             -  -  -  -          -  -  -  -             -  -  -  -           -  -  -  -" required/>
+    
+                 </div>
 
 
 
