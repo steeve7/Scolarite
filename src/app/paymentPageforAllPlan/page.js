@@ -176,8 +176,8 @@ export default function paymentPageforAllplan() {
 
                  <div className="date-cvv" >
                  <div className="input-headings">
-                    <ul>
-                    <li className="text cd-expiry" > Card Expiry Date</li>
+                 <ul className='cd-expiry'>
+                    <li className="text" > Card Expiry Date</li>
                         <li> <Image src="/Images/info.png"
                         alt="logo"
                         width={50}
@@ -216,7 +216,7 @@ export default function paymentPageforAllplan() {
 
                  <div className="input-headings">
                     <ul>
-                    <li className="text"> CVV</li>
+                    <li className="text cvv"> CVV</li>
                         <li> <Image src="/Images/info.png"
                         alt="logo"
                         width={50}

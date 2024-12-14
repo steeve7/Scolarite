@@ -204,9 +204,10 @@ form{
     display: flex;
     width: 80%;  
     margin-top: 1rem;
-    justify-content: space-between;
     outline: none;
-
+    /* padding-left: 1rem; */
+    justify-content: space-between;
+    /* overflow: hidden; */
 }
 
 .input-expiry{
@@ -221,24 +222,26 @@ form{
     border-radius: 10px;
     outline: none;
     color: #253058;
-    align-items: center;
-    display: flex;
-    justify-content: center;
 
 }
+.cd-expiry{
+    width: 120%;
+    /* margin-right: 1rem; */
+}
 .input-cvv{
-    width: 100%;
+    width: 90%;
     height: 3rem;
      background: #F8F9FB;
     border: 1px solid #DDE0E6;
     padding-left: 0.5rem;
-    border-radius: 10px;
     outline: none;
+    margin-left: 1.5rem;
+    border-radius: 10px;
     color: #253058;
-    align-items: center;
-    display: flex;
-    justify-content: center;
 
+}
+.cvv{
+    margin-left: 2rem;
 }
 .subscribe{
     width: 80%;
