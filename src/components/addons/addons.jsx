@@ -763,7 +763,7 @@ export function DropZone({
 }
 
 export function BImage({src,alt="image",className,objectFit = "contain" ,style ,...props}){
-    return <Center {...props} style={{position:"absolute",top:0,left:0,zIndex:"-100"}}>
+    return <Center {...props} style={{position:"absolute",top:0,left:0,zIndex:"-100",height:"100%"}}>
         <Image src={src} alt={alt} className={mergeText(styles.bimage,className)} style={{width:"100%",height:"100%",objectFit:objectFit,...style}}></Image>
     </Center>
 }

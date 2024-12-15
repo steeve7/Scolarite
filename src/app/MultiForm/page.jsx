@@ -27,7 +27,6 @@ import { useEffect, useRef, useState } from "react"
 import { CRange, genId, mergeText, Range } from "../add"
 import MFormDatabase from "./MFormDatabase"
 import "./config.css"
-import { data } from "autoprefixer"
 
 const EventNameList = {
     multiFormMove:"MULTIFORM-MOVE",
@@ -248,7 +247,7 @@ perfect for outlining tasks or steps.
             </div>
             <br />
             <Center>
-                <DropZone id="subject" channel="subject-card">
+                <DropZone id="subject" channel="subject-card" className={style.fdropzone}>
                     {Form.get().Subjects.map((sub,index)=><DragCard key={index} subject={sub} index={index} form={Form}></DragCard>
                 )}
                 </DropZone>
@@ -256,7 +255,7 @@ perfect for outlining tasks or steps.
             <br />
             <Center>
                 <DropZone drop={e=>document.getElementById("dropzonebg").style.display = "none"} dragOver={e=>document.getElementById("dropzonebg").style.display = "block"} dragLeave={e=>document.getElementById("dropzonebg").style.display = "none"} style={{position:"relative"}} className={style.studcarddropzone} id={"subject-zone"} channel="subject-card">
-                    <BImage id={"dropzonebg"} style={{width:"110%",height:"110%"}} objectFit="cover" src={dropzonebg}></BImage>
+                    <BImage id={"dropzonebg"} style={{height:"120%"}} objectFit="cover" src={dropzonebg}></BImage>
                 </DropZone>
             </Center>
             <br />
@@ -343,9 +342,10 @@ function DragCard({subject, index,form}){
     }
     function Public(el){
         var ref = el
+        //get all from main drop zone
         var indexs = document.querySelectorAll(`.${style.studcarddropzone} .${style.dragcard} `)
         setisin(()=>false)
-
+        // check if in main drop zone
         indexs.forEach(ele=>{
 
             if (ele.id == ref.id ){
@@ -358,23 +358,16 @@ function DragCard({subject, index,form}){
         })
         
     }
-    var out  = ()=>{
-        
-        /* ref.parentElement.removeChild(ref)
-        document.getElementById("subject").appendChild(ref) */
-        setisin(()=>false)
-        
-    }
-        return <Draggable Public={Public} channel = {"subject-card"}  id={`subject-card${index}`}   currentListener={currentListener} className={style.dragcard} >
-                <Center className={style.dragcardico}>
-                    {!isin && <Image src={dragimg} alt="2" className={style.dragimg}></Image>}
-                    {isin &&<Image src={cancelimg} alt="2"   className={style.dragimg}></Image>}
-                </Center>
-                <div className={style.dragccontent}>
-                    <div className={mergeText(style.tl,style.dragecardsub)}>{subject}</div>
-                    <div className={mergeText(style.tl,style.draginputi)}>{listcardiinput[index]} input</div>
-                </div>
-        </Draggable>
+    return <Draggable Public={Public} channel = {"subject-card"}  id={`subject-card${index}`}   currentListener={currentListener} className={style.dragcard} >
+            <Center className={style.dragcardico}>
+                {!isin && <Image src={dragimg} alt="2" className={style.dragimg}></Image>}
+                {isin &&<Image src={cancelimg} alt="2"   className={style.dragimg}></Image>}
+            </Center>
+            <div className={style.dragccontent}>
+                <div className={mergeText(style.tl,style.dragecardsub)}>{subject}</div>
+                <div className={mergeText(style.tl,style.draginputi)}>{listcardiinput[index]} input</div>
+            </div>
+    </Draggable>
 }
 
 
