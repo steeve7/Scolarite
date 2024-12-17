@@ -1,31 +1,11 @@
 
 
-declared Step : One from a syncronous assignment  
-declared Real : a component, can be seen, exist in window, affects window
-declared Abstract : a component, cannot be seen directly, dont't exist directly, affects window
-declared Virtual : not a component, cannot be seen, exist in window, affects window
-declared Event :  not a component, cannot be seen, dont't exist in window directly, affects window
-declared Component :  a node with it's own script
- 
-declared Primitive <Abstract> : cannot be seen, only by inheriting can it
-declared Test <Real> : to review how a primitive component adapts
-declared Object <virtual> : not a component but controls components
-
-declared day <Step> : a whole day assignment
-declared creating : list of component or objects to be created that day
-declared forming : list of component or objects to be created from "Primitive", "Abstract" or "Real" component that day
-declared finishing : list of component or objects to be strictly completed or updated that day
-declared debugging : list of component to check for errors and unnoticed malfuction
-declared * : everything that concerns the next statement
-declared ** : everything that concerns the project
-
-
 day day1{
     (setting | planning) $
 }
 
 day day2{
-    creating{
+    create(ing){
         NavBar
         Footer
         window update loop <Object>
@@ -35,7 +15,7 @@ day day2{
 }
 
 day day3{
-    creating {
+    create(ing) {
         custom circle chart <Primitive>
         custom bar chart <Primitive>
         circle chart <Test>
@@ -44,82 +24,118 @@ day day3{
 }
 
 day day4{
-    creating {
+    create(ing) {
         checkButton 
         calendar 
         v3 Custom Grid 2 Wrapper <Primitive>
     }
-    forming {
+    form(ing) {
         home page
     }
 }
 
 day day5{
-    finishing{
+    finish(ing){
         home page
     }
-    forming {
+    form(ing) {
        Education Tracker 1
     }
 }
 
 day day6{
-    finishing{
+    finish(ing){
         Education Tracker 1
     }
-    forming {
+    form(ing) {
        Education Tracker 2
     }
 }
 
 day day7{
-    finishing{
+    finish(ing){
         Education Tracker 2
     }
-    forming {
+    form(ing) {
         profile settings 1
     }
 }
 
 day day7{
-    finishing{
+    finish(ing){
         profile settings 1
     }
-    forming {
+    form(ing) {
         login security settings 1
     }
 }
 
 day day8{
-    finishing{
+    finish(ing){
         login security settings 1
     }
-    creating{
+    create(ing){
         purchase history card 
     }
-    forming {
+    form(ing) {
         purchase history settings 1
     }
 }
 
 day day9{
-    finishing{
+    finish(ing){
         login security settings 1
     }
-    creating{
+    create(ing){
         Subscription card 
     }
-    forming {
+    form(ing) {
         Subscription settings 1
     }
 }
 
 day day10{
-    finishing{
+    finish(ing){
         Subscription settings 1
-        * creating
+        * create(ed)
     }
     debugging{
         **
     }
 }
+
+declared Step : One from a syncronous assignment  
+
+declared Real : a component, can be seen, exist in window, affects window
+
+declared Abstract : a component, cannot be seen directly, dont't exist directly, affects window
+
+declared Virtual : not a component, cannot be seen, exist in window, affects window
+
+declared Event :  not a component, cannot be seen, dont't exist in window directly, affects window
+
+declared Component :  a node with it's own script
+
+
+
+declared Primitive <Abstract> : cannot be seen, only by inheriting can it
+
+declared Test <Real> : to review how a primitive component adapts
+
+declared Object <virtual> : not a component but controls components
+
+
+
+declared day <Step> : a whole day assignment
+
+declared create (tence) : List of components created or to be created that day, based on "tence"
+
+declared form (tence) :List of components created or to be created from "Primitive" "Abstract" or "Real" components, based on "tense"
+
+declared finish (tence): List of components or objects to be completed, updated, or already updated that day, based on "tense".
+
+declared debug (tence): list of component to check or has been checked for errors and unnoticed malfuction, depending on "tence"
+
+declared * : everything that concerns the next statement
+
+declared ** : everything that concerns the project
