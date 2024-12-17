@@ -511,6 +511,9 @@ font-weight: 500;
 
 
 
+
+
+
 @media screen and (max-width:450px) {
     .inner-body{
         display: flex;
