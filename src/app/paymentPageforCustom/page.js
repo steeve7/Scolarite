@@ -83,135 +83,157 @@ export default function paymentPageforCustomPlan() {
 
 
  return (
-   <div className="body">
-     <div className="background">
-         <div className="inner-body">
-           <div className="Card-payment-info">
-               <ul className="nav">
-                   <li>
-                       <Image src="/Images/productlogo.png"
-                       alt="logo"
-                       width={50}
-                       height={10}
-                       className="logo"
+   <div className="background">
+     <div className="inner-body">
+       {/* card payment */}
+       <div className="Card-payment-info">
+         <ul className="nav">
+           <li>
+             <Image
+               src="/Images/productlogo.png"
+               alt="logo"
+               width={50}
+               height={10}
+               className="logo"
+             />
+           </li>
+           <li className="scolar">Scolarité</li>
+         </ul>
 
-                       />
-                   </li>
-                   <li className="scolar">Scolarité</li>
+         <ul className="card">
+           <li>
+             <Image
+               src="/Images/creditcard.png"
+               alt="logo"
+               width={50}
+               height={10}
+               className="credit-cd"
+             />
+           </li>
+           <li className="credit-info"> Card Payment Information</li>
+         </ul>
+
+         {/* FORMM */}
+         <form method="post" className="form">
+           <div className="input-headings">
+             <ul>
+               <li className="text"> Email</li>
+               <li>
+                 {" "}
+                 <Image
+                   src="/Images/info.png"
+                   alt="logo"
+                   width={50}
+                   height={10}
+                   className="info"
+                 />{" "}
+               </li>
+             </ul>
+
+             <input
+               type="email"
+               id="email"
+               className="input placeholder:px-2"
+               placeholder="example@gmail.com"
+               required
+             />
+           </div>
+
+           <div className="payment-method">
+             Payment Method(s)
+             <ul>
+               <li>
+                 {" "}
+                 <Image
+                   src="/Images/visa.png"
+                   alt="logo"
+                   width={50}
+                   height={10}
+                   className="visa"
+                 />{" "}
+               </li>
+               <li>
+                 {" "}
+                 <Image
+                   src="/Images/mastercard.png"
+                   alt="logo"
+                   width={50}
+                   height={10}
+                   className="visa-2"
+                 />{" "}
+               </li>
+             </ul>
+           </div>
+
+           <div className="input-headings">
+             <ul>
+               <li className="text"> Cardholder's Name</li>
+               <li>
+                 {" "}
+                 <Image
+                   src="/Images/info.png"
+                   alt="logo"
+                   width={50}
+                   height={10}
+                   className="info"
+                 />{" "}
+               </li>
+             </ul>
+
+             <input
+               type="text"
+               id="holdersname"
+               className="placeholder:md:px-2 input"
+               placeholder="Enter name on card"
+               required
+             />
+           </div>
+
+           <div className="input-headings">
+             <ul>
+               <li className="text">Card Number</li>
+               <li>
+                 {" "}
+                 <Image
+                   src="/Images/info.png"
+                   alt="logo"
+                   width={50}
+                   height={10}
+                   className="info"
+                 />{" "}
+               </li>
+             </ul>
+
+             <input
+               id="cardnumber"
+               value={cardNmuber}
+               onChange={(e) => {
+                 if (e.target.value.length <= 16) {
+                   setCardNumber(e.target.value);
+                 }
+               }}
+               className="placeholder:px-4 font-bold input"
+               placeholder="-  -  -  -        -  -  -  -           -  -  -  -         -  -  -  - "
+               required
+             />
+           </div>
+
+           <div className="date-cvv">
+             <div className="input-headings ">
+               <ul className="cd-expiry">
+                 <li className="text "> Card Expiry Date</li>
+                 <li>
+                   {" "}
+                   <Image
+                     src="/Images/info.png"
+                     alt="logo"
+                     width={50}
+                     height={10}
+                     className="info"
+                   />{" "}
+                 </li>
                </ul>
-
-               <ul className="card">
-                   <li>
-                   <Image src="/Images/creditcard.png"
-                       alt="logo"
-                       width={50}
-                       height={10}
-                       className="credit-cd"
-
-                       />
-                   </li>
-                   <li className="credit-info"> Card Payment Information</li>
-
-               </ul>
-
-
-              {/* FORMM */}
-               <form method="post">
-
-               <div className="input-headings">
-                   <ul>
-                   <li className="text"> Email</li>
-                       <li> <Image src="/Images/info.png"
-                       alt="logo"
-                       width={50}
-                       height={10}
-                       className="info"
-
-                       /> </li>
-                   </ul>
-                      
-                      <input type="email" id="email" className="input" placeholder="example@gmail.com" required/>
-   
-                </div>
-
-
-                
-                  <div className="payment-method">
-                        Payment Method(s)
-                     <ul>
-                         <li> <Image src="/Images/visa.png"
-                       alt="logo"
-                       width={50}
-                       height={10}
-                       className="visa"
-
-                       /> </li>
-                          <li> <Image src="/Images/mastercard.png"
-                       alt="logo"
-                       width={50}
-                       height={10}
-                       className="visa-2"
-
-                       /> </li>
-                    </ul>
-               </div>
-
-
-               <div className="input-headings">
-                   <ul>
-                   <li className="text" > Cardholder's Name</li>
-                       <li> <Image src="/Images/info.png"
-                       alt="logo"
-                       width={50}
-                       height={10}
-                       className="info"
-
-                       /> </li>
-                   </ul>
-                      
-                      <input type="text" id="holdersname" className="input"  placeholder="             -  -  -  -          -  -  -  -             -  -  -  -           -  -  -  -" required/>
-    
-                 </div>
-
-
-
-                <div className="input-headings">
-                   <ul>
-                   <li className="text"> Card Number</li>
-                       <li> <Image src="/Images/info.png"
-                       alt="logo"
-                       width={50}
-                       height={10}
-                       className="info"
-
-                       /> </li>
-                   </ul>
-                      
-                      <input  id="cardnumber" value={cardNmuber} onChange={(e)=>{
-
-                          if(e.target.value.length <= 16){
-                           setCardNumber(e.target.value)
-                       }
-                       }
-                       } 
-                       className="input" type="number"   placeholder="       -  -  -  -         -  -  -  -          -  -  -  -          -  -  -  -" required/>
-   
-                </div>
-
-
-                <div className="date-cvv" >
-                <div className="input-headings ">
-                   <ul className='cd-expiry'>
-                   <li className="text "> Card Expiry Date</li>
-                       <li> <Image src="/Images/info.png"
-                       alt="logo"
-                       width={50}
-                       height={10}
-                       className="info"
-
-                       /> </li>
-                   </ul>
-                      {/* <div  
+               {/* <div  
                       onClick={()=>{
                        console.log("clicked")
                        dateInputRef.current.showPicker()}}
@@ -235,179 +257,180 @@ export default function paymentPageforCustomPlan() {
                        placeholder="MM/YY"
                        />
                       </div> */}
-                      <input type="date" id="cardexpiry" className="input-expiry"   placeholder="" required/>
-   
-                </div>
+               <input
+                 type="date"
+                 id="cardexpiry"
+                 className="input-expiry placeholder:px-7"
+                 placeholder=""
+                 required
+               />
+             </div>
 
-                <div className="input-headings">
-                   <ul>
-                   <li className="text cvv"> CVV</li>
-                       <li> <Image src="/Images/info.png"
-                       alt="logo"
-                       width={50}
-                       height={10}
-                       className="info"
+             <div className="input-headings">
+               <ul>
+                 <li className="text cvv"> CVV</li>
+                 <li>
+                   {" "}
+                   <Image
+                     src="/Images/info.png"
+                     alt="logo"
+                     width={50}
+                     height={10}
+                     className="info"
+                   />{" "}
+                 </li>
+               </ul>
 
-                       /> </li>
-                   </ul>
-                      
-                      <input type="number" id="cvv" className="input-cvv" value={cvv} onChange={(e)=>{
-                       if(e.target.value.length <=3){
-                           setCvv(e.target.value)
-                       }
-                      }}    placeholder="       ----      ----     ----  " required/>
-   
-                </div>
-
-
-              </div>
-             
-              <button type="submit" id="Subscribe" className="subscribe"  name="Subscribe" onClick={() =>subscribe()}>Subscribe</button>
-
-    
-
-               </form>
-
+               <input
+                 type="number"
+                 id="cvv"
+                 className="input-cvv placeholder:text-center"
+                 value={cvv}
+                 onChange={(e) => {
+                   if (e.target.value.length <= 3) {
+                     setCvv(e.target.value);
+                   }
+                 }}
+                 placeholder="---  ---  ---"
+                 required
+               />
+             </div>
            </div>
 
+           <button
+             type="submit"
+             id="Subscribe"
+             className="subscribe"
+             name="Subscribe"
+             onClick={() => subscribe()}
+           >
+             Subscribe
+           </button>
+         </form>
+       </div>
+                 
+       {/* payment summary */}
+       <div className="Payment-summary">
+         <div className="nav-link">
+           <ul className="nav">
+             <li>
+               <Image
+                 src="/Images/productlogo.png"
+                 alt="logo"
+                 width={50}
+                 height={10}
+                 className="logo"
+               />
+             </li>
+             <li className="scolar">Scolarité</li>
+           </ul>
 
+           <ul className="card">
+             <li>
+               <Image
+                 src="/Images/creditcard.png"
+                 alt="logo"
+                 width={50}
+                 height={10}
+                 className="credit-cd"
+               />
+             </li>
+             <li className="credit-info"> Card Payment Information</li>
+           </ul>
+         </div>
 
+         <div className="payment-inner">
+           <li className="black-line"></li>
+           <div className="p">
+             <span className="p-summary">Payment Summary</span>
+             <br />
+             <div className="p-text">
+               Unlock the power of education with our flexible custom
+               plan,designed specifically for schools.This plan requires a
+               minimum of 30 students and offers the flexibility to increase the
+               number of students as needed.
+             </div>
+           </div>
+           <div className="elements">
+             <ul className="list">
+               <li className="li-list">Subscription plan</li>
+               <li className="list-1">Monthly/Basic Plan</li>
+             </ul>
+             <ul className="list">
+               <li className="li-list">Access Period</li>
+               <li className="list-1">1 Month</li>
+             </ul>
+             <ul className="list">
+               <li className="li-list">Number of User(s)</li>
+               <li className="list-1">
+                 <div className="number-increment">
+                   <div className="box" id="timer">
+                     30
+                   </div>
+                   <div className="button">
+                     <button id="Add1" onClick={() => add1()}>
+                       <Image
+                         src="/Images/arrowup.png"
+                         alt="logo"
+                         width={50}
+                         height={5}
+                         className="arrow-1"
+                       />
+                     </button>
+                     {/* <br/> */}
 
+                     <button id="Add2" onClick={() => add2()}>
+                       <Image
+                         src="/Images/arrowup.png"
+                         alt="logo"
+                         width={50}
+                         height={5}
+                         className="arrow-2"
+                       />
+                     </button>
+                   </div>
+                 </div>
+               </li>
+             </ul>
+             <ul className="list">
+               <li className="li-list">Discount code</li>
+               <li className="list-1">---------</li>
+             </ul>
+             <ul className="list">
+               <li className="li-list">Discount Amount</li>
+               <li className="list-1">₦0.00</li>
+             </ul>
+             <ul className="list">
+               <li className="li-list">Transaction fee</li>
+               <li className="list-1">100</li>
+             </ul>
+           </div>
+         </div>
 
-
-            
-
-
-
- {/* SECOND HALF */}
-            <div className="Payment-summary">
-                
-            <div className='nav-link'>
-            <ul className="nav">
-                    <li>
-                        <Image src="/Images/productlogo.png"
-                        alt="logo"
-                        width={50}
-                        height={10}
-                        className="logo"
-
-                        />
-                    </li>
-                    <li className="scolar">Scolarité</li>
-                </ul>
-
-                <ul className="card">
-                    <li>
-                    <Image src="/Images/creditcard.png"
-                        alt="logo"
-                        width={50}
-                        height={10}
-                        className="credit-cd"
-
-                        />
-                    </li>
-                    <li className="credit-info"> Card Payment Information</li>
-
-                </ul>
-                </div>
-
-                
-            <li className='black-line'></li>
-                <div className="payment-inner">
-                    <div className='p'>
-                        <span className='p-summary'>Payment Summary</span>
-                        <br/>
-                        <div className='p-text'>Unlock the power of education with our flexible custom plan,designed                            specifically for schools.This plan requires a minimum of 30 students and offers
-                            the flexibility to increase the number of students as needed.
-                        </div>
-                        </div>
-                    <div className='elements'>
-                        <ul className='list'>
-                            <li className='li-list'>Subscription plan</li>
-                            <li className='list-1'>Monthly/Basic Plan</li>
-                        </ul>
-                        <ul className='list'>
-                            <li className='li-list' >Access Period</li>
-                            <li className='list-1'>1 Month</li>
-                        </ul>
-                        <ul className='list'>
-                            <li className='li-list'>Number of User(s)</li>
-                            <li className='list-1'>
-                               <div className='number-increment'>
-                                <div className='box' id='timer' >30</div>
-                                <div className='button'>
-                                <button id="Add1" onClick={() =>add1()} >
-                                <Image src="/Images/arrowup.png"
-                                      alt="logo"
-                                      width={50}
-                                      height={5}
-                                      className="arrow-1"
-                                      />
-                                </button>
-                                {/* <br/> */}
-
-                                <button id="Add2" onClick={() =>add2()} >
-                                <Image src="/Images/arrowup.png"
-                                      alt="logo"
-                                      width={50}
-                                      height={5}
-                                      className="arrow-2"
-                                      />
-                                </button>
-                
-                                    
-                                </div>
-                               </div>
-                            </li>
-                        </ul>
-                        <ul className='list'>
-                            <li className='li-list'>Discount code</li>
-                            <li className='list-1'>---------</li>
-                        </ul>
-                        <ul className='list'>
-                            <li className='li-list'>Discount Amount</li>
-                            <li className='list-1'>₦0.00</li>
-                        </ul>
-                        <ul className='list'>
-                            <li className='li-list'>Transaction fee</li>
-                            <li className='list-1'>100</li>
-                        </ul>
-                    </div>
-                </div>
-          
-                       <div className='Amount-check'>
-                        {/* <div></div> */}
-                              <div className='inner-amount'>
-                                <span className='tt-amnt'>Total Amount</span>
-                                <br/>
-                                {/* <br/> */}
-                                <span className='naira'>₦ 10,100</span>
-                                </div>   
-                              <div>
-                              <Image src="/Images/vector.png"
-                                      alt="logo"
-                                      width={50}
-                                      height={5}
-                                      className="message"
-                                      />
-                                </div>   
-                                
-                           </div>
-                           <div className='circle'>
-                           <div className='circle-1'></div> 
-                           <div className='circle-2'></div> 
-                             </div>
-                   
-            </div>
-
-
-
-
-
-
-        </div>
-
-      </div>
-    </div>
-  )
+         <div className="Amount-check">
+           {/* <div></div> */}
+           <div className="inner-amount">
+             <span className="tt-amnt">Total Amount</span>
+             <br />
+             {/* <br/> */}
+             <span className="naira">₦ 10,100</span>
+           </div>
+           <div>
+             <Image
+               src="/Images/vector.png"
+               alt="logo"
+               width={50}
+               height={5}
+               className="message"
+             />
+           </div>
+         </div>
+         <div className="circle">
+           <div className="circle-1"></div>
+           <div className="circle-2"></div>
+         </div>
+       </div>
+     </div>
+   </div>
+ );
 }
