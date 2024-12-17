@@ -16,8 +16,8 @@ function Header() {
     document.querySelectorAll("NONE").forEach((el) => {
       el.style.display = "none";
     });
-    // INFILTRATOR("b",{blur:3})
-    // new addonsComplex.WSABOTAG().BLUR({value:2})
+    // INFILTRATOR("g",{speed:0.1})
+    // new addonsComplex.WSABOTAG().BLUR({value:10})
 
   }, []);
   return (

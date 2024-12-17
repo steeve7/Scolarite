@@ -1,0 +1,124 @@
+
+
+declared Step : One from a syncronous assignment  
+declared Real : a component, can be seen, exist in window, affects window
+declared Abstract : a component, cannot be seen directly, dont't exist directly, affects window
+declared Virtual : not a component, cannot be seen, exist in window, affects window
+declared Event :  not a component, cannot be seen, dont't exist in window directly, affects window
+declared Component :  a node with it's own script
+ 
+declared Primitive <Abstract> : cannot be seen, only by inheriting can it
+declared Test <Real> : to review how a primitive component adapts
+declared Object <virtual> : not a component but controls components
+
+declared day <Step> : a whole day assignment
+declared creating : list of component or objects to be created that day
+declared forming : list of component or objects to be created from "Primitive", "Abstract" or "Real" component that day
+declared finishing : list of component or objects to be strictly completed or updated that day
+declared debugging : list of component to check for errors and unnoticed malfuction
+declared * : everything that concerns the next statement
+declared ** : everything that concerns the project
+
+
+day day1{
+    (setting | planning) $
+}
+
+day day2{
+    creating{
+        NavBar
+        Footer
+        window update loop <Object>
+        Card <Primitive>
+        CEventX  configuration <Page Index Tracker>
+    }
+}
+
+day day3{
+    creating {
+        custom circle chart <Primitive>
+        custom bar chart <Primitive>
+        circle chart <Test>
+        bar chart <Test>
+    }
+}
+
+day day4{
+    creating {
+        checkButton 
+        calendar 
+        v3 Custom Grid 2 Wrapper <Primitive>
+    }
+    forming {
+        home page
+    }
+}
+
+day day5{
+    finishing{
+        home page
+    }
+    forming {
+       Education Tracker 1
+    }
+}
+
+day day6{
+    finishing{
+        Education Tracker 1
+    }
+    forming {
+       Education Tracker 2
+    }
+}
+
+day day7{
+    finishing{
+        Education Tracker 2
+    }
+    forming {
+        profile settings 1
+    }
+}
+
+day day7{
+    finishing{
+        profile settings 1
+    }
+    forming {
+        login security settings 1
+    }
+}
+
+day day8{
+    finishing{
+        login security settings 1
+    }
+    creating{
+        purchase history card 
+    }
+    forming {
+        purchase history settings 1
+    }
+}
+
+day day9{
+    finishing{
+        login security settings 1
+    }
+    creating{
+        Subscription card 
+    }
+    forming {
+        Subscription settings 1
+    }
+}
+
+day day10{
+    finishing{
+        Subscription settings 1
+    }
+    debugging{
+        **
+    }
+}
