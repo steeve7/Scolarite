@@ -6,8 +6,11 @@
 .background{
     display: flex;
     justify-content: center;
+   
+      
     align-items: center;
     width: 100%;
+    padding: auto;
     /* border: 2px solid black; */
     /* height: 100vh; */
 }
@@ -18,6 +21,7 @@
     /* border: 2px solid rebeccapurple; */
     display: flex;
     justify-content: space-around;
+    /* flex-wrap: wrap; */
     align-items: center;
     width: 80%;
     margin-top: 3rem;
@@ -33,7 +37,7 @@
 .Card-payment-info{
     width: 100%;
     background-color: white;
-    height: 100%;
+    height: 120%;
     margin-left: 7rem;
     margin-right: 4rem;
     animation: slideMe 2.5s ease-in;
@@ -511,9 +515,6 @@ font-weight: 500;
 
 
 
-
-
-
 @media screen and (max-width:450px) {
     .inner-body{
         display: flex;
@@ -801,6 +802,8 @@ font-weight: 500;
         padding-bottom: 1.5rem;
         margin-left: 0.0001rem;
     } */
+
+   
     .Payment-summary{
        width: 100%;
      }
