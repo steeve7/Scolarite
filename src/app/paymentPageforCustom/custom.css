@@ -32,10 +32,13 @@
 
 .Card-payment-info{
     width: 100%;
-    background-color: white;
     height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
     margin-left: 7rem;
     margin-right: 4rem;
+    gap: 15px;
     animation: slideMe 2.5s ease-in;
     
 }
@@ -116,6 +119,10 @@ form{
     margin-bottom: 5px;
 
 }
+.input-heading input{
+width: 100%;
+}
+
 .text{
     padding-right: 0.5rem;
     color: #253058;
@@ -145,7 +152,7 @@ form{
     list-style-type: none;
     justify-content: space-between;
     width: 80%;
-    padding-left: 0.5rem;
+    padding-left: 1.2rem;
     align-items: center;
     height: 3rem;
     background: #F8F9FB;
@@ -190,6 +197,7 @@ form{
 .date-cvv{
     display: flex;
     width: 80%;  
+    gap: 10px;
     margin-top: 1rem;
     outline: none;
     /* padding-left: 1rem; */
@@ -205,7 +213,8 @@ form{
     align-items: center;
      background: #F8F9FB;
     border: 1px solid #DDE0E6;
-    padding-left: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
     border-radius: 10px;
     outline: none;
     color: #253058;
@@ -251,7 +260,7 @@ form{
 /* SECOND DIV */
 .Payment-summary{
     width: 100%;
-    padding-top: 5rem;
+    padding-top: 3rem;
     /* padding-bottom: rem; */
     /* padding-left: 5rem; */
    
@@ -294,13 +303,18 @@ form{
 
 .black-line{
     list-style-type: none;
-    width: 18%;
-    margin-left: 10.5rem;
-    border-radius: 10px;
-    border: 5px solid black;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: -20px;
+    /* margin-left: 10.5rem; */
+    /* border-radius: 20px; */
+    border-bottom: 5px solid black;
    animation: slideMe2 2.5s ease-in;
    background-color: black;
-   box-shadow: 0px 20px 17px 0px black;
+   box-shadow: 0px 13px 20px 0px black;
    
     
 }
@@ -325,7 +339,7 @@ form{
     width: 100%;
     /* margin-left: 1rem; */
     margin-bottom: 1rem;
-    padding-top: 0.7rem;
+    padding-top: 1.5rem;
     padding-left: 0.9rem;
     /* height: 30px; */
 }
@@ -348,10 +362,11 @@ form{
 
 .elements{
     /* border: 1px solid black; */
-    height: fit-content;
+    /* height: 30%; */
     width: 90%;
     margin-left: 1rem;
-    gap: 10px;
+    margin-top: -10px;
+    gap: 5px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -558,11 +573,8 @@ font-weight: 500;
         height: 15px;
     }
     .date-cvv{
-        /* width: 0%; */
-        /* display: block; */
-        /* overflow: hidden; */
-        gap: 20px;
         width: 100%;
+        
        
     }
     .info{
@@ -570,7 +582,10 @@ font-weight: 500;
     }
     .input-expiry{
         width:100%;
+        /* padding: ; */
         height: 2.5rem;
+        padding-left: 0;
+        padding-right: 0;
     }
     .input-headings{
         width: 100%;
@@ -588,16 +603,18 @@ font-weight: 500;
     .input-cvv{
         width: 100%;
         height: 2.5rem;
+        margin-left:-2px
+
     }
     .subscribe{
         font-size: 13px;
         width: 100%;
     }
-    .black-line{
-        margin-left: 6rem;
-    }
     .nav-link{
         display: block;
+        /* flex-direction: column;
+        justify-content: center;
+        align-items: center; */
         margin: 0;
         padding-bottom: 1rem;
     }
@@ -605,8 +622,8 @@ font-weight: 500;
         /* margin-top: 5rem; */
         width: 100%;
         position: relative;
-        padding-right: 2rem;
-        left: 0.1rem;
+        /* padding-right: 2rem;
+        left: 0.1rem; */
     }
     .p-summary{
         font-size: 15px;
@@ -682,6 +699,55 @@ font-weight: 500;
     }
 
 }
+@media screen and (max-width:1100px){
+    .inner-body{
+        display: flex;
+        flex-direction: column-reverse;
+        overflow: hidden;
+        gap: 30px;
+
+        width: 80%;
+    
+    }
+    .payment-inner{
+        margin-top: 10px;
+    }
+        .nav-link{
+            display: block;
+            margin: 0;
+            padding-bottom: 1rem;
+        }
+        form{
+        margin-top: -2.5rem;
+           
+            margin-left: 2rem;
+            
+        }
+
+    .Card-payment-info > ul{
+        display: none;
+    } 
+    .Payment-summary{
+        padding: 0;
+       width: 100%;
+       /* margin: auto; */
+      /* margin-left: 2rem; */
+    }
+    .elements{
+        width: 100%;
+        /* margin-bottom: 2rem; */
+        font-size: 12px;
+        height: fit-content;
+    }
+
+    .payment-inner .black-line{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        margin-top: -20px;
+    }
+}
 @media screen and (max-width:700px){
      .Amount-check{
         font-size: 15px;
@@ -720,7 +786,7 @@ font-weight: 500;
     .Payment-summary{
         padding: 0;
        width: 100%;
-      margin-left: 2rem;
+      /* margin-left: 2rem; */
     }
     .elements{
         width: 100%;
@@ -818,9 +884,6 @@ font-weight: 500;
      .Card-payment-info{
         margin: 2rem;
      }
-     .date-cvv{
-        gap: 10px;
-     }
      .text{
         font-size: 12px;
      }
@@ -856,4 +919,9 @@ font-weight: 500;
         height: 90%;
         width: 90%;
      }
+}
+@media screen and (max-width:1200px){
+
+
+
 }

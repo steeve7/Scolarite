@@ -60,296 +60,326 @@ export default function paymentPageforAllplan() {
   return (
     <div className="body">
       <div className="background">
-          <div className="inner-body">
-            <div className="Card-payment-info">
-                <ul className="nav">
-                    <li>
-                        <Image src="/Images/productlogo.png"
-                        alt="logo"
-                        width={50}
-                        height={10}
-                        className="logo"
-
-                        />
-                    </li>
-                    <li className="scolar">Scolarité</li>
-                </ul>
-
-                <ul className="card">
-                    <li>
-                    <Image src="/Images/creditcard.png"
-                        alt="logo"
-                        width={50}
-                        height={10}
-                        className="credit-cd"
-
-                        />
-                    </li>
-                    <li className="credit-info"> Card Payment Information</li>
-
-                </ul>
-
-
-               {/* FORMM */}
-                <form method="post">
-
-                <div className="input-headings">
-                    <ul>
-                    <li className="text"> Email</li>
-                        <li> <Image src="/Images/info.png"
-                        alt="logo"
-                        width={50}
-                        height={10}
-                        className="info"
-
-                        /> </li>
-                    </ul>
-                       
-                       <input type="email" id="email" className="input" placeholder="example@gmail.com" required/>
-    
-                 </div>
-
-
-                 
-                   <div className="payment-method">
-                         Payment Method(s)
-                      <ul>
-                          <li> <Image src="/Images/visa.png"
-                        alt="logo"
-                        width={50}
-                        height={10}
-                        className="visa"
-
-                        /> </li>
-                           <li> <Image src="/Images/mastercard.png"
-                        alt="logo"
-                        width={50}
-                        height={10}
-                        className="visa-2"
-
-                        /> </li>
-                     </ul>
-                </div>
-
-
-                <div className="input-headings">
-                    <ul>
-                    <li className="text" > Cardholder's Name</li>
-                        <li> <Image src="/Images/info.png"
-                        alt="logo"
-                        width={50}
-                        height={10}
-                        className="info"
-
-                        /> </li>
-                    </ul>
-                       
-                       <input type="text" id="holdersname" className="input" placeholder="Enter name on Card"required/>
-    
-                 </div>
-
-
-
-                 <div className="input-headings">
-                    <ul>
-                    <li className="text"> Card Number</li>
-                        <li> <Image src="/Images/info.png"
-                        alt="logo"
-                        width={50}
-                        height={10}
-                        className="info"
-
-                        /> </li>
-                    </ul>
-                       
-                       <input  id="cardnumber" value={cardNmuber} onChange={(e)=>{
-
-                           if(e.target.value.length <= 16){
-                            setCardNumber(e.target.value)
-                        }
-                        }
-                        } 
-                        className="input" type="number"   placeholder="             -  -  -  -          -  -  -  -             -  -  -  -           -  -  -  -" required/>
-    
-                 </div>
-
-
-                 <div className="date-cvv" >
-                 <div className="input-headings">
-                 <ul className='cd-expiry'>
-                    <li className="text" > Card Expiry Date</li>
-                        <li> <Image src="/Images/info.png"
-                        alt="logo"
-                        width={50}
-                        height={10}
-                        className="info"
-
-                        /> </li>
-                    </ul>
-                       {/* <div  
-                       onClick={()=>{
-                        console.log("clicked")
-                        dateInputRef.current.showPicker()}}
-                        style={{
-                            display:"flex",
-                            alignItems:"center",
-                            justifyContent:"center",
-                            width:"100%",
-                        }}
-                        
-                        className="input-expiry"
-
-                        >
-                            MM/YY
-                        <input type="date" style={{
-                            visibility:"hidden"
-                            background:"#F8F9FB"
-
-
-                        }} ref={dateInputRef}
-                        placeholder="MM/YY"
-                        />
-                       </div> */}
-                       <input type="date" id="cardexpiry" className="input-expiry"   placeholder="" required/>
-    
-                 </div>
-
-                 <div className="input-headings">
-                    <ul>
-                    <li className="text cvv"> CVV</li>
-                        <li> <Image src="/Images/info.png"
-                        alt="logo"
-                        width={50}
-                        height={10}
-                        className="info"
-
-                        /> </li>
-                    </ul>
-                       
-                       <input type="number" id="cvv" className="input-cvv" value={cvv} onChange={(e)=>{
-                        if(e.target.value.length <=3){
-                            setCvv(e.target.value)
-                        }
-                       }}    placeholder="       ----      ----     ----  " required/>
-    
-                 </div>
-
-
-               </div>
-              
-               <button type="submit" id="Subscribe" className="subscribe"  name="Subscribe" onClick={() =>subscribe()}>Subscribe</button>
- 
-     
-
-                </form>
-
-            </div>
-            
-
- {/* SECOND HALF */}
-
-
-
-            <div className="Payment-summary">
-
-                {/* INVISIBLE IN LAPTOP SCREEN (DISPLAY NONE) BEGINING */}
-
-                <div className='nav-link'>
+        <div className="inner-body">
+          <div className="Card-payment-info">
             <ul className="nav">
+              <li>
+                <Image
+                  src="/Images/productlogo.png"
+                  alt="logo"
+                  width={50}
+                  height={10}
+                  className="logo"
+                />
+              </li>
+              <li className="scolar">Scolarité</li>
+            </ul>
+
+            <ul className="card">
+              <li>
+                <Image
+                  src="/Images/creditcard.png"
+                  alt="logo"
+                  width={50}
+                  height={10}
+                  className="credit-cd"
+                />
+              </li>
+              <li className="credit-info"> Card Payment Information</li>
+            </ul>
+
+            {/* FORMM */}
+            <form method="post" className="for">
+              <div className="input-headings">
+                <ul>
+                  <li className="text"> Email</li>
+                  <li>
+                    {" "}
+                    <Image
+                      src="/Images/info.png"
+                      alt="logo"
+                      width={50}
+                      height={10}
+                      className="info"
+                    />{" "}
+                  </li>
+                </ul>
+
+                <input
+                  type="email"
+                  id="email"
+                  className="input placeholder:px-2"
+                  placeholder="example@gmail.com"
+                  required
+                />
+              </div>
+
+              <div className="payment-method">
+                Payment Method(s)
+                <ul>
+                  <li>
+                    {" "}
+                    <Image
+                      src="/Images/visa.png"
+                      alt="logo"
+                      width={50}
+                      height={10}
+                      className="visa"
+                    />{" "}
+                  </li>
+                  <li>
+                    {" "}
+                    <Image
+                      src="/Images/mastercard.png"
+                      alt="logo"
+                      width={50}
+                      height={10}
+                      className="visa-2"
+                    />{" "}
+                  </li>
+                </ul>
+              </div>
+
+              <div className="input-headings">
+                <ul>
+                  <li className="text"> Cardholder's Name</li>
+                  <li>
+                    {" "}
+                    <Image
+                      src="/Images/info.png"
+                      alt="logo"
+                      width={50}
+                      height={10}
+                      className="info"
+                    />{" "}
+                  </li>
+                </ul>
+
+                <input
+                  type="text"
+                  id="holdersname"
+                  className="input placeholder:px-3"
+                  placeholder="Enter name on card"
+                  required
+                />
+              </div>
+
+              <div className="input-headings">
+                <ul>
+                  <li className="text"> Card Number</li>
+                  <li>
+                    {" "}
+                    <Image
+                      src="/Images/info.png"
+                      alt="logo"
+                      width={50}
+                      height={10}
+                      className="info"
+                    />{" "}
+                  </li>
+                </ul>
+
+                <input
+                  id="cardnumber"
+                  value={cardNmuber}
+                  onChange={(e) => {
+                    if (e.target.value.length <= 16) {
+                      setCardNumber(e.target.value);
+                    }
+                  }}
+                  className="input placeholder:px-4 font-bold"
+                  type="number"
+                  placeholder="-  -  -  -        -  -  -  -        -  -  -  -        -  -  -  -"
+                  required
+                />
+              </div>
+
+              <div className="date-cvv">
+                <div className="input-headings ">
+                  <ul className="cd-expiry">
+                    <li className="text "> Card Expiry Date</li>
                     <li>
-                        <Image src="/Images/productlogo.png"
+                      {" "}
+                      <Image
+                        src="/Images/info.png"
                         alt="logo"
                         width={50}
                         height={10}
-                        className="logo"
-
-                        />
+                        className="info"
+                      />{" "}
                     </li>
-                    <li className="scolar">Scolarité</li>
+                  </ul>
+                  {/* <div  
+                      onClick={()=>{
+                       console.log("clicked")
+                       dateInputRef.current.showPicker()}}
+                       style={{
+                           display:"flex",
+                           alignItems:"center",
+                           justifyContent:"center",
+                           width:"100%",
+                       }}
+                       
+                       className="input-expiry"
+
+                       >
+                           MM/YY
+                       <input type="date" style={{
+                           visibility:"hidden"
+                           background:"#F8F9FB"
+
+
+                       }} ref={dateInputRef}
+                       placeholder="MM/YY"
+                       />
+                      </div> */}
+                  <input
+                    type="date"
+                    id="cardexpiry"
+                    className="input-expiry placeholder:px-10 placeholder:text-center"
+                    placeholder=""
+                    required
+                  />
+                </div>
+
+                <div className="input-headings">
+                  <ul>
+                    <li className="text cvv"> CVV</li>
+                    <li>
+                      {" "}
+                      <Image
+                        src="/Images/info.png"
+                        alt="logo"
+                        width={50}
+                        height={10}
+                        className="info"
+                      />{" "}
+                    </li>
+                  </ul>
+
+                  <input
+                    type="number"
+                    id="cvv"
+                    className="input-cvv placeholder:text-center placeholder:px-2"
+                    value={cvv}
+                    onChange={(e) => {
+                      if (e.target.value.length <= 3) {
+                        setCvv(e.target.value);
+                      }
+                    }}
+                    placeholder="--  --  --"
+                    required
+                  />
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                id="Subscribe"
+                className="subscribe"
+                name="Subscribe"
+                onClick={() => subscribe()}
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
+
+          {/* SECOND HALF */}
+          <div className="Payment-summary">
+            {/* INVISIBLE IN LAPTOP SCREEN (DISPLAY NONE) BEGINING */}
+
+            <div className="nav-link">
+              <div className="flex flex-col justify-center items-start lg:px-20 md:px-9 px-5 w-full">
+                <ul className="nav">
+                  <li>
+                    <Image
+                      src="/Images/productlogo.png"
+                      alt="logo"
+                      width={50}
+                      height={10}
+                      className="logo"
+                    />
+                  </li>
+                  <li className="scolar">Scolarité</li>
                 </ul>
 
                 <ul className="card">
-                    <li>
-                    <Image src="/Images/creditcard.png"
-                        alt="logo"
-                        width={50}
-                        height={10}
-                        className="credit-cd"
-
-                        />
-                    </li>
-                    <li className="credit-info"> Card Payment Information</li>
-
+                  <li>
+                    <Image
+                      src="/Images/creditcard.png"
+                      alt="logo"
+                      width={50}
+                      height={10}
+                      className="credit-cd"
+                    />
+                  </li>
+                  <li className="credit-info"> Card Payment Information</li>
                 </ul>
-                </div>
-                {/* INVISIBLE IN LAPTOP SCREEN (DISPLAY NONE) ENDING */}
-            <li className='black-line'></li>
-                <div className="payment-inner">
-                    <p className='p'>
-                        <span className='p-summary'>Payment Summary</span>
-                        <br/>
-                        {/* <span className='p-text'>Hedhdhkhbvccf ahvdfiaub avbuavbiv aabdvuaubv</span> */}
-                        </p>
-                    <div className='elements'>
-                        <ul className='list'>
-                            <li className='li-list'>Subscription plan</li>
-                            <li className='list-1'>Monthly/Basic Plan</li>
-                        </ul>
-                        <ul className='list'>
-                            <li className='li-list'>Access Period</li>
-                            <li className='list-1'>1 Month</li>
-                        </ul>
-                        <ul className='list'>
-                            <li className='li-list'>Number of User(s)</li>
-                            <li className='list-1'>1</li>
-                        </ul>
-                        <ul className='list'>
-                            <li className='li-list'>Discount code</li>
-                            <li className='list-1'>---------</li>
-                        </ul>
-                        <ul className='list'>
-                            <li className='li-list'>Discount Amount</li>
-                            <li className='list-1'>₦0.00</li>
-                        </ul>
-                        <ul className='list'>
-                            <li className='li-list'>Transaction fee</li>
-                            <li className='list-1'>100</li>
-                        </ul>
-                    </div>
-                </div>
-          
-                <div className='Amount-check'>
-                        {/* <div></div> */}
-                              <div className='inner-amount'>
-                                <span className='tt-amnt'>Total Amount</span>
-                                <br/>
-                                {/* <br/> */}
-                                <span className='naira'>₦ 10,100</span>
-                                </div>   
-                              <div>
-                              <Image src="/Images/vector.png"
-                                      alt="logo"
-                                      width={50}
-                                      height={5}
-                                      className="message"
-                                      />
-                                </div>  
-                            
-                           </div>
-                             <div className='circle'>
-                           <div className='circle-1'></div> 
-                           <div className='circle-2'></div> 
-                             </div>
+              </div>
             </div>
-
-
-
-
-
-
+            {/* INVISIBLE IN LAPTOP SCREEN (DISPLAY NONE) ENDING */}
+            <div className="flex flex-col items-center justify-center w-full">
+              <div className="payment-inner">
+                <li className="black-line"></li>
+                <p className="p">
+                  <span className="p-summary">Payment Summary</span>
+                  <br />
+                  {/* <span className='p-text'>Hedhdhkhbvccf ahvdfiaub avbuavbiv aabdvuaubv</span> */}
+                </p>
+                <div className="elements">
+                  <ul className="list">
+                    <li className="li-list">Subscription plan</li>
+                    <li className="list-1">Monthly/Basic Plan</li>
+                  </ul>
+                  <ul className="list">
+                    <li className="li-list">Access Period</li>
+                    <li className="list-1">1 Month</li>
+                  </ul>
+                  <ul className="list">
+                    <li className="li-list">Number of User(s)</li>
+                    <li className="list-1">1</li>
+                  </ul>
+                  <ul className="list">
+                    <li className="li-list">Discount code</li>
+                    <li className="list-1">---------</li>
+                  </ul>
+                  <ul className="list">
+                    <li className="li-list">Discount Amount</li>
+                    <li className="list-1">₦0.00</li>
+                  </ul>
+                  <ul className="list">
+                    <li className="li-list">Transaction fee</li>
+                    <li className="list-1">100</li>
+                  </ul>
+                </div>
+              </div>
+            <div className="Amount-check">
+              {/* <div></div> */}
+              <div className="inner-amount">
+                <span className="tt-amnt">Total Amount</span>
+                <br />
+                {/* <br/> */}
+                <span className="naira">₦ 10,100</span>
+              </div>
+              <div>
+                <Image
+                  src="/Images/vector.png"
+                  alt="logo"
+                  width={50}
+                  height={5}
+                  className="message"
+                />
+              </div>
+            </div>
+            <div className="circle">
+              <div className="circle-1"></div>
+              <div className="circle-2"></div>
+            </div>
+            </div>
+          </div>
         </div>
-
       </div>
     </div>
-  )
+  );
 }
