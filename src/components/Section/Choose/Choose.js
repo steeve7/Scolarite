@@ -2,22 +2,20 @@
 import React from "react";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Choose() {
   return (
     <div className="w-full flex flex-col justify-center items-center overflow-hidden">
       {/*section Template */}
-      <div
-        className="relative w-full bg-gradient-to-b from-[#282E41] to-[#3E4A6F] flex flex-col justify-center items-center"
-        
-      >
-        <div className="text-center text-white mt-14">
+      <div className="relative w-full bg-gradient-to-b from-[#282E41] to-[#3E4A6F] py-20 flex flex-col justify-center items-center">
+        <div className="text-center text-white">
           <h2 className="font-roboto font-medium lg:text-[30px] text-[20px]">
             WHY CHOOSE SCOLARITÉ?
           </h2>
           <div className="border-b-2 border-custom-border-color xl:w-[700px] w-[100%] lg:w-[800px] md:max-w-[1200px] mx-auto my-4" />
         </div>
-        <div className="relative w-full flex py-40 md:flex-row flex-col items-center justify-center md:px-0 px-10">
+        <div className="relative w-full flex md:flex-row flex-col items-center justify-center min-h-[500px] md:px-0 px-10 md:mt-0 mt-20">
           <motion.div
             className="md:w-[40%] w-full flex flex-col justify-start items-start text-start gap-6"
             initial={{ x: -100, opacity: 0 }}
@@ -40,13 +38,13 @@ export default function Choose() {
               experts. Therefore, we have what it takes to impart academic
               excellence.
             </p>
-            <button
-              type="button"
-              className="text-white font_roboto uppercase flex items-center gap-2 font-bold xl:text-[15px] text-[10px] py-[1.5rem] px-[2rem] bg-black rounded-[212.76px] border-0 outline-none"
+            <Link
+              href={"/SignUp"}
+              className="smooth-hover text-white font_roboto uppercase flex items-center gap-2 font-bold xl:text-[15px] text-[10px] py-[1.5rem] px-[2rem] bg-black rounded-[212.76px] border-0 outline-none"
             >
               Register
               <FaRegArrowAltCircleRight />
-            </button>
+            </Link>
           </motion.div>
           <motion.div
             className="md:order-1 order-2"
@@ -60,9 +58,9 @@ export default function Choose() {
             }}
           >
             <img
-              src="/image/student.svg"
+              src="/image/choose.gif"
               alt="student_image"
-              className="xl:w-[500px] w-[300px]"
+              className="xl:w-[600px] w-[500px]"
             />
           </motion.div>
         </div>
@@ -73,34 +71,40 @@ export default function Choose() {
           title: "UNLOCKING STUDENT POTENTIAL",
           description:
             "Our approach is designed to guide students to study effectively. This will not only be useful for JAMB preparation but also for higher educational endeavors.",
-          image: "/image/student.png",
+          image: "/image/student.gif",
           order: "order-2",
           lines:
             "max-w-[80%] md:max-w-[75%] xl:max-w-[85%] lg:max-w-[80%] sm:max-w-[72%]",
           bgColor: "bg-white",
           color: "text-black",
+          image_size: "xl:w-[600px] w-[300px]",
+          height: "md:py-44 py-20",
         },
         {
           title: "CULTIVATING ACADEMIC FOUNDATIONS",
           description:
             "The platform enables students to reinforce their strengths, address their weaknesses, and build a robust foundation for academic and future careers.",
-          image: "/image/choose.svg",
+          image: "/image/student2.gif",
           order: "order-1",
           color: "text-white",
           lines:
             "max-w-[90%] md:max-w-[88%] xl:max-w-[85%] lg:max-w-[90%] sm:max-w-[80%]",
           bgColor: "bg-gradient-to-b from-[#282E41] to-[#3E4A6F]",
+          image_size: "xl:w-[600px] w-[300px]",
+          height: "md:py-44 py-20",
         },
         {
           title: "PERSONALIZED EXAM PREPARATION",
           description:
             "We are dedicated to guiding you through your exam preparations with a personalized learning experience. You will be exposed to proven strategies that will help you study effectively for exams, even beyond JAMB.",
-          image: "/image/student1.svg",
+          image: "/image/student1.gif",
           order: "order-2",
           bgColor: "bg-white",
           lines:
             "max-w-[85%] md:max-w-[80%] xl:max-w-[78%] lg:max-w-[86%] sm:max-w-[75%]",
           color: "text-black",
+          image_size: "xl:w-[600px] w-[300px]",
+          height: "md:py-44 py-20",
         },
         {
           title: "ALL FACULTIES ARE COVERED",
@@ -112,12 +116,27 @@ export default function Choose() {
           lines:
             "max-w-[68%] md:max-w-[65%] xl:max-w-[63%] lg:max-w-[70%] sm:w-[60%]",
           bgColor: "bg-gradient-to-b from-[#282E41] to-[#3E4A6F]",
+          image_size: "xl:w-[500px] w-[300px]",
+          height: "md:py-44 py-20",
         },
       ].map(
-        ({ title, description, image, order, bgColor, color, lines }, idx) => (
+        (
+          {
+            title,
+            description,
+            image,
+            order,
+            bgColor,
+            color,
+            lines,
+            image_size,
+            height,
+          },
+          idx
+        ) => (
           <div
             key={idx}
-            className={`relative w-full flex md:flex-row py-64 flex-col items-center justify-center md:px-0 px-10 ${bgColor} ${
+            className={`relative w-full flex md:flex-row flex-col items-center justify-center ${height} md:px-0 px-10 ${bgColor} ${
               idx === 0 ? "" : ""
             }`}
           >
@@ -147,13 +166,13 @@ export default function Choose() {
               >
                 {description}
               </p>
-              <button
-                type="button"
-                className="text-white font_roboto uppercase flex items-center gap-2 font-bold xl:text-[15px] text-[10px] py-[1.5rem] px-[2rem] bg-black rounded-[212.76px] border-0 outline-none"
+              <Link
+                href={"/SignUp"}
+                className="smooth-hover text-white font_roboto uppercase flex items-center gap-2 font-bold xl:text-[15px] text-[10px] py-[1.5rem] px-[2rem] bg-black rounded-[212.76px] border-0 outline-none"
               >
                 Register
                 <FaRegArrowAltCircleRight />
-              </button>
+              </Link>
             </motion.div>
             <motion.div
               className="md:order-1 order-2"
@@ -169,7 +188,7 @@ export default function Choose() {
               <img
                 src={image}
                 alt="student_image"
-                className="xl:w-[500px] w-[300px]"
+                className={`${image_size}`}
               />
             </motion.div>
           </div>

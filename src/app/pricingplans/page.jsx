@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useState } from "react"
-import { CButton, CLink, G2Wrapper, rclick } from "../../components/addons/addons"
+import { CButton, Center, CLink, G2Wrapper, rclick } from "../../components/addons/addons"
 import { mergeFunc, mergeText } from "../add"
 import style from  "./pricing.module.css"
 import pcfem from "./assets/pcfem.png"
@@ -30,6 +30,7 @@ const  test2 = [
     " Early access to new courses and updates.",
 ]
 
+// for a text in one pricing plan
 function PcFe(props){
     const icon = String(props.value).includes("--X--")?pcfex:pcfem
     const value = String(props.value).replace("--X--","")
@@ -39,7 +40,7 @@ function PcFe(props){
         </div>
     
 }
-
+// one plan card
 export function PriceCom({label, value , list , className}){
     return <div className={mergeText(style.priceCom,className)}>
         <div className={style.pclabel}>{label}</div>
@@ -53,7 +54,7 @@ export function PriceCom({label, value , list , className}){
         <CButton className={style.pcbutton}>Get Started</CButton>
     </div>
 }
-
+// faq component
 export function FaqCom({text,title}){
     const id = "faqcom ___ "+title
     return <div className={mergeText("ani-hidden right-hide",style.faqcom)} id= {id}>
@@ -98,20 +99,28 @@ export default function PricingPage(props){
             e.click()
         })
     },[])
+    function fontSizeAdjust(){
+        var toptitle = document.getElementById("wrapper3t")
+        var topcontent = document.getElementById("wrapper3c")
+        toptitle.style.fontSize = `${new Percentium(40,1400).LeftPercentium(window.innerWidth).MinWize(30).get()}px`
+        topcontent.style.fontSize = `${new Percentium(20,1400).LeftPercentium(window.innerWidth).MinWize(10).get()}px`
+    }
     const listed = (list,...inde)=>{var test2 =Array.from(list);test2 = test2.map((val,index)=> inde.includes(index)?val+"--X--":val);return test2}
 
     return <main className={style.page_content}>
         <div className={style.main}>
-        {<div className={style.w1bg}/>}
 
                 <div className={mergeText(style.w1wrapper,"pdt")}>
-                        <div className={style.w1i1}>
-                        
-    <br />
-                            <div className={mergeText(style.title)}>Choose Your Plan: <br />
-                            Affordable Learning, Priceless Success</div>
-                            <div className={style.text1}>We have a range of affordable plans. Choose the option that fits <br /> your learning goals. <mark style={{backgroundColor:"transparent",color:"yellow"}}>Don't miss out on this opportunity to level up your skills.</mark></div>
-                        </div>
+                        <G2Wrapper>
+                            <div className={style.w1i1}>
+                                <div className={mergeText(style.title)}>Choose Your Plan: <br />
+                                Affordable Learning, Priceless Success</div>
+                                <div className={style.text1}>We have a range of affordable plans. Choose the option that fits <br /> your learning goals. <mark style={{backgroundColor:"transparent",color:"yellow"}}>Don't miss out on this opportunity to level up your skills.</mark></div>
+                            </div>
+                            <Image src={w1gif} alt="image">
+
+                            </Image>
+                        </G2Wrapper>
                        
                 </div>
                 <div className={style.w3switch}>
@@ -125,11 +134,13 @@ export default function PricingPage(props){
     </div>
                 <div className={style.priceview}>
                     
-                    <div className={style.prices}>
-                        <PriceCom className={mergeText("ani-hidden right-hide ","")} list={listed(test,6,3)} label="Basic Plan" value={prices[0]}/>
-                        <PriceCom className={mergeText("ani-hidden right-hide delay-100","")} list={listed(test,0,1)} label="Premium Plan" value={prices[1]}/>
-                        <PriceCom className={mergeText("ani-hidden right-hide delay-200","")} list={listed(test2,4,2)} label="Custom Plan" value=" Custom "/>
-                    </div>
+                    <Center>
+                        <div className={style.prices}>
+                            <PriceCom className={mergeText("ani-hidden right-hide ","")} list={listed(test,6,3)} label="Basic Plan" value={prices[0]}/>
+                            <PriceCom className={mergeText("ani-hidden right-hide delay-100","")} list={listed(test,0,1)} label="Premium Plan" value={prices[1]}/>
+                            <PriceCom className={mergeText("ani-hidden right-hide delay-200","")} list={listed(test2,4,2)} label="Custom Plan" value=" Custom "/>
+                        </div>
+                    </Center>
                 </div>
             <div className={style.faqiw}>
                 <Image src={faqi} alt="faqi" className={mergeText("ani-hidden bottom-hide",style.faqi)} width={80} height={80}/>

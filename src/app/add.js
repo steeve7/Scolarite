@@ -1,4 +1,6 @@
 
+
+
 export function mergeText(...texts){
     return texts.join(" ")
 }
@@ -9,7 +11,34 @@ export function mergeFunc(...func){
     }
 }
 
-export function genId(p = "",length = 8){
+
+export function LastIndex(list){
+  var running = true
+  var count = 0
+  while (running){
+    try{
+      const indexretrive = list[count]
+      count ++
+    }catch(error){
+      running = false
+    }
+  }
+  return count
+}
+
+export function CRange(start= 0,stop = 0,step=1){
+  const list = []
+  for(let i = start;i<stop+step;i+=step){
+    if (i >= stop){
+      list.push(stop)
+      break
+    }else{list.push(i)}
+  }
+  return list
+}
+
+
+export function genId(p = "b",length = 8){
     const letters = "abcdefghijklmnopqrstuvwxyz"
     const numbers = "0123456789"
     const rand = (arr,len)=>{

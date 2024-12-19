@@ -126,6 +126,7 @@
 
 .wrapper3{
     padding-inline: 4%;
+    padding-block: 10%;
 }
 
 .wrapper3inputwrapper{
@@ -310,18 +311,30 @@
 }
 .wrapper3i1title{
     width: 100%;
-    text-align: center;
+    text-align: left;
 }
 .w0{
     background-color: #262b3d;
-    padding-block:20px ;
+    padding-block:10% ;
     color: white;
 }
+.imgsg{
+    width: 100%;
+}
+@media screen and (max-width:1200px) {
+    .wrapper3i1content{
+        text-align: center;
+    }
+
+}
  
-@media screen and (max-width: 908px) {
+@media screen and (max-width: 1208px) {
 
     .wrapper3{
         flex-direction: column;
+    }
+    .wrapper3i1title{
+        text-align: center;
     }
     .wrapperimagewrapper{
         width: 100%;
@@ -343,6 +356,7 @@
     .w4content{
         width: 90%;
     }
+
 
 }
 

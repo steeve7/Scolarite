@@ -1,19 +1,24 @@
 "use client";
 import Image from "next/image";
 import { mergeText } from "../add";
-import w1i1 from "./assets/w1i1.png";
-import w2i1 from "./assets/w2i1.png";
-import w3i2 from "./assets/w3i1.gif";
-import w0i1 from "./assets/woi1.gif";
-import w4i from "./assets/w4i.png";
+import w1i1 from "../../../public/aboutassets/w1i1.png";
+import w2i1 from "../../../public/aboutassets/w2i1.png";
+import w3i2 from "../../../public/aboutassets/w3i1.gif";
+import w0i1 from "../../../public/aboutassets/woi1.gif";
+import w4i from "../../../public/aboutassets/w4i.png";
 import Link from "next/link";
 import {
+  addonsComplex,
   AInput,
   CButton,
+  CInterval,
   CLink,
   G2Wrapper,
+  Percentium,
   rclick,
   Title,
+  WMonitor,
+  WSABOTAGH,
 } from "../../components/addons/addons";
 import style from "./about.module.css";
 import logo from "@/app/assets/image/logo.png";
@@ -21,13 +26,24 @@ import { useEffect } from "react";
 
 export default function AboutPage() {
   useEffect(()=>{
+    // initializer for get in touch section button
     document.querySelectorAll(`.${style.w3sit}`).forEach(e=>{
         e.click()
     })
+    // setTimeout(()=>{addonsComplex.ScrollIntoView({id : "test"})},2000)
   },[])
+
+
+  function fontSizeAdjust(){
+      var toptitle = document.getElementById("wrapper3t")
+      var topcontent = document.getElementById("wrapper3c")
+      toptitle.style.fontSize = `${new Percentium(40,1400).LeftPercentium(window.innerWidth).MinWize(30).get()}px`
+      topcontent.style.fontSize = `${new Percentium(20,1400).LeftPercentium(window.innerWidth).MinWize(10).get()}px`
+  }
   return (
     <>
       <main className={style.page_content}>
+      
         <main className={mergeText("snap-y snap-mandatory", style.main)}>
           {/* <CustomInput placeholder={"placeholder test"}></CustomInput> */}
           <G2Wrapper className={mergeText(style.wrapper3,style.w0)}>
@@ -38,10 +54,12 @@ export default function AboutPage() {
                 "ani-hidden left-hide"
               )}
             >
-              <Title className={mergeText(style.wrapper3i1title,style.title)}>
-              Welcome to Our Thriving Learning Community!
+              <Title id={style.wrapper3title} className={mergeText(style.wrapper3i1title,style.title)}>
+              <div id="wrapper3t">Welcome to Our Thriving Learning Community!</div>
+              <CInterval name={"font-size-adjust"} func={fontSizeAdjust}></CInterval>
+
               </Title>
-              <div className={style.wrapper3i1content}>
+              <div id="wrapper3c" className={style.wrapper3i1content}>
               Join a vibrant network of passionate learners where knowledge, support, and inspiration flow freely. Connect with like-minded individuals, gain valuable insights from experts, and discover a pathway to unlock your full potential. <span style={{color:"yellow"}}>Embark on a journey of growth, collaboration, and endless possibilities—your learning adventure starts here!</span>
               </div>
             </div>
@@ -63,6 +81,8 @@ export default function AboutPage() {
               />
             </div>
           </G2Wrapper>
+          <br />
+          <br />
           <G2Wrapper className={style.wrapper1}>
             <div
               className={mergeText(
@@ -124,12 +144,14 @@ export default function AboutPage() {
                   excellence.
                 </div>
                 <br />
-                <CLink href={"/about"} className={mergeText(style.joinbtn)}>
+                <CLink href={"/SignUp"} target="_blank" className={mergeText(style.joinbtn)}>
                   Join Us
                 </CLink>
               </div>
             </div>
           </G2Wrapper>
+          <br />
+          <br />
           <G2Wrapper className={style.wrapper2}>
             <div
               className={mergeText(
@@ -177,6 +199,7 @@ export default function AboutPage() {
               </div>
             </div>
           </G2Wrapper>
+          
           <G2Wrapper className={style.wrapper3}>
             <div
               className={mergeText(
@@ -211,6 +234,7 @@ export default function AboutPage() {
               />
             </div>
           </G2Wrapper>
+          
           <div
             className={mergeText(
               "flex flex-col gap-4 items-center w-full",
@@ -294,19 +318,18 @@ export default function AboutPage() {
                   style.w4img
                 )}
               />
+              
               <div className={style.w4title}>
                 Take your First Step Towards Academic Excellence with Scolarité
               </div>
-              <div className={style.w4text}>
+              <div id="test" className={style.w4text}>
                 This is the most comprehensive JAMB preparation course you have
                 been searching for. Dont just take our words for it. Try the
                 Scolarite’ JAMB course and see for yourself why we are the best.
               </div>
-              <CButton className={style.w4btn}>Join Us</CButton>
+              <CLink href={"/SignUp"} target="_blank" className={style.w4btn}>Join Us</CLink >
             </div>
           </div>
-          <br />
-          <br />
           <br />
         </main>
       </main>

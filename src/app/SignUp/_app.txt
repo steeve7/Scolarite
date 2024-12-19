@@ -1,0 +1,10 @@
+// pages/_app.js
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "..SignUpPage.module.css"; // Your custom global styles
+
+function MyApp({ Component, pageProps }) {
+    return <Component {...pageProps} />;
+}
+
+export default MyApp;
