@@ -30,6 +30,31 @@
 }
 
 
+input[type="number"]:hover{
+  -webkit-appearance:none;
+  -moz-appearance:textfield;
+  appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none; /* Hides the spinner */
+  margin: 0;                /* Removes default margin */
+}
+
+/* Remove spinners in Firefox */
+input[type="number"] {
+  -moz-appearance: textfield; /* Removes spinner in Firefox */
+}
+
+
+
+input[type="date"]::-webkit-calendar-picker-indicator{
+  display:none;
+}
+
+
+
 @keyframes slowBounce {
   0%, 100% {
     transform: translateY(0);
