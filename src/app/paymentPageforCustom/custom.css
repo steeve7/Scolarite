@@ -39,7 +39,7 @@
     margin-left: 7rem;
     margin-right: 4rem;
     gap: 15px;
-    animation: slideMe 2.5s ease-in;
+    /* animation: slideMe 2.5s ease-in; */
     
 }
 
@@ -263,13 +263,23 @@ width: 100%;
     padding-top: 3rem;
     /* padding-bottom: rem; */
     /* padding-left: 5rem; */
-   
-}
-.Payment-summary:hover{
     transition: height 0.5s ease-in-out,
     translate 0.5s ease-in-out,
     opacity 0.5s ease-in-out;
-    translate: 0px -15px;
+    
+   
+}
+.Payment-summary:hover .black-line  {
+    transition: height 0.5s ease-in-out,
+    translate 0.5s ease-in-out,
+    opacity 0.5s ease-in-out;
+    translate: 0px -5px;
+}
+.Payment-summary:hover .payment-inner  {
+    transition: height 0.5s ease-in-out,
+    translate 0.5s ease-in-out,
+    opacity 0.5s ease-in-out;
+    translate: 0px 5px;
 }
 
 @keyframes slideMe2 {
@@ -300,21 +310,30 @@ width: 100%;
     }
 
 }
+.pww{
+    position: relative;
+    
+}
+.payment-inner{
+    backdrop-filter: blur(10px);
+}
 
 .black-line{
     list-style-type: none;
     width: 25%;
     display: flex;
+    position: absolute;
     justify-content: center;
     align-items: center;
-    margin: auto;
-    margin-top: -20px;
+    height: 40px;
+    z-index: -10;
+    top: -15px;
     /* margin-left: 10.5rem; */
-    /* border-radius: 20px; */
-    border-bottom: 5px solid black;
-   animation: slideMe2 2.5s ease-in;
+    border-radius: 10px;
+    /* border-bottom: 5px solid black; */
+   /* animation: slideMe2 2.5s ease-in; */
    background-color: black;
-   box-shadow: 0px 13px 20px 0px black;
+   /* box-shadow: 0px 13px 20px 0px black; */
    
     
 }
@@ -328,7 +347,7 @@ width: 100%;
     /* border: 2px solid rebeccapurple; */
    top: -0.2rem;
    opacity: 20% 0.5s ease-in-out;
-   animation: slideMe2 2s ease-in;
+   /* animation: slideMe2 2s ease-in; */
    border-radius: 10px;
    border-bottom: 2px  dashed #253058;
 }
@@ -457,11 +476,18 @@ width: 100%;
    justify-content: space-between;
    align-items: center;
    gap: 30px;
-   animation: slideMe2 2s ease-in;
+   /* animation: slideMe2 2s ease-in; */
    border-radius: 10px;
-   padding: 1.5rem;
+   /* padding: 1.5rem; */
    /* border-bottom: 2px  dotted #253058; */
    
+}
+.inner-amount {
+    padding-left:1.5rem;
+    padding-block:1.5rem;
+}
+.message{
+    padding-right:1.5rem;
 }
 
 .tt-amnt{
@@ -493,19 +519,22 @@ font-weight: 500;
 }
 .circle{
     display: flex;
-    width: 80%;
+    width: 100%;
+    box-sizing: border-box;
     /* height: 50%; */
-    position: relative;
-    justify-content: space-between;
+    position: absolute;
+    top: calc(-3rem / 2);
+    justify-content: end;
     /* border: 3px solid red; */
 }
 .circle-1{
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;
-    position: relative;
-    bottom: 9rem;
-    right: 1rem;
+    position:absolute;
+    /* bottom: 9rem; */
+    /* right: 1rem; */
+    left: calc(-2.5rem / 2);
     background-color: white;
     /* border: 2px solid black; */
     
@@ -514,9 +543,11 @@ font-weight: 500;
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;
-    position: relative;
-    bottom: 9rem;
-    right: -1rem;
+    position: absolute;
+    display: block;
+    /* bottom: 9rem; */
+    /* right: 0; */
+    right: calc(-2.5rem / 2);
     background-color: white;
 }
 .nav-link{
@@ -661,26 +692,27 @@ font-weight: 500;
         font-size: 10px;
     }
  
-    .Amount-check{
-        padding: 1rem;
+    .inner-amount{
+        padding-left: 1rem;
+    }
+    .message{
+        padding-right: 1rem;
     }
     .circle-1{
-        bottom: 6.8rem;
+        /* bottom: 6.8rem; */
         width: 2.3rem;
         height: 2rem;
         border-radius: 50%;
-        margin-top: 1.4rem;
+        /* margin-top: 1.4rem; */
     }
     .circle-2{
-        margin-top: 1.4rem;
-        bottom: 6rem;
+        /* margin-top: 1.4rem; */
+        /* bottom: 6rem; */
         width: 2.3rem;
         height: 2rem;
         border-radius: 50%;
     }
-    .inner-amount{
-        padding-left: 0.5rem;
-    }
+
     .tt-amnt{
         font-size: 12px;
     }
@@ -689,7 +721,7 @@ font-weight: 500;
     }
     .message{
         height: 40px;
-        padding-right: 0.5rem;
+        /* padding-right: 0.5rem; */
     }
    
     .nav-link{
@@ -739,14 +771,16 @@ font-weight: 500;
         font-size: 12px;
         height: fit-content;
     }
-
-    .payment-inner .black-line{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-        margin-top: -20px;
+    .pww{
+        margin-top: 30px;
     }
+    /* .payment-inner .black-line{ */
+        /* display: flex; */
+        /* justify-content: center; */
+        /* align-items: center; */
+        /* margin: auto; */
+        /* margin-top: -20px; */
+    /* } */
 }
 @media screen and (max-width:700px){
      .Amount-check{
@@ -758,6 +792,7 @@ font-weight: 500;
     .message{
         height: 30px;
     }
+    
 }
 @media screen and (max-width:596px) {
     .inner-body{
@@ -825,13 +860,7 @@ font-weight: 500;
     form{
         width: 110%;
     }
-    .circle-1{
-        bottom: 8.7rem;
-       
-    }
-    .circle-2{
-        bottom: 8.7rem;
-    }
+
     .tt-amnt{
         font-size: 12px;
     }
@@ -874,9 +903,7 @@ font-weight: 500;
         gap: 0;
         
      }
-     .black-line{
-        margin-left: 6.5rem;
-     }
+     
      .p-text{
         width: 100%;
         font-size: 7px;
@@ -904,10 +931,7 @@ font-weight: 500;
      .Amount-check{
         width: 90%;
      }
-     .circle-2{
-        /* right: -0rem; */
-        left: 3rem;
-     }
+
      form{
          width: 110%;
          /* margin-left: 1.5rem; */

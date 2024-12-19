@@ -87,7 +87,7 @@ export default function paymentPageforCustomPlan() {
    <div className="body">
      <div className="background">
        <div className="inner-body">
-       <div className="Card-payment-info">
+       <div className="Card-payment-info ani-hidden left-hide">
        
         <ul className="nav">
              <li>
@@ -349,9 +349,10 @@ export default function paymentPageforCustomPlan() {
              
            </div>
 
-            <div className='flex flex-col items-center justify-center w-full'>
-            <div className="payment-inner">
-             <li className="black-line"></li>
+            <div className='pww flex flex-col items-center justify-center w-full'>
+            <li className="black-line ani-hidden right-hide"></li>
+            <div className="payment-inner ani-hidden right-hide">
+            
              <div className="p">
                <span className="p-summary">Payment Summary</span>
                <br />
@@ -418,7 +419,7 @@ export default function paymentPageforCustomPlan() {
              </div>
            </div>
 
-           <div className="Amount-check">
+           <div className="Amount-check ani-hidden right-hide">
              {/* <div></div> */}
              <div className="inner-amount">
                <span className="tt-amnt">Total Amount</span>
@@ -435,11 +436,12 @@ export default function paymentPageforCustomPlan() {
                  className="message"
                />
              </div>
-           </div>
-           <div className="circle">
+             <div className="circle">
              <div className="circle-1"></div>
              <div className="circle-2"></div>
            </div>
+           </div>
+           
             </div>
            
          </div>
