@@ -1,0 +1,141 @@
+
+
+day day1{
+    (setting | planning) $
+}
+
+day day2{
+    create(ing){
+        NavBar
+        Footer
+        window update loop <Object>
+        Card <Primitive>
+        CEventX  configuration <Page Index Tracker>
+    }
+}
+
+day day3{
+    create(ing) {
+        custom circle chart <Primitive>
+        custom bar chart <Primitive>
+        circle chart <Test>
+        bar chart <Test>
+    }
+}
+
+day day4{
+    create(ing) {
+        checkButton 
+        calendar 
+        v3 Custom Grid 2 Wrapper <Primitive>
+    }
+    form(ing) {
+        home page
+    }
+}
+
+day day5{
+    finish(ing){
+        home page
+    }
+    form(ing) {
+       Education Tracker 1
+    }
+}
+
+day day6{
+    finish(ing){
+        Education Tracker 1
+    }
+    form(ing) {
+       Education Tracker 2
+    }
+}
+
+day day7{
+    finish(ing){
+        Education Tracker 2
+    }
+    form(ing) {
+        profile settings 1
+    }
+}
+
+day day7{
+    finish(ing){
+        profile settings 1
+    }
+    form(ing) {
+        login security settings 1
+    }
+}
+
+day day8{
+    finish(ing){
+        login security settings 1
+    }
+    create(ing){
+        purchase history card 
+    }
+    form(ing) {
+        purchase history settings 1
+    }
+}
+
+day day9{
+    finish(ing){
+        login security settings 1
+    }
+    create(ing){
+        Subscription card 
+    }
+    form(ing) {
+        Subscription settings 1
+    }
+}
+
+day day10{
+    finish(ing){
+        Subscription settings 1
+        * create(ed)
+    }
+    debugging{
+        **
+    }
+}
+
+declared Step : One from a syncronous assignment  
+
+declared Real : a component, can be seen, exist in window, affects window
+
+declared Abstract : a component, cannot be seen directly, dont't exist directly, affects window
+
+declared Virtual : not a component, cannot be seen, exist in window, affects window
+
+declared Event :  not a component, cannot be seen, dont't exist in window directly, affects window
+
+declared Component :  a node with it's own script
+
+
+
+declared Primitive <Abstract> : cannot be seen, only by inheriting can it
+
+declared Test <Real> : to review how a primitive component adapts
+
+declared Object <virtual> : not a component but controls components
+
+
+
+declared day <Step> : a whole day assignment
+
+declared create (tence) : List of components created or to be created that day, based on "tence"
+
+declared form (tence) :List of components created or to be created from "Primitive" "Abstract" or "Real" components, based on "tense"
+
+declared finish (tence): List of components or objects to be completed, updated, or already updated that day, based on "tense".
+
+declared debug (tence): list of component to check or has been checked for errors and unnoticed malfuction, depending on "tence"
+
+declared * : everything that concerns the next statement
+
+declared ** : everything that concerns the project
