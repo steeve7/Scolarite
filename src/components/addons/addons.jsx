@@ -988,11 +988,13 @@ export function FlipX({id,channel, className,indexClassName, children,speed=0.5}
 
 
 
-export function Cg2wrapper({className,id,children,paddingInline = "10px", paddingBlock = "20px",height = "100%"}){
+export function Cg2wrapper({className,id,children,paddingInline = "10px", paddingBlock = "20px",height = "100%",style = {}}){
     return <div id={id} className={mergeText(styles.cg2w,className)} style={{
         paddingInline:paddingInline
         ,paddingBlock:paddingBlock
-        ,height:height
+        ,height:height,
+        ...style
+
         }}>
         {children}
     </div>
@@ -1019,7 +1021,7 @@ export function CInput({className,placeholder,type="input",...props}){
 }
 
 
-export function CButton({className,onClick,id,Style = {},children,ani = "top", tooltip = undefined}){
+export function CButton({className,onClick,id,style = {},Style = {},children,ani = "top", tooltip = undefined}){
     const ButtonAnimations = {
         "scale":styles.btnaniscale,
         "top":styles.btnanitop,
@@ -1027,7 +1029,7 @@ export function CButton({className,onClick,id,Style = {},children,ani = "top", t
         true:styles.btnanitop,
         false:"",
     }
-    return <div id={id} style={Style} className={mergeText(className,styles.button,ButtonAnimations[String(ani)])} onClick={onClick}>
+    return <div id={id} style={{...style,...Style}} className={mergeText(className,styles.button,ButtonAnimations[String(ani)])} onClick={onClick}>
         {children}
         {tooltip && <ToolTip message={tooltip}/>}
     </div>
@@ -1051,9 +1053,9 @@ export function INFILTRATOR(command,args = {}){
 }
 
 
-export function CLink({className,href,onClick,id,children,target= "_self",ani = "scale"}){
+export function CLink({className,href,onClick,id,children,style = {},target= "_self",ani = "scale",...others}){
     const linkFunc = ()=>{window.open(href,String(target).toLowerCase()).focus()}
-    return <CButton id={id} className={mergeText(className)} ani={ani} onClick={mergeFunc(onClick,linkFunc)}>{children}</CButton>
+    return <CButton id={id} style={style} { ...others} className={mergeText(className)} ani={ani} onClick={mergeFunc(onClick,linkFunc)}>{children}</CButton>
 }
 
 export function AInput({label, placeholder , className = "", inClassName = "",type="input"}){
