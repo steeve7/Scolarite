@@ -119,8 +119,14 @@ input[type="date"]::-webkit-calendar-picker-indicator{
 .right-hide{
   translate: 100px 0;
 }
+.right-hidee{
+  translate: -100px 0;
+}
 .left-hide{
   translate: -100px 0;
+}
+.left-hidee{
+  translate: 100px 0;
 }
 .top-hide{
   translate: 0 -100px;
@@ -141,6 +147,7 @@ input[type="date"]::-webkit-calendar-picker-indicator{
    transform 0.5s ease-in-out;
 }
 body {
+  width: 100vw;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -150,16 +157,43 @@ body {
     rgb(var(--background-start-rgb));
     background: white;
     color: black;
-  overflow-x: hidden;
+  overflow: hidden;
   font-family: Montserrat Alternates;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100vh
+}
+.MAIN-CONTAINER{
+  overflow-x:hidden;
+  overflow-y:auto ;
 }
 *::selection{
   background-color: rgba(0, 255, 255, 0.164);
 }
 ::-webkit-scrollbar{
   width: 12px;
+  height: 30px;
+  border-radius: 5px;
+  /* background-color: rgba(0, 0, 0, 0.096); */
 }
 ::-webkit-scrollbar-thumb{
-  background-color:rgba(47, 54, 75, 1);
-  border-radius: 2px;
+  background-color:rgba(47, 54, 75, 0.808);
+  border-radius: 3px;
+  filter: blur(10px);
+  /* border: 3px solid rgb(194, 194, 194) ; */
 }
+
+
+
+.NONE{
+  display: none;
+}
+
+.smooth-hover {
+  transition: transform 0.5s ease-in-out; /* Smooth transition */
+}
+
+.smooth-hover:hover {
+  transform: translateY(-5px); /* Move up slightly */
+}
+

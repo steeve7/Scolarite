@@ -1,4 +1,6 @@
+'use client'
 import React from "react";
+import { motion } from "framer-motion"; // Import Framer Motion
 
 export default function Analytic() {
   const items = [
@@ -6,16 +8,19 @@ export default function Analytic() {
       image: "/image/analytic1.svg",
       ttile: "Performance Overview",
       desc: "Visualise your scores and study patterns in one glance for smarter, and targeted learning strategy.",
+      duration: 1.2, // Custom duration for the first item
     },
     {
       image: "/image/analytic2.svg",
       ttile: "Study Habits Analysis",
       desc: "Analyze and optimize your study habits to boost learning efficiency.",
+      duration: 1.4, // Custom duration for the second item
     },
     {
       image: "/image/analytic.svg",
       ttile: "Goal Setting & Tracking",
       desc: "Set and track your goals to stay motivated and measure your performance.",
+      duration: 1.6, // Custom duration for the third item
     },
   ];
 
@@ -49,11 +54,20 @@ export default function Analytic() {
               areas for improvement.
             </p>
           </div>
+          {/* Animated Analytic Cards */}
           <div className="flex flex-col gap-4 md:w-[80%] w-full mt-10">
             {items.map((item, i) => (
-              <div
+              <motion.div
                 key={i}
                 className="flex items-center gap-2 shadow-lg py-7 px-5 bg-white rounded-lg"
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{
+                  delay: 0.6,
+                  type: "spring",
+                  stiffness: 60,
+                  duration: item.duration, // Apply the custom duration
+                }}
               >
                 <img
                   src={item.image}
@@ -68,7 +82,7 @@ export default function Analytic() {
                     {item.desc}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

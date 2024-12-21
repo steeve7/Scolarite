@@ -7,7 +7,7 @@ import { Roboto } from "next/font/google";
 import Image from "next/image";
 import { usePathname } from "next/navigation"; 
 import { useEffect, useState } from "react";
-import { CLink } from "../addons/addons";
+import { CButton, CLink, WSABOTAGH } from "../addons/addons";
 
 const noteid = `noteification`;
 
@@ -35,33 +35,9 @@ function Notification({ message, link }) {
     </div>
   );
 }
+
 export default function NavbarMain() {
   const pathname = usePathname();
-  
-  /* const [navbar, setNavbar] = useState(false);
-  const [isNavOpened, setIsNavOpened] = useState(false);
-  const handleScroll = () => {
-    if (pathname === "/") {
-      // Only apply scroll effect on the home page
-      if (isNavOpened) {
-        setNavbar(true);
-      } else {setNavbar(window.scrollY > 50);}
-    }
-  };
-  useEffect(() => {
-    
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-
-  }, [pathname]);
-  const navbarBackgroundClass =
-  pathname === "/"
-    ? navbar
-      ? "bg-gradient-to-b from-[#2F364B] to-[#262B3D] shadow-md w-full"
-      : "bg-transparent"
-    : "bg-gradient-to-b from-[#2F364B] to-[#262B3D] shadow-md w-full";
- */
-
   return (
     <div className={mergeText(style.nb, "navbarBackgroundClass")}>
       <Notification
@@ -82,20 +58,15 @@ function NavBar(props) {
       {PATH:"/blogs",NAME:"Blog"},
       {PATH:"/becomeAffliate",NAME:"Become an Affiliate"}
     ]
-   /*  const [navbar, setNavbar] = props.navattr
-    const [isNavOpened, setIsNavOpened] = props.isattr */
-
+  
+    // for mobile toogle
     const ToogleNavBar = () => {
       document.getElementById("navbar").classList.toggle(style.navhidden);
-
-      /* setIsNavOpened(e=>!document.getElementById("navbar").classList.contains(style.navhidden));
-      console.log("navopen--",isNavOpened)
-      console.log("navbar--",navbar)
-      props.onscroll() */
       
     };
   useEffect(
     function () {
+      //# slide animation initialiser
       const hides = document.querySelectorAll(".ani-hidden");
       const observer = new IntersectionObserver(
         (e) => {
@@ -117,7 +88,16 @@ function NavBar(props) {
       hides.forEach((e) => {
         observer.observe(e);
       });
-      
+      // nav bar link "active" control
+      navigationObject.forEach(entry=>{
+        var el = document.getElementById(`${entry.PATH}-navbarlink`)
+        el.classList.remove(style.active)
+        if (pathname== entry.PATH ){
+          console.log(el)
+          console.log(pathname)
+          el.classList.add(style.active)
+        }
+      })
     },
     []
   );
@@ -133,8 +113,10 @@ function NavBar(props) {
       )}
       id="navbar"
     >
+      
       <div className={mergeText("grid grid-cols-[auto_1fr]", style.navinner)}>
         <div
+        
           className={mergeText(
             style.betweencenter,
             style.naviconwrapper,
@@ -147,12 +129,23 @@ function NavBar(props) {
               style.navtitle
             )}
           >
-            <Image
-              src={logo}
-              className={mergeText(style.navimage, style.navlogo)}
-              alt="logo unavaliable"
-            />
-            <span className={style.navtitletext}>SCOLARITÉ</span>
+            <CButton 
+        onClick={e=>{window.location.reload()}}
+         
+        >
+              <Image
+                src={logo}
+                className={mergeText(style.navimage, style.navlogo)}
+                alt="logo unavaliable"
+              />
+            </CButton>
+            <span className={style.navtitletext}><CButton 
+        ani = {false}
+        onClick={e=>{window.location.reload()}}
+         
+        >SCOLARITÉ 
+        
+        </CButton></span>
           </span>
           <div
             className={mergeText(style.navmenuicon)}
@@ -173,34 +166,25 @@ function NavBar(props) {
         <div className={mergeText(style.betweencenter, style.navres)}>
           <div className="!DO Not Remove"></div>
           <div className={mergeText(style.navlinks, "flex", style.navitem)}>
-            <a href="/" className={style.navlink}>
-              Home
-            </a>
-            <a href="/pricingplans" className={style.navlink}>
-              Pricing/Plans
-            </a>
-            <a href="/about" className={style.navlink}>
-              About us
-            </a>
-            <a href="/blogs" className={style.navlink}>
-              Blog
-            </a>
-            <a href="/becomeAfliate" className={style.navlink}>
-              Become an Affiliate
-            </a>
+            {navigationObject.map((entry,i)=><CLink key={i} href={entry.PATH} id = {`${entry.PATH}-navbarlink`} className={style.navlink}>
+                {entry.NAME}
+            </CLink>
+            )}
+            
           </div>
           <div className={style.navitem}>
-            <div className={mergeText("", style.navauth)}>
+            <CLink href={"/Login"} target={"_blank"} className={mergeText("", style.navauth)}>
               <span className={mergeText(style.navatextlogin, style.navatext)}>
                 LOGIN
               </span>
-            </div>
-            <div className={mergeText("", style.navauth, style.navauth1)}>
+            </CLink>
+            <CLink href={"/SignUp"} className={mergeText("/SignUp", style.navauth, style.navauth1)}>
               <span className={style.navatext}>SIGN UP</span>
-            </div>
+            </CLink>
           </div>
         </div>
       </div>
+      
     </div>
   );
 }

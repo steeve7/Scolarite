@@ -126,7 +126,7 @@ export default function Testimonial() {
           {tests.map((test, i) => (
             <div
               key={i}
-              className="bg-white p-6 h-[250px] rounded-2xl shadow-lg flex flex-col justify-between"
+              className="bg-white p-6 md:h-[250px] py-[50px] rounded-2xl shadow-lg flex flex-col justify-between"
             >
               <p className="font-roboto font-normal lg:text-[15px] text-[14px] leading-relaxed">
                 {test.desc}
