@@ -30,7 +30,7 @@ export default function Footer() {
           >
             {/*web & mobile view*/}
             <div className="flex justify-between items-center w-full md:-mt-20 pt-8 md:w-[50%]">
-              {/* Content Section */}
+              {/* scolarite image */}
               <div className="flex items-center gap-2">
                 <Image
                   src={Logo}
@@ -116,22 +116,22 @@ export default function Footer() {
                 </h2>
                 <ul className="flex flex-col gap-2">
                   <Link href="">
-                    <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
+                    <li className="smooth-hover font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                       Courses
                     </li>
                   </Link>
                   <Link href="">
-                    <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
+                    <li className="smooth-hover font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                       Books
                     </li>
                   </Link>
                   <Link href="">
-                    <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
+                    <li className="smooth-hover font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                       Freebies
                     </li>
                   </Link>
                   <Link href="">
-                    <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
+                    <li className="smooth-hover font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                       Classes
                     </li>
                   </Link>
@@ -143,26 +143,26 @@ export default function Footer() {
                 </h2>
                 <ul className="flex flex-col gap-2">
                   <Link href="">
-                    <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
+                    <li className="smooth-hover font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                       About Us
                     </li>
                   </Link>
                   <Link href="">
-                    <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
+                    <li className="smooth-hover font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                       Contact
                     </li>
                   </Link>
                   <Link href="">
-                    <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
+                    <li className="smooth-hover font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                       Privacy Policy
                     </li>
                   </Link>
                   <Link href="">
-                    <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
+                    <li className="smooth-hover font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                       Terms of Service
                     </li>
                   </Link>
-                  <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
+                  <li className="smooth-hover font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                     Help
                   </li>
                 </ul>
@@ -173,26 +173,35 @@ export default function Footer() {
                 </h2>
                 <ul className="flex flex-col gap-2">
                   <Link href="">
-                    <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
+                    <li className="smooth-hover font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                       Twitter
                     </li>
                   </Link>
                   <Link href="">
-                    <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
+                    <li className="smooth-hover font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                       Facebook
                     </li>
                   </Link>
                   <Link href="">
-                    <li className="font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
+                    <li className="smooth-hover font-roboto font-normal text-text-color lg:text-[17px] text-[12px]">
                       Instagram
                     </li>
                   </Link>
                 </ul>
               </div>
             </div>
-            <div className="md:flex hidden items-center gap-2 text-white font-roboto font-semibold text-[15px]">
-              Top
-              <MdOutlineArrowCircleUp color="white" size={20}  className="cursor-pointer"/>
+            <div
+              className="md:flex hidden items-center gap-2 text-white font-roboto font-semibold text-[15px]"
+              id="Home"
+            >
+              <Link href="" id="Home" className="flex flex-row gap-2 items-center">
+                Top
+                <MdOutlineArrowCircleUp
+                  color="white"
+                  size={20}
+                  className="cursor-pointer"
+                />
+              </Link>
             </div>
           </div>
         </>

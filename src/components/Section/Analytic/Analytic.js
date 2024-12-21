@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion"; // Import Framer Motion
 
 export default function Analytic() {
+
   const items = [
     {
       image: "/image/analytic1.svg",
@@ -26,8 +27,9 @@ export default function Analytic() {
 
   return (
     <div className="w-full py-20">
-      {/* Centered Content */}
+      {/* Analytic dashboard section */}
       <div className="container mx-auto flex md:flex-row flex-col md:justify-between justify-center items-center px-10">
+        {/* Laptop image */}
         <div className="md:w-1/2 w-full md:order-1 order-2 md:mt-0 mt-10">
           <img
             src="/image/laptop.svg"

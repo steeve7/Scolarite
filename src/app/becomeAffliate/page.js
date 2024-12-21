@@ -74,10 +74,10 @@ export default function becomeAfliate() {
           {/* signUpstarts Here */}
           <motion.div
             className="child-div"
-            initial={{ x: -100, opacity: 0 }}
+            initial={{ x: 100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{
-              delay: 1.0,
+              delay: 0.2,
               type: "spring",
               stiffness: 60,
               duration: 1,
@@ -112,10 +112,10 @@ export default function becomeAfliate() {
 
           {/* SEPERATE IMAGE */}
           <motion.li  
-          initial={{ x: -100, opacity: 0 }}
+          initial={{ x: 100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{
-              delay: 0.6,
+              delay: 0.3,
               type: "spring",
               stiffness: 60,
               duration: 1,
@@ -133,7 +133,7 @@ export default function becomeAfliate() {
           {/* AccessResources Starts Here */}
           <motion.div
             className="child-div access"
-            initial={{ x: -100, opacity: 0 }}
+            initial={{ x: 100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{
               delay: 0.6,
@@ -166,10 +166,10 @@ export default function becomeAfliate() {
 
           {/* SEPERATE IMAGE TAKE NOTE */}
           <motion.li
-           initial={{ x: -100, opacity: 0 }}
+           initial={{ x: 100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{
-              delay: 0.2,
+              delay: 0.7,
               type: "spring",
               stiffness: 60,
               duration: 1,
@@ -187,10 +187,10 @@ export default function becomeAfliate() {
           {/* THE PROMOTE AND EARN  */}
           <motion.div
             className="child-div promote"
-            initial={{ x: -100, opacity: 0 }}
+            initial={{ x: 100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{
-              delay: 0.2,
+              delay: 1.2,
               type: "spring",
               stiffness: 60,
               duration: 1,

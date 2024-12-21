@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
-// Custom Next Arrow Component
+// Custom Next Arrow Component for testimonial
 function SampleNextArrow({ className, style, onClick }) {
   return (
     <div
@@ -24,6 +24,7 @@ function SampleNextArrow({ className, style, onClick }) {
       }}
       onClick={onClick}
     >
+      {/* testimonial arrow icon */}
       <FaArrowRight className="text-white w-3 h-3 md:w-4 md:h-4 lg:w-2 lg:h-4" />
     </div>
   );
@@ -48,6 +49,7 @@ function SamplePrevArrow({ className, style, onClick }) {
       }}
       onClick={onClick}
     >
+      {/* testimonial arrow icon */}
       <FaArrowLeft className="text-white w-3 h-3 md:w-4 md:h-4 lg:w-2 lg:h-10" />
     </div>
   );
@@ -107,7 +109,7 @@ export default function Testimonial() {
 
   return (
     <div className="flex flex-col justify-center items-center py-20 rounded-2xl bg-bg-blue w-[80%] mt-20 m-auto md:overflow-visible overflow-hidden">
-      {/* Header Section */}
+      {/* testimonial Header Section */}
       <div className="flex flex-col gap-4 justify-center">
         <div className="flex md:justify-start justify-center items-center gap-2">
           <div className="w-[5%] border-black h-[16%] border" />

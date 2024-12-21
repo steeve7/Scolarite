@@ -37,6 +37,7 @@ export default function Plan() {
   const listed = (list,...inde)=>{var test2 =Array.from(list);test2 = test2.map((val,index)=> inde.includes(index)?val+"--X--":val);return test2}
 
   return (
+    {/* plan section Background Image */},
     <div
       className="relative py-[17rem] w-full bg-center bg-no-repeat"
       style={{
@@ -45,7 +46,6 @@ export default function Plan() {
        width: "100%"
       }}
     >
-      {/* Background Image */}
 
       {/* First content */}
       <div className="flex justify-center items-center flex-col lg:mt-0 mt-20 md:px-0 px-10">

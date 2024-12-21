@@ -129,6 +129,7 @@ function NavBar(props) {
               style.navtitle
             )}
           >
+          
             <CButton 
         onClick={e=>{window.location.reload()}}
          

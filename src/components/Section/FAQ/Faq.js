@@ -4,10 +4,10 @@ import { FaqCom } from "@/app/pricingplans/page";
 import style from "@/app/pricingplans/pricing.module.css";
 
 export default function Faq() {
-  // State to track the active button
+  // State to track the active buttons
   const [activeButton, setActiveButton] = useState("Technical Support");
 
-  // List of support buttons
+  // List of faq buttons
   const supportButtons = [
     "Technical Support",
     "Billing Support",
@@ -45,6 +45,7 @@ export default function Faq() {
     <div className="mt-16 w-full px-4 md:px-10 lg:px-0 mb-20">
       {/* Header Section */}
       <div className="flex flex-col justify-center items-center gap-4">
+      {/* faq image */}
         <img
           src="/image/faq.svg"
           alt="faq_image"
