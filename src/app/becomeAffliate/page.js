@@ -50,7 +50,7 @@ export default function becomeAfliate() {
 
         <br />
         {/* THE BENEFITS OF JOINING THE AFFILIATE */}
-        <li className="benefits">
+        <li className="benefits">x
           What are the benefits of joining the affiliate program?
         </li>
 
