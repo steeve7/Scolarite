@@ -1,24 +1,23 @@
 /*
-   _____ _   _ ___ ____    _____ ___ _     _____
-  |_   _| | | |_ _/ ___|  |  ___|_ _| |   | ____|
-    | | | |_| || |\___ \  | |_   | || |   |  _|
-    | | |  _  || | ___) | |  _|  | || |___| |___
-    |_| |_| |_|___|____/  |_|   |___|_____|_____| 
+    __  __    _    ___ _   _
+   |  \/  |  / \  |_ _| \ | |
+   | |\/| | / _ \  | ||  \| |
+   | |  | |/ ___ \ | || |\  |
+   |_|  |_/_/   \_\___|_| \_|
 
 
-                     ___ ____
-                    |_ _/ ___|
-                     | |\___ \
-                     | | ___) |
-                    |___|____/ 
-                  
+    ____   _ __   ____  __ _____ _   _ _____
+   |  _ \ / \\ \ / /  \/  | ____| \ | |_   _|
+   | |_) / _ \\ V /| |\/| |  _| |  \| | | |
+   |  __/ ___ \| | | |  | | |___| |\  | | |
+   |_| /_/   \_\_| |_|  |_|_____|_| \_| |_|
 
-   ____  _____ ____  ____  _____ ____    _  _____ _____ ____
-  |  _ \| ____|  _ \|  _ \| ____/ ___|  / \|_   _| ____|  _ \
-  | | | |  _| | |_) | |_) |  _|| |     / _ \ | | |  _| | | | |
-  | |_| | |___|  __/|  _ <| |__| |___ / ___ \| | | |___| |_| |
-  |____/|_____|_|   |_| \_\_____\____/_/   \_\_| |_____|____/ 
 
+    ____  _____ ____ _____ ___ ___  _   _
+   / ___|| ____/ ___|_   _|_ _/ _ \| \ | |
+   \___ \|  _|| |     | |  | | | | |  \| |
+    ___) | |__| |___  | |  | | |_| | |\  |
+   |____/|_____\____| |_| |___\___/|_| \_|
 
 
 */
@@ -26,13 +25,14 @@
 
 "use client"
 import React, { useEffect } from 'react'
-import './custom.css'
+import './style.css'
 import Image from 'next/image'
 import { color } from 'framer-motion'
 import { useState } from 'react'
+import { useParams } from 'next/navigation'
 // import {Center} from '../../components/addons/addons'
 
-
+import { Center } from '@/components/addons/addons'
 
 
 export default function paymentPageforCustomPlan() {
@@ -40,7 +40,10 @@ export default function paymentPageforCustomPlan() {
    // const dateInputRef = useRef(null)
    const [cardNmuber,setCardNumber] = useState("")
    const [cvv,setCvv] = useState("")
-
+   const params = useParams()
+   const CUSTOM = "custom" 
+   const ALLPLAN  = "all"
+    const plan = String(params.plan).toLowerCase()
 
 
    // useEffect(()=>{
@@ -375,100 +378,100 @@ export default function paymentPageforCustomPlan() {
              
            </div>
 
-            <div className='pww flex flex-col items-center justify-center w-full'>
-            <li className="black-line ani-hidden right-hide"></li>
-            <div className="payment-inner ani-hidden right-hide">
-            
-             <div className="p">
-               <span className="p-summary">Payment Summary</span>
-               <br />
-               <div className="p-text">
-                 Unlock the power of education with our flexible custom
-                 plan,designed specifically for schools.This plan requires a
-                 minimum of 30 students and offers the flexibility to increase
-                 the number of students as needed.
-               </div>
-             </div>
-             <div className="elements">
-               <ul className="list">
-                 <li className="li-list">Subscription plan</li>
-                 <li className="list-1">Monthly/Basic Plan</li>
-               </ul>
-               <ul className="list">
-                 <li className="li-list">Access Period</li>
-                 <li className="list-1">1 Month</li>
-               </ul>
-               <ul className="list">
-                 <li className="li-list">Number of User(s)</li>
-                 <li className="list-1">
-                   <div className="number-increment">
-                     <div className="box" id="timer">
-                       30
-                     </div>
-                     <div className="button">
-                       <button id="Add1" onClick={() => add1()}>
-                         <Image
-                           src="/Images/arrowup.png"
-                           alt="logo"
-                           width={50}
-                           height={5}
-                           className="arrow-1"
-                         />
-                       </button>
-                       {/* <br/> */}
-
-                       <button id="Add2" onClick={() => add2()}>
-                         <Image
-                           src="/Images/arrowup.png"
-                           alt="logo"
-                           width={50}
-                           height={5}
-                           className="arrow-2"
-                         />
-                       </button>
-                     </div>
+            <Center>
+                <div className='pww flex flex-col items-center justify-center w-full'>
+                <li className="black-line ani-hidden right-hide"></li>
+                <div className="payment-inner ani-hidden right-hide">
+                
+                 <div className="p">
+                   <span className="p-summary">Payment Summary</span>
+                   <br />
+                   <div className="p-text">
+                     Unlock the power of education with our flexible custom
+                     plan,designed specifically for schools.This plan requires a
+                     minimum of 30 students and offers the flexibility to increase
+                     the number of students as needed.
                    </div>
-                 </li>
-               </ul>
-               <ul className="list">
-                 <li className="li-list">Discount code</li>
-                 <li className="list-1">---------</li>
-               </ul>
-               <ul className="list">
-                 <li className="li-list">Discount Amount</li>
-                 <li className="list-1">₦0.00</li>
-               </ul>
-               <ul className="list">
-                 <li className="li-list">Transaction fee</li>
-                 <li className="list-1">100</li>
-               </ul>
-             </div>
-           </div>
-
-           <div className="Amount-check ani-hidden right-hide">
-             {/* <div></div> */}
-             <div className="inner-amount">
-               <span className="tt-amnt">Total Amount</span>
-               <br />
-               {/* <br/> */}
-               <span className="naira">₦ 10,100</span>
-             </div>
-             <div>
-               <Image
-                 src="/Images/vector.png"
-                 alt="logo"
-                 width={50}
-                 height={5}
-                 className="message"
-               />
-             </div>
-             <div className="circle">
-             <div className="circle-1"></div>
-             <div className="circle-2"></div>
-           </div>
-           </div>
-           
-            </div>
+                 </div>
+                 <div className="elements">
+                   <ul className="list">
+                     <li className="li-list">Subscription plan</li>
+                     <li className="list-1">Monthly/Basic Plan</li>
+                   </ul>
+                   <ul className="list">
+                     <li className="li-list">Access Period</li>
+                     <li className="list-1">1 Month</li>
+                   </ul>
+                   <ul className="list">
+                     <li className="li-list">Number of User(s)</li>
+                     <li className="list-1">
+                       <div className="number-increment">
+                         <div className="box" id="timer">
+                           1
+                         </div>
+                         { plan == CUSTOM &&  <div className="button">
+                           <button id="Add1" onClick={() => add1()}>
+                             <Image
+                               src="/Images/arrowup.png"
+                               alt="logo"
+                               width={50}
+                               height={5}
+                               className="arrow-1"
+                             />
+                           </button>
+                           {/* <br/> */}
+                           <button id="Add2" onClick={() => add2()}>
+                             <Image
+                               src="/Images/arrowup.png"
+                               alt="logo"
+                               width={50}
+                               height={5}
+                               className="arrow-2"
+                             />
+                           </button>
+                         </div>}
+                       </div>
+                     </li>
+                   </ul>
+                   <ul className="list">
+                     <li className="li-list">Discount code</li>
+                     <li className="list-1">---------</li>
+                   </ul>
+                   <ul className="list">
+                     <li className="li-list">Discount Amount</li>
+                     <li className="list-1">₦0.00</li>
+                   </ul>
+                   <ul className="list">
+                     <li className="li-list">Transaction fee</li>
+                     <li className="list-1">100</li>
+                   </ul>
+                 </div>
+                           </div>
+                
+                           <div className="Amount-check ani-hidden right-hide">
+                 {/* <div></div> */}
+                 <div className="inner-amount">
+                   <span className="tt-amnt">Total Amount</span>
+                   <br />
+                   {/* <br/> */}
+                   <span className="naira">₦ 10,100</span>
+                 </div>
+                 <div>
+                   <Image
+                     src="/Images/vector.png"
+                     alt="logo"
+                     width={50}
+                     height={5}
+                     className="message"
+                   />
+                 </div>
+                 <div className="circle">
+                 <div className="circle-1"></div>
+                 <div className="circle-2"></div>
+                           </div>
+                           </div>
+                </div>
+            </Center>
            
          </div>
          
