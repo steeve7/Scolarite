@@ -877,9 +877,12 @@ font-weight: 500;
       height: 40px;
       /* padding-right: 0.5rem; */
   }
+  .Payment-summary{
+    max-width: 80%;
+  }
 }
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width:900px) {
   /* .inner-body{
       display: flex;
       flex-direction: column-reverse;
@@ -894,7 +897,7 @@ font-weight: 500;
       margin-left: 0.0001rem;
   } */
   .Payment-summary{
-     width: 100%;
+     max-width: 80%;
    }
    .payment-inner{
       width: 90%;

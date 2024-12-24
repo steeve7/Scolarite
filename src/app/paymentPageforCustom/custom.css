@@ -651,7 +651,7 @@ font-weight: 500;
     }
     .Payment-summary{
         /* margin-top: 5rem; */
-        width: 100%;
+        max-width: 100%;
         position: relative;
         /* padding-right: 2rem;
         left: 0.1rem; */
@@ -660,7 +660,7 @@ font-weight: 500;
         font-size: 15px;
     }
     .p-text{
-        font-size: 7px;
+        font-size: 10px;
         width: 100%;
         margin-bottom: 0.5rem;
     }
@@ -792,6 +792,9 @@ font-weight: 500;
     .message{
         height: 30px;
     }
+    .p-text{
+        font-size: 10px;
+    }
     
 }
 @media screen and (max-width:596px) {
@@ -820,7 +823,7 @@ font-weight: 500;
     } 
     .Payment-summary{
         padding: 0;
-       width: 100%;
+       max-width: 100%;
       /* margin-left: 2rem; */
     }
     .elements{
@@ -877,9 +880,12 @@ font-weight: 500;
         height: 40px;
         /* padding-right: 0.5rem; */
     }
+    .Payment-summary{
+        max-width: 80%;
+    }
 }
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width:900px) {
     /* .inner-body{
         display: flex;
         flex-direction: column-reverse;
@@ -894,7 +900,7 @@ font-weight: 500;
         margin-left: 0.0001rem;
     } */
     .Payment-summary{
-       width: 100%;
+       max-width: 80%;
      }
      .payment-inner{
         width: 90%;
