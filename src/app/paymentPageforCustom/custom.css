@@ -881,7 +881,7 @@ font-weight: 500;
         /* padding-right: 0.5rem; */
     }
     .Payment-summary{
-        max-width: 80%;
+        width: 100%;
     }
 }
 
@@ -900,10 +900,10 @@ font-weight: 500;
         margin-left: 0.0001rem;
     } */
     .Payment-summary{
-       max-width: 80%;
+       width: 100%;
      }
      .payment-inner{
-        width: 90%;
+        max-width: 80%;
         height: fit-content;
         font-size: 10px;
         gap: 0;
@@ -949,9 +949,4 @@ font-weight: 500;
         height: 90%;
         width: 90%;
      }
-}
-@media screen and (max-width:1200px){
-
-
-
 }
