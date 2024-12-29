@@ -51,6 +51,8 @@ var BlogPosts = [
     },
 ];
 
+
+//Responsible for returning dynamic blog post
 for(var i in BlogPosts){
     BlogPosts[i].author = "John doe"
     BlogPosts[i].intro = `

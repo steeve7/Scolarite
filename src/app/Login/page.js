@@ -713,6 +713,7 @@ import Image from "next/image";
 import styles from "./LoginPage.module.css";
 
 export default function LoginPage() {
+  //Background video for login page
   const videoRef = useRef(null);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [view, setView] = useState("login"); // Tracks the current view ('login', 'forgotPassword', 'createNewPassword', or 'passwordUpdated')
@@ -738,6 +739,7 @@ export default function LoginPage() {
     videoElement.load();
     videoElement.play();
   }, [currentVideoIndex, videos]);
+  //End code
 
   return (
     <div className={styles.loginPage}>
@@ -753,8 +755,14 @@ export default function LoginPage() {
         Your browser does not support the video tag.
       </video>
 
+
+
+
       {/* Dark Overlay */}
       <div className={styles.overlay}></div>
+
+
+
 
       {/* Login Card */}
       <div className={styles.loginCard}>
@@ -771,6 +779,9 @@ export default function LoginPage() {
 
         {view === "login" ? (
           <>
+
+
+
             {/* Login View */}
             <h2 className={styles.welcomeText}>Welcome Back</h2>
             <p className={styles.subtitle}>
@@ -826,6 +837,9 @@ export default function LoginPage() {
 
           </>
         ) : view === "forgotPassword" ? (
+
+
+
           <>
             {/* Forgot Password View */}
             <h2 className={styles.welcomeText}>Reset Your Password</h2>
@@ -840,7 +854,7 @@ export default function LoginPage() {
               }}
             >
               <div className={styles.inputGroup}>
-                <label htmlFor="email">Email</label>
+                {/* <label htmlFor="email">Email</label> */}
                 <input id="email" type="email" placeholder="Enter your email" />
               </div>
 
@@ -861,6 +875,9 @@ export default function LoginPage() {
             </a>
           </>
         ) : view === "createNewPassword" ? (
+
+
+
           <>
             {/* Create New Password View */}
             <h2 className={styles.welcomeText}>Create New Password</h2>
@@ -891,6 +908,11 @@ export default function LoginPage() {
           </>
         ) : (
           <>
+
+
+
+
+          
             {/* Password Updated Successfully View */}
             <h2 className={styles.welcomeText}>Password Updated Successfully</h2>
             <p className={styles.subtitle}>
