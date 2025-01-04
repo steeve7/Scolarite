@@ -160,7 +160,7 @@ function NavBar(props) {
             
           </div>
           <div className={style.navitem} style={{display:"felx",justifyContent:"center",alignItems:"center",gap:"20px"}}>
-            <Image src={pimage} width={50}></Image>
+            <Image src={pimage} alt="logo unavaliable" width={50}></Image>
             <CLink style = {{color:"white",fontSize:"20px"}}>{Name}</CLink>
           </div>
         </div>

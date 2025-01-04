@@ -10,3 +10,4 @@ export default function FooterWrapper() {
   const pathName = usePathname();
   return (pathName.includes("/student") ? <Footer2/> : <Footer />);
 }
+1

@@ -1,7 +1,6 @@
 "use client"
 import styles from "./addons.module.css"
 import React, { useEffect, useReducer, useRef, useState } from "react"
-import { frame } from "framer-motion"
 import tooltiptri from "./assets/tooltiptri.png"
 import Image from "next/image"
 const indexId = genId("b")
@@ -143,11 +142,13 @@ export class Percentium{
         this.output = 0
     }
     LeftPercentium(value=0){
+        /* *input value is Right output value is left */
         this.Percent = (value/this.right)*100
         this.output = (this.Percent/100)*this.left
         return this
     }
     RightPercentium(value=0){
+        /* *input value is left output value is right */
         this.Percent = (value/this.left)*100
         this.output = (this.Percent/100)*this.right
         return this
@@ -526,18 +527,23 @@ export const addonsComplex = {
 export const CEXModel = addonsComplex.CEXModel
 export const State = addonsComplex.State
 
-export function WMonitor(props){
+export function EMonitor({elementReturnFunc = ()=>window,...props}){
     const ref = useRef()
     useEffect(()=>{
+        const element = elementReturnFunc()
         for (var key in props) {
-            if (String(key).toLowerCase() in window) { 
-                // window[key] = mergeFunc(props[key],window[key]);
-                window.addEventListener(`${String(key).toLowerCase().replaceAll("on","")}`,props[key])
+            if (String(key).toLowerCase() in element) { 
+                // element[key] = mergeFunc(props[key],element[key]);
+                element.addEventListener(`${String(key).toLowerCase().replaceAll("on","")}`,props[key])
             }
             }
     }
     ,[])
     return <div ref={ref} style={{display:"none"}} />
+}
+export function WMonitor(props){
+    
+    return <EMonitor elementReturnFunc={()=>window} {...props} />
 }
 
 export function CCInterval(channel,operate=true){
@@ -545,14 +551,15 @@ export function CCInterval(channel,operate=true){
     addonsComplex.XADispatch(channel,{operate:operate})
 }
 
+
+
 export function CInterval({interval,channel,func,operate = true}){
     const ref = useRef()
     const istate = new State(operate);
     const EventName = `INTERVAL-EVENT`  
     function CatchOperate(e){
-        if (e.detail.name == name){
-            istate.set(e.detail.operate);
-        }
+        istate.set(e.detail.operate);
+        
     }
     useEffect(()=>{
         setInterval(() => {
@@ -599,8 +606,11 @@ export function FADispatch(Event,excludedId=[""],excludedClass=[""]){
 export function Pd({pad=10,pady=0,display="inline-block"}){
     return <span style={{width:`${pad}px`,height:`${pady}px`,display:display,backgroundColor:"transparent",color:"transparent"}} />
 }
+export function Br({pad=10,pady=0,display="block"}){
+    return <span style={{width:`${pad}px`,height:`${pady}px`,display:display,backgroundColor:"transparent",color:"transparent"}} />
+}
 
-export function Radio({className,value,channel,valueListener,isdefault,onEvent,children,onClick,ref,...others}){
+export function Radio({className,value,channel,valueListener,isdefault,onEvent = ()=>{},children,onClick,ref,...others}){
     const EventName = `RADIO-CHANNEL-EVENT-${channel}`
     const radioRef = useRef(null)
     const [hasdef,setDef] = useState(isdefault)
@@ -623,6 +633,31 @@ export function Radio({className,value,channel,valueListener,isdefault,onEvent,c
     return <div ref={radioRef} onClick={click} className={mergeText(className,styles.radio)} {...others}>
         {children}
         <CEventH Type={EventName} onEvent={listener} ></CEventH>
+    </div>
+}
+export function XMRadio({className,eventModel = new CEXModel("radio"),value,channel,valueListener,isdefault,onEvent,children,onClick=()=>{},ref,...others}){
+    const radioRef = useRef(null)
+    const [hasdef,setDef] = useState(isdefault)
+    function click(e){
+        onClick(e)
+        eventModel.CEXDispatch(channel,{value:value}) 
+    }
+    function listener(e){
+        onEvent(radioRef.current)
+        if (e.detail.data.value == value){
+            valueListener(value,radioRef.current)
+        }
+        
+    }
+    useEffect(()=>{
+        if (hasdef){
+            click()
+            setDef(false)
+        }
+    })
+    return <div ref={radioRef} onClick={click} className={mergeText(className,styles.radio)} {...others}>
+        {children}
+        <eventModel.CEventXH channel={channel} self={eventModel} onEvent={listener} ></eventModel.CEventXH >
     </div>
 }
 
@@ -982,6 +1017,75 @@ export function FlipX({id,channel, className,indexClassName, children,speed=0.5}
         <HiddenButton id={forwardBName} onClick={ForwardButtonFunc}/>
         <HiddenButton id={backwardBName} onClick={BackwardButtonFunc}/>
         <CEventXH channel={channel} onEvent={DispatchFunc}  />
+        </div>
+    )
+}
+
+export function XMFlip({id,eventModel = new CEXModel("slider"),channel, className,childGeneralClassName, children,speed=0.5,...style}){
+    const istate = new State({index:0,total:2})
+     
+    const forwardBName = `FB-${channel}-FORWARD`
+    const backwardBName = `FB-${channel}-BACKWARD`
+    const frameref = useRef()
+    const childrenList = ListChildren(children)
+
+    function ForwardButtonFunc(){
+        
+        indexTo(istate.get().total-1 > istate.get().index? istate.get().index+1:0)
+
+    }
+    function BackwardButtonFunc(){
+        
+        indexTo(istate.get().index > 0? istate.get().index-1:istate.get().total)
+
+    }
+    function indexTo(index){
+        var inputIndex = index
+        var frame = frameref.current
+        var frameParent = frame.parentElement
+        var parentWidth = frameParent.offsetWidth
+        var frameWidth = frame.scrollWidth
+        var IndexPosX = []
+        var TotalIndex = (frameWidth/parentWidth)
+        var assumeIndex = childrenList.length-1
+
+        CRange(0,assumeIndex).forEach(index=>{
+                var x = index*(frameWidth/TotalIndex)
+                if (x > frameWidth){
+                    return
+                }
+                IndexPosX.push(x)
+        })
+        if (inputIndex <= assumeIndex){
+            scroll = IndexPosX[inputIndex]
+            scroll = (scroll/parentWidth)*100
+            frame.style.transform = `translateX(-${scroll}%)`
+        }else{
+            if (inputIndex > assumeIndex){
+                scroll = IndexPosX.reverse()[0]
+                scroll = (scroll/parentWidth)*100
+                frame.style.transform = `translateX(-${scroll}%)`
+            }
+        }
+        istate.update({index:inputIndex,total:assumeIndex})
+    }
+    function DispatchFunc(e){
+        indexTo(e.detail.data.index)
+        
+    }
+    return (
+        <div style={style} className={mergeText(styles.Flip,className)} id = {id} >
+            <div ref={frameref} style={{transition:`transform ${String(speed)}s ease-in-out`}} className={styles.FlipInnerFrame}>
+                {/* {children} */}
+                {childrenList.map((child,index)=>{
+                    return <div key={index} className={mergeText(styles.filpchildfill,childGeneralClassName)}>
+                        {child}
+                    </div>
+                })}
+            </div>
+        <HiddenButton id={forwardBName} onClick={ForwardButtonFunc}/>
+        <HiddenButton id={backwardBName} onClick={BackwardButtonFunc}/>
+        <eventModel.CEventXH self={eventModel} channel={channel} onEvent={DispatchFunc}  />
         </div>
     )
 }

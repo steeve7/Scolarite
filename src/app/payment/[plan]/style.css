@@ -239,6 +239,7 @@ width: 100%;
 .cvv{
     margin-left: 1rem;
 }
+
 .subscribe{
     width: 80%;
     height: 3rem;
@@ -249,6 +250,16 @@ width: 100%;
     margin-top: 1.5rem;
     color: white;
 }
+/* Polygon 4 */
+
+/* position: absolute; */
+/* width: 25.51px; */
+/* height: 88.25px; */
+/* left: 302.02px; */
+/* top: 204.05px; */
+/*  */
+/* background: ; */
+/* transform: matrix(0.86, 0.5, -0.5, 0.87, 0, 0); */
 
 .subscribe:hover{
     border: 2px solid  #a0a2ab;
