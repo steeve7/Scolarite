@@ -33,8 +33,8 @@ export default function Home(){
         <PureDoubleGridWrapper gap={"20px"} borderBottom="2px solid black" marginInline="4%" className={styles.w1} px={780}>
             <Div className={styles.w11}>
                 <Div className={styles.w11inner} padding="2rem" display="flex" flexDirection="column" gap="20px">
-                    <Div className={styles.w11title} fontSize="30px" fontWeight="bolder">Track Your Academic Progress</Div>
-                    <Text className={styles.w11text} fontSize="13px" color="rgba(113, 113, 122, 1)" fontWeight="bold">Monitor your learning journey with real-time insights into your performance. Set goals, view achievements, and stay on course to academic success.</Text>
+                    <Div className={styles.w11title} fontSize="30px" fontWeight="bolder">Manage Your Profile</Div>
+                    <Text className={styles.w11text} fontSize="13px" color="rgba(113, 113, 122, 1)" fontWeight="bold">Update your personal information and preferences here to keep your profile current.</Text>
                     {/* <Audi0 border="2px solid black"  src={"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"} controls ></Audi0>  */}
                 </Div>    
             </Div> 

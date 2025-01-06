@@ -1,12 +1,17 @@
 "use client"
-import { PieChart, Pie, Cell, ResponsiveContainer, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar } from "recharts"
+import { PieChart, Pie, Cell, ResponsiveContainer, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar  } from "recharts"
+import * as Chart from "recharts"
 import styles from "./addons2.module.css"
 import { addonsComplex, CEXModel, CInterval, EMonitor, mergeText, WMonitor } from "./addons"
 import React, { use, useEffect, useRef } from "react"
-import CSSHelper from "./cssHelper"
+import CSSHelper from "./Helper"
+import modimage from "./assets/modimage.png"
+import stdimage from "./assets/stdimage.png"
+import mocimage from "./assets/mocimage.png"
+import plyimage from "./assets/plyimage.png"
+import Image from "next/image"
 
-
-var cssHelper = CSSHelper()
+export var css = CSSHelper()
 
 export class Storage{
     constructor(key, defaultState = {"name":"<Your Name>"}){
@@ -76,7 +81,7 @@ export function BarChart({data,color = "rgba(38, 43, 61, 1)",bwidth = 500 ,bheig
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey={XDataKey} />
           <YAxis />
-          <Tooltip />
+          <Tooltip  content={<CustomTooltip/>} />
           <Legend />
           <Bar  dataKey={YDataKey} shape = {(props)=><BarShape {...props} {...styleForCell}/>} fill={color} minPointSize={5}>
           {data.map((entry, index) => (
@@ -85,6 +90,145 @@ export function BarChart({data,color = "rgba(38, 43, 61, 1)",bwidth = 500 ,bheig
           </Bar> 
         </BarChart>
     </Div>
+}
+export const CustomTooltip = ({ active, payload, label,bg="black" }) => {
+    if (active && payload && payload.length) {
+        useEffect(()=>{
+            console.log(payload)
+        })
+      return (
+        <Div  color= "white"
+        backgroundColor= {bg}
+        paddingBlock= "5px"
+        paddingInline= "10px"
+        borderRadius= "5px" >
+          <Div className="label" fontWeight="bolder">{label}</Div>
+          {payload.map(load=>{
+            return <Div fontWeight="bolder" marginBottom="5px" fontSize="14px" display="flex" alignItems="center" gap="10px"><Span minWidth = "20px" width = "20px" height = "20px" backgroundColor = {load.color} borderRadius = "5px"></Span> {load.value}</Div>
+          })}
+        </Div>
+      );
+    }
+  
+    return null;
+  };
+  
+export function LineChart({
+    width = 400,
+    height = 310,
+    data = [{}],
+    ady = true,
+    strokeWidth = 2,
+    dotRadius = 5,
+    type = "monotone",
+    lineConfig = [{
+        XDataKey:"name",
+        YDataKey:"value",
+        stroke:"black",
+        fill:undefined,
+        type : undefined,
+        strokeWidth:undefined,
+        dotRadius:undefined,
+    }]
+
+}){
+    lineConfig = lineConfig.map(config=>{
+        if (!config.strokeWidth){
+            config.strokeWidth=strokeWidth
+        }
+        if (!config.dotRadius){
+            config.dotRadius=dotRadius
+        }
+        if (!config.type){
+            config.type=type
+        }
+        return config
+    })
+    return <Chart.LineChart
+    className="line-chart-dash"
+        width={width}
+        height={height}
+        data={data}
+        
+        >
+        {/* <Chart.CartesianGrid strokeDasharray="3 3" /> */}
+        
+        {lineConfig.map((config,index)=>{
+            return <Chart.XAxis key = {`efof1${index}`}  dataKey={config.XDataKey} />
+            
+        })}
+        {ady && lineConfig.map((config,index)=>{
+            return <Chart.YAxis key = {`efof2${index}`}  dataKey={config.YDataKey} />
+
+            
+        })}
+        {/* <Chart.YAxis /> */}
+        {<Tooltip   content={<CustomTooltip bg="rgba(31, 28, 59, 1)"/>} />}
+        {/* <Chart.Legend /> */}
+        {lineConfig.map((config,index)=>{
+            return <Chart.Line  key = {`efo4${index}`} type={config.type} dataKey={config.YDataKey} strokeWidth={config.strokeWidth} stroke={config.stroke} fill={config.fill} activeDot={{ r: config.dotRadius }}/>
+        })}
+        {/* <Chart.Line type="monotone" dataKey={YDataKey} strokeWidth={strokeWidth} stroke="black" activeDot={{ r: dotRadius }}/> */}
+    </Chart.LineChart>
+}
+
+export function AreaChart({
+    width = 400,
+    height = 310,
+    ady = true,
+    data = [{}],
+    strokeWidth = 2,
+    dotRadius = 5,
+    type = "monotone",
+    lineConfig = [{
+        XDataKey:"name",
+        YDataKey:"value",
+        stroke:"black",
+        fill:undefined,
+        type : undefined,
+        strokeWidth:undefined,
+        dotRadius:undefined,
+    }]
+
+}){
+    lineConfig = lineConfig.map(config=>{
+        if (!config.strokeWidth){
+            config.strokeWidth=strokeWidth
+        }
+        if (!config.dotRadius){
+            config.dotRadius=dotRadius
+        }
+        if (!config.type){
+            config.type=type
+        }
+        return config
+    })
+    return <Chart.AreaChart
+    className="line-chart-dash"
+        width={width}
+        height={height}
+        data={data}
+        
+        >
+        {/* <Chart.CartesianGrid strokeDasharray="3 3" /> */}
+        
+        {lineConfig.map((config,index)=>{
+            return <Chart.XAxis key = {`efof1${index}`}  dataKey={config.XDataKey} />
+            
+        })}
+        { ady && lineConfig.map((config,index)=>{
+            return <Chart.YAxis key = {`efof2${index}`}  dataKey={config.YDataKey} />
+
+            
+        })}
+        {/* <Chart.YAxis /> */}
+        <Tooltip  content={<CustomTooltip/>} />
+        {/* <Chart.Legend /> */}
+        {lineConfig.map((config,index)=>{
+            return <Chart.Area  key = {`efo4${index}`} type={config.type} dataKey={config.YDataKey} strokeWidth={config.strokeWidth} stroke={config.stroke} fill={config.fill} activeDot={{ r: config.dotRadius }}/>
+        })}
+        {/* <Chart.Line type="monotone" dataKey={YDataKey} strokeWidth={strokeWidth} stroke="black" activeDot={{ r: dotRadius }}/> */}
+    </Chart.AreaChart>
 }
 
 export function CircleChart({className = ""
@@ -113,6 +257,7 @@ export function CircleChart({className = ""
                 {children}
             </Div>
         <PieChart width={bound} height={bound}>
+        <Tooltip  content={<CustomTooltip/>} />
             <Pie
             dataKey = "value"
             innerRadius = {innerRadius}
@@ -208,11 +353,12 @@ export function AtMedia({
         ,toWhomIsAtmedia = "window"  
     )
         {
-    const ref = useRef()
+    var ref
+    try{ ref = useRef()}catch(e){}
     const SelfsInAtMedia ={
         "window":()=>window,
-        "parent":()=> ref.current.parentElement,
         "class":()=>document.querySelector(`.${className}`),
+        "parent":()=> ref?ref.current.parentElement:SelfsInAtMedia["class"](),
         "element":()=>element
     }
     const Refresh = ()=>{
@@ -241,7 +387,7 @@ export function AtMedia({
 
 export function filterInStyles(Styles = {},tag = "div"){
     var allCSSProperties
-        allCSSProperties = {...cssHelper};
+        allCSSProperties = {...css};
         var propsforstyle = {}
         for (var cssAttr in  allCSSProperties){
             if (cssAttr in Styles){
@@ -252,7 +398,7 @@ export function filterInStyles(Styles = {},tag = "div"){
 }
 export function filterOutStyles(Styles = {},tag = "div"){
     var allCSSProperties
-        allCSSProperties = {...cssHelper};
+        allCSSProperties = {...css};
         var propforit = {}
         for (var key in Styles){
             if (!(key in allCSSProperties)){
@@ -260,6 +406,48 @@ export function filterOutStyles(Styles = {},tag = "div"){
             }
         }
     return propforit
+}
+
+export function ImageText({className,src,gap="10px",imageHeight = "20px",imageClassName,imageStyle,eximage = false,children,...props}){
+    return <Div   {...css.placeItems("center")} className={className} gap={gap}  display ="flex" {...css.gridTemplateColumns("auto 1fr")} {...props}>
+            {!eximage&& <Div>
+                <Image src={src} alt="not found"  className = {imageClassName} style={{...imageStyle,height:"100%",width:"fit-content",maxHeight:imageHeight}}></Image>
+            </Div>}
+            <Div width="100%">{children}</Div>
+    </Div>
+}
+
+export function CImage({src,alt="not Found",...props}){
+    return <Image src={src} alt ={alt} {...filterOutStyles(props)} style={filterInStyles(props)}></Image>
+}
+
+export function LessonLabel({lessonType = "mod",title,label1,label2,children,className,play=false,eximage=false,...props}){
+    const typeImageSelect = {
+        "mod":modimage,
+        "moc":mocimage,
+        "std":stdimage,
+        "ply":plyimage,
+    }
+    return <ImageText borderRadius="15px" {...css.boxShadow("0px 0px 10px rgba(0,0,0,0.1)")} borderWidth="2.93px" transition="border 0.3s ease-in-out"  className={styles.llabel} gap="30px" imageHeight="40px" padding="10px"
+       src={typeImageSelect[lessonType]}
+       {...props}
+       >
+        <Div display = "flex" {...css.justifyContent("space-between")} {...css.alignItems("center")}>
+            <Div display = "grid" height="100%" width="100%" {...css.gridTemplateRows("1fr 1fr")}>
+                <H1>{title}</H1>
+                <Div display="flex" gap="30px">
+                    {label1 && <ImageText color="gray" eximage={eximage} fontSize="14px" imageHeight="15px" src={typeImageSelect["std"]}>{label1}</ImageText>}
+                    {label2 && <ImageText color="gray" eximage={eximage} fontSize="14px" imageHeight="15px" src={typeImageSelect["moc"]}> {label2} </ImageText>}
+                </Div>
+            </Div>
+            {play && <Div display="grid" height={props.height} width="100px" {...css.boxSizing("border-box")} placeItems="center">
+                <CImage src={typeImageSelect["ply"]} height="fit-content" width="50px"></CImage>
+                {children}
+            </Div>}
+        </Div>
+
+       </ImageText>
+
 }
 
 export function BCard({children,...props}){
@@ -293,10 +481,10 @@ export function PureDoubleGridWrapper({className,px = 800,GTC = "1fr 1fr",gap,ch
             elementMediaRefresh()
         }, 1);
     })
-    return <section ref={ref} {...filterOutStyles(props)} className={mergeText(styles.pureDoubleGridWrapper,className)} style={{...styleatdef,...filterInStyles(props)}} >
+    return <Section ref={ref}  className={mergeText(styles.pureDoubleGridWrapper,className)} {...styleatdef}{...props} >
         {children}
     
-    </section>
+    </Section>
 }
 
 
@@ -319,19 +507,20 @@ export function RepeatGridWrapper({className,sizing = "fill",gap,children,minmax
 
 
 
-export function BaseElement({className,tag = "div",children,id,ref,onClick,element = undefined,...props}){
+export function BaseElement({className,tag = "div",children,id,ref,onClick,style={},element = undefined,...props}){
     useEffect(()=>{
-        cssHelper = CSSHelper({...document.createElement("div").style})
+        css = CSSHelper({...document.createElement("div").style})
     })
     const Element =element?element: ({children,...attr})=>{return React.createElement(tag,attr,children)}
     var propsforstyle = filterInStyles(props,tag)
     
-    var style = {
+    var Style = {
+        ...style,
         ...propsforstyle  
     }
     var propforit = filterOutStyles(props,tag)
     
-    return <Element { ...propforit} className={mergeText(className)} onClick={onClick} id={id} ref={ref} style={style}>
+    return <Element { ...propforit} className={mergeText(className)} onClick={onClick} id={id} ref={ref} style={Style}>
         {children}
     </Element>
 }
