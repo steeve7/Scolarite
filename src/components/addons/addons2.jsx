@@ -44,7 +44,7 @@ export class Storage{
     }
 }
 
-export function FilterKeys(predicate = (key)=>true,keyReform =(key)=>undefined,dict={}){
+export function FilterKeys(dict={},predicate = (key)=>true,keyReform =(key)=>undefined,){
     var filtrate = {}
     for (var key in dict){
         if (predicate(key)){
@@ -555,13 +555,16 @@ export function TextArea({className,children,id,ref,onClick,...props}){
 export function Img({className,children,id,ref,src,onClick,...props}){
     return <BaseElement tag="img"  {...props} src = {src} onClick={onClick} className={className} id={id} ref={ref}   >{children}</BaseElement>
 }
-export function Audi0({className,children,id,ref,src,onClick,...props}){
+export function CAudio({className,children,id,ref,src,onClick,...props}){
     return <BaseElement tag="audio"  {...props}  element={({children,...attr})=><audio src={src} {...attr}> {children}</audio>} onClick={onClick} className={className} id={id} ref={ref}   >{children}</BaseElement>
 }
-export function Vide0({className,children,id,ref,src,onClick,...props}){
+export function CVideo({className,children,id,ref,src,onClick,...props}){
     return <BaseElement tag="video"  {...props}  element={({children,...attr})=><video src={src} {...attr}> {children}</video>}onClick={onClick} className={className} id={id} ref={ref}   >{children}</BaseElement>
 }
 export function H1({className,children,id,ref,onClick,...props}){
     return <BaseElement tag="h1" fontSize ="20px" fontWeight="bolder" {...props} onClick={onClick} className={className} id={id} ref={ref}   >{children}</BaseElement>
+}
+export function Hr({className,children,id,ref,onClick,...props}){
+    return <BaseElement tag="hr" {...props} onClick={onClick} className={className} id={id} ref={ref}   >{children}</BaseElement>
 }
 
