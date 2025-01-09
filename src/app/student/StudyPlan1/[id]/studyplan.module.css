@@ -1,0 +1,551 @@
+/* .container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .catalogButton {
+    background-color: #f5f5f5;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .subject {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .subjectHeader {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+  }
+  
+  .subjectIcon {
+    width: 40px;
+    height: 40px;
+    background: #f0f0f0;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+  
+  .subjectInfo {
+    flex: 1;
+  }
+  
+  .subjectName {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .subjectDetails {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0 0;
+  }
+  
+  .subjectToggle {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .expanded .subjectToggle {
+    transform: rotate(180deg);
+  }
+  
+  .lessons {
+    padding: 10px 15px;
+    border-top: 1px solid #ddd;
+  }
+  
+  .lesson {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .lessonIcon {
+    width: 30px;
+    height: 30px;
+    background: #f0f0f0;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .lessonTitle {
+    flex: 1;
+    font-size: 14px;
+  }
+  
+  .lessonStatus {
+    font-size: 12px;
+    color: #888;
+  }
+   */
+
+
+
+
+
+
+   /* .container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .catalogButton {
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .catalogButton img {
+    margin-right: 8px;
+  }
+  
+  .subject {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .subjectHeader {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+  }
+  
+  .subjectIcon {
+    margin-right: 15px;
+  }
+  
+  .subjectInfo {
+    flex: 1;
+  }
+  
+  .subjectName {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .subjectDetails {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0 0;
+  }
+  
+  .subjectToggle {
+    transition: transform 0.3s ease;
+  }
+  
+  .expanded .subjectToggle {
+    transform: rotate(180deg);
+  }
+  
+  .lessons {
+    padding: 10px 15px;
+    border-top: 1px solid #ddd;
+  }
+  
+  .lesson {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .lessonIcon {
+    margin-right: 10px;
+  }
+  
+  .lessonTitle {
+    flex: 1;
+    font-size: 14px;
+  }
+  
+  .lessonStatus {
+    font-size: 12px;
+    color: #888;
+  }
+   */
+
+
+
+
+
+
+
+/* .container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.catalogButton {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.catalogButton img {
+  margin-right: 8px;
+}
+
+.subject {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.subjectHeader {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.subjectIcon {
+  margin-right: 15px;
+}
+
+.subjectInfo {
+  flex: 1;
+}
+
+.subjectName {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.subjectDetails {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0 0;
+}
+
+.subjectToggle {
+  transition: transform 0.3s ease;
+}
+
+.expanded .subjectToggle {
+  transform: rotate(180deg);
+}
+
+.lessons {
+  padding: 0;
+  border-top: 1px solid #ddd;
+}
+
+.lesson {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid #ddd; 
+}
+
+.lesson:last-child {
+  border-bottom: none; 
+}
+
+.lessonIcon {
+  margin-right: 10px;
+}
+
+.lessonTitle {
+  flex: 1;
+  font-size: 14px;
+}
+
+.lessonStatus {
+  font-size: 12px;
+  color: #888;
+} */
+
+
+
+
+
+/* Updated CSS for lessons with borders, border-radius, and custom width */
+
+/* .container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.catalogButton {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.catalogButton img {
+  margin-right: 8px;
+}
+
+.subject {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.subjectHeader {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.subjectIcon {
+  margin-right: 15px;
+}
+
+.subjectInfo {
+  flex: 1;
+}
+
+.subjectName {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.subjectDetails {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0 0;
+}
+
+.subjectToggle {
+  transition: transform 0.3s ease;
+}
+
+.expanded .subjectToggle {
+  transform: rotate(180deg);
+}
+
+.lessons {
+  padding: 0;
+  border-top: 1px solid #ddd;
+}
+
+.lesson {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border: 1px solid #ddd; 
+  border-radius: 5px; 
+  width: 90%;
+  margin: 10px auto; 
+}
+
+.lesson:last-child {
+  border-bottom: none; 
+}
+
+.lessonIcon {
+  margin-right: 10px;
+}
+
+.lessonTitle {
+  flex: 1;
+  font-size: 14px;
+}
+
+.lessonStatus {
+  font-size: 12px;
+  color: #888;
+} */
+
+
+
+
+
+
+.container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.catalogButton {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.catalogButton img {
+  margin-right: 8px;
+}
+
+.subject {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.subjectHeader {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.subjectIcon {
+  margin-right: 15px;
+}
+
+.subjectInfo {
+  flex: 1;
+}
+
+.subjectName {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.subjectDetails {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0 0;
+}
+
+.subjectToggle {
+  transition: transform 0.3s ease;
+}
+
+.expanded .subjectToggle {
+  transform: rotate(180deg);
+}
+
+.lessons {
+  padding: 0;
+  border-top: 1px solid #ddd;
+  /* max-height: 300px;  */
+  /* Set max height for scrollable list */
+  overflow-y: auto; /* Enable vertical scrolling */
+  margin-bottom: 10px;
+}
+
+.lesson {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border: 1px solid #ddd; /* Added border for each lesson */
+  border-radius: 5px; /* Added border-radius */
+  width: 90%; /* Set custom width for lessons */
+  margin: 10px auto; /* Center lessons within the container */
+}
+
+.lesson:last-child {
+  border-bottom: none; /* Remove border for the last lesson */
+}
+
+.lessonIcon {
+  margin-right: 10px;
+}
+
+.lessonTitle {
+  flex: 1;
+  font-size: 14px;
+}
+
+.lessonStatus {
+  font-size: 12px;
+  color: #888;
+}
