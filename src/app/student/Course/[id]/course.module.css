@@ -1,0 +1,193 @@
+.container {
+    width: 100%;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    /* Light background color */
+}
+
+.headerContent {
+    display: flex;
+    justify-content: space-between;
+    /* Position title on the left and buttons on the right */
+    align-items: center;
+    /* Vertically center them */
+    border-bottom: 2px solid #ddd;
+    /* Adds the line under the header */
+    padding-bottom: 1rem;
+    /* Adds some space between the line and content */
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    /* Dark text color */
+    margin: 0;
+    /* Remove any default margin */
+}
+
+.filterContainer {
+    display: flex;
+    gap: 1rem;
+}
+
+.filterButton {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.filterButton img {
+    width: 16px;
+    height: 16px;
+    margin-right: 0.5rem;
+}
+
+
+
+
+
+
+
+
+.filterButton img {
+    width: 16px;
+    height: 16px;
+    margin-right: 0.5rem;
+}
+
+.filterButton:hover {
+    background-color: #f0f0f0;
+    border-color: #ccc;
+}
+
+.courseCategory {
+    margin-bottom: 2rem;
+}
+
+.categoryTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.categoryDescription {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.courseGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.courseCard {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.courseCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.courseImage {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.courseDetails {
+    padding: 1rem;
+    flex: 1;
+}
+
+.courseTitle {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.courseMeta {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.startButton,
+.resumeButton {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.resumeButton {
+    background-color: #28a745;
+}
+
+.startButton:hover {
+    background-color: #0056b3;
+}
+
+.resumeButton:hover {
+    background-color: #218838;
+}
+
+.progressBarContainer {
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.progressBar {
+    flex: 1;
+    height: 6px;
+    background-color: #e9ecef;
+    border-radius: 3px;
+    position: relative;
+}
+
+.progressBar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #28a745;
+    border-radius: 3px;
+}
+
+.progressText {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #666;
+}
