@@ -1,0 +1,395 @@
+/* .container {
+    display: flex;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+  }
+  
+  .sidebar {
+    width: 300px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-right: 1px solid #ddd;
+  }
+  
+  .sidebar h2 {
+    font-size: 25px;
+    margin-bottom: 15px;
+    color: black;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+  }
+  
+  .sidebar h3 {
+    font-size: 25px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: black;
+    margin-bottom: 5px;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    margin: 8px 0;
+    color: #666;
+    cursor: pointer;
+  }
+  
+  .sidebar li:hover {
+    color: #000;
+    font-weight: bold;
+  }
+  
+  .main {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .header {
+    margin-bottom: 20px;
+  }
+  
+  .header h1 {
+    font-size: 24px;
+    color: #222;
+  }
+  
+  .courseMeta {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #888;
+  }
+  
+  .chapter {
+    margin-top: 30px;
+  }
+  
+  .chapter h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .videoContainer {
+    width: 100%;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .videoThumbnail {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .courseNote h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #444;
+  }
+  
+  .courseNote p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+  }
+   */
+
+
+
+
+
+
+
+   /* .container {
+    display: flex;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+  }
+  
+  .sidebar {
+    width: 300px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-right: 1px solid #ddd;
+  }
+  
+  .sidebar h2 {
+    font-size: 25px;
+    margin-bottom: 15px;
+    color: black;
+  }
+  
+  .sidebar h3 {
+    font-size: 25px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: black;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .sidebar li:hover {
+    color: #000;
+    font-weight: bold;
+  }
+
+  .borderedItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd; 
+  }
+  
+  .borderedItem:last-child {
+    border-bottom: none; 
+  }
+  
+  .iconLeft {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  
+  .iconRight {
+    width: 15px;
+    height: 15px;
+    margin-left: auto;
+  }
+  
+  .main {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .header {
+    margin-bottom: 20px;
+  }
+  
+  .header h1 {
+    font-size: 24px;
+    color: #222;
+  }
+  
+  .courseMeta {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #888;
+  }
+  
+  .chapter {
+    margin-top: 30px;
+  }
+  
+  .chapter h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .videoContainer {
+    width: 100%;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .videoThumbnail {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .courseNote h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #444;
+  }
+  
+  .courseNote p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+  }
+    */
+
+
+
+
+
+
+
+    /* General Layout */
+.container {
+  display: flex;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: 300px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-right: 1px solid #ddd;
+}
+
+/* Sidebar Titles */
+.sidebarTitle {
+  font-size: 25px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+/* Section Titles inside Sidebar */
+.sectionTitle {
+  font-size: 22px;
+  font-weight: bold;
+  color: #000000;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.resourceTypes{
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.gridList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); /* Flexible grid */
+  gap: 10px; /* Spacing between items */
+  padding: 0;
+  list-style: none;
+  margin: 20px 0;
+}
+
+.topicButton {
+  display: inline-block;
+  padding: 5px;
+  border: 2px solid #ddd; /* Light gray border */
+  border-radius: 20px; /* Rounded corners */
+  background-color: #fff; /* White background */
+  color: #333; /* Dark text */
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+  margin: 0;
+}
+
+.topicButton:hover {
+cursor: pointer;
+}
+
+
+/* Bordered Items */
+.borderedItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd; /* Light gray border */
+}
+
+.borderedItem:last-child {
+  border-bottom: none; /* Remove the border from the last item */
+}
+
+/* Icons in Sidebar */
+.iconLeft {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.iconRight {
+  width: 15px;
+  height: 15px;
+  margin-left: auto;
+}
+
+/* Main Content */
+.main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Header Styling */
+.header {
+  margin-bottom: 20px;
+}
+
+.pageTitle {
+  font-size: 28px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 15px;
+}
+
+.courseMeta {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #888;
+}
+
+/* Chapter Section */
+.chapter {
+  margin-top: 30px;
+}
+
+.chapterTitle {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Video Container */
+.videoContainer {
+  width: 100%;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.videoThumbnail {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Course Note */
+.courseNote h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.courseNote p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+}
