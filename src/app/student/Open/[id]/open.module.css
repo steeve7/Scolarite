@@ -263,13 +263,113 @@
 }
 
 /* Section Titles inside Sidebar */
-.sectionTitle {
+/* .sectionTitle {
   font-size: 22px;
   font-weight: bold;
   color: #000000;
   margin-top: 20px;
   margin-bottom: 10px;
+} */
+
+
+
+.courseProgress {
+  /* padding: 15px 20px; */
+  background-color: #f8f9fb;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
+
+.dropdownHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.dropdownArrow {
+  font-size: 18px;
+  color: #888;
+  transition: transform 0.3s ease;
+  width: 40px;
+  height: 40px
+}
+
+
+.arrowUp {
+  transform: rotate(180deg); /* Rotates the arrow upward */
+}
+
+.courseItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #fff;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+}
+
+.courseItem:hover {
+  background-color: #f0f0f5;
+}
+
+.completed {
+  position: relative;
+  font-weight: bold;
+  color: #000;
+}
+
+.completed .borderLeft {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: #4F46E5;
+  border-radius: 2px;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+}
+
+.completedIcon img {
+  filter: hue-rotate(220deg); /* For the purple checkmark icon */
+}
+
+.incompleteIcon img {
+  filter: grayscale(50%);
+}
+
+.completedIcon,
+.incompleteIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+} */
+
+
+
+
 
 .resourceTypes{
   border-bottom: 2px solid #ddd;
