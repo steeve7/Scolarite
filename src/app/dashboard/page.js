@@ -50,7 +50,7 @@ export default function Page() {
       >
         <div className="flex gap-2 items-center pl-4">
           <img src="/image/logo.png" alt="logo" className="w-10" />
-          <h2 className="text-2xl py-10 font-bold font-roboto flex-1">
+          <h2 className="text-2xl py-4 font-bold font-roboto flex-1">
             SCOLARITÉ
           </h2>
           {/* Close button for mobile */}
