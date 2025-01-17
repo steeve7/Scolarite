@@ -1,7 +1,7 @@
 .container {
     width: 100%;
-    padding: 2rem;
-    background-color: #f9f9f9;
+    padding: 2.5rem;
+    background-color: #ffffff;
     /* Light background color */
 }
 
@@ -52,13 +52,6 @@
     margin-right: 0.5rem;
 }
 
-
-
-
-
-
-
-
 .filterButton img {
     width: 16px;
     height: 16px;
@@ -77,12 +70,12 @@
 .categoryTitle {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #333;
-    margin-bottom: 0.5rem;
+    color: #000000;
+    margin-bottom: 0.3rem;
 }
 
 .categoryDescription {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #666;
     margin-bottom: 1.5rem;
 }
@@ -111,7 +104,7 @@
 
 .courseImage {
     width: 100%;
-    height: 150px;
+    height: 180px;
     object-fit: cover;
 }
 
@@ -142,7 +135,7 @@
     font-weight: 600;
     color: #fff;
     text-align: center;
-    background-color: #007bff;
+    background-color: #262B3D;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -150,15 +143,15 @@
 }
 
 .resumeButton {
-    background-color: #28a745;
+    background-color: #262B3D;
 }
 
 .startButton:hover {
-    background-color: #0056b3;
+    background-color: #3A3F55;
 }
 
 .resumeButton:hover {
-    background-color: #218838;
+    background-color: #3A3F55; /* Lighter color of #262B3D */
 }
 
 .progressBarContainer {
@@ -191,3 +184,154 @@
     font-weight: bold;
     color: #666;
 }
+
+.progressTexts {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #23BD33;
+}
+
+
+/* Default Styles */
+/* Existing styles above this */
+
+/* Media Queries */
+
+/* For screens 1024px and smaller */
+@media (max-width: 1024px) {
+    .container {
+      padding: 2rem; /* Slightly reduce padding */
+    }
+  
+    .headerContent {
+      /* flex-direction: column;  */
+      align-items: flex-start; /* Align content to the start */
+    }
+  
+    .title {
+      font-size: 1.8rem; /* Reduce title size */
+    }
+  
+    .filterContainer {
+      flex-wrap: wrap; /* Allow buttons to wrap */
+      gap: 0.8rem; /* Reduce gap between buttons */
+    }
+  
+    .courseGrid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust grid layout */
+    }
+  }
+  
+  /* For screens 768px and smaller */
+  @media (max-width: 768px) {
+    .container {
+      padding: 1.5rem; /* Reduce padding further */
+    }
+  
+    .title {
+      font-size: 1.6rem; /* Further reduce title size */
+    }
+  
+    .filterButton {
+      font-size: 0.8rem; /* Decrease font size of buttons */
+      padding: 0.4rem 0.8rem; /* Adjust padding for smaller buttons */
+    }
+  
+    .courseCategory {
+      margin-bottom: 1.5rem; /* Reduce spacing */
+    }
+  
+    .categoryTitle {
+      font-size: 1.3rem; /* Adjust font size */
+    }
+  
+    .categoryDescription {
+      font-size: 1rem; /* Slightly smaller description */
+    }
+  
+    .courseGrid {
+      gap: 1rem; /* Reduce gap between course cards */
+    }
+  
+    .courseCard {
+      padding: 0.8rem; /* Adjust card padding */
+    }
+  
+    .courseTitle {
+      font-size: 0.9rem; /* Smaller course title */
+    }
+  }
+  
+  /* For screens 480px and smaller */
+  @media (max-width: 480px) {
+    .container {
+      padding: 1rem; /* Further reduce padding */
+    }
+  
+    .headerContent {
+      align-items: center; /* Center align header */
+      text-align: center;
+      flex-direction: column;
+    /* align-items: center; */
+    }
+  
+    .title {
+      font-size: 1.4rem; /* Adjust font size for smaller screens */
+      margin-bottom: 1rem;
+    }
+  
+    .filterContainer {
+      flex-direction: column; 
+      gap: 0.5rem; 
+    }
+  
+    .filterButton {
+      width: 100%; 
+      text-align: center; 
+    }
+  
+    .courseGrid {
+      grid-template-columns: 1fr; /* Single-column layout */
+    }
+  
+    .courseCard {
+      flex-direction: column; /* Stack content */
+    }
+  
+    .courseTitle {
+      font-size: 0.85rem; /* Smaller font for titles */
+    }
+  }
+  
+  /* For screens 360px and smaller */
+  @media (max-width: 360px) {
+    .container {
+      padding: 0.8rem; /* Minimal padding for very small screens */
+    }
+  
+    .title {
+      font-size: 1.2rem; /* Adjust title size further */
+    }
+  
+    .filterButton {
+      font-size: 0.7rem; /* Smaller button text */
+      padding: 0.3rem 0.6rem; /* Compact button padding */
+    }
+  
+    .courseGrid {
+      gap: 0.8rem; /* Tighten gaps */
+    }
+  
+    .courseCard {
+      padding: 0.6rem; /* Smaller padding on course cards */
+    }
+  
+    .courseTitle {
+      font-size: 0.75rem; /* Further reduce font size */
+    }
+  
+    .progressText {
+      font-size: 0.7rem; /* Adjust progress text size */
+    }
+  }
+  

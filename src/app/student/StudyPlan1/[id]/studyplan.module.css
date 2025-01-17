@@ -1,445 +1,5 @@
-/* .container {
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    color: #333;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .title {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .catalogButton {
-    background-color: #f5f5f5;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 14px;
-    cursor: pointer;
-  }
-  
-  .subject {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin-bottom: 20px;
-  }
-  
-  .subjectHeader {
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    cursor: pointer;
-  }
-  
-  .subjectIcon {
-    width: 40px;
-    height: 40px;
-    background: #f0f0f0;
-    border-radius: 50%;
-    margin-right: 15px;
-  }
-  
-  .subjectInfo {
-    flex: 1;
-  }
-  
-  .subjectName {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 0;
-  }
-  
-  .subjectDetails {
-    font-size: 14px;
-    color: #666;
-    margin: 5px 0 0;
-  }
-  
-  .subjectToggle {
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  .expanded .subjectToggle {
-    transform: rotate(180deg);
-  }
-  
-  .lessons {
-    padding: 10px 15px;
-    border-top: 1px solid #ddd;
-  }
-  
-  .lesson {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .lessonIcon {
-    width: 30px;
-    height: 30px;
-    background: #f0f0f0;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .lessonTitle {
-    flex: 1;
-    font-size: 14px;
-  }
-  
-  .lessonStatus {
-    font-size: 12px;
-    color: #888;
-  }
-   */
-
-
-
-
-
-
-   /* .container {
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    color: #333;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .title {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .catalogButton {
-    display: flex;
-    align-items: center;
-    background-color: #f5f5f5;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 14px;
-    cursor: pointer;
-  }
-  
-  .catalogButton img {
-    margin-right: 8px;
-  }
-  
-  .subject {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin-bottom: 20px;
-  }
-  
-  .subjectHeader {
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    cursor: pointer;
-  }
-  
-  .subjectIcon {
-    margin-right: 15px;
-  }
-  
-  .subjectInfo {
-    flex: 1;
-  }
-  
-  .subjectName {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 0;
-  }
-  
-  .subjectDetails {
-    font-size: 14px;
-    color: #666;
-    margin: 5px 0 0;
-  }
-  
-  .subjectToggle {
-    transition: transform 0.3s ease;
-  }
-  
-  .expanded .subjectToggle {
-    transform: rotate(180deg);
-  }
-  
-  .lessons {
-    padding: 10px 15px;
-    border-top: 1px solid #ddd;
-  }
-  
-  .lesson {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .lessonIcon {
-    margin-right: 10px;
-  }
-  
-  .lessonTitle {
-    flex: 1;
-    font-size: 14px;
-  }
-  
-  .lessonStatus {
-    font-size: 12px;
-    color: #888;
-  }
-   */
-
-
-
-
-
-
-
-/* .container {
-  padding: 20px;
-  font-family: Arial, sans-serif;
-  color: #333;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.title {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.catalogButton {
-  display: flex;
-  align-items: center;
-  background-color: #f5f5f5;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.catalogButton img {
-  margin-right: 8px;
-}
-
-.subject {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
-.subjectHeader {
-  display: flex;
-  align-items: center;
-  padding: 15px;
-  cursor: pointer;
-}
-
-.subjectIcon {
-  margin-right: 15px;
-}
-
-.subjectInfo {
-  flex: 1;
-}
-
-.subjectName {
-  font-size: 18px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.subjectDetails {
-  font-size: 14px;
-  color: #666;
-  margin: 5px 0 0;
-}
-
-.subjectToggle {
-  transition: transform 0.3s ease;
-}
-
-.expanded .subjectToggle {
-  transform: rotate(180deg);
-}
-
-.lessons {
-  padding: 0;
-  border-top: 1px solid #ddd;
-}
-
-.lesson {
-  display: flex;
-  align-items: center;
-  padding: 10px 15px;
-  border-bottom: 1px solid #ddd; 
-}
-
-.lesson:last-child {
-  border-bottom: none; 
-}
-
-.lessonIcon {
-  margin-right: 10px;
-}
-
-.lessonTitle {
-  flex: 1;
-  font-size: 14px;
-}
-
-.lessonStatus {
-  font-size: 12px;
-  color: #888;
-} */
-
-
-
-
-
-/* Updated CSS for lessons with borders, border-radius, and custom width */
-
-/* .container {
-  padding: 20px;
-  font-family: Arial, sans-serif;
-  color: #333;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.title {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.catalogButton {
-  display: flex;
-  align-items: center;
-  background-color: #f5f5f5;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.catalogButton img {
-  margin-right: 8px;
-}
-
-.subject {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
-.subjectHeader {
-  display: flex;
-  align-items: center;
-  padding: 15px;
-  cursor: pointer;
-}
-
-.subjectIcon {
-  margin-right: 15px;
-}
-
-.subjectInfo {
-  flex: 1;
-}
-
-.subjectName {
-  font-size: 18px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.subjectDetails {
-  font-size: 14px;
-  color: #666;
-  margin: 5px 0 0;
-}
-
-.subjectToggle {
-  transition: transform 0.3s ease;
-}
-
-.expanded .subjectToggle {
-  transform: rotate(180deg);
-}
-
-.lessons {
-  padding: 0;
-  border-top: 1px solid #ddd;
-}
-
-.lesson {
-  display: flex;
-  align-items: center;
-  padding: 10px 15px;
-  border: 1px solid #ddd; 
-  border-radius: 5px; 
-  width: 90%;
-  margin: 10px auto; 
-}
-
-.lesson:last-child {
-  border-bottom: none; 
-}
-
-.lessonIcon {
-  margin-right: 10px;
-}
-
-.lessonTitle {
-  flex: 1;
-  font-size: 14px;
-}
-
-.lessonStatus {
-  font-size: 12px;
-  color: #888;
-} */
-
-
-
-
-
-
 .container {
-  padding: 20px;
+  padding: 2.5rem;
   font-family: Arial, sans-serif;
   color: #333;
 }
@@ -448,6 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* margin-top: 20px; */
   margin-bottom: 20px;
 }
 
@@ -474,23 +35,25 @@
 
 .separator {
   width: 100%;
-  height: 1px;
-  background-color: #000000; /* Adjust color as per your design */
-  margin: 10px 0; /* Space above and below the line */
+  height: 2px;
+  background-color: #CFCFCF;
+  /* Adjust color as per your design */
+  margin-bottom: 40px;
+  /* Space above and below the line */
 }
 
 
 .subject {
   background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  border: 3.5px solid #E1E1E1;
+  border-radius: 15px;
   margin-bottom: 20px;
 }
 
 .subjectHeader {
   display: flex;
   align-items: center;
-  padding: 15px;
+  padding: 20px;
   cursor: pointer;
 }
 
@@ -514,20 +77,23 @@
   margin: 5px 0 0; */
 
   display: flex;
-  align-items: center; /* Align icon and text */
+  align-items: center;
+  /* Align icon and text */
   font-size: 14px;
   color: #666;
   margin: 0;
 }
 
 .teamIcon {
-  margin-right: 8px; /* Space between icon and text */
+  margin-right: 8px;
+  /* Space between icon and text */
 }
 
 .subjectStats {
   font-size: 14px;
   color: #666;
-  margin: 5px 0 0; /* Add space above this section */
+  margin: 5px 0 0;
+  /* Add space above this section */
 }
 
 .subjectToggle {
@@ -540,25 +106,32 @@
 
 .lessons {
   padding: 0;
-  border-top: 1px solid #ddd;
+  border-top: 3.5px solid #E1E1E1;
   /* max-height: 300px;  */
   /* Set max height for scrollable list */
-  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-y: auto;
+  /* Enable vertical scrolling */
   margin-bottom: 10px;
 }
 
 .lesson {
   display: flex;
   align-items: center;
-  padding: 10px 15px;
-  border: 1px solid #ddd; /* Added border for each lesson */
-  border-radius: 5px; /* Added border-radius */
-  width: 90%; /* Set custom width for lessons */
-  margin: 10px auto; /* Center lessons within the container */
+  padding: 20px 15px;
+  border: 2.5px solid #E1E1E1;
+  /* Added border for each lesson */
+  border-radius: 10px;
+  /* Added border-radius */
+  width: 1400px;
+  /* Set custom width for lessons */
+  margin: 10px auto;
+  /* Center lessons within the container */
+  margin-bottom: 15px;
 }
 
 .lesson:last-child {
-  border-bottom: none; /* Remove border for the last lesson */
+  border-bottom: none;
+  /* Remove border for the last lesson */
 }
 
 .lessonIcon {
@@ -567,10 +140,311 @@
 
 .lessonTitle {
   flex: 1;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .lessonStatus {
-  font-size: 12px;
+  font-size: 17.5px;
   color: #888;
+  font-weight: bold;
+  margin-right: 15px;
+}
+
+
+
+
+
+
+
+
+/* Default styles (above this) */
+
+/* For screens 1200px and smaller */
+@media (max-width: 1200px) {
+  .container {
+    padding: 2rem;
+    /* Slightly reduce padding for larger screens */
+  }
+
+  .header {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 22px;
+    /* Slightly reduce font size */
+  }
+
+  .catalogButton {
+    padding: 8px 16px;
+    /* Adjust button padding */
+    font-size: 13px;
+    /* Adjust button text size */
+  }
+
+  .separator {
+    margin-bottom: 30px;
+    /* Reduce space around the separator line */
+  }
+
+  .subject {
+    margin-bottom: 18px;
+    /* Adjust spacing between subjects */
+    border-width: 3px;
+    /* Slightly thinner border for subjects */
+  }
+
+  .subjectHeader {
+    padding: 18px;
+    /* Reduce padding */
+  }
+
+  .subjectName {
+    font-size: 17px;
+    /* Adjust subject name size */
+  }
+
+  .subjectDetails {
+    font-size: 13px;
+    /* Slightly smaller details text */
+  }
+
+  .lesson {
+    width: 96.5%;
+    /* Allow lessons to take full width */
+    padding: 16px;
+    /* Adjust padding */
+    border-width: 2px;
+    /* Slightly thinner border */
+    margin: 8px 0;
+    /* Reduce margin between lessons */
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+  }
+
+  .lessonTitle {
+    font-size: 16px;
+    /* Adjust lesson title font size */
+  }
+
+  .lessonStatus {
+    font-size: 15px;
+    /* Adjust status font size */
+  }
+
+  .progressBar {
+    height: 5px;
+    /* Adjust the height of the progress bar */
+  }
+}
+
+
+/* For screens 1024px and smaller */
+@media (max-width: 1024px) {
+  .container {
+    padding: 2rem;
+  }
+
+  .title {
+    font-size: 22px;
+    /* Slightly smaller title */
+  }
+
+  .catalogButton {
+    padding: 8px 16px;
+    /* Reduce button padding */
+    font-size: 13px;
+    /* Smaller button text */
+  }
+
+  .subject {
+    margin-bottom: 15px;
+    /* Reduce spacing between subjects */
+  }
+
+  .subjectName {
+    font-size: 17px;
+    /* Slightly smaller subject names */
+  }
+
+  .lesson {
+    width: 95%;
+    /* Allow lessons to take full width */
+    padding: 15px;
+    /* Adjust padding */
+  }
+
+  .lessonTitle {
+    font-size: 16px;
+    /* Smaller lesson titles */
+  }
+
+  .lessonStatus {
+    font-size: 16px;
+    /* Match status font size */
+  }
+}
+
+/* For screens 768px and smaller */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  .header {
+    /* flex-direction: column; */
+    align-items: center;
+    gap: 15px;
+  }
+
+  .title {
+    font-size: 20px;
+    /* Smaller title for smaller screens */
+  }
+
+  .catalogButton {
+    font-size: 12px;
+    /* Adjust button text size */
+    padding: 8px 14px;
+    /* Smaller padding */
+  }
+
+  .subjectHeader {
+    padding: 15px;
+    /* Reduce padding inside subjects */
+  }
+
+  .subjectName {
+    font-size: 16px;
+    /* Reduce font size for subject names */
+  }
+
+  .lesson {
+    padding: 15px 10px;
+    /* Compact padding for lessons */
+    border-radius: 8px;
+    /* Slightly smaller border radius */
+  }
+
+  .lessonTitle {
+    font-size: 15px;
+    /* Adjust font size */
+  }
+
+  .lessonStatus {
+    font-size: 15px;
+    /* Smaller font size */
+    margin-right: 10px;
+    /* Reduce spacing */
+  }
+}
+
+/* For screens 480px and smaller */
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: center;
+    /* Center header content */
+    text-align: center;
+  }
+
+  .title {
+    font-size: 18px;
+    /* Smaller title for compact screens */
+    /* margin-bottom: 10px;  */
+  }
+
+  .catalogButton {
+    width: 100%;
+    /* Full-width button */
+    font-size: 11px;
+    /* Smaller button text */
+    padding: 6px 12px;
+    /* Compact padding */
+    align-items: center;
+    justify-content: center;
+  }
+
+  .subjectHeader {
+    flex-direction: column;
+    /* Stack icon and info */
+    align-items: flex-start;
+    /* Align items to the left */
+  }
+
+  .subjectName {
+    font-size: 15px;
+    /* Adjust subject name size */
+  }
+
+  .lesson {
+    padding: 10px 8px;
+    /* Reduce padding for lessons */
+    border-radius: 6px;
+    /* Smaller border radius */
+  }
+
+  .lessonTitle {
+    font-size: 14px;
+    /* Smaller lesson titles */
+  }
+
+  .lessonStatus {
+    font-size: 14px;
+    /* Adjust status size */
+    /* margin-right: 8px;  */
+  }
+}
+
+/* For screens 360px and smaller */
+@media (max-width: 360px) {
+  .container {
+    padding: 0.8rem;
+    /* Minimal padding */
+  }
+
+  .title {
+    font-size: 16px;
+    /* Compact title */
+  }
+
+  .catalogButton {
+    font-size: 10px;
+    /* Smaller button text */
+    padding: 5px 10px;
+    /* Compact padding */
+  }
+
+  .subjectHeader {
+    padding: 10px;
+    /* Compact subject header */
+  }
+
+  .subjectName {
+    font-size: 14px;
+    /* Compact font for subject name */
+  }
+
+  .lesson {
+    padding: 8px 6px;
+    /* Compact padding for lessons */
+    border-radius: 4px;
+    /* Minimal border radius */
+  }
+
+  .lessonTitle {
+    font-size: 13px;
+    /* Adjusted font size */
+  }
+
+  .lessonStatus {
+    font-size: 13px;
+    /* Smaller status text */
+  }
 }

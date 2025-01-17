@@ -1,5 +1,4 @@
 
-
 "use client";
 import { useState } from "react";
 import Image from "next/image";
@@ -56,8 +55,8 @@ const StudyPlan = () => {
           <Image
             src="/images/course-catalog-icon.png"
             alt="Course Catalog Icon"
-            width={20}
-            height={20}
+            width={28}
+            height={28}
           />
           COURSE CATALOG
         </button>
@@ -66,9 +65,8 @@ const StudyPlan = () => {
       {subjects.map((subject) => (
         <div
           key={subject.id}
-          className={`${styles.subject} ${
-            expandedSubject === subject.id ? styles.expanded : ""
-          }`}
+          className={`${styles.subject} ${expandedSubject === subject.id ? styles.expanded : ""
+            }`}
         >
           <div
             className={styles.subjectHeader}
@@ -78,8 +76,8 @@ const StudyPlan = () => {
               <Image
                 src={subject.icon}
                 alt={`${subject.name} Icon`}
-                width={40}
-                height={40}
+                width={70}
+                height={70}
               />
             </div>
             <div className={styles.subjectInfo}>
@@ -88,8 +86,8 @@ const StudyPlan = () => {
                 <Image
                   src="/images/team-icon.png"
                   alt="Team Icon"
-                  width={16}
-                  height={16}
+                  width={17}
+                  height={17}
                   className={styles.teamIcon}
                 />
                 {subject.team}
@@ -106,8 +104,8 @@ const StudyPlan = () => {
                     : "/images/arrow-right-icon.png"
                 }
                 alt="Toggle Icon"
-                width={20}
-                height={20}
+                width={40}
+                height={40}
               />
             </div>
           </div>
@@ -119,8 +117,8 @@ const StudyPlan = () => {
                     <Image
                       src="/images/lesson-icon.png"
                       alt="Lesson Icon"
-                      width={30}
-                      height={30}
+                      width={35}
+                      height={35}
                     />
                   </div>
                   <p className={styles.lessonTitle}>{lesson}</p>

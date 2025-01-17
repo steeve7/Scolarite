@@ -32,7 +32,7 @@ const Page = () => {
                             </div>
                             <div className={styles.progressBarContainer}>
                                 <div className={styles.progressBar} style={{ width: '2%' }}></div>
-                                <span className={styles.progressText}>2% Completed</span>
+                                <span className={styles.progressText}>0% Completed</span>
                             </div>
                         </div>
                     ))}
@@ -55,7 +55,7 @@ const Page = () => {
                             </div>
                             <div className={styles.progressBarContainer}>
                                 <div className={styles.progressBar} style={{ width: '23%' }}></div>
-                                <span className={styles.progressText}>23% Completed</span>
+                                <span className={styles.progressTexts}>23% Completed</span>
                             </div>
                         </div>
                     ))}
