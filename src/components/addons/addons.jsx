@@ -6,6 +6,7 @@ import Image from "next/image"
 const indexId = genId("b")
 import { usePathname } from "next/navigation"
 import { ListChildren } from "./addonsServer"
+import { Div, RDiv } from "./addons2"
 
 // for controling header and footer
 export var isPageExempt = ()=>{
@@ -553,7 +554,7 @@ export function CCInterval(channel,operate=true){
 
 
 
-export function CInterval({interval,channel,func,operate = true}){
+export function CInterval({interval=1,channel,func,operate = true}){
     const ref = useRef()
     const istate = new State(operate);
     const EventName = `INTERVAL-EVENT`  
@@ -1105,7 +1106,7 @@ export function Cg2wrapper({className,id,children,paddingInline = "10px", paddin
 }
 
 export function Center({children,className,...others}){
-    return <div className={mergeText(styles.center,className)} { ...others}  >{children}</div>
+    return <Div className={mergeText(styles.center,className)} { ...others}  >{children}</Div>
 }
 
 export function CInput({className,placeholder,type="input",...props}){
@@ -1125,7 +1126,7 @@ export function CInput({className,placeholder,type="input",...props}){
 }
 
 
-export function CButton({className,onClick,id,style = {},Style = {},children,ani = "top", tooltip = undefined}){
+export function CButton({className,onClick,id,style = {},Style = {},children,ani = "top", tooltip = undefined,...props}){
     const ButtonAnimations = {
         "scale":styles.btnaniscale,
         "top":styles.btnanitop,
@@ -1133,10 +1134,10 @@ export function CButton({className,onClick,id,style = {},Style = {},children,ani
         true:styles.btnanitop,
         false:"",
     }
-    return <div id={id} style={{...style,...Style}} className={mergeText(className,styles.button,ButtonAnimations[String(ani)])} onClick={onClick}>
+    return <RDiv id={id} {...props} style={{...style,...Style}} className={mergeText(className,styles.button,ButtonAnimations[String(ani)])} onClick={onClick}>
         {children}
         {tooltip && <ToolTip message={tooltip}/>}
-    </div>
+    </RDiv>
 }
 export function INFILTRATOR(command,args = {}){
     var sabotager = new addonsComplex.WSABOTAG()

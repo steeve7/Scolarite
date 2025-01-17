@@ -11,7 +11,7 @@ import Image from "next/image";
 import { number } from "prop-types";
 // import sound from "./assets/Disconnect .m4a"
 var nums = (len)=>genId("n",len)
-const testdata = [
+export const testdata = [
     {
       name: 'Mon',
       value:nums(4),

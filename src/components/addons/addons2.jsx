@@ -2,7 +2,7 @@
 import { PieChart, Pie, Cell, ResponsiveContainer, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar  } from "recharts"
 import * as Chart from "recharts"
 import styles from "./addons2.module.css"
-import { addonsComplex, CEXModel, CInterval, EMonitor, mergeText, WMonitor } from "./addons"
+import { addonsComplex, CEXModel, CInterval, EMonitor, mergeText, NONE, WMonitor } from "./addons"
 import React, { use, useEffect, useRef } from "react"
 import CSSHelper from "./Helper"
 import modimage from "./assets/modimage.png"
@@ -12,6 +12,18 @@ import plyimage from "./assets/plyimage.png"
 import Image from "next/image"
 
 export var css = CSSHelper()
+
+export class Interface{
+    
+    constructor(interfaceDict){
+        for(var key in interfaceDict){
+            this[key] = interfaceDict[key]
+        }
+        this.__all__ = interfaceDict
+
+    }
+}
+
 
 export class Storage{
     constructor(key, defaultState = {"name":"<Your Name>"}){
@@ -103,8 +115,8 @@ export const CustomTooltip = ({ active, payload, label,bg="black" }) => {
         paddingInline= "10px"
         borderRadius= "5px" >
           <Div className="label" fontWeight="bolder">{label}</Div>
-          {payload.map(load=>{
-            return <Div fontWeight="bolder" marginBottom="5px" fontSize="14px" display="flex" alignItems="center" gap="10px"><Span minWidth = "20px" width = "20px" height = "20px" backgroundColor = {load.color} borderRadius = "5px"></Span> {load.value}</Div>
+          {payload.map((load,index)=>{
+            return <Div key={index} fontWeight="bolder" marginBottom="5px" fontSize="14px" display="flex" alignItems="center" gap="10px"><Span minWidth = "20px" width = "20px" height = "20px" backgroundColor = {load.color} borderRadius = "5px"></Span> {load.value}</Div>
           })}
         </Div>
       );
@@ -243,6 +255,7 @@ export function CircleChart({className = ""
     max = 100,
     maxName = "max",
     maxColor = "#ccc",
+    dataKey = "value",
     ...style
 }){
     
@@ -259,7 +272,7 @@ export function CircleChart({className = ""
         <PieChart width={bound} height={bound}>
         <Tooltip  content={<CustomTooltip/>} />
             <Pie
-            dataKey = "value"
+            dataKey = {dataKey}
             innerRadius = {innerRadius}
             outerRadius = {outerRadius}
             data={data}
@@ -292,6 +305,7 @@ export function RingChart({className = ""
         max = 100,
         maxName = "max",
         maxColor = "#ccc",
+        dataKey,
         ...style
     }){
         
@@ -301,6 +315,7 @@ export function RingChart({className = ""
         innerRadius={innerRadius}
         outerRadius={outerRadius}
         bound={bound}
+        dataKey={dataKey}
         max={max}
         maxName={maxName}
         maxColor={maxColor}
@@ -339,7 +354,10 @@ export function LoadUi({className,channel,color = undefined,isloading = true,mod
         <eventH.CEventXH self={eventH} onEvent = {onEvent} channel={channel}></eventH.CEventXH>
     </Div>
 }
-
+export function USEEffect({func,...kwargs}){
+    useEffect(func,...kwargs)
+    return <></>
+}
 export function AtMedia({
          media = "max-width"
         ,pixels = 800
@@ -354,6 +372,7 @@ export function AtMedia({
     )
         {
     var ref
+    className = `.${className}`
     try{ ref = useRef()}catch(e){}
     const SelfsInAtMedia ={
         "window":()=>window,
@@ -361,28 +380,45 @@ export function AtMedia({
         "parent":()=> ref?ref.current.parentElement:SelfsInAtMedia["class"](),
         "element":()=>element
     }
+    var changeM = false
+    var changeD = false
     const Refresh = ()=>{
         // console.log(className)
         // console.log(element.className)
         const WhosMedia = SelfsInAtMedia[toWhomIsAtmedia]()
         var it = element==undefined?document.querySelector(className):element
+        // console.log(className)
+       
         if (!it) return
-        if (SelfsInAtMedia[toWhomIsAtmedia]().matchMedia(`(${media}:${pixels}px)`).matches){
+        if (WhosMedia.matchMedia(`(${media}:${pixels}px)`).matches){
             for (var style in styleAtMedia){
                 // it.setAttribute(style,styleAtMedia[style])
                 it.style[style] = styleAtMedia[style]
-                funcAtMedia()
+                changeD = false
+                if (!changeM){
+                    changeM = true
+                    funcAtMedia()}
             }
         }else{
             for (var style in styleAtDefault){
                 // it.setAttribute(style,styleAtDefault[style])
                 it.style[style] = styleAtDefault[style]
-                funcAtDefault()
+                changeM = false
+                if (!changeD){
+                    changeD = true
+                    funcAtDefault()}
             }
         }
         return window.matchMedia(`(${media}:${pixels}px)`).matches
     }
-    return returnReact? ()=> <EMonitor elementReturnFunc={SelfsInAtMedia[toWhomIsAtmedia]} onChange = {Refresh}></EMonitor>  : Refresh
+    if (returnReact){
+        useEffect(()=>{
+            setInterval(() => {
+                Refresh()
+            }, 1);
+        })
+    }
+    return returnReact? <></>  : Refresh
 }
 
 export function filterInStyles(Styles = {},tag = "div"){
@@ -413,8 +449,16 @@ export function ImageText({className,src,gap="10px",imageHeight = "20px",imageCl
             {!eximage&& <Div>
                 <Image src={src} alt="not found"  className = {imageClassName} style={{...imageStyle,height:"100%",width:"fit-content",maxHeight:imageHeight}}></Image>
             </Div>}
-            <Div width="100%">{children}</Div>
+            <Div width="100%" >{children}</Div>
     </Div>
+}
+
+export function flattenListDict(getKey="",listDict=[{}]){
+    var values = []
+    listDict.forEach(dict=>{
+        values.push(dict[getKey])
+    })
+    return values
 }
 
 export function CImage({src,alt="not Found",...props}){
@@ -507,10 +551,12 @@ export function RepeatGridWrapper({className,sizing = "fill",gap,children,minmax
 
 
 
-export function BaseElement({className,tag = "div",children,id,ref,onClick,style={},element = undefined,...props}){
+export function BaseElement({className,tag = "div",children,id,ref,onClick,comment=undefined,style={},element = undefined,...props}){
     useEffect(()=>{
         css = CSSHelper({...document.createElement("div").style})
     })
+    const UnClassName = comment?`/*${String(comment).replaceAll(" ","_")}*/`:""
+    className = `${className?className:""} ${UnClassName}`
     const Element =element?element: ({children,...attr})=>{return React.createElement(tag,attr,children)}
     var propsforstyle = filterInStyles(props,tag)
     
@@ -566,5 +612,8 @@ export function H1({className,children,id,ref,onClick,...props}){
 }
 export function Hr({className,children,id,ref,onClick,...props}){
     return <BaseElement tag="hr" {...props} onClick={onClick} className={className} id={id} ref={ref}   >{children}</BaseElement>
+}
+export function EButton({className,children,id,ref,onClick,...props}){
+    return <Div borderRadius="8px" paddingInline="22px" paddingBlock="10px" {...props} onClick={onClick} ref={ref} id={id} className={className}>{children}</Div>
 }
 
