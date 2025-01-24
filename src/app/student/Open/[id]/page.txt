@@ -1,0 +1,1347 @@
+
+// "use client"
+// import React, { useState } from "react";
+// import styles from "./open.module.css";
+
+// const CoursePage = () => {
+//     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+//     const toggleDropdown = () => {
+//         setIsDropdownOpen((prevState) => !prevState);
+//     };
+
+//     return (
+//         <div className={styles.container}>
+//             <aside className={styles.sidebar}>
+//                 <h2 className={styles.sidebarTitle}>Course Content</h2>
+//                 <div className={styles.resourceTypes}>
+//                     <h3 className={styles.sectionTitle}>Resource Types</h3>
+//                     <ul>
+//                         <li className={styles.borderedItem}>
+//                             <img
+//                                 src="/images/lecture-icon.png"
+//                                 alt="Lecture Notes Icon"
+//                                 className={styles.iconLeft}
+//                             />
+//                             Lecture Notes <br /> 60 - 80 pages
+//                             <img
+//                                 src="/images/Info.png"
+//                                 alt="Arrow Icon"
+//                                 className={styles.iconRight}
+//                             />
+//                         </li>
+//                         <li className={styles.borderedItem}>
+//                             <img
+//                                 src="/images/video-icon.png"
+//                                 alt="Demonstration Videos Icon"
+//                                 className={styles.iconLeft}
+//                             />
+//                             Demonstration Videos <br /> 60 - 80 min
+//                             <img
+//                                 src="/images/Info.png"
+//                                 alt="Arrow Icon"
+//                                 className={styles.iconRight}
+//                             />
+//                         </li>
+//                         <li className={styles.borderedItem}>
+//                             <img
+//                                 src="/images/problem-icon.png"
+//                                 alt="Problem Sets Icon"
+//                                 className={styles.iconLeft}
+//                             />
+//                             Problem Sets <br /> 10 - 20 questions
+//                             <img
+//                                 src="/images/Info.png"
+//                                 alt="Arrow Icon"
+//                                 className={styles.iconRight}
+//                             />
+//                         </li>
+//                     </ul>
+//                 </div>
+//                 <div className={styles.topics}>
+//                     <h3 className={styles.sectionTitle1}>Topics</h3>
+//                     <ul className={styles.gridList}>
+//                         <button className={styles.topicButton}>Energy</button>
+//                         <button className={styles.topicButton}>Electricity</button>
+//                         <button className={styles.topicButton}>Science</button>
+//                         <button className={styles.topicButton}>Engineer</button>
+//                         <button className={styles.topicButton}>AI</button>
+//                         <button className={styles.topicButton}>ML</button>
+//                         <button className={styles.topicButton}>DC</button>
+//                         <button className={styles.topicButton}>Motors</button>
+//                         <button className={styles.topicButton}>Lasers</button>
+//                     </ul>
+//                 </div>
+//                 <div className={styles.courseProgress}>
+//                     <div className={styles.dropdownHeader} onClick={toggleDropdown}>
+//                         <h3 className={styles.sectionTitles}>Course Intro</h3>
+//                         <img
+//                             src="/images/arrow-down-icon.png"
+//                             alt="Arrow Icon"
+//                             className={`${styles.dropdownArrow} ${isDropdownOpen ? styles.arrowUp : ""
+//                                 }`}
+//                         />
+//                     </div>
+//                     {isDropdownOpen && (
+//                         <ul>
+//                             <li className={`${styles.courseItem} ${styles.completed}`}>
+//                                 <span className={styles.borderLeft}></span>
+//                                 <div className={styles.textContainer}>
+//                                     <span className={styles.courseTitle}>01: DC Motors For Beginners</span>
+//                                     <span className={styles.courseSubtitle}>Completed</span>
+//                                 </div>
+//                                 <span className={styles.completedIcon}>
+//                                     <img
+//                                         src="/images/check-icon.png"
+//                                         alt="Completed Icon"
+//                                         className={styles.icon}
+//                                     />
+//                                 </span>
+//                             </li>
+//                             <li className={styles.courseItem}>
+//                                 <div className={styles.textContainer}>
+//                                     <span className={styles.courseTitle}>02: Touch The Grass</span>
+//                                     <span className={styles.courseSubtitle}>23 Minutes</span>
+//                                 </div>
+//                                 <span className={styles.incompleteIcon}>
+//                                     <img
+//                                         src="/images/play-icon.png"
+//                                         alt="Play Icon"
+//                                         className={styles.icon}
+//                                     />
+//                                 </span>
+//                             </li>
+//                             <li className={styles.courseItem}>
+//                                 <div className={styles.textContainer}>
+//                                     <span className={styles.courseTitle}>
+//                                         03: Practice, Practice,
+//                                     </span>
+//                                     <span className={styles.courseSubtitle}>112 Minutes</span>
+//                                 </div>
+//                                 <span className={styles.incompleteIcon}>
+//                                     <img
+//                                         src="/images/play-icon.png"
+//                                         alt="Play Icon"
+//                                         className={styles.icon}
+//                                     />
+//                                 </span>
+//                             </li>
+//                             <li className={styles.courseItem}>
+//                                 <div className={styles.textContainer}>
+//                                     <span className={styles.courseTitle}>04: Just Do It</span>
+//                                     <span className={styles.courseSubtitle}>99 Minutes</span>
+//                                 </div>
+//                                 <span className={styles.incompleteIcon}>
+//                                     <img
+//                                         src="/images/play-icon.png"
+//                                         alt="Play Icon"
+//                                         className={styles.icon}
+//                                     />
+//                                 </span>
+//                             </li>
+//                         </ul>
+//                     )}
+//                 </div>
+//             </aside>
+
+
+//             <main className={styles.main}>
+//                 <header className={styles.header}>
+//                     <h1 className={styles.pageTitle}>
+//                         How To Speak To Anyone Without Being Cringe
+//                     </h1>
+//                     <div className={styles.courseMeta}>
+//                         <div className={styles.metaItem}>
+//                             <div className={styles.metaTop}>
+//                                 <img
+//                                     src="/images/star-icon.png"
+//                                     alt="Star Icon"
+//                                     className={styles.icon}
+//                                 />
+//                                 <span>4.5</span>
+//                             </div>
+//                             <span className={styles.metaBottom}>14,115 Ratings</span>
+//                         </div>
+//                         <div className={styles.metaItem}>
+//                             <div className={styles.metaTop}>
+//                                 <img
+//                                     src="/images/student-icon.png"
+//                                     alt="Students Icon"
+//                                     className={styles.icon}
+//                                 />
+//                                 <span>321,195</span>
+//                             </div>
+//                             <span className={styles.metaBottom}>Students Enrolled</span>
+//                         </div>
+//                         <div className={styles.metaItem}>
+//                             <div className={styles.metaTop}>
+//                                 <img
+//                                     src="/images/duration-icon.png"
+//                                     alt="Duration Icon"
+//                                     className={styles.icon}
+//                                 />
+//                                 <span>6.2h</span>
+//                             </div>
+//                             <span className={styles.metaBottom}>Total Duration</span>
+//                         </div>
+//                         <div className={styles.metaItem}>
+//                             <div className={styles.metaTop}>
+//                                 <img
+//                                     src="/images/updated-icon.png"
+//                                     alt="Updated Icon"
+//                                     className={styles.icon}
+//                                 />
+//                                 <span>3d ago</span>
+//                             </div>
+//                             <span className={styles.metaBottom}>Last Updated</span>
+//                         </div>
+//                     </div>
+//                 </header>
+//                 <section className={styles.chapter}>
+//                     <h2 className={styles.chapterTitle}>Chapter 1: DC Motors For Beginners</h2>
+//                     <div className={styles.videoContainer}>
+//                         <img
+//                             src="/images/video-thumbnail.svg"
+//                             alt="Video Thumbnail"
+//                             className={styles.videoThumbnail}
+//                         />
+//                     </div>
+//                     <div className={styles.courseNote}>
+//                         <h3 className={styles.sectionTitle}>Course Note</h3>
+//                         <p>
+//                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+//                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+//                             veniam...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+//                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+//                             veniam...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+//                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+//                             veniam...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+//                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+//                             veniam...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+//                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+//                             veniam...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+//                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+//                             veniam...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+//                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+//                             veniam...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+//                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+//                             veniam...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+//                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+//                             veniam...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+//                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+//                             veniam...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+//                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+//                             veniam...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+//                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+//                             veniam...
+//                         </p>
+//                     </div>
+//                 </section>
+//             </main>
+
+//         </div>
+//     );
+// };
+
+// export default CoursePage;
+
+
+
+
+
+
+"use client"
+import React, { useState } from "react";
+import { FaBars } from 'react-icons/fa';
+import { FaTimes } from 'react-icons/fa';
+import styles from "./open.module.css";
+
+const CoursePage = () => {
+    const [isSidebarOpen, setIsSidebarOpen] = useState(true); // Sidebar state
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const toggleSidebar = () => {
+        setIsSidebarOpen((prevState) => !prevState);
+    };
+
+    const toggleDropdown = () => {
+        setIsDropdownOpen((prevState) => !prevState);
+    };
+
+    return (
+        <div className={styles.container}>
+            {/* Sidebar Toggle Icon */}
+            {/* <FaBars className={styles.menuIcon} onClick={toggleSidebar} /> */}
+            {/* <button
+                onClick={toggleSidebar}
+                className={styles.menuToggle}
+            >
+                {isSidebarOpen ? <FaTimes className={styles.menuIcon} /> : <FaBars className={styles.menuIcon} />}
+            </button> */}
+            <div className={styles.menuContainer}>
+                <button
+                    onClick={toggleSidebar}
+                    className={styles.menuToggle}
+                >
+                    {isSidebarOpen ? <FaTimes className={styles.menuIcon} /> : <FaBars className={styles.menuIcon} />}
+                </button>
+            </div>
+
+
+
+            {/* Sidebar */}
+            {isSidebarOpen && (
+                <aside className={styles.sidebar}>
+                    <h2 className={styles.sidebarTitle}>Course Content</h2>
+                    <div className={styles.resourceTypes}>
+                        <h3 className={styles.sectionTitle}>Resource Types</h3>
+                        <ul>
+                            <li className={styles.borderedItem}>
+                                <img
+                                    src="/images/lecture-icon.png"
+                                    alt="Lecture Notes Icon"
+                                    className={styles.iconLeft}
+                                />
+                                Lecture Notes <br /> 60 - 80 pages
+                                <img
+                                    src="/images/Info.png"
+                                    alt="Arrow Icon"
+                                    className={styles.iconRight}
+                                />
+                            </li>
+                            <li className={styles.borderedItem}>
+                                <img
+                                    src="/images/video-icon.png"
+                                    alt="Demonstration Videos Icon"
+                                    className={styles.iconLeft}
+                                />
+                                Demonstration Videos <br /> 60 - 80 min
+                                <img
+                                    src="/images/Info.png"
+                                    alt="Arrow Icon"
+                                    className={styles.iconRight}
+                                />
+                            </li>
+                            <li className={styles.borderedItem}>
+                                <img
+                                    src="/images/problem-icon.png"
+                                    alt="Problem Sets Icon"
+                                    className={styles.iconLeft}
+                                />
+                                Problem Sets <br /> 10 - 20 questions
+                                <img
+                                    src="/images/Info.png"
+                                    alt="Arrow Icon"
+                                    className={styles.iconRight}
+                                />
+                            </li>
+                        </ul>
+                    </div>
+                    <div className={styles.topics}>
+                        <h3 className={styles.sectionTitle1}>Topics</h3>
+                        <ul className={styles.gridList}>
+                            <button className={styles.topicButton}>Energy</button>
+                            <button className={styles.topicButton}>Electricity</button>
+                            <button className={styles.topicButton}>Science</button>
+                            <button className={styles.topicButton}>Engineer</button>
+                            <button className={styles.topicButton}>AI</button>
+                            <button className={styles.topicButton}>ML</button>
+                            <button className={styles.topicButton}>DC</button>
+                            <button className={styles.topicButton}>Motors</button>
+                            <button className={styles.topicButton}>Lasers</button>
+                        </ul>
+                    </div>
+                    <div className={styles.courseProgress}>
+                        <div className={styles.dropdownHeader} onClick={toggleDropdown}>
+                            <h3 className={styles.sectionTitles}>Course Intro</h3>
+                            <img
+                                src="/images/arrow-down-icon.png"
+                                alt="Arrow Icon"
+                                className={`${styles.dropdownArrow} ${isDropdownOpen ? styles.arrowUp : ""
+                                    }`}
+                            />
+                        </div>
+                        {isDropdownOpen && (
+                            <ul>
+                                <li className={`${styles.courseItem} ${styles.completed}`}>
+                                    <span className={styles.borderLeft}></span>
+                                    <div className={styles.textContainer}>
+                                        <span className={styles.courseTitle}>01: DC Motors For Beginners</span>
+                                        <span className={styles.courseSubtitle}>Completed</span>
+                                    </div>
+                                    <span className={styles.completedIcon}>
+                                        <img
+                                            src="/images/check-icon.png"
+                                            alt="Completed Icon"
+                                            className={styles.icon}
+                                        />
+                                    </span>
+                                </li>
+                                <li className={styles.courseItem}>
+                                    <div className={styles.textContainer}>
+                                        <span className={styles.courseTitle}>02: Touch The Grass</span>
+                                        <span className={styles.courseSubtitle}>23 Minutes</span>
+                                    </div>
+                                    <span className={styles.incompleteIcon}>
+                                        <img
+                                            src="/images/play-icon.png"
+                                            alt="Play Icon"
+                                            className={styles.icon}
+                                        />
+                                    </span>
+                                </li>
+                                <li className={styles.courseItem}>
+                                    <div className={styles.textContainer}>
+                                        <span className={styles.courseTitle}>
+                                            03: Practice, Practice,
+                                        </span>
+                                        <span className={styles.courseSubtitle}>112 Minutes</span>
+                                    </div>
+                                    <span className={styles.incompleteIcon}>
+                                        <img
+                                            src="/images/play-icon.png"
+                                            alt="Play Icon"
+                                            className={styles.icon}
+                                        />
+                                    </span>
+                                </li>
+                                <li className={styles.courseItem}>
+                                    <div className={styles.textContainer}>
+                                        <span className={styles.courseTitle}>04: Just Do It</span>
+                                        <span className={styles.courseSubtitle}>99 Minutes</span>
+                                    </div>
+                                    <span className={styles.incompleteIcon}>
+                                        <img
+                                            src="/images/play-icon.png"
+                                            alt="Play Icon"
+                                            className={styles.icon}
+                                        />
+                                    </span>
+                                </li>
+                            </ul>
+                        )}
+                    </div>
+                </aside>
+            )}
+
+            <main className={styles.main}>
+                <header className={styles.header}>
+                    <h1 className={styles.pageTitle}>
+                        How To Speak To Anyone Without Being Cringe
+                    </h1>
+                    <div className={styles.courseMeta}>
+                        <div className={styles.metaItem}>
+                            <div className={styles.metaTop}>
+                                <img
+                                    src="/images/star-icon.png"
+                                    alt="Star Icon"
+                                    className={styles.icon}
+                                />
+                                <span>4.5</span>
+                            </div>
+                            <span className={styles.metaBottom}>14,115 Ratings</span>
+                        </div>
+                        <div className={styles.metaItem}>
+                            <div className={styles.metaTop}>
+                                <img
+                                    src="/images/student-icon.png"
+                                    alt="Students Icon"
+                                    className={styles.icon}
+                                />
+                                <span>321,195</span>
+                            </div>
+                            <span className={styles.metaBottom}>Students Enrolled</span>
+                        </div>
+                        <div className={styles.metaItem}>
+                            <div className={styles.metaTop}>
+                                <img
+                                    src="/images/duration-icon.png"
+                                    alt="Duration Icon"
+                                    className={styles.icon}
+                                />
+                                <span>6.2h</span>
+                            </div>
+                            <span className={styles.metaBottom}>Total Duration</span>
+                        </div>
+                        <div className={styles.metaItem}>
+                            <div className={styles.metaTop}>
+                                <img
+                                    src="/images/updated-icon.png"
+                                    alt="Updated Icon"
+                                    className={styles.icon}
+                                />
+                                <span>3d ago</span>
+                            </div>
+                            <span className={styles.metaBottom}>Last Updated</span>
+                        </div>
+                    </div>
+                </header>
+                <section className={styles.chapter}>
+                    <h2 className={styles.chapterTitle}>Chapter 1: DC Motors For Beginners</h2>
+                    <div className={styles.videoContainer}>
+                        <img
+                            src="/images/video-thumbnail.svg"
+                            alt="Video Thumbnail"
+                            className={styles.videoThumbnail}
+                        />
+                    </div>
+                    <div className={styles.courseNote}>
+                        <h3 className={styles.sectionTitle}>Course Note</h3>
+                        <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+//                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+//                             veniam...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+//                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+//                             veniam...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+//                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+//                             veniam...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+//                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+//                             veniam...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+//                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+//                             veniam...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+//                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+//                             veniam...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+//                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+//                             veniam...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+//                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+//                             veniam...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+//                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+//                             veniam...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+//                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+//                             veniam...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+//                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+//                             veniam...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+//                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+//                             veniam...e
+                        </p>
+                    </div>
+                </section>
+            </main>
+        </div>
+    );
+};
+
+export default CoursePage;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* General Layout */
+.container {
+  display: flex;
+  font-family: Arial, sans-serif;
+  background-color: white;
+}
+
+/* .menuToggle {
+  position: absolute;
+  top: 4px;
+  left: 10px;
+  z-index: 50;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 9999px;
+  background: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+} */
+.menuContainer {
+  position: absolute;
+  /* top: 0; */
+  left: 0;
+  padding: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+
+}
+
+.menuToggle {
+  background: white;
+  position: relative;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.menuIcon {
+  font-size: 30px;
+  color: #333;
+}
+
+
+/* Sidebar Styling */
+.sidebar {
+  width: 300px;
+  padding: 15px;
+  background-color: white;
+  border-right: 2px solid #ddd;
+  margin-top: 65px;
+}
+
+/* Sidebar Titles */
+.sidebarTitle {
+  font-size: 23px;
+  font-weight: bolder;
+  color: #000;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+/* Resource Types */
+.resourceTypes {
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.borderedItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12.5px 0;
+  border-bottom: 2px solid #ddd;
+}
+
+.borderedItem:last-child {
+  border-bottom: none;
+}
+
+.iconLeft {
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+}
+
+.iconRight {
+  width: 18px;
+  height: 18px;
+  margin-left: auto;
+}
+
+/* Topics Section */
+.topics {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.sectionTitle {
+  font-size: 20.5px;
+  font-weight: 550;
+  color: #333;
+  margin-bottom: 2px;
+  margin-top: 22px;
+}
+
+.sectionTitles {
+  font-size: 20.5px;
+  font-weight: 550;
+  color: #333;
+  margin-bottom: 2px;
+}
+
+
+
+.sectionTitle1 {
+  font-size: 20.5px;
+  font-weight: 550;
+  color: #333;
+  margin-bottom: 2px;
+  margin-top: 22px;
+}
+
+.gridList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  gap: 10px;
+  padding: 0;
+  list-style: none;
+  margin: 20px 0;
+}
+
+.topicButton {
+  display: inline-block;
+  padding: 5px;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  background-color: #fff;
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.topicButton:hover {
+  cursor: pointer;
+}
+
+/* Course Progress Dropdown */
+.courseProgress {
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  max-width: 100%;
+  padding: auto;
+}
+
+.dropdownHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dropdownArrow {
+  font-size: 18px;
+  color: #888;
+  transition: transform 0.3s ease;
+  width: 40px;
+  height: 40px;
+}
+
+.arrowUp {
+  transform: rotate(180deg);
+}
+
+/* Course List Items */
+.courseItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 8px 0;
+  background-color: #fff;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+  position: relative;
+}
+
+.courseItem:hover {
+  background-color: #f0f0f5;
+}
+
+.borderLeft {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: #262B3D;
+  border-radius: 2px;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.courseTitle {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.courseSubtitle {
+  font-size: 14px;
+  color: #888;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+}
+
+.completedIcon img {
+  filter: hue-rotate(220deg);
+}
+
+.incompleteIcon img {
+  filter: grayscale(50%);
+}
+
+/* Main Content */
+.main {
+  flex: 1;
+  padding: 30px;
+}
+
+/* Header */
+.header {
+  margin-bottom: 1px;
+}
+
+.pageTitle {
+  font-size: 35px;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+/* Course Meta Section */
+.courseMeta {
+  display: flex;
+  flex-wrap: wrap;
+  /* Wrap for smaller screens */
+  gap: 40px;
+  /* margin-top: 10px; */
+  justify-content: center;
+}
+
+/* Meta Item */
+.metaItem {
+  display: flex;
+  flex-direction: column;
+  /* Stack top (icon + text) and bottom text */
+  align-items: center;
+  /* Center content */
+  text-align: center;
+  gap: 5px;
+  /* Space between items */
+}
+
+/* Top Section: Icon and Text */
+.metaTop {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  /* Space between icon and text */
+}
+
+.metaTop span {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Bottom Section: Secondary Text */
+.metaBottom {
+  font-size: 14px;
+  color: #475569;
+}
+
+/* Icon Styling */
+.icon {
+  width: 25px;
+  height: 25px;
+}
+
+/* Chapter Section */
+.chapter {
+  margin-top: 30px;
+}
+
+.chapterTitle {
+  font-size: 30px;
+  font-weight: bold;
+  color: #000000;
+  margin: 0;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Video Container */
+.videoContainer {
+  width: 100%;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.videoThumbnail {
+  width: 100%;
+  border-radius: 20px;
+}
+
+/* Course Note */
+.courseNote h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.courseNote p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+}
+
+
+
+
+
+
+
+/* For screens up to 1200px */
+@media (max-width: 1200px) {
+  .container {
+    flex-direction: grid;
+    /* padding: 20px; */
+  }
+
+  .sidebar {
+    width: 300px;
+    /* Reduce sidebar width */
+    /* padding: 15px;  */
+  }
+
+  .sidebarTitle {
+    font-size: 22px;
+    /* Adjust font size */
+  }
+
+  .gridList {
+    gap: 8px;
+    /* Reduce gap between topic buttons */
+  }
+
+  .main {
+    padding: 20px;
+    /* Adjust padding for content */
+  }
+
+  .pageTitle {
+    font-size: 28px;
+    /* Slightly smaller title */
+  }
+
+  .courseMeta {
+    gap: 30px;
+    /* Reduce gap between meta items */
+  }
+
+  .metaItem span {
+    font-size: 14px;
+    /* Adjust meta font size */
+  }
+}
+
+/* For screens up to 1024px */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: grid;
+  }
+
+  .sidebar {
+    width: 280px;
+    /* Sidebar takes full width */
+    padding: 10px;
+    border-bottom: 2px solid #ddd;
+  }
+
+  .main {
+    padding: 15px;
+  }
+
+  .pageTitle {
+    font-size: 30px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+
+  .courseMeta {
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .metaItem span {
+    font-size: 13px;
+  }
+
+  .gridList {
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    /* Adjust grid */
+  }
+
+  .topicButton {
+    font-size: 13px;
+    padding: 4px;
+  }
+}
+
+/* For screens up to 768px */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 250px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .main {
+    padding: 10px;
+  }
+
+  .pageTitle {
+    font-size: 24px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+
+  .courseMeta {
+    /* flex-direction: column; */
+    align-items: flex-start;
+    /* gap: 15px; */
+  }
+
+  .metaItem span {
+    font-size: 12px;
+  }
+
+  .chapterTitle {
+    font-size: 28px;
+    /* Adjust chapter title */
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+
+  .videoThumbnail {
+    border-radius: 15px;
+    /* Slightly smaller radius */
+  }
+
+  .topicButton {
+    font-size: 12px;
+    padding: 3px;
+  }
+}
+
+/* For screens up to 480px */
+@media (max-width: 480px) {
+  /* .container {
+    flex-direction: grid;
+  }
+
+  .sidebar {
+    width: 200px;
+    padding: 8px;
+  }
+
+  .main {
+    padding: 8px;
+  } */
+  /* .container {
+    flex-direction: grid;
+    overflow-x: hidden;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100%;
+    background: white;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .main {
+    width: 100%;
+    transition: transform 0.3s ease;
+  }
+
+  .container.sidebarOpen .main {
+    transform: translateX(280px);
+  } */
+  .container {
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .sidebar {
+    position: fixed;
+    /* top: 5%; */
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    background: white;
+    /* transform: translateX(-100%); */
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+    /* box-shadow: 2px 0 5px rgba(0,0,0,0.1); */
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .main {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    transition: all 0.3s ease-in-out;
+    background: white;
+  }
+
+  .main.shifted {
+    transform: translateX(280px);
+  }
+
+
+
+
+
+
+  .pageTitle {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .courseMeta {
+    gap: 10px;
+    align-items: center;
+  }
+
+  .chapterTitle {
+    font-size: 24px;
+  }
+
+  .gridList {
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    /* Smaller buttons */
+    gap: 5px;
+  }
+
+  .topicButton {
+    font-size: 11px;
+    padding: 2px;
+  }
+
+  .dropdownArrow {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* For screens up to 360px */
+@media (max-width: 360px) {
+  .container {
+    padding: 5px;
+  }
+
+  .main {
+    padding: 5px;
+  }
+
+  .pageTitle {
+    font-size: 18px;
+  }
+
+  .courseMeta {
+    gap: 12px;
+    /* flex-direction: column; */
+    align-items: center;
+  }
+
+  .metaItem span {
+    font-size: 11px;
+  }
+
+  .chapterTitle {
+    font-size: 20px;
+  }
+
+  .gridList {
+    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+  }
+
+  .topicButton {
+    font-size: 10px;
+    padding: 1px;
+  }
+}

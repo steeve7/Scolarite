@@ -1,3 +1,4 @@
+
 /* General Layout */
 .container {
   display: flex;
@@ -5,69 +6,22 @@
   background-color: white;
 }
 
-/* .menuToggle {
-  position: absolute;
-  top: 4px;
-  left: 10px;
-  z-index: 50;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 9999px;
-  background: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-} */
-
-
-.menuContainer {
-  position: absolute;
-  left: 0;
-  padding: 20px;
-  z-index: 1000;
-  display: flex;
-  align-items: center
-}
-/* .menuContainer {
-  position: sticky;
-  margin: auto;
-  margin-top: 20px;
-  margin-left: 0;
-  margin-right: 0;
-  margin-bottom: auto;
-  left: 20px;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  padding: 0;
-} */
-
-.menuToggle {
-  background: white;
-  position: relative;
-  padding: 12px;
-  border: 2px solid #ddd;
-  border-radius: 9999px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .menuIcon {
   font-size: 30px;
-  color: #333;
+  cursor: pointer;
+  margin: 10px;
+  color: #333; /* Adjust color as needed */
+  /* border: 3px solid #333;
+  border-radius: 5px; */
 }
 
 
 /* Sidebar Styling */
 .sidebar {
   width: 300px;
-  padding: 15px;
+  padding: 20px;
   background-color: white;
   border-right: 2px solid #ddd;
-  margin-top: 65px;
-  border-radius: 10px;
 }
 
 /* Sidebar Titles */
@@ -169,11 +123,10 @@
 
 /* Course Progress Dropdown */
 .courseProgress {
+  padding: 10px;
   background-color: #ffffff;
   border-radius: 8px;
   margin-bottom: 20px;
-  max-width: 100%;
-  /* padding: auto; */
 }
 
 .dropdownHeader {
@@ -266,44 +219,35 @@
 }
 
 .pageTitle {
-  font-size: 35px;
+  font-size: 30px;
   font-weight: bold;
-  color: #000000;
+  color: #222;
   margin-bottom: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
 }
 
 /* Course Meta Section */
 .courseMeta {
   display: flex;
-  flex-wrap: wrap;
-  /* Wrap for smaller screens */
+  flex-wrap: wrap; /* Wrap for smaller screens */
   gap: 40px;
   /* margin-top: 10px; */
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 /* Meta Item */
 .metaItem {
   display: flex;
-  flex-direction: column;
-  /* Stack top (icon + text) and bottom text */
-  align-items: center;
-  /* Center content */
+  flex-direction: column; /* Stack top (icon + text) and bottom text */
+  align-items: center; /* Center content */
   text-align: center;
-  gap: 5px;
-  /* Space between items */
+  gap: 5px; /* Space between items */
 }
 
 /* Top Section: Icon and Text */
 .metaTop {
   display: flex;
   align-items: center;
-  gap: 5px;
-  /* Space between icon and text */
+  gap: 5px; /* Space between icon and text */
 }
 
 .metaTop span {
@@ -330,13 +274,12 @@
 }
 
 .chapterTitle {
-  font-size: 30px;
+  font-size: 32px;
   font-weight: bold;
-  color: #000000;
+  color: #333;
   margin: 0;
   margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
+  
 }
 
 /* Video Container */
@@ -373,66 +316,51 @@
 /* For screens up to 1200px */
 @media (max-width: 1200px) {
   .container {
-    flex-direction: grid;
-    /* padding: 20px; */
+    flex-direction: row;
+    padding: 20px;
   }
 
   .sidebar {
-    width: 300px;
-    /* Reduce sidebar width */
-    /* padding: 15px;  */
+    width: 250px; /* Reduce sidebar width */
+    padding: 15px; /* Adjust padding */
   }
 
   .sidebarTitle {
-    font-size: 22px;
-    /* Adjust font size */
+    font-size: 22px; /* Adjust font size */
   }
 
   .gridList {
-    gap: 8px;
-    /* Reduce gap between topic buttons */
+    gap: 8px; /* Reduce gap between topic buttons */
   }
 
   .main {
-    padding: 20px;
-    /* Adjust padding for content */
+    padding: 20px; /* Adjust padding for content */
   }
 
   .pageTitle {
-    font-size: 28px;
-    /* Slightly smaller title */
+    font-size: 28px; /* Slightly smaller title */
   }
 
   .courseMeta {
-    gap: 30px;
-    /* Reduce gap between meta items */
+    gap: 30px; /* Reduce gap between meta items */
   }
 
   .metaItem span {
-    font-size: 14px;
-    /* Adjust meta font size */
-  }
-
-  .menuContainer {
-    padding: 15px;
-  }
-  
-  .menuIcon {
-    font-size: 28px;
+    font-size: 14px; /* Adjust meta font size */
   }
 }
 
 /* For screens up to 1024px */
 @media (max-width: 1024px) {
   .container {
-    flex-direction: grid;
+    flex-direction: column;
   }
 
   .sidebar {
-    width: 280px;
-    /* Sidebar takes full width */
+    width: 100%; /* Sidebar takes full width */
     padding: 10px;
-    /* border-bottom: 2px solid #ddd; */
+    border-right: none; /* Remove border for smaller screens */
+    border-bottom: 2px solid #ddd;
   }
 
   .main {
@@ -440,10 +368,7 @@
   }
 
   .pageTitle {
-    font-size: 30px;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
+    font-size: 26px;
   }
 
   .courseMeta {
@@ -456,32 +381,19 @@
   }
 
   .gridList {
-    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-    /* Adjust grid */
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); /* Adjust grid */
   }
 
   .topicButton {
     font-size: 13px;
     padding: 4px;
   }
-
-  .menuContainer {
-    padding: 12px;
-  }
-  
-  .menuToggle {
-    padding: 10px;
-  }
-  
-  .menuIcon {
-    font-size: 26px;
-  }
 }
 
 /* For screens up to 768px */
 @media (max-width: 768px) {
   .sidebar {
-    width: 250px;
+    display: none; /* Hide sidebar on small screens */
   }
 
   .container {
@@ -494,9 +406,6 @@
 
   .pageTitle {
     font-size: 24px;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
   }
 
   .courseMeta {
@@ -510,97 +419,33 @@
   }
 
   .chapterTitle {
-    font-size: 28px;
-    /* Adjust chapter title */
-    justify-content: center;
-    text-align: center;
-    align-items: center;
+    font-size: 28px; /* Adjust chapter title */
   }
 
   .videoThumbnail {
-    border-radius: 15px;
-    /* Slightly smaller radius */
+    border-radius: 15px; /* Slightly smaller radius */
   }
 
   .topicButton {
     font-size: 12px;
     padding: 3px;
   }
-
-  .menuContainer {
-    padding: 10px;
-  }
-  
-  .menuToggle {
-    padding: 8px;
-    border-width: 1px;
-  }
-  
-  .menuIcon {
-    font-size: 24px;
-  }
 }
 
 /* For screens up to 480px */
 @media (max-width: 480px) {
   .container {
-    position: relative;
-    width: 100%;
-    overflow-x: hidden;
-  }
-
-  /* .sidebar {
-    position: fixed;
-    top: 11%;
-    left: 0;
-    width: 280px;
-    height: 100vh;
-    background: white;
-    transition: all 0.3s ease-in-out;
-    z-index: 1000;
-    border-radius: 10px;
-  }
-
-  .sidebar.open {
-    transform: translateX(0);
-  } */
-  .sidebar {
-    position: fixed;
-    top: 11%;
-    /* left: -280px; */
-    width: 280px;
-    height: calc(100vh - 20%); /* Adjust height to account for top spacing */
-    background: white;
-    transition: all 0.3s ease-in-out;
-    z-index: 1000;
-    border-radius: 10px;
-    overflow-y: auto; /* Enable vertical scrolling */
-    padding-bottom: 50px; /* Add bottom padding for content */
-    scrollbar-width: thin;
-    scrollbar-color: #888 #f1f1f1;
-  }
-
-  .sidebar.open {
-    left: 0; /* Change from transform to left */
-    transform: none;
+    flex-direction: column;
+    padding: 8px;
   }
 
   .main {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    transition: all 0.3s ease-in-out;
-    background: white;
-  }
-
-  .main.shifted {
-    transform: translateX(280px);
+    padding: 8px;
   }
 
   .pageTitle {
     font-size: 20px;
     text-align: center;
-    margin-top: 32px;
   }
 
   .courseMeta {
@@ -613,8 +458,7 @@
   }
 
   .gridList {
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-    /* Smaller buttons */
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); /* Smaller buttons */
     gap: 5px;
   }
 
@@ -626,25 +470,6 @@
   .dropdownArrow {
     width: 30px;
     height: 30px;
-  }
-
-  .menuContainer {
-    position: fixed;
-    top: auto;
-    left: 3px;
-    padding: 7px;
-    z-index: 1001;
-  }
-  
-  .menuToggle {
-    background: transparent;
-    padding: 8px;
-    border: 0.5px solid #ddd;
-    margin-bottom: 0;
-  }
-  
-  .menuIcon {
-    font-size: 22px;
   }
 }
 
@@ -683,17 +508,5 @@
   .topicButton {
     font-size: 10px;
     padding: 1px;
-  }
-
-  .menuContainer {
-    padding: 5px;
-  }
-  
-  .menuToggle {
-    padding: 6px;
-  }
-  
-  .menuIcon {
-    font-size: 20px;
   }
 }

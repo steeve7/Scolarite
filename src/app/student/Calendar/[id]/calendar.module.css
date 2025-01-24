@@ -1,0 +1,249 @@
+.calendarPage {
+    font-family: Arial, sans-serif;
+    padding: 2.5rem;
+    width: 100%;
+    margin: auto;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #CFCFCF;
+    padding-bottom: 1rem;
+  }
+  
+  .titleContainer {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between "My Calendar" and the buttons */
+  }
+  
+  .title {
+    font-size: 28px;
+    font-weight: bold;
+    font-family: inter;
+  }
+  
+  .viewToggle {
+    display: flex;
+    align-items: center;
+  }
+  
+  .toggleButton {
+    background: none;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .active {
+    border-bottom: 2px solid black;
+    font-weight: bold;
+  }
+  
+  .catalogButton {
+    display: flex;
+    align-items: center;
+    background-color: #007bff; 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .catalogButton .icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+  }
+  
+  .catalogText {
+    font-size: 14px;
+    font-weight: normal;
+  }
+  
+  
+
+
+  
+  /* .calendarNav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .navButton {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 0 10px;
+  }
+  
+  .currentMonth {
+    font-size: 18px;
+    font-weight: bold;
+  } */
+  /* .calendarNav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 15px; 
+  }
+  
+  .navButton {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .navIcon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .monthYear {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .currentMonth {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .currentYear {
+    font-size: 16px;
+    font-weight: normal;
+    color: #666;
+  }
+  
+  .dropdownIcon {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+  
+  .todayButton {
+    background-color: #007bff; 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+  } */
+  .calendarNav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px; /* Space between the left, center, and right elements */
+  }
+  
+  .navButton {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .navIcon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .centerNav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .monthYear {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between month, year, and dropdown icon */
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .currentMonth {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .currentYear {
+    font-size: 16px;
+    font-weight: normal;
+    color: #666; /* Lighter color for the year */
+  }
+  
+  .dropdownIcon {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+  
+  .todayButton {
+    background-color: #007bff; /* Blue button */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 8px; /* Space between the month-year row and the "Today" button */
+  }
+  
+  
+
+
+
+  
+  .calendarGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+  }
+  
+  .dayHeader {
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .dayCell {
+    border: 1px solid #ddd;
+    padding: 10px;
+    position: relative;
+    min-height: 80px;
+  }
+  
+  .dayNumber {
+    font-weight: bold;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 14px;
+  }
+  
+  .event {
+    background: #e6f7ff;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+  
