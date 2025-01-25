@@ -1177,8 +1177,8 @@ export function AInput({label, placeholder , className = "", inClassName = "",ty
 export function Title(props){
     return <div { ...props} className={mergeText(props.className,styles.title)}>{props.children}</div>
 }
-export function rclick (e){
-    const className = Array.from(e.target.classList).find((value,any)=> String(value).includes("w3switchitem"))
+export function rclick (e, className = undefined){
+    className = className || Array.from(e.target.classList).find((value,any)=> String(value).includes("w3switchitem"))
     document.getElementById("w3before").style.left = getElementPositionRelativeToParent(e.target).left + "px"
     document.getElementById("w3before").style.width = e.target.offsetWidth + "px"
     document.getElementById("w3before").style.height = e.target.offsetHeight + "px"

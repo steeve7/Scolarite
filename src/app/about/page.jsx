@@ -1,11 +1,11 @@
 "use client";
 import Image from "next/image";
 import { mergeText } from "../add";
-import w1i1 from "../../../public/aboutassets/w1i1.png";
-import w2i1 from "../../../public/aboutassets/w2i1.png";
-import w3i2 from "../../../public/aboutassets/w3i1.gif";
-import w0i1 from "../../../public/aboutassets/woi1.gif";
-import w4i from "../../../public/aboutassets/w4i.png";
+import w1i1 from "./aboutassets/w1i1.png";
+import w2i1 from "./aboutassets/w2i1.png";
+import w3i2 from "./aboutassets/w3i1.gif";
+import w0i1 from "./aboutassets/woi1.gif";
+import w4i from "./aboutassets/w4i.png";
 import Link from "next/link";
 import {
   addonsComplex,

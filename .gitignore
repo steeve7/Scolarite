@@ -36,4 +36,8 @@ yarn-error.log*
 next-env.d.ts
 
 .codegpt
-Api
+rulesf
+lib
+scripts
+include
+c.log

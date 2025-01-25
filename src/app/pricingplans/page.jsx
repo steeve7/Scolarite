@@ -128,7 +128,7 @@ export default function PricingPage(props){
         <div className={mergeText(style.w3sit,style.w3before)} id="w3before">before</div>
         {["Monthly","Quarterly","Yearly"].map((label,index) => <CButton key={index} ani={false}
          className={mergeText(index==0?style.w3sit:"" ,style.w3switchitem)}
-          onClick={mergeFunc((e)=>rclick(e),priceMapFunc[label],()=>document.querySelectorAll(`.${style.w3switchitem}`).forEach(e=>e.classList.remove(style.w3sit)))}>{label}</CButton>
+          onClick={mergeFunc((e)=>rclick(e,style.w3switchitem),priceMapFunc[label],()=>document.querySelectorAll(`.${style.w3switchitem}`).forEach(e=>e.classList.remove(style.w3sit)))}>{label}</CButton>
         )}
 
     </div>
